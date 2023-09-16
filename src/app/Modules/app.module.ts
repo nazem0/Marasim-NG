@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
+import { VendorProfilePageComponent } from './components/vendor-profile-page/vendor-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { VendorsPageComponent } from './components/vendors-page/vendors-page.com
     RegisterComponent,
     LoginComponent,
     VendorsPageComponent,
+    VendorProfilePageComponent,
   ],
   imports: [
     BrowserModule,

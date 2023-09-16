@@ -1,0 +1,36 @@
+.headerBanner {
+    top: 30px;
+    right: 30px;
+}
+
+.button-shared {
+    color: #fff;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 5px 12px #0003;
+}
+
+.button-shared:hover {
+    color: #fff;
+    background-color: #088f95
+}
+
+.fav-button {
+    top: 3px;
+    left: 3px;
+}
+
+.arabic-text {
+    text-align: justify;
+}
+
+
+
+/* ========== */
+/* @media screen and (max-width: 992px) {
+  .side-bar {
+      display: none;
+  }
+  .main-bar{}
+} */
+/* ========== */
