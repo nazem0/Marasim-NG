@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Alexandria";
+    src: url('./assets/fonts/Alexandria-VariableFont_wght.ttf');
+}
+
+
+:root {
+    --bs-primary-rgb: 35, 192, 201 !important;
+    --primary-color: #23c0c9 !important;
+    --primary-color-heavy: #10a9b1 !important;
+    --secondary-color: #F2F9FF !important;
+    --primary-background-color: #ffffff !important;
+    --priamry-text-color: #222321 !important;
+    --fa-primary-color: var(--primary-color-heavy) !important;
+    --fa-secondary-color: var(--primary-color-heavy) !important;
+    /*Font-Size*/
+    direction: rtl
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*Font Family*/
+    font-family: "Alexandria", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--priamry-text-color);
+
+}
+
+body {
+    background-color: var(--primary-background-color) !important;
+}
+
+section {
+    padding: 1.5rem 0;
+}
+
+img {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--primary-color-heavy);
+    --bs-btn-border-color: var(--primary-color-heavy);
+    --bs-btn-hover-bg: var(--primary-color-heavy);
+    --bs-btn-hover-border-color: var(--primary-color-heavy);
+    --bs-btn-active-bg: var(--primary-color-heavy);
+    --bs-btn-active-border-color: var(--primary-color-heavy);
+    --bs-btn-disabled-color: var(--primary-color-heavy);
+    --bs-btn-disabled-border-color: var(--primary-color-heavy);
+}
+
+
+@media (min-width: 992px) {
+
+    .g-lg-7,
+    .gx-lg-7 {
+        --bs-gutter-x: 5rem;
+    }
+}
+
+.btn-primary {
+    --bs-btn-color: #fff !important;
+    --bs-btn-bg: var(--primary-color) !important;
+    --bs-btn-border-color: var(--primary-color-heavy) !important;
+    --bs-btn-hover-color: #fff !important;
+    --bs-btn-hover-bg: var(--primary-color-heavy) !important;
+    --bs-btn-hover-border-color: var(--primary-color-heavy) !important;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
+    --bs-btn-active-color: #fff !important;
+    --bs-btn-active-bg: var(--primary-color-heavy) !important;
+    --bs-btn-active-border-color: var(--primary-color-heavy) !important;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+    --bs-btn-disabled-color: #fff !important;
+    --bs-btn-disabled-bg: var(--primary-color-heavy) !important;
+    --bs-btn-disabled-border-color: var(--primary-color-heavy) !important;
+}
+
+input[type="email"],
+input[type="tel"] {
+    text-align: right !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.border-10 {
+    border-width: 1rem !important;
+}
+
+.text-justify {
+    text-align: justify;
+}

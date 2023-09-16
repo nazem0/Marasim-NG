@@ -1,0 +1,40 @@
+input:not([type="checkbox"]),select{
+    position: relative;
+    outline: unset;
+    overflow: visible;
+    min-height: 3rem;
+}
+
+input:focus
+{
+    border-color: rgb(100, 100, 100) !important;    
+}
+
+
+.animated_border_radius
+{
+    /* border-radius: 64% 36% 65% 35% / 43% 56% 44% 57% ; */
+    border-radius: 80% 20% 25% 75% / 33% 17% 83% 67%  ;
+    /* background-color: var(--primary-color); */
+    animation: animated_radius 20s infinite;
+}
+
+
+@keyframes animated_radius {
+    0%
+    {
+        /* border-radius: 64% 36% 65% 35% / 43% 56% 44% 57% ; */
+        border-radius: 80% 20% 25% 75% / 33% 17% 83% 67%  ;
+    }
+
+    50%
+    {
+        /* border-radius: 28% 72% 24% 76% / 62% 37% 63% 38% ; */
+        border-radius: 33% 67% 83% 17% / 80% 75% 25% 20%  ;
+    }
+    100%
+    {
+        border-radius: 80% 20% 25% 75% / 33% 17% 83% 67%  ;
+
+    }
+}
