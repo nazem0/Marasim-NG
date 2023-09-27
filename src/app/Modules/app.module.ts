@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
 import { VendorProfilePageComponent } from './components/vendor-profile-page/vendor-profile-page.component';
 import { CreateOfferComponent } from './components/create-offer/create-offer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CreateOfferComponent } from './components/create-offer/create-offer.com
     VendorsPageComponent,
     VendorProfilePageComponent,
     CreateOfferComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
