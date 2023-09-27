@@ -10,11 +10,9 @@ export class RegisterComponent implements OnInit {
   constructor(private ScrollReveal: ScrollRevealService) { }
   ngOnInit() {
     const sr = this.ScrollReveal.getScrollReveal();
-    sr.reveal('section',
-      {
-        scale: 0.85,
-        distance: '-50px',
-        duration: 1000
-      })
+    let inputRevelDuration=1500;
+    sr.reveal('.rightSide', { origin: 'right', duration: 1200,distance: '500px' })
+    sr.reveal('.leftSide', { origin: 'left', duration: 1200 ,distance: '500px'})
+
   }
 }
