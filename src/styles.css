@@ -81,9 +81,12 @@ img {
     --bs-btn-disabled-border-color: var(--primary-color-heavy) !important;
 }
 
-input[type="email"],
-input[type="tel"] {
+
+input {
     text-align: right !important;
+}
+input::placeholder{
+    padding: 0 0 1px 0;
 }
 
 .form-check-input:checked {
@@ -97,4 +100,8 @@ input[type="tel"] {
 
 .text-justify {
     text-align: justify;
+}
+
+i{
+    color:var(--primary-color-heavy) !important ;
 }
