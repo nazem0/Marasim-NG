@@ -9,6 +9,7 @@ import { VendorsPageComponent } from './components/vendors-page/vendors-page.com
 import { VendorProfilePageComponent } from './components/vendor-profile-page/vendor-profile-page.component';
 import { CreateOfferComponent } from './components/create-offer/create-offer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserCheckListComponent } from './components/user-check-list/user-check-list/user-check-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     VendorProfilePageComponent,
     CreateOfferComponent,
     PageNotFoundComponent,
+    UserCheckListComponent
   ],
   imports: [
     BrowserModule,
