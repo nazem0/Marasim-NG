@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'vendors', component: VendorsPageComponent },
   { path: 'vendor-profile', component: VendorProfilePageComponent },
   { path: 'create-offer', component: CreateOfferComponent },
+  // Component - Router Outlet, Children
   { path: '**', component: PageNotFoundComponent }
 ];
 
