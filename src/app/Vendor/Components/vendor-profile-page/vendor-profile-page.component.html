@@ -95,11 +95,11 @@
             <!-- Routing Buttons -->
             <section class="sticky-top bg-white container-fluid">
                 <div class="row d-flex gap-5 p-3">
-                    <button class="col btn button-shared" onclick="scrollToTargetAdjusted('aboutUs')">معلومات
+                    <button class="col btn button-shared" (click)="scrollToTargetAdjusted('aboutUs')">معلومات
                         عنا</button>
-                    <button class="col btn button-shared" onclick="scrollToTargetAdjusted('test1')">سسسس</button>
-                    <button class="col btn button-shared" onclick="scrollToTargetAdjusted('test2')">بببب</button>
-                    <button class="col btn button-shared" onclick="scrollToTargetAdjusted('test3')">احجز</button>
+                    <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test1')">سسسس</button>
+                    <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test2')">بببب</button>
+                    <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test3')">احجز</button>
                 </div>
             </section>
             <!-- End Routing Buttons -->
@@ -249,21 +249,3 @@
         <!-- Side Component -->
 
     </div>
-
-<!-- m4 43'al :'( -->
-    <script>
-        // function getToPlace(x) {
-        //     document.getElementById(x).scrollIntoView();
-        // }
-        function scrollToTargetAdjusted(x) {
-            var element = document.getElementById(x);
-            var headerOffset = 80;
-            var elementPosition = element.getBoundingClientRect().top;
-            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-        }
-    </script>

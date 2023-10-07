@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ViewportScroller } from "@angular/common";
+
 
 @Component({
   selector: 'app-vendor-profile-page',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class VendorProfilePageComponent {
 
+  scrollToTargetAdjusted(x: string) {
+    var elementPosition = document.getElementById(x)!.getBoundingClientRect().top;
+    var offsetPosition: number = (elementPosition) + (window.scrollY - 80)  ;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  }
+  
 }
