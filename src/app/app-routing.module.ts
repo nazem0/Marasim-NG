@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './Modules/components/register/register.component';
-import { LoginComponent } from './Modules/components/login/login.component';
-import { PageNotFoundComponent } from './Modules/components/page-not-found/page-not-found.component';
+import { RegisterComponent } from './Shared/components/register/register.component';
+import { LoginComponent } from './Shared/components/login/login.component';
+import { PageNotFoundComponent } from './Shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -10,11 +10,11 @@ const routes: Routes = [
   {
     path: 'vendor',
     loadChildren: () =>
-      import('./Vendor/Vendor.module').then((m) => m.VendorModule),
+      import('./Modules/Vendor/Vendor.module').then((m) => m.VendorModule),
   },
   {
     path: 'user', 
-    loadChildren: () => import('./User/User.module').then(m => m.UserModule)
+    loadChildren: () => import('./Modules/User/User.module').then(m => m.UserModule)
   },
  
   { path: '**', component: PageNotFoundComponent },

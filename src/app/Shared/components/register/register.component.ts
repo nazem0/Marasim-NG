@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScrollRevealService } from 'src/app/services/scroll-reveal.service';
+import { ScrollRevealService } from '../../services/scroll-reveal.service';
 
 @Component({
   selector: 'app-register',
