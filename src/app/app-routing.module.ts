@@ -10,11 +10,11 @@ const routes: Routes = [
   {
     path: 'vendor',
     loadChildren: () =>
-      import('./Modules/Vendor/Vendor.module').then((m) => m.VendorModule),
+      import('./Vendor/Vendor.module').then((m) => m.VendorModule),
   },
   {
     path: 'user', 
-    loadChildren: () => import('./Modules/User/User.module').then(m => m.UserModule)
+    loadChildren: () => import('./User/User.module').then(m => m.UserModule)
   },
  
   { path: '**', component: PageNotFoundComponent },
