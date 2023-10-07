@@ -2,15 +2,6 @@
     overflow: hidden;
     height: 100%;
 }
-.post img{
-    width: 100%;
-    height: 100%;
-}
-
-.post .carousel-item{
-    height: 60vh;
-}
-
 .likes{
     padding: 1rem 1.25rem;
 }

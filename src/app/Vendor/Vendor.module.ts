@@ -6,6 +6,8 @@ import { VendorProfilePageComponent } from './Components/vendor-profile-page/ven
 import { CreateOfferComponent } from './Components/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './Components/work-history/work-history.component';
+import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
+import { CommentsComponent } from './Components/work-history/comments/comments.component';
 
 
 let vendorRoutes: Routes = [
@@ -29,6 +31,8 @@ let vendorRoutes: Routes = [
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
+    AttachmentsComponent,
+    CommentsComponent,
   ]
 })
 export class VendorModule { }
