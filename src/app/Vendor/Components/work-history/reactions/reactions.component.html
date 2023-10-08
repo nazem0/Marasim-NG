@@ -1,0 +1,30 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
+    attr.data-bs-target="#p_comm{{reactions[0].postId}}">
+    <span><i class="fa-regular fa-thumbs-up"></i> {{reactions.length}}</span>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="p_comm{{reactions[0].postId}}" tabindex="-1"
+    attr.aria-labelledby="p_comm{{reactions[0].postId}}Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="p_comm{{reactions[0].postId}}Label">Reactions</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngFor="let react of reactions">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img class="userPic" src="https://placehold.co/200x200" alt="">
+                        <span>اسلام عبفتاح</span>
+                    </div>
+                    <hr>
+                </div>
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
