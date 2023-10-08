@@ -10,8 +10,9 @@ import { UserProfileEditComponent } from './Components/user-profile-edit/user-pr
 let userRoutes: Routes = [
   { path: 'check-list', component: UserCheckListComponent },
   { path: 'invitation-list', component: InvitationListComponent },
-  { path: 'customer-ui', component: CustomerUiComponent },
-  { path: 'profile-edit', component: UserProfileEditComponent }
+  { path: 'edit', component: CustomerUiComponent },
+  { path: 'profile-edit', component: UserProfileEditComponent } //to vendor
+  
 
 ]
 

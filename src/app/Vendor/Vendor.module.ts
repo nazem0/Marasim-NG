@@ -16,6 +16,7 @@ import { ReservationItemComponent } from './Components/reservation/reservation-i
 import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
 import { PostComponent } from './Components/work-history/post/post.component';
 import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
+import { CreatePostComponent } from './Components/work-history/create-post/create-post.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
@@ -24,7 +25,7 @@ let vendorRoutes: Routes = [
   { path: 'reviews', component: VendorReviewsComponent },
   {path:'work-history', component:WorkHistoryComponent},
   {path:'reservation', component:ReservationComponent},
-  {path:'vendor-services', component:VendorServicesComponent}
+  {path:'services', component:VendorServicesComponent}
 
 ]
 
@@ -49,7 +50,8 @@ let vendorRoutes: Routes = [
     ReservationComponent,
     ReservationItemComponent,
     VendorServicesComponent,
-    ReviewComponent
+    ReviewComponent,
+    CreatePostComponent
   ]
 })
 export class VendorModule { }

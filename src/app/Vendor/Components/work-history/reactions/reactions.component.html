@@ -17,7 +17,10 @@
                 <div *ngFor="let react of reactions">
                     <div class="d-flex align-items-center gap-2 mb-3">
                         <img class="userPic" src="https://placehold.co/200x200" alt="">
-                        <span class="fw-bold">اسلام عبفتاح</span>
+                        <div class="d-flex justify-content-between w-100">
+                            <span class="fw-bold">اسلام عبفتاح</span>
+                            <small class="text-muted">{{react.dateTime}}</small>
+                        </div>
                     </div>
                     <hr>
                 </div>

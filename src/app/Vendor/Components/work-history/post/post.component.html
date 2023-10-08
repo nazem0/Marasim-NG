@@ -1,7 +1,10 @@
 <div class="post pt-4 rounded-4 overflow-hidden">
-    <div class="text-center">
-        <p class="postTitle h3">{{post.title}}</p>
-        <p class="postTitle">{{post.description}}</p>
+    <div class="post-body">
+        <div class="d-flex justify-content-between">
+            <p class="post-title h3">{{post.title}}</p>
+            <small class="text-muted">{{post.date}}</small>
+        </div>
+        <p class="post-description">{{post.description}}</p>
     </div>
     <!-- Carousel : Attachments -->
     <app-attachments [attachments]="post.attachments"></app-attachments>
