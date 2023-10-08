@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table table-bordered">
+      <thead class="text-center">
+          <tr>
+            <th>مسلسل</th>
+
+              <th>اسم العميل</th>
+              <th>تاريخ الطلب</th>
+              <th>نوع الخدمه</th>
+              <th>تاريخ قبول الطلب</th>
+              <th *ngIf="activeTab == 'all'">الحالة</th>
+              <th> اجراء </th>
+          </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let item of reservation , let i = index; ">
+          <td>{{i+1}}</td>
+          <td>{{ item.customerName }}  {{item.customerPic}}</td>
+          <td>{{ item.requestDate }}</td>
+          <td>{{ item.serviceType }}</td>
+          <td>{{ item.acceptanceDate }}</td>
+          <td *ngIf="activeTab == 'all'">{{ item.status }}</td>
+          <td>
+              <button class="btn btn-success acceptBtn">قبول</button>
+              <button class="btn btn-danger rejectBtn">رفض</button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

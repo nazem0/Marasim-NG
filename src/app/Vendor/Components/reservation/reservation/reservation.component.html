@@ -1,0 +1,27 @@
+<!-- reservation-list.component.html -->
+<div class="container mt-5">
+    <div class="mb-3">
+        <input type="text" class="form-control" [(ngModel)]="search" placeholder="البحث..." />
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="tab">
+            <button class="nav-link" (click)="filterReservations('all')" [class.active]="activeTab == 'all'">جميع
+                الحجوزات</button>
+        </li>
+        <li class="nav-item" role="tab">
+            <button class="nav-link" (click)="filterReservations('accepted')"
+                [class.active]="activeTab == 'accepted'">تم قبولها</button>
+        </li>
+        <li class="nav-item" role="tab">
+            <button class="nav-link" (click)="filterReservations('rejected')"
+                [class.active]="activeTab == 'rejected'">تم رفضها</button>
+        </li>
+        <li class="nav-item" role="tab">
+            <button class="nav-link" (click)="filterReservations('pending')"
+                [class.active]="activeTab == 'pending'">معلقة</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <app-reservation-item [reservation]="filteredReservations" [activeTab]="activeTab"></app-reservation-item>
+    </div>
+</div>

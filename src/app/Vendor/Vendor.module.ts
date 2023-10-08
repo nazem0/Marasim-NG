@@ -8,6 +8,9 @@ import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-revie
 import { WorkHistoryComponent } from './Components/work-history/work-history.component';
 import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
 import { CommentsComponent } from './Components/work-history/comments/comments.component';
+import { ReservationComponent } from './Components/reservation/reservation/reservation.component';
+import { ReservationItemComponent } from './Components/reservation/reservation-item/reservation-item.component';
+import { FormsModule } from '@angular/forms';
 
 
 let vendorRoutes: Routes = [
@@ -15,14 +18,18 @@ let vendorRoutes: Routes = [
   { path: 'profile', component: VendorProfilePageComponent },
   { path: 'create-offer', component: CreateOfferComponent },
   { path: 'reviews', component: VendorReviewsComponent },
-  {path:'work-history', component:WorkHistoryComponent}
+  {path:'work-history', component:WorkHistoryComponent},
+  {path:'reservation', component:ReservationComponent}
+
+  
 ]
 
 @NgModule({
 
   imports: [
     CommonModule,
-    RouterModule.forChild(vendorRoutes)
+    RouterModule.forChild(vendorRoutes),
+    FormsModule
   ],
   exports: [],
   declarations: [
@@ -33,6 +40,8 @@ let vendorRoutes: Routes = [
     WorkHistoryComponent,
     AttachmentsComponent,
     CommentsComponent,
+    ReservationComponent,
+    ReservationItemComponent
   ]
 })
 export class VendorModule { }
