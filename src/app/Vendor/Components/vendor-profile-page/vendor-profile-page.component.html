@@ -95,17 +95,18 @@
         <!-- Routing Buttons -->
         <section class="sticky-top bg-white container-fluid">
             <div class="row d-flex gap-5 p-3">
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('aboutUs')">معلومات
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
                     عنا</button>
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
+                    السابقة</button>
                 <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test1')">سسسس</button>
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test2')">الاعمال السابقة</button>
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test3')">احجز</button>
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test2')">احجز</button>
             </div>
         </section>
         <!-- End Routing Buttons -->
         <hr>
         <!-- About -->
-        <section id="aboutUs">
+        <section id="AboutUs">
             <div class="p-3">
                 <h2>معلومات عنا</h2>
                 <div>
@@ -122,99 +123,53 @@
             </div>
         </section>
         <!-- End About -->
-        <!-- Test -->
-        <section>
-            <section id="test1">
-                <div class="p-3">
-                    <h2>سسسس</h2>
-                    <div>
-                        <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص من
-                            مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص
-                            من
-                            مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص
-                            من
-                            مولد النص العربى.
-                        </p>
-                    </div>
-                    <button class="btn button-shared text-white">إقراء المزيد</button>
+        <!-- Work History -->
+        <section id="WorkHistory">
+            <div class="p-3">
+                <h2>الاعمال السابقة</h2>
+                <div>
+                    <app-work-history></app-work-history>
                 </div>
-            </section>
-            <section id="test2">
-                <div class="p-3">
-                    <h2>الاعمال السابقة</h2>
-                    <div>
-                        <app-work-history></app-work-history>
-                    </div>
-                    <button class="btn button-shared text-white">إقراء المزيد</button>
-                </div>
-            </section>
-            <section id="test3">
-                <div class="p-3">
-                    <h2>احجز</h2>
-                    <div>
-                        <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص من
-                            مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص
-                            من
-                            مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص
-                            من
-                            مولد النص العربى.
-                        </p>
-                    </div>
-                    <button class="btn button-shared text-white">إقراء المزيد</button>
-                </div>
-            </section>
+                <button class="btn button-shared text-white">إقراء المزيد</button>
+            </div>
         </section>
-        <section>
-            <section id="">
-                <div class="p-3">
-                    <h2>معلومات عنا</h2>
-                    <div>
-                        <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                            النص من
-                            مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
-                            من
-                            مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
-                            من
-                            مولد النص العربى.
-                        </p>
-                    </div>
-                    <button class="btn button-shared text-white">إقراء المزيد</button>
-                </div>
-            </section>
-            <section id="">
-                <h2>معلومات عنا</h2>
+        <!-- End Work History -->
+        <!-- Test -->
+        <section id="test1">
+            <div class="p-3">
+                <h2>سسسس</h2>
                 <div>
                     <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
                         النص من
-                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
+                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
                         من
-                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
+                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
                         من
                         مولد النص العربى.
                     </p>
                 </div>
                 <button class="btn button-shared text-white">إقراء المزيد</button>
-            </section>
-            <section id="">
-                <h2>معلومات عنا</h2>
+            </div>
+        </section>
+        <section id="test2">
+            <div class="p-3">
+                <h2>احجز</h2>
                 <div>
                     <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
                         النص من
-                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
+                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
                         من
-                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
+                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
                         من
                         مولد النص العربى.
                     </p>
                 </div>
                 <button class="btn button-shared text-white">إقراء المزيد</button>
-            </section>
+            </div>
         </section>
         <!-- End Test -->
     </div>
