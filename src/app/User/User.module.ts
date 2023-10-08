@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserCheckListComponent } from './Components/user-check-list/user-check-list.component';
 import { InvitationListComponent } from './Components/invitation-list/invitation-list.component';
 import { CustomerUiComponent } from './Components/customer-ui/customer-ui.component';
+import { UserProfileEditComponent } from './Components/user-profile-edit/user-profile-edit.component';
 
 
 let userRoutes: Routes = [
   { path: 'check-list', component: UserCheckListComponent },
   { path: 'invitation-list', component: InvitationListComponent },
   { path: 'customer-ui', component: CustomerUiComponent },
+  { path: 'profile-edit', component: UserProfileEditComponent }
 
 ]
 
@@ -24,6 +26,7 @@ let userRoutes: Routes = [
     UserCheckListComponent,
     InvitationListComponent,
     CustomerUiComponent,
+    UserProfileEditComponent,
     
     
   ]
