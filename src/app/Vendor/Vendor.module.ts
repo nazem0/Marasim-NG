@@ -7,6 +7,10 @@ import { CreateOfferComponent } from './Components/create-offer/create-offer.com
 import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './Components/work-history/work-history.component';
 import { VendorServicesComponent } from './Components/vendor-services/vendor-services.component';
+import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
+import { CommentsComponent } from './Components/work-history/comments/comments.component';
+import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
+import { PostComponent } from './Components/work-history/post/post.component';
 
 
 let vendorRoutes: Routes = [
@@ -32,6 +36,10 @@ let vendorRoutes: Routes = [
     VendorReviewsComponent,
     WorkHistoryComponent,
     VendorServicesComponent,
+    AttachmentsComponent,
+    CommentsComponent,
+    ReactionsComponent,
+    PostComponent,
   ]
 })
 export class VendorModule { }
