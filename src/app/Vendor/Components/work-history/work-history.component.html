@@ -1,30 +1,7 @@
 <section>
     <div class="container">
-        <div *ngFor="let post of posts">
-            <div class="post my-4 rounded-4 shadow">
-                <div class="text-center">
-                    <p class="postTitle h3">{{post.title}}</p>
-                    <p class="postTitle">{{post.description}}</p>
-                </div>
-                <!-- Carousel -->
-                <app-attachments [attachments]="post.attachments"></app-attachments>
-                <!-- End Carousel -->
-                <div class="likes">
-                    <span><i class="fa-regular fa-thumbs-up"></i> {{post.reactions.length}}</span>
-                </div>
-                <!-- Accordion -->
-                <app-comments [comments]="post.comments"></app-comments>
-                <!-- End Accordion -->
-            </div>
+        <div *ngFor="let post of posts" class="my-4">
+            <app-post [post]="post"></app-post>
         </div>
     </div>
 </section>
-
-
-<!-- <ol class="carousel-indicators">
-    <li [attr.data-bs-target]="'#c'+post.id" data-bs-slide-to="0" class="active" aria-current="true"
-        aria-label="First Attachment"></li>
-    <li *ngFor="let attachments of post.attachments.slice(1,post.attachments.length); let i = index"
-    [attr.data-bs-target]="'#c'+post.id" [attr.data-bs-slide-to]="1+i" [attr.aria-label]="1+i + ' Attachment'">
-    </li>
-</ol> -->

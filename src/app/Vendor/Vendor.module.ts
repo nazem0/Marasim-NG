@@ -9,9 +9,7 @@ import { WorkHistoryComponent } from './Components/work-history/work-history.com
 import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
 import { CommentsComponent } from './Components/work-history/comments/comments.component';
 import { ReservationComponent } from './Components/reservation/reservation/reservation.component';
-import { ReservationItemComponent } from './Components/reservation/reservation-item/reservation-item.component';
 import { FormsModule } from '@angular/forms';
-
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
@@ -40,8 +38,6 @@ let vendorRoutes: Routes = [
     WorkHistoryComponent,
     AttachmentsComponent,
     CommentsComponent,
-    ReservationComponent,
-    ReservationItemComponent
   ]
 })
 export class VendorModule { }
