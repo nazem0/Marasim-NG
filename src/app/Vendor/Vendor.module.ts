@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ReservationItemComponent } from './Components/reservation/reservation-item/reservation-item.component';
 import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
 import { PostComponent } from './Components/work-history/post/post.component';
+import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
@@ -47,7 +48,8 @@ let vendorRoutes: Routes = [
     ReactionsComponent,
     ReservationComponent,
     ReservationItemComponent,
-    VendorServicesComponent
+    VendorServicesComponent,
+    ReviewComponent
   ]
 })
 export class VendorModule { }
