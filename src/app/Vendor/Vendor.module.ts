@@ -23,7 +23,7 @@ let vendorRoutes: Routes = [
   { path: 'service-details', component: ServiceDetailsComponent },
   { path: 'create-offer', component: CreateOfferComponent },
   { path: 'reviews', component: VendorReviewsComponent },
-  {path:'services', component:VendorServicesComponent}
+  {path:'services', component:VendorServicesComponent},
   { path: 'work-history', component: WorkHistoryComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'vendor-services', component: VendorServicesComponent }
@@ -51,7 +51,8 @@ let vendorRoutes: Routes = [
     ReservationItemComponent,
     VendorServicesComponent,
     ReviewComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    ServiceDetailsComponent
   ]
 })
 export class VendorModule { }
