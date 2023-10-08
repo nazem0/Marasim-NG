@@ -1,0 +1,15 @@
+<div class="post pt-4 rounded-4 overflow-hidden">
+    <div class="text-center">
+        <p class="postTitle h3">{{post.title}}</p>
+        <p class="postTitle">{{post.description}}</p>
+    </div>
+    <!-- Carousel : Attachments -->
+    <app-attachments [attachments]="post.attachments"></app-attachments>
+    <!-- End Carousel -->
+    <!-- Modal : Reactions -->
+    <app-reactions [reactions]="post.reactions"></app-reactions>
+    <!-- End Modal -->
+    <!-- Accordion : Comments -->
+    <app-comments [comments]="post.comments"></app-comments>
+    <!-- End Accordion -->
+</div>
