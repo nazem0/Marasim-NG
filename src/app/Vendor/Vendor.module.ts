@@ -10,7 +10,11 @@ import { VendorServicesComponent } from './Components/vendor-services/vendor-ser
 import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
 import { CommentsComponent } from './Components/work-history/comments/comments.component';
 import { ReservationComponent } from './Components/reservation/reservation/reservation.component';
+
 import { FormsModule } from '@angular/forms';
+import { ReservationItemComponent } from './Components/reservation/reservation-item/reservation-item.component';
+import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
+import { PostComponent } from './Components/work-history/post/post.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
@@ -37,9 +41,13 @@ let vendorRoutes: Routes = [
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
-    VendorServicesComponent,
+    PostComponent,
     AttachmentsComponent,
     CommentsComponent,
+    ReactionsComponent,
+    ReservationComponent,
+    ReservationItemComponent,
+    VendorServicesComponent
   ]
 })
 export class VendorModule { }
