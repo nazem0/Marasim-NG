@@ -15,7 +15,7 @@ import { ReservationItemComponent } from './Components/reservation/reservation-i
 import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
 import { PostComponent } from './Components/work-history/post/post.component';
 import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
-import { ServiceDetailsComponent } from './service-details/service-details.component';
+import { ServiceDetailsComponent } from './Components/service-details/service-details.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
