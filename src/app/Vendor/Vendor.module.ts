@@ -6,6 +6,7 @@ import { VendorProfilePageComponent } from './Components/vendor-profile-page/ven
 import { CreateOfferComponent } from './Components/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './Components/work-history/work-history.component';
+import { VendorServicesComponent } from './Components/vendor-services/vendor-services.component';
 import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
 import { CommentsComponent } from './Components/work-history/comments/comments.component';
 import { ReservationComponent } from './Components/reservation/reservation/reservation.component';
@@ -17,9 +18,9 @@ let vendorRoutes: Routes = [
   { path: 'create-offer', component: CreateOfferComponent },
   { path: 'reviews', component: VendorReviewsComponent },
   {path:'work-history', component:WorkHistoryComponent},
-  {path:'reservation', component:ReservationComponent}
+  {path:'reservation', component:ReservationComponent},
+  {path:'vendor-services', component:VendorServicesComponent}
 
-  
 ]
 
 @NgModule({
@@ -36,6 +37,7 @@ let vendorRoutes: Routes = [
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
+    VendorServicesComponent,
     AttachmentsComponent,
     CommentsComponent,
   ]
