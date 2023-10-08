@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { VendorsPageComponent } from './Components/vendors-page/vendors-page.component';
-import { VendorProfilePageComponent } from './Components/vendor-profile-page/vendor-profile-page.component';
 import { CreateOfferComponent } from './Components/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './Components/work-history/work-history.component';
@@ -16,15 +15,16 @@ import { ReservationItemComponent } from './Components/reservation/reservation-i
 import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
 import { PostComponent } from './Components/work-history/post/post.component';
 import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
+import { ServiceDetailsComponent } from './service-details/service-details.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
-  { path: 'profile', component: VendorProfilePageComponent },
+  { path: 'service-details', component: ServiceDetailsComponent },
   { path: 'create-offer', component: CreateOfferComponent },
   { path: 'reviews', component: VendorReviewsComponent },
-  {path:'work-history', component:WorkHistoryComponent},
-  {path:'reservation', component:ReservationComponent},
-  {path:'vendor-services', component:VendorServicesComponent}
+  { path: 'work-history', component: WorkHistoryComponent },
+  { path: 'reservation', component: ReservationComponent },
+  { path: 'vendor-services', component: VendorServicesComponent }
 
 ]
 
@@ -38,7 +38,6 @@ let vendorRoutes: Routes = [
   exports: [],
   declarations: [
     VendorsPageComponent,
-    VendorProfilePageComponent,
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
@@ -49,7 +48,8 @@ let vendorRoutes: Routes = [
     ReservationComponent,
     ReservationItemComponent,
     VendorServicesComponent,
-    ReviewComponent
+    ReviewComponent,
+    ServiceDetailsComponent
   ]
 })
 export class VendorModule { }
