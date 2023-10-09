@@ -9,6 +9,7 @@ import { CoverComponent } from './components/invitation/cover/cover.component';
 import { InvitationComponent } from './components/invitation/Invitation.component';
 import { CounterComponent } from './components/invitation/counter/counter.component';
 import { BrideGroomComponent } from './components/invitation/bride-groom/bride-groom.component';
+import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
 
 
 let userRoutes: Routes = [
@@ -17,7 +18,7 @@ let userRoutes: Routes = [
   { path: 'edit', component: CustomerUiComponent },
   { path: 'profile-edit', component: UserProfileEditComponent }, //to vendor
   { path: 'invitation', component: InvitationComponent },
-
+  {path:'generate-packages',component:GeneratePackagesComponent}
 
 ]
 
@@ -36,7 +37,8 @@ let userRoutes: Routes = [
     CoverComponent,
     InvitationComponent,
     CounterComponent,
-    BrideGroomComponent
+    BrideGroomComponent,
+    GeneratePackagesComponent
     
   ]
 })
