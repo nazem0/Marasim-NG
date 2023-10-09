@@ -8,7 +8,6 @@ import { PageNotFoundComponent } from './Shared/components/page-not-found/page-n
 import { ContactComponent } from './Shared/components/contact/contact.component';
 import { HomeComponent } from './Shared/components/home/home.component';
 import { PendingComponent } from './Vendor/components/pending/pending.component';
-import { NavBarComponent } from './Shared/components/nav-bar/nav-bar.component';
 import { EditServiceComponent } from './Vendor/components/edit-service/edit-service.component';
 import { AddServiceComponent } from './Vendor/components/add-service/add-service.component';
 
@@ -22,7 +21,6 @@ import { AddServiceComponent } from './Vendor/components/add-service/add-service
     ContactComponent,
     HomeComponent,
     PendingComponent,
-    NavBarComponent,
     EditServiceComponent,
     AddServiceComponent,
   ],

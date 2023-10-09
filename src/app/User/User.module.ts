@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { CustomerUiComponent } from './components/customer-ui/customer-ui.component';
@@ -12,24 +11,16 @@ import { BrideGroomComponent } from './components/invitation/bride-groom/bride-g
 import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
 import { LayoutComponent } from './layout/layout.component';
+import { NavBarComponent } from '../Shared/components/nav-bar/nav-bar.component';
+import { UserRoutes } from './user-routing.routing';
 
-
-let userRoutes: Routes = [
-  { path: 'check-list', component: UserCheckListComponent },
-  { path: 'invitation-list', component: InvitationListComponent },
-  { path: 'edit', component: CustomerUiComponent },
-  { path: 'profile-edit', component: UserProfileEditComponent }, //to vendor
-  { path: 'invitation', component: InvitationComponent },
-  {path:'generate-packages',component:GeneratePackagesComponent},
-  {path:'generated-packages',component:GeneratedPackagesComponent}
-
-]
 
 @NgModule({
 
   imports: [
     CommonModule,
-    RouterModule.forChild(userRoutes)  ],
+    UserRoutes
+  ],
   exports: [],
   declarations: [
     UserCheckListComponent,
@@ -42,7 +33,8 @@ let userRoutes: Routes = [
     BrideGroomComponent,
     GeneratePackagesComponent,
     GeneratedPackagesComponent,
-    LayoutComponent
+    LayoutComponent,
+    NavBarComponent
   ]
 })
 export class UserModule { }
