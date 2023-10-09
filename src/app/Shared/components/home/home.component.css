@@ -110,7 +110,7 @@ header{
 .Sec-1{
     background-color: var(--primary-background-color);
     /* height: 85%; */
-    background-image: url(../img/hero/OIZY2P0.jpg);
+    background-image: url(../../../../assets/img/hero/OIZY2P0.jpg);
     background-size: cover;
 }
 
