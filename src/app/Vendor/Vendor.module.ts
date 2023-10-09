@@ -18,9 +18,9 @@ import { ReviewComponent } from './components/vendor-reviews/review/review.compo
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { SharedModule } from '../Shared/Shared.module';
-import { EditServiceComponent } from './Components/edit-service/edit-service.component';
-import { AddServiceComponent } from './Components/add-service/add-service.component';
-import { PendingComponent } from './Components/pending/pending.component';
+import { EditServiceComponent } from './components/edit-service/edit-service.component';
+import { AddServiceComponent } from './components/add-service/add-service.component';
+import { PendingComponent } from './components/pending/pending.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
