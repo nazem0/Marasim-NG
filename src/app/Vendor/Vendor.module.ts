@@ -17,16 +17,17 @@ import { PostComponent } from './Components/work-history/post/post.component';
 import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
 import { CreatePostComponent } from './Components/work-history/create-post/create-post.component';
 import { ServiceDetailsComponent } from './Components/service-details/service-details.component';
+import { SharedModule } from '../Shared/Shared.module';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
   { path: 'service-details', component: ServiceDetailsComponent },
   { path: 'create-offer', component: CreateOfferComponent },
   { path: 'reviews', component: VendorReviewsComponent },
-  {path:'services', component:VendorServicesComponent},
+  { path: 'services', component: VendorServicesComponent },
   { path: 'work-history', component: WorkHistoryComponent },
   { path: 'reservation', component: ReservationComponent },
-  { path: 'vendor-services', component: VendorServicesComponent }
+  // { path: 'vendor-services', component: VendorServicesComponent }
 
 ]
 
@@ -35,7 +36,8 @@ let vendorRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(vendorRoutes),
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [],
   declarations: [
