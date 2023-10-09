@@ -3,6 +3,7 @@
     height: 120px;
 }
 
+/* 
 .card {
 
     border-radius: 50px;
@@ -41,4 +42,28 @@
     width: 200px;
     height: 150px;
   }
-  
+   */
+
+
+.card {
+    background-color: white;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+    transition: 0.5s all;
+}
+
+/* .card:hover {
+    cursor: pointer;
+    transform: translateY(-20px);
+} */
+
+.vendor-btn {
+    height: 40px;
+    width: 40px;
+    transition: 0.5s all;
+
+}
+
+.vendor-btn:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+}
