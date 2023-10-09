@@ -1,0 +1,34 @@
+
+.countdown-single {
+    width: 270px;
+    height: 270px;
+    background: 0 0;
+    position: relative;
+    box-shadow: none;
+    text-align: center;
+    padding-top: 75px;
+    z-index: 1
+}
+
+.countdown-single::before {
+    content: "";
+    position: absolute;
+    background: url("../../../../../assets/img/border.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+
+.countdown-single h3 {
+    font-size: 65px;
+    color: var(--primary-color-heavy)
+}
+
+.countdown-single h5 {
+    color: var(--primary-color-heavy)
+}

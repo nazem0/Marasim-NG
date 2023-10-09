@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { VendorsPageComponent } from './Components/vendors-page/vendors-page.component';
-import { CreateOfferComponent } from './Components/create-offer/create-offer.component';
-import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-reviews.component';
-import { WorkHistoryComponent } from './Components/work-history/work-history.component';
-import { VendorServicesComponent } from './Components/vendor-services/vendor-services.component';
-import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
-import { CommentsComponent } from './Components/work-history/comments/comments.component';
-import { ReservationComponent } from './Components/reservation/reservation/reservation.component';
+import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
+import { CreateOfferComponent } from './components/create-offer/create-offer.component';
+import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
+import { WorkHistoryComponent } from './components/work-history/work-history.component';
+import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
+import { AttachmentsComponent } from './components/work-history/attachments/attachments.component';
+import { CommentsComponent } from './components/work-history/comments/comments.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 
 import { FormsModule } from '@angular/forms';
-import { ReservationItemComponent } from './Components/reservation/reservation-item/reservation-item.component';
-import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
-import { PostComponent } from './Components/work-history/post/post.component';
-import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
-import { CreatePostComponent } from './Components/work-history/create-post/create-post.component';
-import { ServiceDetailsComponent } from './Components/service-details/service-details.component';
+import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
+import { ReactionsComponent } from './components/work-history/reactions/reactions.component';
+import { PostComponent } from './components/work-history/post/post.component';
+import { ReviewComponent } from './components/vendor-reviews/review/review.component';
+import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
+import { ServiceDetailsComponent } from './components/service-details/service-details.component';
 import { SharedModule } from '../Shared/Shared.module';
 
 let vendorRoutes: Routes = [
