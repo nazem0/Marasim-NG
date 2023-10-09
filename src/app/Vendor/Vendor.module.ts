@@ -20,7 +20,7 @@ import { ServiceDetailsComponent } from './components/service-details/service-de
 import { SharedModule } from '../Shared/Shared.module';
 import { EditServiceComponent } from './Components/edit-service/edit-service.component';
 import { AddServiceComponent } from './Components/add-service/add-service.component';
-import { PendingComponent } from '../Shared/components/pending/pending.component';
+import { PendingComponent } from './Components/pending/pending.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
