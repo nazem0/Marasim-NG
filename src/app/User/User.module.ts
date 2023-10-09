@@ -11,6 +11,7 @@ import { CounterComponent } from './components/invitation/counter/counter.compon
 import { BrideGroomComponent } from './components/invitation/bride-groom/bride-groom.component';
 import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 let userRoutes: Routes = [
@@ -28,8 +29,7 @@ let userRoutes: Routes = [
 
   imports: [
     CommonModule,
-    RouterModule.forChild(userRoutes)
-  ],
+    RouterModule.forChild(userRoutes)  ],
   exports: [],
   declarations: [
     UserCheckListComponent,
@@ -41,8 +41,8 @@ let userRoutes: Routes = [
     CounterComponent,
     BrideGroomComponent,
     GeneratePackagesComponent,
-    GeneratedPackagesComponent
-    
+    GeneratedPackagesComponent,
+    LayoutComponent
   ]
 })
 export class UserModule { }
