@@ -1,11 +1,10 @@
 
-.parent{
-    
-}
 .F{
     width: 50%;
 }
-
+.title-edit-page{
+    color: var(--primary-color);
+}
 .btn-v-form{
     font-size: 23px;
     width: 120px;

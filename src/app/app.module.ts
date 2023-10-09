@@ -8,8 +8,9 @@ import { PageNotFoundComponent } from './Shared/components/page-not-found/page-n
 import { ContactComponent } from './Shared/components/contact/contact.component';
 import { HomeComponent } from './Shared/components/home/home.component';
 import { PendingComponent } from './Shared/components/pending/pending.component';
-import { VendorFormComponent } from './Vendor/Components/vendor-form/vendor-form.component';
 import { NavBarComponent } from './Shared/components/nav-bar/nav-bar.component';
+import { EditServiceComponent } from './Vendor/Components/edit-service/edit-service.component';
+import { AddServiceComponent } from './Vendor/Components/add-service/add-service.component';
 
 
 @NgModule({
@@ -21,8 +22,9 @@ import { NavBarComponent } from './Shared/components/nav-bar/nav-bar.component';
     ContactComponent,
     HomeComponent,
     PendingComponent,
-    VendorFormComponent,
     NavBarComponent,
+    EditServiceComponent,
+    AddServiceComponent,
   ],
   imports: [
     BrowserModule,

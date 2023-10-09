@@ -4,21 +4,24 @@ import { RegisterComponent } from './Shared/components/register/register.compone
 import { LoginComponent } from './Shared/components/login/login.component';
 import { PageNotFoundComponent } from './Shared/components/page-not-found/page-not-found.component';
 import { HomeComponent } from './Shared/components/home/home.component';
+import { ContactComponent } from './Shared/components/contact/contact.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'contact', component: ContactComponent },
+
   {
     path: 'vendor',
     loadChildren: () =>
       import('./Vendor/Vendor.module').then((m) => m.VendorModule),
   },
   {
-    path: 'user', 
+    path: 'user',
     loadChildren: () => import('./User/User.module').then(m => m.UserModule)
   },
- 
+
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -26,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

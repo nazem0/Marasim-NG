@@ -18,6 +18,9 @@ import { ReviewComponent } from './Components/vendor-reviews/review/review.compo
 import { CreatePostComponent } from './Components/work-history/create-post/create-post.component';
 import { ServiceDetailsComponent } from './Components/service-details/service-details.component';
 import { SharedModule } from '../Shared/Shared.module';
+import { EditServiceComponent } from './Components/edit-service/edit-service.component';
+import { AddServiceComponent } from './Components/add-service/add-service.component';
+import { PendingComponent } from '../Shared/components/pending/pending.component';
 
 let vendorRoutes: Routes = [
   { path: '', component: VendorsPageComponent },
@@ -27,6 +30,9 @@ let vendorRoutes: Routes = [
   { path: 'services', component: VendorServicesComponent },
   { path: 'work-history', component: WorkHistoryComponent },
   { path: 'reservation', component: ReservationComponent },
+  { path: 'edit-service', component: EditServiceComponent },
+  { path: 'add-service', component: AddServiceComponent},
+  {path: 'pending', component: PendingComponent}
   // { path: 'vendor-services', component: VendorServicesComponent }
 
 ]
