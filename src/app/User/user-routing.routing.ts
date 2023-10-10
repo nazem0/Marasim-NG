@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: CustomerUiComponent },
-      { path: 'profile-edit', component: UserProfileEditComponent }, //to vendor
+      // { path: 'profile-edit', component: UserProfileEditComponent }, //to vendor
       { path: 'invitation', component: InvitationComponent },
       {path:'generate-packages',component:GeneratePackagesComponent},
       {path:'generated-packages',component:GeneratedPackagesComponent},
