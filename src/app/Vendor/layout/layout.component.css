@@ -9,6 +9,14 @@ main {
     /* width: 400px; */
     overflow: hidden;
     width: 100px;
+    transition: 1s all;
+}
+.sidebar:hover{
+    width: 400px;
+}
+
+.sidebar:hover span{
+    opacity: 1;
 }
 
 .sidebar .active {
@@ -19,6 +27,13 @@ main {
 
 .sidebar .active span {
     color: white;
+   
+}
+
+span
+{
+    opacity: 0;
+    transition: 1s all;
 }
 
 a {
@@ -27,13 +42,12 @@ a {
     margin: 10px 0;
     border-radius: 8px;
     display: flex;
-    gap: 40px;
+    gap: 20px;
     transition: 0.5s;
     /* background-color: blueviolet; */
 }
 
 i {
     font-size: 40px;
-    width: 100%;
-    height: 100%;
+    
 }
