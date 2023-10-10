@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ScrollRevealService } from 'src/app/Shared/services/scroll-reveal.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-bride-groom',
