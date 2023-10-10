@@ -3,9 +3,6 @@ export interface IPost {
     title: string; 
     description: string;
     date: string;
-    reactions: IReaction[];
-    comments: IComment[];
-    attachments: IAttachment[];
   }
   
   export interface IReaction {

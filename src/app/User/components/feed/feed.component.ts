@@ -15,32 +15,9 @@ export class FeedComponent {
       next: (result: IPost[]) => {
         this.posts = result;
         console.log(this.posts);
-        this.getAttachments();
-        this.getReactions();
       }
     })
 
-  }
-  getReactions() {
-    this.posts!.forEach(post => {
-      this.post.getReacts(post.id).subscribe({
-        next: (result) => {
-          post.reactions = result;
-          console.log(result);
-        }
-      })
-    })
-  }
-
-  getAttachments() {
-    this.posts!.forEach(post => {
-      this.post.getAttachments(post.id).subscribe({
-        next: (result) => {
-          post.attachments = result;
-          console.log(result);
-        }
-      })
-    })
   }
 }
 

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { IComment } from 'src/app/Models/IPost';
+import { PostService } from 'src/app/Services/Post.service';
 
 @Component({
   selector: 'app-comments',
@@ -6,7 +8,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent {
-  @Input() comments!: { id: number, userId: number, postId: number, text: string, dateTime: string }[]
+  @Input() postID!:number;
+  comments: IComment[]=[]
   @Input() userName!:string;
+  constructor(private post:PostService) {
+    
+  }
 
+  ngOnInit(){
+    this.post.getComments(this.postID).subscribe((result)=>this.comments=result)
+  }
 }
