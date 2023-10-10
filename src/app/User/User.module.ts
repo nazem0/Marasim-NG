@@ -13,6 +13,7 @@ import { GeneratedPackagesComponent } from './components/generated-packages/gene
 import { LayoutComponent } from './layout/layout.component';
 import { NavBarComponent } from '../Shared/components/nav-bar/nav-bar.component';
 import { UserRoutes } from './user-routing.routing';
+import { GeneratedPackageCardComponent } from './components/generated-packages/generated-package-card/generated-package-card.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UserRoutes } from './user-routing.routing';
     GeneratePackagesComponent,
     GeneratedPackagesComponent,
     LayoutComponent,
-    NavBarComponent
+    NavBarComponent,
+    GeneratedPackageCardComponent
   ]
 })
 export class UserModule { }

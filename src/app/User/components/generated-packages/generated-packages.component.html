@@ -1,140 +1,34 @@
-
-  <section>
-    <div class="container">
-      <div>
-        <h1 class="display-4">مثال</h1>
-        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
-          تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. </p>
-        <p>إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما
-          ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص كما يمكن استخدامه لتصاميم الجرافيكس.
-        </p>
+<section>
+  <div class="container">
+    <div>
+      <h1 class="display-4">مثال</h1>
+      <p>
+        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+        النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من
+        النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+      </p>
+      <p>
+        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد
+        الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص
+        العربى مفيد لمصممي المواقع على وجه الخصوص كما يمكن استخدامه لتصاميم
+        الجرافيكس.
+      </p>
+    </div>
+    <ng-container *ngFor="let _ of [].constructor(3);let i=index">
+      <h2 class="display-3 text-center mb-3">مجموعة {{i+1}}</h2>
+      <div id="package_components1" class="package_components
+      row
+      row-cols-sm-1 
+      row-cols-md-2
+      row-cols-lg-4
+      g-3
+      justify-content-center
+      mb-3">
+        <ng-container *ngFor="let _ of [].constructor(4)">
+          <app-generated-package-card></app-generated-package-card>
+        </ng-container>
       </div>
-      <h2 class="display-3 text-center mb-3">مجموعة 1</h2>
-      <div id="package_components1" class="package_components row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-3 justify-content-center mb-3">
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <a href="./CheckOut.html" class="btn btn-primary">أختر</a>
-
-      </div>
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <div class="img-hover-zoom bg-gradient text-white w-100 position-relative">
-            <div class="black_banner card-body d-flex flex-column justify-content-end text-center">
-              <p class="card-title display-6">الأســـم</p>
-              <div class="card-text">
-                <span>الوصــف</span>
-                <br>
-                <span>مُصور</span>
-              </div>
-              
-            </div>
-              <img class="card-img my-auto rounded-circle shadow bg-dark bg-gradient" src="../assets/svg/profile_pic.svg" alt="Title">
-          </div>
-        </div>
-
-        <a href="./CheckOut.html" class="btn btn-primary">أختر</a>
-
-      </div>
-  </section>
+      <a href="./CheckOut.html" class="btn btn-primary w-100">أختر</a>
+    </ng-container>
+  </div>
+</section>
