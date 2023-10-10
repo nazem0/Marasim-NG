@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
 import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
 import { InvitationComponent } from './components/invitation/Invitation.component';
-import { CustomerUiComponent } from './components/customer-ui/customer-ui.component';
+import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
     path:'',component:LayoutComponent,children:[
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
-      { path: 'edit', component: CustomerUiComponent },
+      { path: 'edit', component: UserEditProfileComponent },
       // { path: 'profile-edit', component: UserProfileEditComponent }, //to vendor
       { path: 'invitation', component: InvitationComponent },
       {path:'generate-packages',component:GeneratePackagesComponent},

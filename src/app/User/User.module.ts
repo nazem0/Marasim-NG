@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
-import { CustomerUiComponent } from './components/customer-ui/customer-ui.component';
+import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
 import { CoverComponent } from './components/invitation/cover/cover.component';
 import { InvitationComponent } from './components/invitation/Invitation.component';
@@ -26,7 +26,7 @@ import { GeneratedPackageCardComponent } from './components/generated-packages/g
   declarations: [
     UserCheckListComponent,
     InvitationListComponent,
-    CustomerUiComponent,
+    UserEditProfileComponent,
     UserProfileEditComponent,
     CoverComponent,
     InvitationComponent,
