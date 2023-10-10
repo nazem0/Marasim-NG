@@ -1,0 +1,84 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+main{
+    display:grid;
+    grid-template-columns: 1fr 15fr;
+}
+.imge{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px white solid;
+    flex-shrink: 0;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.profile h2{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.menu{
+    background-color: #123;
+    height: 100%;
+    width: 80px;
+    padding: 15px;
+    overflow: hidden;
+    transition:all 1s ease;
+}
+
+.menu:hover{
+    width: 260px;
+    
+}
+ul{
+    position: fixed;
+    list-style: none;
+    display: flex;    
+    flex-direction: column;
+    overflow: hidden;
+}
+ul li a{
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px 0; 
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transition: 0.5s;
+}
+
+ul li a:hover, .active, .data-info .box:hover, td:hover{ 
+    background-color: #ffffff55;
+}
+
+/* .log-out{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.log-out a{
+    background-color: red;
+} */
+
+ul li a i {
+    font-size: 25px;
+    
+}
+
+.content{
+    width: 100%;
+    z-index: 5;
+}

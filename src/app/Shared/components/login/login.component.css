@@ -4,7 +4,7 @@ input:not([type="checkbox"]),select{
     overflow: visible;
     min-height: 3rem;
 }
-div.row.row-cols-md-2.row-cols-md-1.align-items-center.gx-4.gy-5 {
+div.row.row-cols-md-2.row-cols-md-1.align-items-center.g-4 {
     overflow-x: hidden !important;
 }
 

@@ -1,16 +1,17 @@
-
-.F{
+.F {
     width: 50%;
 }
-.title-edit-page{
+
+.title-edit-page {
     color: var(--primary-color);
 }
-.btn-v-form{
+
+.btn-v-form {
     font-size: 23px;
     width: 120px;
 }
 
-#img-vendor-edit{
+#img-vendor-edit {
     height: 121px;
     width: 121px;
     object-fit: cover;
@@ -18,18 +19,21 @@
 }
 
 @media screen and (max-width: 480px) {
-    .Name-vendor{
+    .Name-vendor {
         font-size: 16px;
     }
 }
+
 /* 350px */
 @media screen and (max-width: 400px) {
-    .parent{
+    .parent {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .DivForm , .info {
+
+    .DivForm,
+    .info {
         width: 100% !important;
     }
 

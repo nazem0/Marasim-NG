@@ -21,19 +21,25 @@ import { SharedModule } from '../Shared/Shared.module';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { PendingComponent } from './components/pending/pending.component';
+import { LayoutComponent } from './layout/layout.component';
+import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 
 let vendorRoutes: Routes = [
-  { path: '', component: VendorsPageComponent },
-  { path: 'service-details', component: ServiceDetailsComponent },
-  { path: 'create-offer', component: CreateOfferComponent },
-  { path: 'reviews', component: VendorReviewsComponent },
-  { path: 'services', component: VendorServicesComponent },
-  { path: 'work-history', component: WorkHistoryComponent },
-  { path: 'reservation', component: ReservationComponent },
-  { path: 'edit-service', component: EditServiceComponent },
-  { path: 'add-service', component: AddServiceComponent},
-  {path: 'pending', component: PendingComponent}
-  // { path: 'vendor-services', component: VendorServicesComponent }
+  {path:'',component:LayoutComponent,children:[
+
+    { path: '', component: VendorsPageComponent },
+    { path: 'service-details', component: ServiceDetailsComponent },
+    { path: 'create-offer', component: CreateOfferComponent },
+    { path: 'reviews', component: VendorReviewsComponent },
+    { path: 'services', component: VendorServicesComponent },
+    { path: 'work-history', component: WorkHistoryComponent },
+    { path: 'reservation', component: ReservationComponent },
+    { path: 'edit-service', component: EditServiceComponent },
+    { path: 'add-service', component: AddServiceComponent},
+    {path: 'pending', component: PendingComponent},
+    {path:'vendorform',component:VendorFormComponent}
+    // { path: 'vendor-services', component: VendorServicesComponent }
+  ]}
 
 ]
 
@@ -60,7 +66,9 @@ let vendorRoutes: Routes = [
     VendorServicesComponent,
     ReviewComponent,
     CreatePostComponent,
-    ServiceDetailsComponent
+    ServiceDetailsComponent,
+    LayoutComponent,
+    VendorFormComponent
   ]
 })
 export class VendorModule { }
