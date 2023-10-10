@@ -11,6 +11,7 @@ import { HomeComponent } from '../Shared/components/home/home.component';
 import { ContactComponent } from '../Shared/components/contact/contact.component';
 import { LoginComponent } from '../Shared/components/login/login.component';
 import { RegisterComponent } from '../Shared/components/register/register.component';
+import { FeedComponent } from './components/feed/feed.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'contact', component: ContactComponent },
+      { path:'feed',component:FeedComponent}
     ]
   }
 

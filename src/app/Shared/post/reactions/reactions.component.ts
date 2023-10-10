@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ReactionsComponent {
   @Input() reactions!:{id: number, userId: number, postId: number, dateTime: string}[]
+  @Input() userName!:string;
+
 }

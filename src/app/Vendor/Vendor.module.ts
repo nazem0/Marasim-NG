@@ -6,14 +6,11 @@ import { CreateOfferComponent } from './components/create-offer/create-offer.com
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
-import { AttachmentsComponent } from './components/work-history/attachments/attachments.component';
-import { CommentsComponent } from './components/work-history/comments/comments.component';
+
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 
 import { FormsModule } from '@angular/forms';
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
-import { ReactionsComponent } from './components/work-history/reactions/reactions.component';
-import { PostComponent } from './components/work-history/post/post.component';
 import { ReviewComponent } from './components/vendor-reviews/review/review.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { ServiceDetailsComponent } from './components/service-details/service-details.component';
@@ -57,10 +54,6 @@ let vendorRoutes: Routes = [
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
-    PostComponent,
-    AttachmentsComponent,
-    CommentsComponent,
-    ReactionsComponent,
     ReservationComponent,
     ReservationItemComponent,
     VendorServicesComponent,

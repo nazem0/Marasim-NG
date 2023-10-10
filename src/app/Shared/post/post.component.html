@@ -10,9 +10,9 @@
     <app-attachments [attachments]="post.attachments"></app-attachments>
     <!-- End Carousel -->
     <!-- Modal : Reactions -->
-    <app-reactions [reactions]="post.reactions"></app-reactions>
+    <app-reactions [reactions]="post.reactions" [userName]="post.title"></app-reactions>
     <!-- End Modal -->
     <!-- Accordion : Comments -->
-    <app-comments [comments]="post.comments"></app-comments>
+    <app-comments [comments]="post.comments" [userName]="post.title"></app-comments>
     <!-- End Accordion -->
 </div>

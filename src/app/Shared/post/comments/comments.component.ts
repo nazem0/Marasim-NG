@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CommentsComponent {
   @Input() comments!: { id: number, userId: number, postId: number, text: string, dateTime: string }[]
+  @Input() userName!:string;
 
 }

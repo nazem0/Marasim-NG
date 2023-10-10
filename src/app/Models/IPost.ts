@@ -3,12 +3,12 @@ export interface IPost {
     title: string; 
     description: string;
     date: string;
-    reactions: Reaction[];
-    comments: Comment[];
-    attachments: Attachment[];
+    reactions: IReaction[];
+    comments: IComment[];
+    attachments: IAttachment[];
   }
   
-  interface Reaction {
+  export interface IReaction {
     id: number;
     userId: number;
     postId: number;
@@ -16,7 +16,7 @@ export interface IPost {
     value?: string; 
   }
   
-  interface Comment {
+  export interface IComment {
     id: number;
     userId: number;  
     postId: number;
@@ -24,7 +24,7 @@ export interface IPost {
     dateTime: string;
   }
   
-  interface Attachment {
+  export interface IAttachment {
     id: number;
     postId: number;
     attachmentUrl: string;

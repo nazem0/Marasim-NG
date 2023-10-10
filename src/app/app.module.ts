@@ -10,7 +10,7 @@ import { HomeComponent } from './Shared/components/home/home.component';
 import { PendingComponent } from './Vendor/components/pending/pending.component';
 import { EditServiceComponent } from './Vendor/components/edit-service/edit-service.component';
 import { AddServiceComponent } from './Vendor/components/add-service/add-service.component';
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,10 +23,12 @@ import { AddServiceComponent } from './Vendor/components/add-service/add-service
     PendingComponent,
     EditServiceComponent,
     AddServiceComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,13 +14,16 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavBarComponent } from '../Shared/components/nav-bar/nav-bar.component';
 import { UserRoutes } from './user-routing.routing';
 import { GeneratedPackageCardComponent } from './components/generated-packages/generated-package-card/generated-package-card.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { SharedModule } from '../Shared/Shared.module';
 
 
 @NgModule({
 
   imports: [
     CommonModule,
-    UserRoutes
+    UserRoutes,
+    SharedModule
   ],
   exports: [],
   declarations: [
@@ -36,7 +39,8 @@ import { GeneratedPackageCardComponent } from './components/generated-packages/g
     GeneratedPackagesComponent,
     LayoutComponent,
     NavBarComponent,
-    GeneratedPackageCardComponent
+    GeneratedPackageCardComponent,
+    FeedComponent
   ]
 })
 export class UserModule { }
