@@ -19,74 +19,38 @@
 
 
 <main>
-    <div class="menu">
+    <aside id="sidebarMenu" class="sidebar bg-white">
 
-        <ul>
-            <li class="profile">
-                <div class="imge">
-                    <img src="https://mahmoudnadyhassan.github.io/responsive-dashboard-/assets/imges/IMG_20220720_215108_843.jpg" alt="personal-photo">
-                </div>
-                <h2>Mahmoud Nady</h2>
-            </li>
-    
-            <li>
-                <a href="#" class="active">
-                    <i class="fas fa-home"></i>
-                    <p>Dashboard</p>
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4 dark">
+                <a routerLink="/vendor" class="list-group-item list-group-item-action py-3 ripple" aria-current="true">
+                    <i class="fas fa-user fa-fw "></i><span>الصفحة الشخصية</span>
                 </a>
-            </li>
-    
-            <li>
-                <a href="#">
-                    <i class="fas fa-user-group"></i>
-                    <p>Clients</p>
+                <a routerLink="/vendor/service-details"
+                    class="list-group-item list-group-item-action py-3 ripple active">
+                    <i class="fas fa-briefcase fa-fw "></i><span>قائمة الخدمات</span>
                 </a>
-            </li>
-    
-            <li>
-                <a href="#">
-                    <i class="fas fa-table"></i>
-                    <p>Products</p>
+                <a routerLink="/vendor/edit-service" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-file-pen fa-fw "></i><span>تعديل البيانات</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-chart-line fa-fw "></i><span>الاحصائيات</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple">
+                    <i class="fas fa-comment fa-fw "></i><span>المراجعات</span>
                 </a>
-            </li>
-    
-            <li>
-                <a href="#">
-                    <i class="fas fa-chart-pie"></i>
-                    <p>Charts</p>
-                </a>
-            </li>
-    
-            <li>
-                <a href="#">
-                    <i class="fas fa-pen"></i>
-                    <p>posts</p>
-                </a>
-            </li>
-    
-            <li>
-                <a href="#">
-                    <i class="fas fa-star"></i>
-                    <p>favorite</p>
-                </a>
-            </li>
-    
-            <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i>
-                    <p>setting</p>
-                </a>
-            </li>
-    
-            <li class="log-out">
-                <a href="#">
-                    <i class="fas fa-sign-out"></i>
-                    <p>Log out</p>
-                </a>
-            </li>    
-        </ul>
-    </div>
-    <div class="content">
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-clock-rotate-left fa-fw "></i><span>الاعمال السابقة</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-calendar fa-fw "></i><span>جدول الحجوزات</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-users fa-fw "></i><span>المتابعون</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-money-bill fa-fw "></i><span>حالات الدفع</span></a>
+            </div>
+        </div>
+
+    </aside>
+
+    <div class="content w-100">
         <router-outlet></router-outlet>
     </div>
 </main>
