@@ -1,4 +1,4 @@
-import { UserService } from './../../../../Services/user.service';
+import { UserService } from 'src/app/Services/User.service';
 import { Component, Input } from '@angular/core';
 import { IComment } from 'src/app/Models/IPost';
 import { IUser } from 'src/app/Models/IUser';
