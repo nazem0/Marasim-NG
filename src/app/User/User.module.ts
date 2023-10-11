@@ -17,6 +17,7 @@ import { GeneratedPackageCardComponent } from './components/generated-packages/g
 import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
+import { FilterComponent } from './components/feed/filter/filter.component';
 
 
 
@@ -44,6 +45,7 @@ import { VendorProfileComponent } from './components/vendor-profile/vendor-profi
     GeneratedPackageCardComponent,
     FeedComponent,
     VendorProfileComponent,
+    FilterComponent
   ]
 })
 export class UserModule { }
