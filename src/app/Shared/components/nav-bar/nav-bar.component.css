@@ -4,6 +4,8 @@
 background-color: var(--primary-background-color) !important;
 text-align: center !important;
 z-index: 1000;
+min-height: 4rem;
+
 }
 .navbar-item a {
 text-decoration: none;

@@ -107,19 +107,19 @@ i {
     color: var(--primary-color-heavy) !important;
 }
 
-
+/* 
 section:first-of-type {
     padding: 3rem 0 0 0rem;
-}
+} */
 
 
 
-@media (max-width:320px){
+@media (min-width:280px){
     :root{
         font-size: 10px !important;
     }
 }
-@media (min-width:375px){
+@media (min-width:320px){
     :root{
         font-size: 12px !important;
     }
