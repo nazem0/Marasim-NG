@@ -1,13 +1,13 @@
 export interface IUser {
-    id: number;
-    name: number;
-    phone: number;
-    email: number;
-    password: string;
-    photo: string;
-    gender: number;
-    role: number;
-    nationalID: string;
+    "id": number, 
+    "name": string,
+    "phone": string,
+    "email": string,
+    "password": string,
+    "photo": string,
+    "gender": string,
+    "role": string,
+    "nationalID": string
 }
 
 
