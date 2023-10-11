@@ -1,0 +1,187 @@
+<!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
+
+<!-- Header -->
+<div>
+    <!-- Clouds Banner -->
+    <div class="position-absolute headerBanner">
+        <h1 class="display-4 text-white">تعرف على جميع الفئات الموجودة</h1>
+    </div>
+    <app-cloud-banner></app-cloud-banner>
+    <!-- End Clouds Banner -->
+    <!-- Search Bar -->
+    <div class="container">
+        <div class="search-bar">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-regular fa-magnifying-glass"></i></span>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
+                    <label for="floatingInputGroup2">بحث</label>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select p-0" id="floatingSelectGrid">
+                        <option disabled hidden selected value="">اختر من بين الفئات</option>
+                        <option value="1">القاعات</option>
+                        <option value="2">المصورين</option>
+                        <option value="3">المطاعم</option>
+                        <option value="4">صالونات التجميل</option>
+                        <option value="5">النوادى</option>
+                    </select>
+                    <!-- <label for="floatingSelectGrid">اختر من بين الفئات</label> -->
+                </div>
+                <button class="btn button-shared">بحث</button>
+            </div>
+        </div>
+    </div>
+    <!-- End Search Bar -->
+</div>
+<!-- End Header -->
+
+<hr>
+
+<div class="row position-relative m-0">
+    <!-- Main Component -->
+    <div class="col-lg-8 col-md-12 p-0">
+        <!-- Pictures Preview -->
+        <section>
+            <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+                <div class="w-100 d-flex flex-column gap-1">
+                    <div class="row w-100 g-1">
+                        <div class="col-lg-4">
+                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        </div>
+                        <div class="col-lg-3">
+                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        </div>
+                        <div class="col-lg-5">
+                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        </div>
+                    </div>
+                    <div class="row w-100 g-1">
+                        <div class="col-lg-5">
+                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        </div>
+                        <div class="col-lg-3">
+                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        </div>
+                        <div class="col-lg-4">
+                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Pictures Preview -->
+        <hr>
+        <!-- Routing Buttons -->
+        <section class="sticky-top bg-white container-fluid">
+            <div class="row d-flex gap-5 p-3">
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
+                    عنا</button>
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
+                    السابقة</button>
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
+                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test2')">احجز</button>
+            </div>
+        </section>
+        <!-- End Routing Buttons -->
+        <hr>
+        <!-- About -->
+        <section id="AboutUs">
+            <div class="p-3">
+                <h2>معلومات عنا</h2>
+                <div>
+                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص من
+                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
+                        من
+                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
+                        من
+                        مولد النص العربى.
+                    </p>
+                </div>
+                <button class="btn button-shared text-white">إقراء المزيد</button>
+            </div>
+        </section>
+        <!-- End About -->
+        <!-- Work History -->
+        <section id="WorkHistory">
+            <div class="p-3">
+                <h2>الاعمال السابقة</h2>
+                <div>
+                    <div *ngFor="let post of posts" class="my-4">
+                        <app-post [post]="post"></app-post>
+                    </div>
+                </div>
+                <button class="btn button-shared text-white">اعرض المزيد</button>
+            </div>
+        </section>
+        <!-- End Work History -->
+        <!-- Test -->
+        <section id="Reviews">
+            <div class="p-3">
+                <h2>المراجعات</h2>
+                <div>
+                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص من
+                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
+                        من
+                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
+                        من
+                        مولد النص العربى.
+                    </p>
+                </div>
+                <button class="btn button-shared text-white">إقراء المزيد</button>
+            </div>
+        </section>
+        <section id="test2">
+            <div class="p-3">
+                <h2>احجز</h2>
+                <div>
+                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص من
+                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
+                        من
+                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                        النص
+                        من
+                        مولد النص العربى.
+                    </p>
+                </div>
+                <button class="btn button-shared text-white">إقراء المزيد</button>
+            </div>
+        </section>
+        <!-- End Test -->
+    </div>
+    <!-- End Main Component -->
+
+    <!------------------------------------------------->
+    <!------------------------------------------------->
+    <!------------------------------------------------->
+
+    <!-- Side Component -->
+    <div class="col-lg-4 col-md-12 flex-column">
+        <section class="container-fluid sticky-top">
+            <div class="overflow-hidden w-100 position-relative">
+                <button class="fav-button btn button-shared position-absolute"><i
+                    class="fa-regular fa-heart"></i></button>
+                <img class="object-fit-cover h-100 w-100 rounded-top-2" src="../assets/img/hall.webp" alt="">
+            </div>
+            <div class="p-4 bg-primary rounded-bottom-2 shadow justify-content-center">
+                <p class="display-6 fs-2 text-white text-center">{{Service.ServiceName}}</p>
+                <p class="display-3 fs-4 text-white text-center">{{Service.Price}} L.E</p>
+                <ul class="list-inline mb-2 ng">
+                    <li *ngFor="let item of [].constructor(Service.Rate)" class="list-inline-item me-0">
+                        <i class="fas fa-star text-warning"></i>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <button class="btn button-shared w-100">احجز الأن</button>
+        </section>
+    </div>
+    <!-- Side Component -->
+
+</div>
