@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-service-details',
-  templateUrl: './service-details.component.html',
-  styleUrls: ['./service-details.component.css']
+  selector: 'app-profile-vendorside',
+  templateUrl: './profile-vendorside.component.html',
+  styleUrls: ['./profile-vendorside.component.css']
 })
-export class ServiceDetailsComponent {
+export class ProfileVendorsideComponent {
   Service = {
     ServiceID : 1,
     ServiceName: 'تصوير افراح',

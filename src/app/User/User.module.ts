@@ -16,6 +16,7 @@ import { UserRoutes } from './user-routing.routing';
 import { GeneratedPackageCardComponent } from './components/generated-packages/generated-package-card/generated-package-card.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
+import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SharedModule } from '../Shared/Shared.module';
     LayoutComponent,
     NavBarComponent,
     GeneratedPackageCardComponent,
-    FeedComponent
+    FeedComponent,
+    VendorProfileComponent
   ]
 })
 export class UserModule { }
