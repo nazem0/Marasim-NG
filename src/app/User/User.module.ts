@@ -18,7 +18,6 @@ import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 
-import { FilterComponent } from './components/feed/filter/filter.component';
 
 
 @NgModule({
@@ -45,7 +44,6 @@ import { FilterComponent } from './components/feed/filter/filter.component';
     GeneratedPackageCardComponent,
     FeedComponent,
     VendorProfileComponent,
-    FilterComponent
   ]
 })
 export class UserModule { }
