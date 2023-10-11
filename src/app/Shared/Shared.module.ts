@@ -6,6 +6,7 @@ import { CommentsComponent } from './post/comments/comments.component';
 import { PostComponent } from './post/post.component';
 import { ReactionsComponent } from './post/reactions/reactions.component';
 import { ReactionComponent } from './post/reactions/reaction/reaction.component';
+import { CommentComponent } from './post/comments/comment/comment.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ReactionComponent } from './post/reactions/reaction/reaction.component'
     CommentsComponent,
     ReactionsComponent,
     ReactionComponent,
+    CommentComponent,
   ],
   providers:[
   ],

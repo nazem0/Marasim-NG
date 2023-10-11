@@ -13,16 +13,7 @@
                 attr.data-bs-parent="#p_comm{{postID}}">
                 <div class="accordion-body">
                     <ng-container *ngFor="let comment of comments">
-                        <div class="d-flex gap-2 mb-3 comment">
-                            <img class="userPic" src="https://placehold.co/200x200" alt="">
-                            <div class="w-100">
-                                <div class="d-flex justify-content-between">
-                                <span class="fw-bold">{{userName}}</span>
-                                <small class="text-muted">{{comment.dateTime}}</small>
-                                </div>
-                                <p>{{comment.text}}</p>
-                            </div>
-                        </div>
+                        <app-comment [comment]="comment"></app-comment>
                         <hr>
                     </ng-container>
                 </div>
