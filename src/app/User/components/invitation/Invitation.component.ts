@@ -1,5 +1,5 @@
 import {  Component, OnInit } from '@angular/core';
-import { ScrollRevealService } from 'src/app/Shared/services/scroll-reveal.service';
+import { ScrollRevealService } from 'src/app/Services/Scroll-Reveal.service';
 @Component({
   selector: 'app-invitation',
   templateUrl: './invitation.component.html',
