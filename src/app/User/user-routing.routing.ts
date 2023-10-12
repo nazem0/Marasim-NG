@@ -13,7 +13,7 @@ import { LoginComponent } from '../Shared/components/login/login.component';
 import { RegisterComponent } from '../Shared/components/register/register.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
-import { FollowingComponent } from './Components/Following/following/following.component';
+import { FollowingComponent } from './components/Following/following/following.component';
 
 
 const routes: Routes = [
