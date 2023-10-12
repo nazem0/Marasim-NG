@@ -7,6 +7,7 @@ import { CommentsComponent } from './components/post/comments/comments.component
 import { ReactionsComponent } from './components/post/reactions/reactions.component';
 import { ReactionComponent } from './components/post/reactions/reaction/reaction.component';
 import { CommentComponent } from './components/post/comments/comment/comment.component';
+import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CommentComponent } from './components/post/comments/comment/comment.com
     ReactionsComponent,
     ReactionComponent,
     CommentComponent,
+    VendorCardComponent,
   ],
   providers:[
   ],
