@@ -15,43 +15,37 @@ export class VendorProfileComponent implements OnInit {
   currentVendor: IVendor | null = null;
   vendorWithDetails: IVendorWithDetails | undefined;
 
-  constructor(private vendor: VendorService, private user: UserService) {
 
-  }
+
+
+  constructor(private vendor: VendorService, private user: UserService) {}
 
   ngOnInit() {
     this.vendor.getVendorWithUser(1, 3).subscribe(responseList => {
       this.currentVendor = responseList[0];
       this.currentUserVendor = responseList[1];
     });
-
-
-    // console.log("test")
-    // this.vendor.getByID(2).subscribe({
-    //   next: (result: IVendor) => {
-    //     // this.currentVendor = result;
-    //     console.log("Vendor added: " +result)
-
-    //     this.vendorWithDetails!.vendorDetails = result;
-
-    //   }
-    // })
-    // this.user.getByID(4).subscribe({
-    //   next: (result: IUser) => {
-    //     // this.currentUserVendor = result;
-    //     console.log("User added: " +result)
-
-    //     this.vendorWithDetails!.userDetails = result;
-    //   }
-    // })
-
-    // console.log("Vendor with details: " +this.vendorWithDetails)
   }
 
 
 
 
-
+  REVIEWS: any[] = [
+    {
+      User: { Name: 'عبد السميع اللميع', PicURL: 'https://booking.webestica.com/assets/images/avatar/05.jpg' },
+      Date: new Date("2023-10-06").toLocaleDateString(),
+      Rate: 4,
+      Service: 'تصوير افراح',
+      Description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'
+    },
+    {
+      User: { Name: 'اللميع', PicURL: 'https://booking.webestica.com/assets/images/avatar/04.jpg' },
+      Date: new Date("2023-10-07").toLocaleString(),
+      Rate: 2,
+      Service: 'تصوير ',
+      Description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'
+    },
+  ];
 
 
   //replace by array of post by service id

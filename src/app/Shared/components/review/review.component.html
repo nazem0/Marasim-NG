@@ -1,0 +1,21 @@
+<!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
+
+<div class="row align-items-center">
+    <div class="col m-0 ">
+        <img class="rounded-circle" [src]='Review.User.PicURL' alt="avatar">
+    </div>
+
+    <div class="col-10 justify-content-center my-auto">
+        <div class="d-flex justify-content-between">
+            <h5 class="">{{Review.User.Name}}</h5>
+            <span>{{Review.Date}}</span>
+        </div>
+        <ul class="list-inline m-0">
+            <li *ngFor="let item of [].constructor(Review.Rate)" class="list-inline-item me-0">
+                <i class="fas fa-star text-warning"></i>
+            </li>
+        </ul>
+        <h6><span class="text-body fw-light">تقيم على: </span>{{Review.Service}}</h6>
+        <p>{{Review.Description}}</p>
+    </div>
+</div>
