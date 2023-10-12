@@ -1,0 +1,46 @@
+.img-hover-zoom {
+    width: 100%;
+    overflow: hidden;
+    /* [1.2] Hide the overflowing of child elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-hover-zoom img {
+    position: relative;
+    filter: grayscale(.5);
+    width: 200px;
+    object-fit: cover;
+    transition: all .8s ease;
+}
+
+
+.img-hover-zoom:hover>img {
+    scale: 1.1;
+    filter: unset;
+}
+
+.black_banner {
+    position: absolute;
+    bottom: 0;
+    /* inset: 0; */
+    background-color: #00000077;
+    width: 100%;
+    padding: 1rem 0;
+    transition: all 0.8s ease;
+    z-index: 2;
+}
+
+.vendor-card :hover>.black_banner {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.vendor-card>div {
+    min-height: 50vh;
+    border-radius: 10px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: var(--primary-color);
+}

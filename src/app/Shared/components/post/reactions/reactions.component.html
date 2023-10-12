@@ -1,0 +1,26 @@
+<!-- Button trigger modal -->
+    <button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
+        attr.data-bs-target="#p_comm{{postID}}">
+        <span><i class="fa-regular fa-thumbs-up"></i> {{reactions.length}}</span>
+    </button>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="p_comm{{postID}}" tabindex="-1"
+        attr.aria-labelledby="p_comm{{postID}}Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="p_comm{{postID}}Label">Reactions</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div *ngFor="let reaction of reactions">
+                        <app-reaction [reaction]="reaction"></app-reaction>
+                        <hr>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>

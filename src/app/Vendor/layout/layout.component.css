@@ -1,0 +1,53 @@
+main {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    /* width: 400px; */
+    overflow: hidden;
+    width: 100px;
+    transition: 1s all;
+}
+.sidebar:hover{
+    width: 400px;
+}
+
+.sidebar:hover span{
+    opacity: 1;
+}
+
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+
+.sidebar .active span {
+    color: white;
+   
+}
+
+span
+{
+    opacity: 0;
+    transition: 1s all;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    transition: 0.5s;
+    /* background-color: blueviolet; */
+}
+
+i {
+    font-size: 40px;
+    
+}

@@ -1,0 +1,6 @@
+<div class="container">
+    <div *ngFor="let post of posts" class="my-4">
+        <app-post [post]="post"></app-post>
+    </div>
+</div>
+<app-filter class="position-sticky h-100"></app-filter>

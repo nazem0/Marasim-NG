@@ -1,0 +1,18 @@
+<div class="post pt-4 rounded-4 overflow-hidden">
+    <div class="post-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="post-title fw-bold fs-4">{{post.title}}</span>
+            <span class="text-muted">{{post.date}}</span>
+        </div>
+        <p class="post-description">{{post.description}}</p>
+    </div>
+    <!-- Carousel : Attachments -->
+    <app-attachments [postID]="post.id"></app-attachments>
+    <!-- End Carousel -->
+    <!-- Modal : Reactions -->
+    <app-reactions [postID]="post.id" [userName]="post.title"></app-reactions>
+    <!-- End Modal -->
+    <!-- Accordion : Comments -->
+    <app-comments [postID]="post.id" [userName]="post.title"></app-comments>
+    <!-- End Accordion -->
+</div>

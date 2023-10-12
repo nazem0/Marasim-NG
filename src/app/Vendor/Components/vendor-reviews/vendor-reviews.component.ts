@@ -13,14 +13,14 @@ export class VendorReviewsComponent {
   REVIEWS: any[] = [
     {
       User: { Name: 'عبد السميع اللميع', PicURL: 'https://booking.webestica.com/assets/images/avatar/04.jpg' },
-      Date: new Date("2023-10-06"),
+      Date: new Date("2023-10-06").toLocaleDateString(),
       Rate: 4,
       Service: 'تصوير افراح',
       Description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'
     },
     {
       User: { Name: 'اللميع', PicURL: 'https://booking.webestica.com/assets/images/avatar/04.jpg' },
-      Date: new Date("2023-10-07"),
+      Date: new Date("2023-10-07").toLocaleString(),
       Rate: 2,
       Service: 'تصوير ',
       Description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'

@@ -1,0 +1,56 @@
+<!-- <main>
+    <aside class="h-100 bg-info-subtle">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">Enable body scrolling</button>
+            
+        <div class="offcanvas offcanvas-start position-relative" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Try scrolling the rest of the page to see this option in action.</p>
+            </div>
+        </div>
+    </aside>
+    <router-outlet></router-outlet>
+</main> -->
+
+
+<main>
+    <aside id="sidebarMenu" class="sidebar bg-white">
+
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4 dark">
+                <a routerLink="/vendor" class="list-group-item list-group-item-action py-3 ripple" aria-current="true">
+                    <i class="fas fa-user fa-fw "></i><span>الصفحة الشخصية</span>
+                </a>
+                <a routerLink="/vendor/profile"
+                    class="list-group-item list-group-item-action py-3 ripple active">
+                    <i class="fas fa-briefcase fa-fw "></i><span>قائمة الخدمات</span>
+                </a>
+                <a routerLink="/vendor/edit-service" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-file-pen fa-fw "></i><span>تعديل البيانات</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-chart-line fa-fw "></i><span>الاحصائيات</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple">
+                    <i class="fas fa-comment fa-fw "></i><span>المراجعات</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-clock-rotate-left fa-fw "></i><span>الاعمال السابقة</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-calendar fa-fw "></i><span>جدول الحجوزات</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-users fa-fw "></i><span>المتابعون</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
+                        class="fas fa-money-bill fa-fw "></i><span>حالات الدفع</span></a>
+            </div>
+        </div>
+
+    </aside>
+
+    <div class="content w-100">
+        <router-outlet></router-outlet>
+    </div>
+</main>

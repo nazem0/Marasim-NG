@@ -1,0 +1,12 @@
+
+
+
+/* [1] The container */
+
+
+/* [2] Transition property for smooth transformation of images */
+
+.card-body *
+{
+  color: white;
+}

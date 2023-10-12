@@ -1,30 +1,43 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { VendorsPageComponent } from './Components/vendors-page/vendors-page.component';
-import { VendorProfilePageComponent } from './Components/vendor-profile-page/vendor-profile-page.component';
-import { CreateOfferComponent } from './Components/create-offer/create-offer.component';
-import { VendorReviewsComponent } from './Components/vendor-reviews/vendor-reviews.component';
-import { WorkHistoryComponent } from './Components/work-history/work-history.component';
-import { VendorServicesComponent } from './Components/vendor-services/vendor-services.component';
-import { AttachmentsComponent } from './Components/work-history/attachments/attachments.component';
-import { CommentsComponent } from './Components/work-history/comments/comments.component';
-import { ReservationComponent } from './Components/reservation/reservation/reservation.component';
-
 import { FormsModule } from '@angular/forms';
-import { ReservationItemComponent } from './Components/reservation/reservation-item/reservation-item.component';
-import { ReactionsComponent } from './Components/work-history/reactions/reactions.component';
-import { PostComponent } from './Components/work-history/post/post.component';
-import { ReviewComponent } from './Components/vendor-reviews/review/review.component';
+
+import { SharedModule } from '../Shared/Shared.module';
+import { LayoutComponent } from './layout/layout.component';
+
+import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
+import { CreateOfferComponent } from './components/create-offer/create-offer.component';
+import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
+import { WorkHistoryComponent } from './components/work-history/work-history.component';
+import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
+import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
+import { ReviewComponent } from './components/vendor-reviews/review/review.component';
+import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
+import { EditServiceComponent } from './components/edit-service/edit-service.component';
+import { AddServiceComponent } from './components/add-service/add-service.component';
+import { PendingComponent } from './components/pending/pending.component';
+import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
+import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 
 let vendorRoutes: Routes = [
-  { path: '', component: VendorsPageComponent },
-  { path: 'profile', component: VendorProfilePageComponent },
-  { path: 'create-offer', component: CreateOfferComponent },
-  { path: 'reviews', component: VendorReviewsComponent },
-  {path:'work-history', component:WorkHistoryComponent},
-  {path:'reservation', component:ReservationComponent},
-  {path:'vendor-services', component:VendorServicesComponent}
+  {
+    path: '', component: LayoutComponent, children: [
+
+      { path: '', component: VendorsPageComponent },
+      { path: 'profile', component: ProfileVendorsideComponent },
+      { path: 'create-offer', component: CreateOfferComponent },
+      { path: 'reviews', component: VendorReviewsComponent },
+      { path: 'services', component: VendorServicesComponent },
+      { path: 'work-history', component: WorkHistoryComponent },
+      { path: 'reservation', component: ReservationComponent },
+      { path: 'edit-service', component: EditServiceComponent },
+      { path: 'add-service', component: AddServiceComponent },
+      { path: 'pending', component: PendingComponent },
+      { path: 'vendorform', component: VendorFormComponent }
+    ]
+  }
 
 ]
 
@@ -33,23 +46,23 @@ let vendorRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(vendorRoutes),
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [],
   declarations: [
     VendorsPageComponent,
-    VendorProfilePageComponent,
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
-    PostComponent,
-    AttachmentsComponent,
-    CommentsComponent,
-    ReactionsComponent,
     ReservationComponent,
     ReservationItemComponent,
     VendorServicesComponent,
-    ReviewComponent
+    ReviewComponent,
+    CreatePostComponent,
+    LayoutComponent,
+    VendorFormComponent,
+    ProfileVendorsideComponent
   ]
 })
 export class VendorModule { }

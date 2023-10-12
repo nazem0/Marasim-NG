@@ -59,13 +59,12 @@
 
 <!-- Ka3at -->
 <!-- Ka3at Banner -->
-<section *ngFor="let title of TITLES" class=" container serviceBanner">
-    <hr>
+<section *ngFor="let title of TITLES" class="container">
     <div class=" position-relative h-100 ">
         <picture class="d-flex justify-content-end rounded overflow-hidden w-100 h-100">
             <img class="object-fit-cover rounded h-100 w-75" [src]='title.srcImg' alt="">
         </picture>
-        <div class="serviceBanner__box rounded p-4 position-absolute bg-primary top-50">
+        <div class="serviceBanner rounded p-4 position-absolute bg-primary top-50">
             <h1 class="text-white">{{title.title}}</h1>
             <p class="text-white">اختر ما يناسبك من {{title.title}} المتعددة لدينا</p>
         </div>
@@ -87,6 +86,7 @@
             </div>
         </div>
     </section>
+    <hr>
 </section>
 <hr>
 <!-- End Ka3at Banner -->
