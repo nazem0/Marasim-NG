@@ -13,7 +13,6 @@ import { WorkHistoryComponent } from './components/work-history/work-history.com
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
-import { ReviewComponent } from './components/vendor-reviews/review/review.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
@@ -58,11 +57,10 @@ let vendorRoutes: Routes = [
     ReservationComponent,
     ReservationItemComponent,
     VendorServicesComponent,
-    ReviewComponent,
     CreatePostComponent,
     LayoutComponent,
     VendorFormComponent,
-    ProfileVendorsideComponent
+    ProfileVendorsideComponent,
   ]
 })
 export class VendorModule { }

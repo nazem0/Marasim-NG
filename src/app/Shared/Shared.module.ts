@@ -8,6 +8,7 @@ import { ReactionsComponent } from './components/post/reactions/reactions.compon
 import { ReactionComponent } from './components/post/reactions/reaction/reaction.component';
 import { CommentComponent } from './components/post/comments/comment/comment.component';
 import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { VendorCardComponent } from './components/vendor-card/vendor-card.compon
     ReactionComponent,
     CommentComponent,
     VendorCardComponent,
+    ReviewComponent
   ],
   providers:[
   ],
@@ -33,6 +35,7 @@ import { VendorCardComponent } from './components/vendor-card/vendor-card.compon
     AttachmentsComponent,
     CommentsComponent,
     ReactionsComponent,
+    ReviewComponent
   ]
 })
 export class SharedModule { }
