@@ -104,7 +104,7 @@ input::placeholder {
 }
 
 i {
-    color: var(--primary-color-heavy) !important;
+    color: var(--primary-color-heavy);
 }
 
 /* 
