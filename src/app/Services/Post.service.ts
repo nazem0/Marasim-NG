@@ -8,16 +8,16 @@ export class PostService {
   constructor(private httpClient: HttpClient) { }
 
   get():Observable<IPost[]> {
-    return this.httpClient.get<IPost[]>("http://localhost:3000/post")
+    return this.httpClient.get<IPost[]>("http://localhost:3000/posts")
   }
   getAttachments(postID:number):Observable<IAttachment[]>{
-    return this.httpClient.get<IAttachment[]>(`http://localhost:3000/post/${postID}/PostAttachment`)
+    return this.httpClient.get<IAttachment[]>(`http://localhost:3000/post/${postID}/postAttachments`)
   }
   getReacts(postID:number):Observable<IReaction[]>{
-    return this.httpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/react`)
+    return this.httpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
   }
   getComments(postID:number):Observable<IComment[]>{
-    return this.httpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comment`)
+    return this.httpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comments`)
   }
 }
 

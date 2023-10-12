@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   get(){
-    return this.http.get<IUser[]>("http://localhost:3000/User/")
+    return this.http.get<IUser[]>("http://localhost:3000/user/")
   }
   getByID(ID:number|null=null):Observable<IUser>
   {
     if(ID){
-      return this.http.get<IUser>(`http://localhost:3000/User/${ID}`)
+      return this.http.get<IUser>(`http://localhost:3000/user/${ID}`)
     }
     else{
       throw "Check ID";
@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getFollowing(ID:number){
-    return this.http.get<any>(`http://localhost:3000/follow?userId=${ID}`)
+    return this.http.get<any>(`http://localhost:3000/follows?userId=${ID}`)
   }
 
   constructor(private http:HttpClient) {

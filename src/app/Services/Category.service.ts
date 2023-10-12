@@ -10,7 +10,7 @@ export class CategoryService {
 
 constructor(private http:HttpClient) {}
 get():Observable<ICategory[]>{
-  return this.http.get<ICategory[]>("http://localhost:3000/Category")
+  return this.http.get<ICategory[]>("http://localhost:3000/categories")
 }
 
 }

@@ -8,13 +8,13 @@ export class ReviewService {
   constructor(private httpClient: HttpClient) { }
 
   get():Observable<IReview[]> {
-    return this.httpClient.get<IReview[]>("http://localhost:3000/Review")
+    return this.httpClient.get<IReview[]>("http://localhost:3000/reviews")
   }
 
   getByUserID(ID:number):Observable<IReview[]>
   {
     if(ID){
-      return this.httpClient.get<IReview[]>(`http://localhost:3000/Review/?userId=${ID}`)
+      return this.httpClient.get<IReview[]>(`http://localhost:3000/reviews/?userId=${ID}`)
     }
     else{
       throw "No Reviews";

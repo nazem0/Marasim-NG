@@ -14,19 +14,19 @@ export class VendorService {
     public getVendorWithUser(vendorId: number, userId: number): Observable<[IVendor, IUser]> {
         return forkJoin
             ([
-                this.http.get<IVendor>(`http://localhost:3000/Vendor/${vendorId}`),
-                this.http.get<IUser>(`http://localhost:3000/User/${userId}`)
+                this.http.get<IVendor>(`http://localhost:3000/vendors/${vendorId}`),
+                this.http.get<IUser>(`http://localhost:3000/users/${userId}`)
             ]);
     }
 
 
 
     get() {
-        return this.http.get<IVendor[]>("http://localhost:3000/Vendor/")
+        return this.http.get<IVendor[]>("http://localhost:3000/vendors/")
     }
     getByID(ID: number | null = null): Observable<IVendor> {
         if (ID) {
-            return this.http.get<IVendor>(`http://localhost:3000/Vendor/${ID}`)
+            return this.http.get<IVendor>(`http://localhost:3000/vendors/${ID}`)
         }
         else {
             throw "Check ID";
