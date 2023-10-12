@@ -13,7 +13,7 @@ import { VendorService } from 'src/app/Services/Vendor.service';
 export class VendorProfileComponent implements OnInit {
   currentUserVendor: IUser | null = null;
   currentVendor: IVendor | null = null;
-  vendorWithDetails: IVendorWithDetails | null = null;
+  vendorWithDetails: IVendorWithDetails | undefined ;
 
   constructor(private vendor: VendorService, private user: UserService) {
     
@@ -22,8 +22,9 @@ export class VendorProfileComponent implements OnInit {
   ngOnInit() {
     this.vendor.getVendorWithUser(1, 3).subscribe(responseList => {
       this.currentVendor = responseList[0];
-      this.currentUserVendor = responseList[1];
-      console.log(responseList)
+      this.vendorWithDetails!.vendorDetails = responseList[0];
+      this.vendorWithDetails!.userDetails = responseList[1];
+      console.log(this.vendorWithDetails)
   });
 
 
