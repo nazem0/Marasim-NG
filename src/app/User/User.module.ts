@@ -18,6 +18,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 import { FilterComponent } from './components/feed/filter/filter.component';
+import { FollowingComponent } from './Components/Following/following/following.component';
 
 
 
@@ -45,7 +46,8 @@ import { FilterComponent } from './components/feed/filter/filter.component';
     GeneratedPackageCardComponent,
     FeedComponent,
     VendorProfileComponent,
-    FilterComponent
+    FilterComponent,
+    FollowingComponent
   ]
 })
 export class UserModule { }

@@ -1,0 +1,39 @@
+
+    <div class="container py-5 ">
+        <div class="d-flex flex-column text-center align-items-around">
+            <i class="fa-duotone fa-heart-half fs-1"></i>
+             <h3  class="favtext fs-1 mt-2 text-primary">المُتابعون </h3>
+        </div>
+        <div id="favlist" class="container text-center mt-5 ">
+            <div class="row">
+            <span class="col text-primary fs-4"></span>
+            <span class="col text-primary fs-4" ></span>
+            </div>
+            <hr class="mt-3">
+           <div class="container text-center  mt-4">
+
+            <div *ngFor=" let vendor of vendors" class=" row ">
+              <div class=" card col-6 ">
+
+                  <div class="img">
+                    <img class="photo" src="https://fastly.picsum.photos/id/885/200/200.jpg?hmac=RQ5YecoOv-yZMfoibCEw6EjqLgnpWvSrGEQmkcoAdaw" alt="">
+                  </div>
+                    <div class="vendor">
+                    <a  class="list col text-primary fs-4">{{vendor.name}}</a>
+                    <a class="cat text-muted">{{vendor.category}}</a>
+                  </div>
+
+
+
+              </div>
+
+
+              <div class="unfolow col-6 ">
+                <button type="button" class="btn btn-danger" (click)="unfolow()">إلغاء المتابعة</button>
+              </div>
+
+            </div>
+           </div>
+        </div>
+    </div>
+
