@@ -10,11 +10,10 @@ export class VendorService {
     constructor(private http: HttpClient) {
     }
     
-    public getVendorWithUser(vendorID: number): Observable<any[]> {
-        let response1 = this.http.get(`http://localhost:3000/Vendor/${vendorID}`);
-        let response2 = this.http.get(`http://localhost:3000/User/${ID}`);
-        // Observable.forkJoin (RxJS 5) changes to just forkJoin() in RxJS 6
-        
+    public getVendorWithUser(vendorId: number, userId: number): Observable<any[]> {
+        let response1 = this.http.get(`http://localhost:3000/Vendor/${vendorId}`);
+        let response2 = this.http.get(`http://localhost:3000/User/${userId}`);
+        console.log("response 1 :  " + response1 + "\n response 2 :  " +response2)
         return forkJoin([response1, response2]);
       }
 
