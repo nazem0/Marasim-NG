@@ -1,4 +1,3 @@
-import { IVendor } from './../../../../Models/IVendor';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-following',
