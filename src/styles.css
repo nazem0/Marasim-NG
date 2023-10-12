@@ -114,25 +114,26 @@ section:first-of-type {
 
 
 
-@media (min-width:280px){
-    :root{
+@media (min-width:280px) {
+    :root {
         font-size: 10px !important;
     }
 }
-@media (min-width:320px){
-    :root{
+
+@media (min-width:320px) {
+    :root {
         font-size: 12px !important;
     }
 }
 
-@media (min-width:425px){
-    :root{
+@media (min-width:425px) {
+    :root {
         font-size: 14px !important;
     }
 }
 
-@media (min-width:768px){
-    :root{
+@media (min-width:768px) {
+    :root {
         font-size: 15px !important;
     }
 }
@@ -142,7 +143,8 @@ section:first-of-type {
     :root {
         font-size: 16px !important;
     }
-    .modal-dialog{
+
+    .modal-dialog {
         max-width: 1000px;
     }
 }
@@ -170,7 +172,7 @@ section:first-of-type {
         max-width: 2400px;
     }
 
-    .modal-dialog{
+    .modal-dialog {
         max-width: 2000px;
     }
 }
@@ -181,3 +183,5 @@ section:first-of-type {
       font-size: 16px !important; 
     }
   } */
+
+
