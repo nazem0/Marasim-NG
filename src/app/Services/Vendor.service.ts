@@ -10,13 +10,14 @@ import { IUser } from '../Models/IUser';
 export class VendorService {
     constructor(private http: HttpClient) {
     }
-    
-    public getVendorWithUser(vendorId: number, userId: number): Observable<[IVendor,IUser]> {
-        let response1 = this.http.get<IVendor>(`http://localhost:3000/Vendor/${vendorId}`);
-        let response2 = this.http.get<IUser>(`http://localhost:3000/User/${userId}`);
-        console.log("response 1 :  " + response1 + "\n response 2 :  " +response2)
-        return forkJoin([response1, response2]);
-      }
+
+    public getVendorWithUser(vendorId: number, userId: number): Observable<[IVendor, IUser]> {
+        return forkJoin
+            ([
+                this.http.get<IVendor>(`http://localhost:3000/Vendor/${vendorId}`),
+                this.http.get<IUser>(`http://localhost:3000/User/${userId}`)
+            ]);
+    }
 
 
 
