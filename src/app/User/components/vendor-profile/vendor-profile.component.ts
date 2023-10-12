@@ -20,7 +20,13 @@ export class VendorProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.vendor.getVendorWithUser(1, 3).subscribe(responseList => {
+      this.currentVendor = responseList[0];
+      this.currentUserVendor = responseList[1];
+      console.log(responseList)
+  });
+
+
     // console.log("test")
     // this.vendor.getByID(2).subscribe({
     //   next: (result: IVendor) => {
