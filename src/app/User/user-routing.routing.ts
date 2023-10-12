@@ -13,7 +13,7 @@ import { LoginComponent } from '../Shared/components/login/login.component';
 import { RegisterComponent } from '../Shared/components/register/register.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
-import { FollowingComponent } from './components/following/following.component';
+import { FollowingsComponent } from './components/followings/followings.component';
 
 const routes: Routes = [
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'feed', component: FeedComponent },
       { path: 'vendor-profile', component: VendorProfileComponent },
-      { path: 'following', component: FollowingComponent }
+      { path: 'followings', component: FollowingsComponent }
 
 
     ]

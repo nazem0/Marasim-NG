@@ -18,7 +18,8 @@ import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 import { FilterComponent } from './components/feed/filter/filter.component';
-import { FollowingComponent } from './components/following/following.component';
+import { FollowingsComponent } from './components/followings/followings.component';
+import { FollowingComponent } from './components/followings/following/following.component';
 
 
 
@@ -47,6 +48,7 @@ import { FollowingComponent } from './components/following/following.component';
     FeedComponent,
     VendorProfileComponent,
     FilterComponent,
+    FollowingsComponent,
     FollowingComponent
   ]
 })

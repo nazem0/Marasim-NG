@@ -21,6 +21,10 @@ export class UserService {
     }
   }
 
+  getFollowing(ID:number){
+    return this.http.get<any>(`http://localhost:3000/follow?userId=${ID}`)
+  }
+
   constructor(private http:HttpClient) {
   }
 }
