@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   get(){
-    return this.http.get<IUser[]>("http://localhost:3000/user/")
+    return this.http.get<IUser[]>("http://localhost:3000/users/")
   }
   getByID(ID:number|null=null):Observable<IUser>
   {
     if(ID){
-      return this.http.get<IUser>(`http://localhost:3000/user/${ID}`)
+      return this.http.get<IUser>(`http://localhost:3000/users/${ID}`)
     }
     else{
       throw "Check ID";

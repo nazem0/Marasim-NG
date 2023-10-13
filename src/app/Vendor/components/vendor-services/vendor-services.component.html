@@ -8,23 +8,14 @@
 
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
     <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
-      <div class="col card text-center pt-3" *ngFor="let card of CARDS">
-        <img class="card-img-top mx-auto rounded" [src]='card.srcImg'>
+      <div class="col card text-center pt-3" *ngFor="let service of services">
+        <img class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![0].resource">
         <div class="card-body">
-          <h3 class="card-title">{{card.title}}</h3>
+          <h3 class="card-title">{{service.title}}</h3>
+          <p>{{service.description}}</p>
+          <p>{{service.price | currency:"ج. م. "}}</p>
         </div>
-        <div class="d-flex gap-2 justify-content-center">
-          <button title="إضافة تخفيض على الخدمة" class="primary-btn">
-            <i class="fa-solid fa-percentage"></i>
-          </button>
-          <button title="تعديل الخدمة" class="warning-btn">
-            <i class="fa-solid fa-pen"></i>
-          </button>
-          <button title="حذف الخدمة" class="danger-btn">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-          <button class="success-btn"><i class="fa-solid fa-clipboard"></i></button>
-        </div>
+        <app-action-buttons [service]="service"></app-action-buttons>
         <br>
       </div>
     </div>

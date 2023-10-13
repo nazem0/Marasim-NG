@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { IVendor } from '../Models/IVendor';
 import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
+import { IService } from '../Models/IService';
+import { IServiceAttachment } from '../Models/IServiceAttachment';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +26,7 @@ export class VendorService {
     get() {
         return this.http.get<IVendor[]>("http://localhost:3000/vendors/")
     }
-    getByID(ID: number | null = null): Observable<IVendor> {
+    getByID(ID: number): Observable<IVendor> {
         if (ID) {
             return this.http.get<IVendor>(`http://localhost:3000/vendors/${ID}`)
         }
@@ -32,5 +34,7 @@ export class VendorService {
             throw "Check ID";
         }
     }
-
+    getServicesWithAttachments(ID: Number): Observable<IService[]> {
+        return this.http.get<IService[]>(`http://localhost:3000/vendors/${ID}/services?_embed=serviceAttachments`)
+    }
 }

@@ -7,7 +7,7 @@ import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
 
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
-import { CreateOfferComponent } from './components/create-offer/create-offer.component';
+import { CreateOfferComponent } from './components/vendor-services/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
@@ -19,6 +19,7 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
 import { PendingComponent } from './components/pending/pending.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
+import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
 
 let vendorRoutes: Routes = [
   {
@@ -61,6 +62,7 @@ let vendorRoutes: Routes = [
     LayoutComponent,
     VendorFormComponent,
     ProfileVendorsideComponent,
+    ActionButtonsComponent,
   ]
 })
 export class VendorModule { }
