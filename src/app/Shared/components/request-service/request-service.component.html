@@ -1,0 +1,37 @@
+<!-- Button trigger modal -->
+<button type="button" class="primary-btn" data-bs-toggle="modal" data-bs-target="#reserveModal">
+    <i class="fa fa-cart-shopping"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="reserveModal" tabindex="-1" aria-labelledby="reserveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="reserveModalLabel">حجز خدمة</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="g-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-tag"></i>
+                            <input class="form-control" type="text" id="cuponInput" name="cupon"
+                                placeholder="كود العرض">
+                        </div>
+                        <br>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-hourglass-start"></i>
+                            <input class="form-control" type="date" id="startDate" name="startingDate"
+                                placeholder="تاريخ البدأ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="danger-btn" data-bs-dismiss="modal">الغاء</button>
+                <button type="button" class="primary-btn">تأكيد</button>
+            </div>
+        </div>
+    </div>
+</div>
