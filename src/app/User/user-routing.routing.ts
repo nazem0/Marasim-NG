@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
 import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
-import { InvitationComponent } from './components/invitation/Invitation.component';
+import { InvitationComponent } from './components/invitation/invitation.component';
 import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';

@@ -5,7 +5,7 @@ import { InvitationListComponent } from './components/invitation-list/invitation
 import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
 import { CoverComponent } from './components/invitation/cover/cover.component';
-import { InvitationComponent } from './components/invitation/Invitation.component';
+import { InvitationComponent } from './components/invitation/invitation.component';
 import { CounterComponent } from './components/invitation/counter/counter.component';
 import { BrideGroomComponent } from './components/invitation/bride-groom/bride-groom.component';
 import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
