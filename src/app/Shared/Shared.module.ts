@@ -10,6 +10,7 @@ import { CommentComponent } from './components/post/comments/comment/comment.com
 import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
 import { ReviewComponent } from './components/review/review.component';
 import { RequestServiceComponent } from './components/request-service/request-service.component';
+import { AttachmentModalComponent } from './components/attachment-modal/attachment-modal.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RequestServiceComponent } from './components/request-service/request-se
     CommentComponent,
     VendorCardComponent,
     ReviewComponent,
-    RequestServiceComponent
+    RequestServiceComponent,
+    AttachmentModalComponent
   ],
   providers:[
   ],
@@ -39,7 +41,8 @@ import { RequestServiceComponent } from './components/request-service/request-se
     ReactionsComponent,
     ReviewComponent,
     RequestServiceComponent,
-    VendorCardComponent
+    VendorCardComponent,
+    AttachmentModalComponent
   ]
 })
 export class SharedModule { }
