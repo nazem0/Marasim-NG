@@ -92,14 +92,14 @@
         <hr>
 
         <!-- Routing Buttons -->
-        <section class="sticky-top bg-white container-fluid">
+        <section class="position-sticky filter-stick bg-white container-fluid">
             <div class="row d-flex gap-5 p-3">
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
                     عنا</button>
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
                     السابقة</button>
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('Services')">احجز</button>
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('Services')">احجز</button>
             </div>
         </section>
         <!-- End Routing Buttons -->
@@ -120,7 +120,7 @@
                         مولد النص العربى.
                     </p>
                 </div>
-                <button class="btn primary-btn">إقراء المزيد</button>
+                <button class="primary-btn">إقراء المزيد</button>
             </div>
         </section>
         <!-- End About -->
@@ -134,7 +134,7 @@
                         <app-post [post]="post"></app-post>
                     </div>
                 </div>
-                <button class="btn primary-btn">اعرض المزيد</button>
+                <button class="primary-btn">اعرض المزيد</button>
             </div>
         </section>
         <!-- End Work History -->
@@ -167,6 +167,7 @@
                                     النص
                                     من مولد النص العربى.
                                 </p>
+                                <app-request-service>[service]="service"</app-request-service>
                             </div>
                         </div>
                     </div>
@@ -177,11 +178,11 @@
 
         <!-- Map -->
 
-        <div>
+        <!-- <div>
             <img
                 [src]='getVendorLocation(33,33)'
                 width="840" height="840">
-        </div>
+        </div> -->
 
         <!-- End Map -->
 
@@ -194,7 +195,7 @@
 
     <!-- Side Component -->
     <div class="col-lg-4 col-md-12 flex-column">
-        <section class="container-fluid sticky-top">
+        <section class="container-fluid position-sticky filter-stick">
             <div class="overflow-hidden w-100 position-relative">
                 <button class="fav-button btn position-absolute"><i class="fa-regular fa-heart"></i></button>
                 <img class="object-fit-cover h-100 w-100 rounded-top-2" [src]="currentUserVendor?.photo" alt="">

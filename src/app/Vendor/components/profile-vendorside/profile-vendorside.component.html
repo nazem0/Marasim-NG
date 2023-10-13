@@ -1,72 +1,51 @@
 <!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 
-<!-- Header -->
-<div>
-    <!-- Clouds Banner -->
-    <div class="position-absolute headerBanner">
-        <h1 class="display-4 text-white">تعرف على جميع الفئات الموجودة</h1>
-    </div>
-    <app-cloud-banner></app-cloud-banner>
-    <!-- End Clouds Banner -->
-    <!-- Search Bar -->
     <div class="container">
-        <div class="search-bar">
-            <div class="input-group">
-                <span class="input-group-text"><i class="fa-regular fa-magnifying-glass"></i></span>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
-                    <label for="floatingInputGroup2">بحث</label>
-                </div>
-                <div class="form-floating">
-                    <select class="form-select p-0" id="floatingSelectGrid">
-                        <option disabled hidden selected value="">اختر من بين الفئات</option>
-                        <option value="1">القاعات</option>
-                        <option value="2">المصورين</option>
-                        <option value="3">المطاعم</option>
-                        <option value="4">صالونات التجميل</option>
-                        <option value="5">النوادى</option>
-                    </select>
-                    <!-- <label for="floatingSelectGrid">اختر من بين الفئات</label> -->
-                </div>
-                <button class="btn button-shared">بحث</button>
-            </div>
-        </div>
-    </div>
-    <!-- End Search Bar -->
-</div>
-<!-- End Header -->
-
-<hr>
-
-<div class="row position-relative m-0">
-    <!-- Main Component -->
-    <div class="col-lg-8 col-md-12 p-0">
         <!-- Pictures Preview -->
         <section>
             <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-                <div class="w-100 d-flex flex-column gap-1">
-                    <div class="row w-100 g-1">
-                        <div class="col-lg-4">
-                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../assets/img/hall.webp" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
                         </div>
-                        <div class="col-lg-3">
-                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        <div class="carousel-item">
+                            <img src="../assets/img/hall.webp" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
                         </div>
-                        <div class="col-lg-5">
-                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
+                        <div class="carousel-item">
+                            <img src="../assets/img/hall.webp" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="row w-100 g-1">
-                        <div class="col-lg-5">
-                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
-                        </div>
-                        <div class="col-lg-3">
-                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
-                        </div>
-                        <div class="col-lg-4">
-                            <img class="w-100 h-100" src="../assets/img/hall.webp" alt>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -85,24 +64,6 @@
         </section>
         <!-- End Routing Buttons -->
         <hr>
-        <!-- About -->
-        <section id="AboutUs">
-            <div class="p-3">
-                <h2>معلومات عنا</h2>
-                <div>
-                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص من
-                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
-                        من
-                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
-                        من
-                        مولد النص العربى.
-                    </p>
-                </div>
-                <button class="btn button-shared text-white">إقراء المزيد</button>
-            </div>
-        </section>
-        <!-- End About -->
         <!-- Work History -->
         <section id="WorkHistory">
             <div class="p-3">
@@ -135,53 +96,5 @@
                 <button class="btn button-shared text-white">إقراء المزيد</button>
             </div>
         </section>
-        <section id="test2">
-            <div class="p-3">
-                <h2>احجز</h2>
-                <div>
-                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص من
-                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص
-                        من
-                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص
-                        من
-                        مولد النص العربى.
-                    </p>
-                </div>
-                <button class="btn button-shared text-white">إقراء المزيد</button>
-            </div>
-        </section>
-        <!-- End Test -->
     </div>
-    <!-- End Main Component -->
-
-    <!------------------------------------------------->
-    <!------------------------------------------------->
-    <!------------------------------------------------->
-
-    <!-- Side Component -->
-    <div class="col-lg-4 col-md-12 flex-column">
-        <section class="container-fluid sticky-top">
-            <div class="overflow-hidden w-100 position-relative">
-                <button class="fav-button btn button-shared position-absolute"><i
-                    class="fa-regular fa-heart"></i></button>
-                <img class="object-fit-cover h-100 w-100 rounded-top-2" src="../assets/img/hall.webp" alt="">
-            </div>
-            <div class="p-4 bg-primary rounded-bottom-2 shadow justify-content-center">
-                <p class="display-6 fs-2 text-white text-center">{{Service.ServiceName}}</p>
-                <p class="display-3 fs-4 text-white text-center">{{Service.Price}} L.E</p>
-                <ul class="list-inline mb-2 ng">
-                    <li *ngFor="let item of [].constructor(Service.Rate)" class="list-inline-item me-0">
-                        <i class="fas fa-star text-warning"></i>
-                    </li>
-                </ul>
-            </div>
-            <br>
-            <button class="btn button-shared w-100">احجز الأن</button>
-        </section>
-    </div>
-    <!-- Side Component -->
-
-</div>
+ 

@@ -22,6 +22,7 @@ import { ProfileVendorsideComponent } from './components/profile-vendorside/prof
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowerComponent } from './components/followers/follower/follower.component';
+import { FilterComponent } from './components/vendors-page/filter/filter.component';
 
 let vendorRoutes: Routes = [
   {
@@ -70,6 +71,7 @@ let vendorRoutes: Routes = [
     ActionButtonsComponent,
     FollowersComponent,
     FollowerComponent,
+    FilterComponent,
   ]
 })
 export class VendorModule { }
