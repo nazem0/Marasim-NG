@@ -17,7 +17,6 @@
     --priamry-text-color: #222321 !important;
     --fa-primary-color: var(--primary-color-heavy) !important;
     --fa-secondary-color: var(--primary-color-heavy) !important;
-    /*Font-Size*/
     direction: rtl
 }
 
@@ -59,14 +58,6 @@ img {
     --bs-btn-disabled-border-color: var(--primary-color-heavy);
 }
 
-
-@media (min-width: 992px) {
-
-    .g-lg-7,
-    .gx-lg-7 {
-        --bs-gutter-x: 5rem;
-    }
-}
 
 .btn-primary {
     --bs-btn-color: #fff !important;
@@ -113,13 +104,8 @@ i {
     min-height: 16px;
 }
 
-/* 
-section:first-of-type {
-    padding: 3rem 0 0 0rem;
-} */
 
-
-
+/* Responsive Font Size */
 @media (min-width:280px) {
     :root {
         font-size: 10px !important;
