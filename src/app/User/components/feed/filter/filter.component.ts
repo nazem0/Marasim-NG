@@ -1,6 +1,6 @@
-import { ICategory } from 'src/app/Models/ICategory';
-import { CategoryService } from './../../../../Services/Category.service';
 import { Component } from '@angular/core';
+import { ICategory } from 'src/app/Models/ICategory';
+import { CategoryService } from 'src/app/Services/Category.service';
 
 @Component({
   selector: 'app-filter',
@@ -8,10 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-  categories:ICategory[]|null=null;
-constructor(private CategoryService:CategoryService){
-  this.CategoryService.get().subscribe(
-    (categories)=>this.categories=categories
-  )
-}
+  categories: ICategory[] | null = null;
+
+  constructor(private CategoryService: CategoryService) {
+
+    this.CategoryService.get().subscribe(
+      (categories) => this.categories = categories
+    )
+
+  }
 }

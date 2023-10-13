@@ -1,7 +1,3 @@
-button{
-    max-height: 100vh;
-}
-
 /* this is a recreation of twitter search in css */
 .searchInput {
     --focus-input-bg-color: transparent;
@@ -10,9 +6,10 @@ button{
     --width-of-input: 200px;
     --inline-padding-of-input: 1.2em;
     --gap: 0.9rem;
-  }
-  /* form style */
-  .searchInput {
+}
+
+/* form style */
+.searchInput {
     font-size: 0.9rem;
     display: flex;
     gap: 0.5rem;
@@ -20,32 +17,39 @@ button{
     width: var(--width-of-input);
     position: relative;
     isolation: isolate;
-  }
+}
 
-  /* label styling */
-  label {
+/* label styling */
+label {
     width: 100%;
     padding: 0.8em;
     height: 40px;
     padding-inline: var(--inline-padding-of-input);
     display: flex;
     align-items: center;
-  }
-  
-  .search {
+}
+
+.search {
     position: absolute;
     fill: var(--text-color);
     right: var(--inline-padding-of-input);
-  }
-  /* svg -- size */
-  svg {
+}
+
+/* svg -- size */
+svg {
     width: 17px;
     display: block;
-  }
-  /* styling of input */
-  .input {
+}
+
+/* styling of input */
+.input {
     width: 100%;
-    margin-inline: min(2em,calc(var(--inline-padding-of-input) + var(--gap)));
+    margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
     border: unset;
     outline: unset;
-  }
+}
+
+
+.filter-form {
+    top: 4rem;
+}
