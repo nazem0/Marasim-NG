@@ -16,7 +16,7 @@
 
 @media (min-width: 786px) {
     .filter-container {
-        width: 20rem !important;
+        width: 30rem !important;
         overflow: visible;
     }
     .floating-action-button{
@@ -26,6 +26,6 @@
 
 
 .expanded {
-    width: 20rem !important;
+    width: 30rem !important;
     overflow: visible;
 }
