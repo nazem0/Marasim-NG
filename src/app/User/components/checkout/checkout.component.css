@@ -1,0 +1,16 @@
+
+#sumPlan{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.instapay_icon{
+  width: 150px;
+}
+@media screen and (max-width : 673px){
+ .container{width: 100% !important;}
+
+.instapay_icon {
+  width: 115px;
+}
+}

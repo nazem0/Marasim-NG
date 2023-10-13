@@ -20,6 +20,10 @@ import { VendorProfileComponent } from './components/vendor-profile/vendor-profi
 import { FilterComponent } from './components/feed/filter/filter.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { FollowingComponent } from './components/followings/following/following.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
+import { CheckoutFailComponent } from './components/checkout/checkout-fail/checkout-fail.component';
+import { CheckoutLoadingComponent } from './components/checkout/checkout-loading/checkout-loading.component';
 
 
 
@@ -49,7 +53,11 @@ import { FollowingComponent } from './components/followings/following/following.
     VendorProfileComponent,
     FilterComponent,
     FollowingsComponent,
-    FollowingComponent
+    FollowingComponent,
+    CheckoutComponent,
+    CheckoutPassComponent,
+    CheckoutFailComponent,
+    CheckoutLoadingComponent
   ]
 })
 export class UserModule { }

@@ -1,3 +1,9 @@
+import { Component } from '@angular/core';
+import { CommentComponent } from './../Shared/components/post/comments/comment/comment.component';
+import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
+import { CheckoutFailComponent } from './components/checkout//checkout-fail/checkout-fail.component';
+import { CheckoutLoadingComponent } from './components/checkout//checkout-loading/checkout-loading.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { Routes, RouterModule } from '@angular/router';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
 import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
@@ -31,7 +37,14 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'feed', component: FeedComponent },
       { path: 'vendor-profile', component: VendorProfileComponent },
-      { path: 'followings', component: FollowingsComponent }
+      { path: 'followings', component: FollowingsComponent },
+      { path: 'checkout', component: CheckoutComponent },
+      { path: 'checkout/pass', component: CheckoutPassComponent },
+      { path: 'checkout/fail', component: CheckoutFailComponent },
+      { path: 'checkout/loading', component: CheckoutLoadingComponent},
+
+
+
 
 
     ]
