@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IVendor } from '../Models/IVendor';
+import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
-import { Observable } from 'rxjs';
+import { IService } from '../Models/IService';
+import { IServiceAttachment } from '../Models/IServiceAttachment';
 
 @Injectable({
   providedIn: 'root'

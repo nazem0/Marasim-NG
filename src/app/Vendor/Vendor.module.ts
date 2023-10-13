@@ -20,6 +20,8 @@ import { PendingComponent } from './components/pending/pending.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
+import { FollowersComponent } from './components/followers/followers.component';
+import { FollowerComponent } from './components/followers/follower/follower.component';
 
 let vendorRoutes: Routes = [
   {
@@ -35,7 +37,10 @@ let vendorRoutes: Routes = [
       { path: 'edit-service', component: EditServiceComponent },
       { path: 'add-service', component: AddServiceComponent },
       { path: 'pending', component: PendingComponent },
-      { path: 'vendorform', component: VendorFormComponent }
+      { path: 'vendorform', component: VendorFormComponent },
+      { path: 'Followers', component: FollowersComponent },
+
+
     ]
   }
 
@@ -63,6 +68,8 @@ let vendorRoutes: Routes = [
     VendorFormComponent,
     ProfileVendorsideComponent,
     ActionButtonsComponent,
+    FollowersComponent,
+    FollowerComponent,
   ]
 })
 export class VendorModule { }
