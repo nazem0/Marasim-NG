@@ -38,7 +38,8 @@ import { RequestServiceComponent } from './components/request-service/request-se
     CommentsComponent,
     ReactionsComponent,
     ReviewComponent,
-    RequestServiceComponent
+    RequestServiceComponent,
+    VendorCardComponent
   ]
 })
 export class SharedModule { }

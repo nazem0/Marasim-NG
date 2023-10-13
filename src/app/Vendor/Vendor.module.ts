@@ -23,6 +23,7 @@ import { ActionButtonsComponent } from './components/vendor-services/action-butt
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowerComponent } from './components/followers/follower/follower.component';
 import { FilterComponent } from './components/vendors-page/filter/filter.component';
+import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 
 let vendorRoutes: Routes = [
   {
@@ -40,6 +41,7 @@ let vendorRoutes: Routes = [
       { path: 'pending', component: PendingComponent },
       { path: 'vendorform', component: VendorFormComponent },
       { path: 'Followers', component: FollowersComponent },
+      {path:'card',component:VendorCardComponent}
 
 
     ]
