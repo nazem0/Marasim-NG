@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ScrollRevealService } from 'src/app/Services/Scroll-Reveal.service';
+import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 
 @Component({
   selector: 'app-generated-packages',
