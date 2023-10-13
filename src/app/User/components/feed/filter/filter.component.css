@@ -50,6 +50,7 @@ svg {
 }
 
 
-.filter-form {
+.filter {
     top: 4rem;
+    width: 100%;
 }

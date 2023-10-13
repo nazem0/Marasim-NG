@@ -1,5 +1,11 @@
+<button title="التصنيف" type="button" class="primary-btn floating-action-button"
+(click)="showFilter()">
+    <i class="fa fa-caret-left" #caret></i>
+</button>
 <div class="d-flex">
-    <app-filter></app-filter>
+    <div #filterContainer class="filter-container">
+        <app-filter ></app-filter>
+    </div>
     <div class="container">
         <div *ngFor="let post of posts" class="my-4">
             <app-post [post]="post"></app-post>
