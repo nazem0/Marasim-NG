@@ -34,7 +34,7 @@ export class VendorProfileComponent implements OnInit {
   }
   scrollToTargetAdjusted(x: string) {
     var elementPosition = document.getElementById(x)!.getBoundingClientRect().top;
-    var offsetPosition: number = (elementPosition) + (window.scrollY - 80);
+    var offsetPosition: number = (elementPosition) + (window.scrollY - 160);
     window.scrollTo({
       top: offsetPosition,
       behavior: "smooth"
