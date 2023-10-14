@@ -1,3 +1,4 @@
+import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { Component } from '@angular/core';
 import { CommentComponent } from './../Shared/components/post/comments/comment/comment.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: 'checkout/pass', component: CheckoutPassComponent },
       { path: 'checkout/fail', component: CheckoutFailComponent },
       { path: 'checkout/loading', component: CheckoutLoadingComponent},
+      { path: 'vendors', component: ViewVendorsComponent},
 
 
 

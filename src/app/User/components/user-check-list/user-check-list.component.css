@@ -1,40 +1,49 @@
 .task.checked {
-    color: var(--bs-success);
-    /* text-decoration: line-through; */
-    transform: rotate(-5deg); 
+    color: var(--bs-success)!important;
   }
-  
+
   .task.checked:before {
-    content: '\2713'; 
+    content: '\2713';
     display: inline-block;
     margin-right: 5px;
-    color: var(--bs-success); 
     font-weight: bold;
+
   }
   body{
       background-color : var(--primary-background-color)!important;
       color: var(--priamry-text-color) !important;
-  
+
   }
   .loader {
-    border-radius: 40%;
     margin-bottom:1px ;
-    width: 0;
-    height: 4.8px;
+    width: 20px;
+    height: 5px;
     display: inline-block;
     position: relative;
-    background: var(--primary-color-heavy);
+    background:rgb(255, 59, 59);
     box-sizing: border-box;
-    animation: animShallaly 5s linear infinite;
+    animation: animShallaly 2.5s linear infinite;
   }
-  
-  
-  
+.tk{
+  color: red;
+
+}
+
+
   @keyframes animShallaly {
       0% {
-    width: 0;
+    width: 100%;
+    opacity: 0%;
+
   }
-      100% {
+      50% {
+        opacity: 100%;
+    width: 100%;
+
+  }
+
+  100%{
+    opacity: 0%;
     width: 100%;
   }
     }
@@ -45,4 +54,3 @@
       object-fit: cover;
       border-radius: 1%;
   }
-  

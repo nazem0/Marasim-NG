@@ -3,11 +3,11 @@ import { ICategory } from 'src/app/Models/ICategory';
 import { CategoryService } from './../../../Services/Category.service';
 
 @Component({
-  selector: 'app-vendors-page',
-  templateUrl: './vendors-page.component.html',
-  styleUrls: ['./vendors-page.component.css']
+  selector: 'app-view-vendors',
+  templateUrl: './view-vendors.component.html',
+  styleUrls: ['./view-vendors.component.css']
 })
-export class VendorsPageComponent {
+export class ViewVendorsComponent {
   TITLES: any[] = [
     { title: 'القاعات', srcImg: '../assets/img/hall.webp' },
     { title: 'المصورين', srcImg: '../assets/img/photo_session.webp' },
