@@ -1,3 +1,6 @@
+<meta name="referrer" content="no-referrer"/>
+
+
 <!-- <ng-container *ngIf="vendorWithDetails"> -->
 
 <!-- Header -->
@@ -92,7 +95,7 @@
         <hr class="my-0">
 
         <!-- Routing Buttons -->
-        <section class="position-sticky filter-stick bg-white container-fluid">
+        <section class="position-sticky filter-stick bg-white container-fluid z-2">
             <div class="row d-flex gap-5 p-3">
                 <button class="col primary-btn" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
                     عنا</button>
@@ -184,11 +187,13 @@
 
         <!-- Map -->
 
-        <!-- <div>
+        <div>
             <img
-                [src]='getVendorLocation(33,33)'
-                width="840" height="840">
-        </div> -->
+                src="
+                https://maps.googleapis.com/maps/api/staticmap
+                ?center=37.9838,23.7275&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C37.9838,23.7275&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en"
+                >
+        </div>
 
         <!-- End Map -->
 
