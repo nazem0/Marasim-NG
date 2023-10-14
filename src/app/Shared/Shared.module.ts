@@ -9,6 +9,8 @@ import { ReactionComponent } from './components/post/reactions/reaction/reaction
 import { CommentComponent } from './components/post/comments/comment/comment.component';
 import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
 import { ReviewComponent } from './components/review/review.component';
+import { RequestServiceComponent } from './components/request-service/request-service.component';
+import { AttachmentModalComponent } from './components/attachment-modal/attachment-modal.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ReviewComponent } from './components/review/review.component';
     ReactionComponent,
     CommentComponent,
     VendorCardComponent,
-    ReviewComponent
+    ReviewComponent,
+    RequestServiceComponent,
+    AttachmentModalComponent
   ],
   providers:[
   ],
@@ -35,7 +39,10 @@ import { ReviewComponent } from './components/review/review.component';
     AttachmentsComponent,
     CommentsComponent,
     ReactionsComponent,
-    ReviewComponent
+    ReviewComponent,
+    RequestServiceComponent,
+    VendorCardComponent,
+    AttachmentModalComponent
   ]
 })
 export class SharedModule { }

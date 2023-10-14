@@ -1,3 +1,6 @@
+<meta name="referrer" content="no-referrer"/>
+
+
 <!-- <ng-container *ngIf="vendorWithDetails"> -->
 
 <!-- Header -->
@@ -89,22 +92,22 @@
         </section>
         <!-- End Pictures Preview -->
 
-        <hr>
+        <hr class="my-0">
 
         <!-- Routing Buttons -->
-        <section class="sticky-top bg-white container-fluid">
+        <section class="position-sticky filter-stick bg-white container-fluid z-2">
             <div class="row d-flex gap-5 p-3">
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
                     عنا</button>
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
                     السابقة</button>
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
-                <button class="col btn primary-btn" (click)="scrollToTargetAdjusted('Services')">احجز</button>
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('Services')">الخدمات</button>
             </div>
         </section>
         <!-- End Routing Buttons -->
 
-        <hr>
+        <hr class="my-0">
 
         <!-- About -->
         <section id="AboutUs">
@@ -120,10 +123,12 @@
                         مولد النص العربى.
                     </p>
                 </div>
-                <button class="btn primary-btn">إقراء المزيد</button>
+                <button class="primary-btn">إقراء المزيد</button>
             </div>
         </section>
         <!-- End About -->
+
+        <hr class="my-0">
 
         <!-- Work History -->
         <section id="WorkHistory">
@@ -134,10 +139,12 @@
                         <app-post [post]="post"></app-post>
                     </div>
                 </div>
-                <button class="btn primary-btn">اعرض المزيد</button>
+                <button class="primary-btn">اعرض المزيد</button>
             </div>
         </section>
         <!-- End Work History -->
+
+        <hr class="my-0">
 
         <!-- Reviews -->
         <section id="Reviews">
@@ -150,6 +157,8 @@
             </div>
         </section>
         <!-- End Reviews -->
+
+        <hr class="my-0">
 
         <!-- Services -->
         <section id="Services">
@@ -167,6 +176,7 @@
                                     النص
                                     من مولد النص العربى.
                                 </p>
+                                <app-request-service>[service]="service"</app-request-service>
                             </div>
                         </div>
                     </div>
@@ -174,6 +184,16 @@
             </div>
         </section>
         <!-- End Services -->
+
+        <!-- Map -->
+
+        <div>
+            <img
+            title="موقع مقدم الخدمة"
+                src="https://maps.googleapis.com/maps/api/staticmap?center={{currentVendor!.location.lat}},{{currentVendor!.location.lng}}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{currentVendor!.location.lat}},{{currentVendor!.location.lng}}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en">
+        </div>
+
+        <!-- End Map -->
 
     </div>
     <!-- End Main Component -->
@@ -184,7 +204,7 @@
 
     <!-- Side Component -->
     <div class="col-lg-4 col-md-12 flex-column">
-        <section class="container-fluid sticky-top">
+        <section class="container-fluid position-sticky filter-stick">
             <div class="overflow-hidden w-100 position-relative">
                 <button class="fav-button btn position-absolute"><i class="fa-regular fa-heart"></i></button>
                 <img class="object-fit-cover h-100 w-100 rounded-top-2" [src]="currentUserVendor?.photo" alt="">

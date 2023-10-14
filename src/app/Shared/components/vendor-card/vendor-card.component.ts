@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IUser } from 'src/app/Models/IUser';
 
 @Component({
   selector: 'app-vendor-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./vendor-card.component.css']
 })
 export class VendorCardComponent {
-
+@Input() vendor:IUser|null = null
 }

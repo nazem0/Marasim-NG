@@ -1,55 +1,42 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وثيقة</title>
-</head>
-
-<body>
     <div class="container pb-5 pt-5 text-center">
-        <h1>قائمة مهام الزفاف</h1>
+        <h1 class="text-primary mb-5">قائمة مهام الزفاف</h1>
         <div class="row justify-content-center ">
             <div class="col-sm-12  align-items-center cover-img d-flex flex-column p-2 rounded-4">
+              <span id="remaining_days" class="fs-4 text-white mb-3">حدد تاريخ زفافك </span>
                 <div class="d-flex  flex-row form-control w-25" for="wedding_date" style="cursor: pointer">
+
                     <label class=" bg-transparent border-0 input-group-text" for="wedding_date" style="cursor: pointer">تاريخ الزفاف</label>
                     <input type="date" class="border-0 form-control shadow-none" style="cursor: pointer" id="wedding_date">
                 </div>
-                <div class="remaining-time mt-3"> 
-                <h2>  عدد الايام المتبقية :</h2>
-                <span id="remaining_days" class="fs-4">حدد تاريخ زفافك </span>
+                <div class="remaining-time mt-3">
+                <h2 class="text-white">  عدد الايام المتبقية :</h2>
                 </div>
             </div>
- 
-
         </div>
 
         <div class="row justify-content-center fs-6">
             <div class="col-md-12 w-50 mt-5">
 
-                <h2 class="text-center mb-4">قائمة المهام</h2>
-                <span class="loader"></span>
+                <h2 class="text-center mb-3 text-danger">قائمة المهام</h2>
+                <span class="loader mb-3"></span>
 
                 <ul id="task" class="list-group list-group- d-flex" style="cursor: pointer;">
-                    <li class="list-group-item"><span class="task checked">المكان</span></li>
-                    <li class="list-group-item"><span class="task checked">تقديم الطعام</span></li>
-                    <li class="list-group-item"><span class="task checked">التصوير الفوتوغرافي</span></li>
-                    <li class="list-group-item"><span class="task checked">تصوير الفيديو</span></li>
-                    <li class="list-group-item"><span class="task">الزهور</span></li>
-                    <li class="list-group-item"><span class="task">النقل</span></li>
-                    <li class="list-group-item"><span class="task">دعوات</span></li>
-                    <li class="list-group-item"><span class="task">الحفل</span></li>
-                    <li class="list-group-item"><span class="task">الاستقبال</span></li>
+                    <li class="tk list-group-item"><span class="task  checked text-danger">المكان</span></li>
+                    <li class="tk list-group-item"><span class="task checked text-danger">تقديم الطعام</span></li>
+                    <li class="tk list-group-item"><span class="task checked text-danger">التصوير الفوتوغرافي</span></li>
+                    <li class="tk list-group-item"><span class="task checked text-danger">تصوير الفيديو</span></li>
+                    <li class="tk list-group-item"><span class="task text-danger">الزهور</span></li>
+                    <li class="tk list-group-item"><span class="task text-danger">النقل</span></li>
+                    <li class="tk list-group-item"><span class="task text-danger">دعوات</span></li>
+                    <li class="tk list-group-item"><span class="task text-danger">الحفل</span></li>
+                    <li class="tk list-group-item"><span class="task text-danger">الاستقبال</span></li>
                 </ul>
             </div>
-        </div>
+          </div>
         <div class="row">
             <div class="col-md-12 mt-5">
                 <button type="button" class="btn btn-primary">إضافة مهمة</button>
             </div>
         </div>
     </div>
-</body>
-
-</html>

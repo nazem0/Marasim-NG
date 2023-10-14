@@ -2,7 +2,7 @@
     <!-- OL Here -->
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item" *ngFor="let attachment of attachments; let i = index" [class.active]="i === 0">
-            <img [src]="attachment.attachmentUrl" alt="{{postTitle}}">
+            <app-attachment-modal [source]="attachment.attachmentUrl"></app-attachment-modal>
         </div>
     </div>
     <ng-container *ngIf="attachments.length>1">

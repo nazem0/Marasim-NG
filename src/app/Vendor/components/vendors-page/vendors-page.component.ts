@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ICategory } from 'src/app/Models/ICategory';
+import { CategoryService } from './../../../Services/Category.service';
 
 @Component({
   selector: 'app-vendors-page',
@@ -13,11 +15,21 @@ export class VendorsPageComponent {
     { title: 'صالونات التجميل', srcImg: '../assets/img/hairdresser.webp' },
     { title: 'النوادى', srcImg: '../assets/img/club.webp' }
   ];
-
-
+  categories:ICategory[]|null=null;
+  constructor(private CategoryService:CategoryService){
+    this.CategoryService.get().subscribe(
+      (categories)=>this.categories=categories
+    )
+  }
+  poto=this.TITLES[0].srcImg
   CARDS: string[] = [
     'zzz',
     'zzz',
     'zzz',
   ];
+
+rate:string="";
+cost:string='';
+country:string="";
+
 }

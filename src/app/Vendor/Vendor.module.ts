@@ -30,6 +30,8 @@ import { StatNavComponent } from './components/statistic/stat-nav.component';
 import { TotalEarningsChartComponent } from './components/statistic/total-earnings-chart/total-earnings-chart.component';
 import { TotalServicesChartComponent } from './components/statistic/total-services-chart/total-services-chart.component';
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
+import { FilterComponent } from './components/vendors-page/filter/filter.component';
+import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 
 let vendorRoutes: Routes = [
   {
@@ -48,6 +50,9 @@ let vendorRoutes: Routes = [
       { path: 'vendorform', component: VendorFormComponent },
       { path: 'Followers', component: FollowersComponent },
       { path: 'stats', component: StatNavComponent },
+      {path:'card',component:VendorCardComponent}
+
+
     ]
   }
 
@@ -84,7 +89,8 @@ let vendorRoutes: Routes = [
     StatNavComponent,
     TotalEarningsChartComponent,
     TotalServicesChartComponent,
-    CompletedOrdersChartComponent
+    CompletedOrdersChartComponent,
+    FilterComponent,
   ]
 })
 export class VendorModule { }
