@@ -1,7 +1,10 @@
+import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
+
 
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -22,6 +25,11 @@ import { ProfileVendorsideComponent } from './components/profile-vendorside/prof
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowerComponent } from './components/followers/follower/follower.component';
+import { StatNavComponent } from './components/statistic/stat-nav.component';
+
+import { TotalEarningsChartComponent } from './components/statistic/total-earnings-chart/total-earnings-chart.component';
+import { TotalServicesChartComponent } from './components/statistic/total-services-chart/total-services-chart.component';
+import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
 
 let vendorRoutes: Routes = [
   {
@@ -39,8 +47,7 @@ let vendorRoutes: Routes = [
       { path: 'pending', component: PendingComponent },
       { path: 'vendorform', component: VendorFormComponent },
       { path: 'Followers', component: FollowersComponent },
-
-
+      { path: 'stats', component: StatNavComponent },
     ]
   }
 
@@ -52,7 +59,11 @@ let vendorRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(vendorRoutes),
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgChartsModule,
+    
+    
+    
   ],
   exports: [],
   declarations: [
@@ -70,6 +81,10 @@ let vendorRoutes: Routes = [
     ActionButtonsComponent,
     FollowersComponent,
     FollowerComponent,
+    StatNavComponent,
+    TotalEarningsChartComponent,
+    TotalServicesChartComponent,
+    CompletedOrdersChartComponent
   ]
 })
 export class VendorModule { }
