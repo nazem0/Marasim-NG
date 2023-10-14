@@ -1,6 +1,4 @@
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
-import { Component } from '@angular/core';
-import { CommentComponent } from './../Shared/components/post/comments/comment/comment.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
 import { CheckoutFailComponent } from './components/checkout//checkout-fail/checkout-fail.component';
 import { CheckoutLoadingComponent } from './components/checkout//checkout-loading/checkout-loading.component';
@@ -12,7 +10,6 @@ import { InvitationComponent } from './components/invitation/invitation.componen
 import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
-import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from '../Shared/components/home/home.component';
 import { ContactComponent } from '../Shared/components/contact/contact.component';
@@ -33,8 +30,7 @@ const routes: Routes = [
       { path: 'invitation', component: InvitationComponent },
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent },
+
       { path: 'contact', component: ContactComponent },
       { path: 'feed', component: FeedComponent },
       { path: 'vendor-profile', component: VendorProfileComponent },
@@ -44,13 +40,10 @@ const routes: Routes = [
       { path: 'checkout/fail', component: CheckoutFailComponent },
       { path: 'checkout/loading', component: CheckoutLoadingComponent},
       { path: 'vendors', component: ViewVendorsComponent},
-
-
-
-
-
-    ]
-  }
+    ],
+  },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent }
 
 ];
 

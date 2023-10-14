@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
 import { CoverComponent } from './components/invitation/cover/cover.component';
 import { InvitationComponent } from './components/invitation/invitation.component';
 import { CounterComponent } from './components/invitation/counter/counter.component';
@@ -40,7 +39,6 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
     UserCheckListComponent,
     InvitationListComponent,
     UserEditProfileComponent,
-    UserProfileEditComponent,
     CoverComponent,
     InvitationComponent,
     CounterComponent,
