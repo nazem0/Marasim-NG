@@ -1,4 +1,4 @@
-<meta name="referrer" content="no-referrer"/>
+<meta name="referrer" content="no-referrer" />
 
 
 <!-- <ng-container *ngIf="vendorWithDetails"> -->
@@ -103,6 +103,8 @@
                     السابقة</button>
                 <button class="col primary-btn" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
                 <button class="col primary-btn" (click)="scrollToTargetAdjusted('Services')">الخدمات</button>
+                <button class="col primary-btn" (click)="scrollToTargetAdjusted('Map')">الموقع</button>
+
             </div>
         </section>
         <!-- End Routing Buttons -->
@@ -186,13 +188,13 @@
         <!-- End Services -->
 
         <!-- Map -->
-
-        <div>
-            <img
-            title="موقع مقدم الخدمة"
-                src="https://maps.googleapis.com/maps/api/staticmap?center={{currentVendor!.location.lat}},{{currentVendor!.location.lng}}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{currentVendor!.location.lat}},{{currentVendor!.location.lng}}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en">
-        </div>
-
+        <section id="Map">
+            <div class="p-3">
+                <h2>موقعنا</h2>
+                <img title="موقع مقدم الخدمة"
+                    src="https://maps.googleapis.com/maps/api/staticmap?center={{currentVendor!.location.lat}},{{currentVendor!.location.lng}}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{currentVendor!.location.lat}},{{currentVendor!.location.lng}}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en">
+            </div>
+        </section>
         <!-- End Map -->
 
     </div>
