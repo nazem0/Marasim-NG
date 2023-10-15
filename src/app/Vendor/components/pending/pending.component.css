@@ -97,11 +97,11 @@
     content: '★ ';
 }
 .rate > input:checked ~ label {
-    color: #ffc700;    
+    color: #ffc700;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+    color: #deb217;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
@@ -125,3 +125,7 @@ table.table td.text-center input[type="text"]:focus {
     border: 2px solid #7360ff;
 }
 /*  */
+.link-pay{
+  text-decoration: none;
+  color: black;
+}
