@@ -21,6 +21,7 @@ import { VendorProfileComponent } from './components/vendor-profile/vendor-profi
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
+import { PendingComponent } from './components/pending/pending.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
       {path:"create-invitation", component:CreateInvitationComponent},
       {path:"edit-profil", component:UserEditProfileComponent},
       {path:"carousel",component:CarouselComponent}
+     {path:"reservation", component:PendingComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },

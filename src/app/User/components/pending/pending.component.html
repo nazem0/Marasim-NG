@@ -1,24 +1,25 @@
-<div class="Parent">
-  <div class="container">
-    <h1 class="text-center p-4">الحجـــــوزات</h1>
-    <div class="tabs-box">
-      <button class="tab-btn" [class.active]="activeTab === 'المعلقـة'"
-        (click)="setActiveTab('المعلقـة')">المعلقـة</button>
-      <button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
-        (click)="setActiveTab('المقبولـة')">المقبولـة</button>
-      <button class="tab-btn" [class.active]="activeTab === 'الملغيـة'"
-        (click)="setActiveTab('الملغيـة')">الملغيـة</button>
-      <button class="tab-btn" [class.active]="activeTab === 'المرفوضـة'"
-        (click)="setActiveTab('المرفوضـة')">المرفوضـة</button>
-      <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
-        (click)="setActiveTab('السابقـة')">السابقـة</button>
-        <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
-      </div>
 
+<h1 class="text-center py-5 text-primary">الحجـــــوزات</h1>
+  <div class="container mt-5">
+
+
+  <div class="tabs-box">
+    <button class="tab-btn" [class.active]="activeTab === 'المعلقـة'"
+      (click)="setActiveTab('المعلقـة')">المعلقـة</button>
+    <button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
+      (click)="setActiveTab('المقبولـة')">المقبولـة</button>
+    <button class="tab-btn" [class.active]="activeTab === 'الملغيـة'"
+      (click)="setActiveTab('الملغيـة')">الملغيـة</button>
+    <button class="tab-btn" [class.active]="activeTab === 'المرفوضـة'"
+      (click)="setActiveTab('المرفوضـة')">المرفوضـة</button>
+    <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
+      (click)="setActiveTab('السابقـة')">السابقـة</button>
+      <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
+    </div>
     <div class="content-box">
       <div class="content" [class.active]="activeTab === 'المعلقـة'">
         <h2>المعلقـة</h2>
-        <table class="table table-striped">
+        <table class="table ">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -60,7 +61,7 @@
       </div>
       <div class="content" [class.active]="activeTab === 'المقبولـة'">
         <h2>المقبولـة</h2>
-        <table class="table table-striped">
+        <table class="table ">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -80,7 +81,7 @@
               <td class="text-center">27/07/2023</td>
               <td class="text-center">9000 L.E</td>
               <td class="text-center">
-                <button type="button" class="btn btn-info"><a class="link-pay" routerLink="/checkout">ادفع جزء من المبلغ</a></button>
+                <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout">ادفع جزء من المبلغ</a></button>
               </td>
             </tr>
             <tr>
@@ -92,7 +93,7 @@
               <td class="text-center">27/07/2023</td>
               <td class="text-center">9000 L.E</td>
               <td class="text-center">
-                <button type="button" class="btn btn-info"><a class="link-pay" routerLink="/checkout">ادفع جزء من المبلغ</a></button>
+                <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout">ادفع جزء من المبلغ</a></button>
               </td>
             </tr>
             <tr>
@@ -104,7 +105,7 @@
               <td class="text-center">27/07/2023</td>
               <td class="text-center">9000 L.E</td>
               <td class="text-center">
-                <button type="button" class="btn btn-info"><a class="link-pay" routerLink="/checkout">ادفع جزء من المبلغ</a></button>
+                <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout">ادفع جزء من المبلغ</a></button>
               </td>
             </tr>
           </tbody>
@@ -112,7 +113,7 @@
       </div>
       <div class="content" [class.active]="activeTab === 'الملغيـة'">
         <h2>الملغيـة</h2>
-        <table class="table table-striped">
+        <table class="table ">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -154,7 +155,7 @@
       </div>
       <div class="content" [class.active]="activeTab === 'المرفوضـة'">
         <h2>المرفوضـة</h2>
-        <table class="table table-striped">
+        <table class="table ">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -194,9 +195,9 @@
           </tbody>
         </table>
       </div>
-      <div class="content" [class.active]="activeTab === 'السابقـة'">
+      <div class="content fs-5" [class.active]="activeTab === 'السابقـة'">
         <h2>السابقـة</h2>
-        <table class="table table-striped">
+        <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -233,7 +234,7 @@
                 </div>
               </td>
               <td class="text-center">
-                <button type="button" class="btn btn-info">تـأكيد</button>
+                <button type="button" class="btn btn-primary ">تـأكيد</button>
               </td>
             </tr>
             <tr>
@@ -261,7 +262,7 @@
                 </div>
               </td>
               <td class="text-center">
-                <button type="button" class="btn btn-info">تـأكيد</button>
+                <button type="button" class="btn btn-primary">تـأكيد</button>
               </td>
             </tr>
             <tr>
@@ -289,7 +290,7 @@
                 </div>
               </td>
               <td class="text-center">
-                <button type="button" class="btn btn-info">تـأكيد</button>
+                <button type="button" class="btn btn-primary">تـأكيد</button>
               </td>
             </tr>
           </tbody>
@@ -297,4 +298,3 @@
       </div>
     </div>
   </div>
-</div>

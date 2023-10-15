@@ -1,83 +1,72 @@
 <div class="head">
   <!-- <i class="fas fa-user fs-1 "></i> -->
-  <h1 class="text-primary text-center py-5 fs-2">اختر ما يناسبك  من الفئات</h1>
-  </div>
+  <h1 class="text-primary text-center py-5 fs-2">اختر ما يناسبك من الفئات</h1>
+</div>
 
-  <!-- Search Bar -->
-  <div class="container searching mb-5" >
-      <div class="search-bar">
-          <div class="input-group">
-              <span class="input-group-text"><i class="fa-solid fa-search"></i>
-              </span>
-              <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
-                  <label for="floatingInputGroup2" class="mt-2">بحث</label>
-              </div>
-              <div class="form-floating">
-                  <select class="form-select p-0" id="floatingSelectGrid">
-                      <option disabled hidden selected value="">اختر من بين الفئات</option>
-                      <option value="1">القاعات</option>
-                      <option value="2">المصورين</option>
-                      <option value="3">المطاعم</option>
-                      <option value="4">صالونات التجميل</option>
-                      <option value="5">النوادى</option>
-                  </select>
-                  <!-- <label for="floatingSelectGrid">اختر من بين الفئات</label> -->
-              </div>
-
-              <button title="فلتر" class="btn btn-primary sticky-bottom" type="button" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-              <i class="fa-solid fa-filter text-white"></i>
-             </button>
-
-              <button class="btn button__shared">بحث</button>
-          </div>
-
-
-
-
+<!-- Search Bar -->
+<div class="container searching mb-5">
+  <div class="search-bar">
+    <div class="input-group">
+      <span class="input-group-text"><i class="fa-solid fa-search"></i>
+      </span>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
+        <label for="floatingInputGroup2" class="mt-2 px-2">بحث</label>
       </div>
+      <div class="form-floating">
+        <select class="form-select py-0" id="floatingSelectGrid">
+          <option disabled hidden selected value="">اختر من بين الفئات</option>
+          <option value="1">القاعات</option>
+          <option value="2">المصورين</option>
+          <option value="3">المطاعم</option>
+          <option value="4">صالونات التجميل</option>
+          <option value="5">النوادى</option>
+        </select>
+        <!-- <label for="floatingSelectGrid">اختر من بين الفئات</label> -->
+      </div>
+
+      <button title="فلتر" class="btn button__shared" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <i class="fa-solid fa-filter text-white"></i>
+      </button>
+
+      <button class="btn button__shared">بحث <i class="fa-solid fa-search"></i></button>
+    </div>
+
+
+
+
   </div>
-  <!-- End Search Bar -->
+</div>
+<!-- End Search Bar -->
 
 
 
 
-  <!-- Cards -->
+<!-- Cards -->
 
 
-  <section *ngFor="let title of TITLES" class="container">
-      <!-- <div class=" position-relative h-100 ">
-          <picture class="d-flex justify-content-end rounded overflow-hidden w-100 h-100">
-              <img class="object-fit-cover rounded h-100 w-75" [src]='title.srcImg' alt="">
-          </picture>
-          <div class="serviceBanner rounded p-4 position-absolute bg-primary top-50">
-              <h1 class="text-white">{{title.title}}</h1>
-              <p class="text-white">اختر ما يناسبك من {{title.title}} المتعددة لدينا</p>
-          </div>
-      </div> -->
-      <div class="col-sm-12  align-items-center cover-img d-flex flex-column rounded-4 bg-primary-subtle">
-        <h1 class="text-white  mt-2">{{title.title}}</h1>
-        <p class="text-white mb-4">اختر ما يناسبك من {{title.title}} المتعددة لدينا</p>
-
-        <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-          <div
-              class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-              <div class="col card text-center pt-3 mb-3" *ngFor="let card of CARDS">
-                  <img class="card-img-top mx-auto rounded" [src]='title.srcImg'>
-                  <div class="card-body">
-                      <h3 class="card-title">{{title.title}}</h3>
-                      <p class="card-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                          توليد هذا
-                          النص
-                          من مولد النص العربى.
-                      </p>
-                  </div>
-              </div>
+<section *ngFor="let cat of categories let i = index" class="container">
+  <div class="col-sm-12 align-items-center cover-img d-flex flex-column rounded-4">
+    <h1 class="text-white mt-2">{{cat.name}}</h1>
+    <p class="text-white mb-4">اختر ما يناسبك من {{cat.name}} المتعددة لدينا</p>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+      <div
+        class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
+        <div class="col card text-center p-0 m-0" *ngFor="let item of CatWithVendors?.vendors">
+          <img class="card-img-top rounded p-0 m-0" [src]='cat.photo'> <!-- get vendor photo from user -->
+          <div class="card-body">
+            <h5 class="card-title">{{item.summary}}</h5>
+            <p class="card-text"> {{item.summary}}</p>
+            <p>{{item.location.lat}} + {{item.location.lng}}</p>
+            <button class ="primary-btn">Request Pricing</button>
           </div>
         </div>
-        <button class="btn btn-primary mb-3 fs-4 border-0">عرض المزيد..</button>
+      </div>
     </div>
+    <br>
+    <button class=" danger-btn mb-3 fs-4 border-0">عرض المزيد..</button>
+  </div>
 
 
 
@@ -110,15 +99,12 @@
 
         <div>
           <p>الأقسام</p>
-          <ng-container *ngFor="let cat of TITLES">
+          <ng-container *ngFor="let cat of categories">
             <div class="form-check d-flex justify-content-between align-items-center">
-              <input
-              title="{{cat.title}}"
-              class="form-check-input" type="checkbox"
-              [value]="cat.id" id=""
-              name="categories[]">
+              <input title="{{cat.name}}" class="form-check-input" type="checkbox" [value]="cat.id" id=""
+                name="categories[]">
               <label class="form-check-label" for="">
-                {{cat.title}}
+                {{cat.name}}
               </label>
             </div>
           </ng-container>
@@ -144,15 +130,15 @@
 
         <div class="form-floating2 mb-3">
 
-            <select class="form-select p-0" id="floatingSelectGrid">
-              <option disabled hidden selected value="">اختر المحافظة</option>
-              <option value="0">الكل</option>
-              <option value="1">القاهرة</option>
-              <option value="2">الاسكندرية</option>
-              <option value="3">المنيا</option>
-              <option value="4">الاقصر </option>
-              <option value="5">اسوان</option>
-            </select>
+          <select class="form-select p-0" id="floatingSelectGrid">
+            <option disabled hidden selected value="">اختر المحافظة</option>
+            <option value="0">الكل</option>
+            <option value="1">القاهرة</option>
+            <option value="2">الاسكندرية</option>
+            <option value="3">المنيا</option>
+            <option value="4">الاقصر </option>
+            <option value="5">اسوان</option>
+          </select>
         </div>
 
 
@@ -162,5 +148,3 @@
   </div>
 
   <!-- End Filter -->
-
-

@@ -12,7 +12,6 @@ import { IServiceAttachment } from '../Models/IServiceAttachment';
 export class VendorService {
     constructor(private http: HttpClient) {
     }
-
     public getVendorWithUser(vendorId: number, userId: number): Observable<[IVendor, IUser]> {
         return forkJoin
             ([
@@ -20,9 +19,6 @@ export class VendorService {
                 this.http.get<IUser>(`http://localhost:3000/users/${userId}`)
             ]);
     }
-
-
-
     get() {
         return this.http.get<IVendor[]>("http://localhost:3000/vendors/")
     }

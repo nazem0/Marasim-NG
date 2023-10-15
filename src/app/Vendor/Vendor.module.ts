@@ -15,7 +15,7 @@ import { ReservationItemComponent } from './components/reservation/reservation-i
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
-import { PendingComponent } from './components/pending/pending.component';
+import { PendingComponent } from '../User/components/pending/pending.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
