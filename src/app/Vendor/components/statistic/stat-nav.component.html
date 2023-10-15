@@ -1,32 +1,33 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <ul class="nav nav-tabs justify-content-center" role="tablist">
-        <li class="nav-item" role="presentation" (click)="selectTab('tab1')" [class.active]="selectedTab === 'tab1'" [style.background-color]="selectedTab === 'tab1' ? '#23c0c9' : ''">
-          <a class="nav-link">
-            <img src="assets/img/bar-chart.png" class="img-fluid">
-            <span>عدد الخدمات</span>
-          </a>
-        </li>
-        <li class="nav-item" role="presentation" (click)="selectTab('tab2')" [class.active]="selectedTab === 'tab2'" [style.background-color]="selectedTab === 'tab2' ? '#23c0c9' : ''">
-          <a class="nav-link">
-            <img src="assets/img/line-chart.png" class="img-fluid">
-            <span>الارباح</span>
-          </a>
-        </li>
-        <li class="nav-item" role="presentation" (click)="selectTab('tab3')" [class.active]="selectedTab === 'tab3'" [style.background-color]="selectedTab === 'tab3' ? '#23c0c9' : ''">
-          <a class="nav-link">
-            <img src="assets/img/bar-chart.png" class="img-fluid">
-            <span>الحجوزات المكتملة</span>
-          </a>
-        </li>
-      </ul>
+  <h1 class="text-center mt-5 text-primary">الاحصائيات</h1>
+  <br>
+  <div class="d-flex flex-column">
+    <ul class="nav nav-tabs justify-content-center" role="tablist">
+      <li class="nav-item" role="presentation" (click)="selectTab('tab1')" [class.active]="selectedTab === 'tab1'">
+        <a class="nav-link">
+          <i class="fa-solid fa-chart-simple"></i>
+          <span [style.color]="selectedTab === 'tab1' ? '#23c0c9' : ''"> عدد الخدمات</span>
+        </a>
+      </li>
+      <li class="nav-item" role="presentation" (click)="selectTab('tab2')" [class.active]="selectedTab === 'tab2'">
+        <a class="nav-link">
+          <i class="fa-solid fa-chart-line"></i>
+          <span [style.color]="selectedTab === 'tab2' ? '#23c0c9' : ''"> الارباح</span>
+        </a>
+      </li>
+      <li class="nav-item" role="presentation" (click)="selectTab('tab3')" [class.active]="selectedTab === 'tab3'">
+        <a class="nav-link">
+          <i class="fa-solid fa-chart-simple"></i>
+          <span [style.color]="selectedTab === 'tab3' ? '#23c0c9' : ''"> الحجوزات المكتملة</span>
+        </a>
+      </li>
+    </ul>
 
-      <div class="col-6 mx-auto py-5">
-        <app-total-services-chart *ngIf="selectedTab === 'tab1'"></app-total-services-chart>
-        <app-total-earnings-chart *ngIf="selectedTab === 'tab2'"></app-total-earnings-chart>
-        <app-completed-orders-chart *ngIf="selectedTab === 'tab3'"></app-completed-orders-chart>
-      </div>
+    <div class="mx-auto py-5">
+      <app-total-services-chart *ngIf="selectedTab === 'tab1'"></app-total-services-chart>
+      <app-total-earnings-chart *ngIf="selectedTab === 'tab2'"></app-total-earnings-chart>
+      <app-completed-orders-chart *ngIf="selectedTab === 'tab3'"></app-completed-orders-chart>
     </div>
   </div>
+
 </div>

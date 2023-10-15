@@ -1,7 +1,7 @@
 
-.nav-tabs .nav-link.active {
+/* .nav-tabs .nav-link.active {
   background-color: #23c0c9 !important;
-}
+} */
 
 
 .img-fluid  {
@@ -13,6 +13,7 @@
   cursor: pointer;
   align-items: center;
   transition: transform 0.3s;
+  overflow: hidden !important;
 }
 .nav-item:hover {
   transform: scale(1.05);
