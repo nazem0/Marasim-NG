@@ -41,14 +41,6 @@ export class VendorProfileComponent implements OnInit {
     });
   }
 
-  getVendorLocation(lat: number, lng: number): string {
-    // return `https://maps.googleapis.com/maps/api/staticmap?center=33,33&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C${lat},${lng}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=ar`;
-    // return `https://maps.googleapis.com/maps/api/staticmap?center=${lat.toString()},${lng.toString()}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C${lat.toString()},${lng.toString()}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=ar`;
-    // return `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C#37.9838,23.7275#&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=ar`
-    return `https://maps.googleapis.com/maps/api/staticmap?center=37.9838,23.7275&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C37.9838,23.7275&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en`
-
-  }
-
 
 
   REVIEWS: any[] = [
