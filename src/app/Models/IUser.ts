@@ -1,5 +1,5 @@
 export interface IUser {
-    id: number, 
+    id: number,
     name: string,
     phone: string,
     email: string,
@@ -8,10 +8,11 @@ export interface IUser {
     gender: string,
     role: string,
     nationalID: string
+    location:string
 }
 
 
-    // "id": 1, 
+    // "id": 1,
     // "name": "John Doe",
     // "phone": "123-456-7890",
     // "email": "john@example.com",
@@ -20,4 +21,4 @@ export interface IUser {
     // "gender": "male",
     // "role": "user",
     // "nationalID": "123-45-6789"
-  
+    //"location":"سان فرانسيسكو -شارع مارتنيز ويليم"

@@ -24,6 +24,8 @@ import { CheckoutPassComponent } from './components/checkout/checkout-pass/check
 import { CheckoutFailComponent } from './components/checkout/checkout-fail/checkout-fail.component';
 import { CheckoutLoadingComponent } from './components/checkout/checkout-loading/checkout-loading.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 
 
 
@@ -57,7 +59,9 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
     CheckoutPassComponent,
     CheckoutFailComponent,
     CheckoutLoadingComponent,
-    ViewVendorsComponent
+    ViewVendorsComponent,
+    ProfileEditComponent,
+    ViewUserProfileComponent
   ]
 })
 export class UserModule { }

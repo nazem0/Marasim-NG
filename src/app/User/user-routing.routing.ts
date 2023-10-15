@@ -1,3 +1,4 @@
+import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
 import { CheckoutFailComponent } from './components/checkout//checkout-fail/checkout-fail.component';
@@ -40,6 +41,8 @@ const routes: Routes = [
       { path: 'checkout/fail', component: CheckoutFailComponent },
       { path: 'checkout/loading', component: CheckoutLoadingComponent},
       { path: 'vendors', component: ViewVendorsComponent},
+      {path:'view-profile',component:ViewUserProfileComponent}
+
     ],
   },
   { path: 'register', component: RegisterComponent },

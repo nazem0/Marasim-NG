@@ -1,0 +1,19 @@
+.Card
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.edit-icon{
+  position: absolute;
+  left:0;
+  top: 46%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.info-card
+{
+
+  width: 700px;
+}

@@ -3,12 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-
-
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
-
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
 import { CreateOfferComponent } from './components/vendor-services/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
@@ -32,6 +28,9 @@ import { TotalServicesChartComponent } from './components/statistic/total-servic
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
 import { FilterComponent } from './components/vendors-page/filter/filter.component';
 import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
+//import { ViewProfileComponent } from '../vendor/components/view-profile/view-profile.component';
 
 let vendorRoutes: Routes = [
   {
@@ -50,7 +49,8 @@ let vendorRoutes: Routes = [
       { path: 'vendorform', component: VendorFormComponent },
       { path: 'Followers', component: FollowersComponent },
       { path: 'stats', component: StatNavComponent },
-      {path:'card',component:VendorCardComponent}
+      {path:'card',component:VendorCardComponent},
+      {path:'profile-edit',component:ProfileEditComponent}
 
 
     ]
@@ -66,9 +66,9 @@ let vendorRoutes: Routes = [
     FormsModule,
     SharedModule,
     NgChartsModule,
-    
-    
-    
+
+
+
   ],
   exports: [],
   declarations: [
@@ -91,6 +91,9 @@ let vendorRoutes: Routes = [
     TotalServicesChartComponent,
     CompletedOrdersChartComponent,
     FilterComponent,
+    ProfileEditComponent,
+    VendorDashboardComponent,
+    //ngViewProfileComponent,
   ]
 })
 export class VendorModule { }
