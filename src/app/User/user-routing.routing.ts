@@ -43,7 +43,8 @@ const routes: Routes = [
       { path: 'checkout/loading', component: CheckoutLoadingComponent},
       { path: 'vendors', component: ViewVendorsComponent},
       {path:'view-profile',component:ViewUserProfileComponent},
-      {path:"create-invitation", component:CreateInvitationComponent}
+      {path:"create-invitation", component:CreateInvitationComponent},
+      {path:"edit-profil", component:UserEditProfileComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },

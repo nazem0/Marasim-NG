@@ -12,4 +12,8 @@ export class NavBarComponent   {
   ngOnInit(){
     this.isLogged=this.AuthService.loggedIn;
   }
+  logout(){
+    this.isLogged=!this.AuthService.loggedIn;
+
+  }
 }
