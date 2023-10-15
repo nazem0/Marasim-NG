@@ -4,6 +4,7 @@ import { RegisterComponent } from './Shared/components/register/register.compone
 import { LoginComponent } from './Shared/components/login/login.component';
 import { PageNotFoundComponent } from './Shared/components/page-not-found/page-not-found.component';
 import { ContactComponent } from './Shared/components/contact/contact.component';
+import { AuthGuard } from './Guards/user.guard';
 
 const routes: Routes = [
 
@@ -12,6 +13,7 @@ const routes: Routes = [
     path: 'vendor',
     loadChildren: () =>
       import('./Vendor/Vendor.module').then((m) => m.VendorModule),
+      canActivate: [AuthGuard]
   },
   {
     path: '',
