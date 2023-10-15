@@ -47,7 +47,7 @@ const routes: Routes = [
       {path:'view-profile',component:ViewUserProfileComponent},
       {path:"create-invitation", component:CreateInvitationComponent},
       {path:"edit-profil", component:UserEditProfileComponent},
-      {path:"carousel",component:CarouselComponent}
+      {path:"carousel",component:CarouselComponent},
      {path:"reservation", component:PendingComponent}
     ],
   },
