@@ -20,6 +20,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
+import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
       { path: 'vendors', component: ViewVendorsComponent},
       {path:'view-profile',component:ViewUserProfileComponent},
       {path:"create-invitation", component:CreateInvitationComponent},
-      {path:"edit-profil", component:UserEditProfileComponent}
+      {path:"edit-profil", component:UserEditProfileComponent},
+      {path:"carousel",component:CarouselComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },
