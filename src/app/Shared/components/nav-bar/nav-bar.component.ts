@@ -7,13 +7,14 @@ import { AuthService } from 'src/app/Services/Auth.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent   {
-  isLogged:boolean=false;
+  isLogged:boolean=this.AuthService.loggedIn;
   constructor(private AuthService:AuthService){}
   ngOnInit(){
+    console.log(this.isLogged)
     this.isLogged=this.AuthService.loggedIn;
   }
   logout(){
-    this.isLogged=!this.AuthService.loggedIn;
-
+    this.AuthService.loggedIn=!this.AuthService.loggedIn;
+    this.isLogged=this.AuthService.loggedIn;
   }
 }
