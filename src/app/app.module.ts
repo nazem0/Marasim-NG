@@ -11,6 +11,8 @@ import { PendingComponent } from './Vendor/components/pending/pending.component'
 import { EditServiceComponent } from './Vendor/components/edit-service/edit-service.component';
 import { AddServiceComponent } from './Vendor/components/add-service/add-service.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthService } from './Services/Auth.service';
+import { AuthGuard } from './Guards/user.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
