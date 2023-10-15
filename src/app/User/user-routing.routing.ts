@@ -19,6 +19,7 @@ import { RegisterComponent } from '../Shared/components/register/register.compon
 import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
+import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 
 const routes: Routes = [
   {
@@ -41,8 +42,8 @@ const routes: Routes = [
       { path: 'checkout/fail', component: CheckoutFailComponent },
       { path: 'checkout/loading', component: CheckoutLoadingComponent},
       { path: 'vendors', component: ViewVendorsComponent},
-      {path:'view-profile',component:ViewUserProfileComponent}
-
+      {path:'view-profile',component:ViewUserProfileComponent},
+      {path:"create-invitation", component:CreateInvitationComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },
