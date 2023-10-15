@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse col-8 nav-items justify-content-end"
                 id="navbarNav">
                 <ul
-                    class="navbar-nav navbar-list align-items-center gap-5">
+                    class="navbar-nav navbar-list align-items-center gap-3">
                     <li class="navbar-item">
                         <a class="nav-link" routerLink="/">الرئيسية</a>
                     </li>
@@ -30,10 +30,17 @@
                     <li class="navbar-item">
                         <a class="nav-link" href="">اتصل بنا</a>
                     </li>
-                      <li class="navbar-item">
+                    <ng-container *ngIf="!isLogged">
+                      <li class="navbar-item ">
                         <button class="btn btn-outline-primary m-1" routerLink="/login" > تسجيل الدخول</button>
                         <button class="btn btn-outline-primary m-1" routerLink="/register" > سجل الان</button>
                       </li>
+                    </ng-container>
+                    <!-- <ng-container *ngIf="isLogged">
+                      <li class="navbar-item ">
+
+                      </li>
+                    </ng-container> -->
                 </ul>
             </div>
         </div>
