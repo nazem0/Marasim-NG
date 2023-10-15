@@ -2,14 +2,10 @@
 /* ---------------- */
 /* ---------------- */
 
-.section-padding {
-    padding: 20px 0;
-}
 .wpo-contact-section .wpo-contact-section-wrapper {
     position: relative;
     max-width: 650px;
     margin: 0 auto;
-    padding: 10px;
     box-shadow: 0px 2px 16.8px 3.2px rgba(0, 0, 0, 0.08);
     background: #fff;
 }

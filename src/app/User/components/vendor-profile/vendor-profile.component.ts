@@ -5,6 +5,9 @@ import { IVendor } from 'src/app/Models/IVendor';
 import { IVendorWithDetails } from 'src/app/Models/IVendorWithDetails';
 import { UserService } from 'src/app/Services/User.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
+// import Swiper from 'swiper';
+// import { Navigation, Pagination } from 'swiper/modules';
+
 
 @Component({
   selector: 'app-vendor-profile',
@@ -16,10 +19,6 @@ export class VendorProfileComponent implements OnInit {
   currentVendor: IVendor | null = null;
   currentServices: IService[] | null = null;
   vendorWithDetails: IVendorWithDetails | undefined;
-
-
-
-
 
   constructor(private vendor: VendorService, private user: UserService) { }
 
@@ -103,5 +102,28 @@ export class VendorProfileComponent implements OnInit {
     }
   ];
 
+
+
+  // swiper = new Swiper('.swiper', {
+  //   // Optional parameters
+  //   direction: 'horizontal',
+  //   loop: true,
+  
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
+  
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 
 }

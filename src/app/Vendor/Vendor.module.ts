@@ -30,45 +30,18 @@ import { FilterComponent } from './components/vendors-page/filter/filter.compone
 import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
+import { VendorRoutes } from './vendor-routing.routing';
 //import { ViewProfileComponent } from '../vendor/components/view-profile/view-profile.component';
 
-let vendorRoutes: Routes = [
-  {
-    path: '', component: LayoutComponent, children: [
 
-      { path: '', component: VendorsPageComponent },
-      { path: 'profile', component: ProfileVendorsideComponent },
-      { path: 'create-offer', component: CreateOfferComponent },
-      { path: 'reviews', component: VendorReviewsComponent },
-      { path: 'services', component: VendorServicesComponent },
-      { path: 'work-history', component: WorkHistoryComponent },
-      { path: 'reservation', component: ReservationComponent },
-      { path: 'edit-service', component: EditServiceComponent },
-      { path: 'add-service', component: AddServiceComponent },
-      { path: 'pending', component: PendingComponent },
-      { path: 'vendorform', component: VendorFormComponent },
-      { path: 'Followers', component: FollowersComponent },
-      { path: 'stats', component: StatNavComponent },
-      {path:'card',component:VendorCardComponent},
-      {path:'profile-edit',component:ProfileEditComponent}
-
-
-    ]
-  }
-
-]
 
 @NgModule({
-
   imports: [
     CommonModule,
-    RouterModule.forChild(vendorRoutes),
+    VendorRoutes,
     FormsModule,
     SharedModule,
     NgChartsModule,
-
-
-
   ],
   exports: [],
   declarations: [

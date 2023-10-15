@@ -25,6 +25,7 @@ import { CheckoutFailComponent } from './components/checkout/checkout-fail/check
 import { CheckoutLoadingComponent } from './components/checkout/checkout-loading/checkout-loading.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
+import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 
 
 
@@ -59,7 +60,8 @@ import { ViewUserProfileComponent } from './components/view-profile/view-profile
     CheckoutFailComponent,
     CheckoutLoadingComponent,
     ViewVendorsComponent,
-    ViewUserProfileComponent
+    ViewUserProfileComponent,
+    CreateInvitationComponent
   ]
 })
 export class UserModule { }
