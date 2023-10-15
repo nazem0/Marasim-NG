@@ -20,7 +20,7 @@
     height: 5px;
     display: inline-block;
     position: relative;
-    background:rgb(255, 59, 59);
+    background:var(--primary-color);
     box-sizing: border-box;
     animation: animShallaly 2.5s linear infinite;
   }
