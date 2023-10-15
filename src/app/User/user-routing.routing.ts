@@ -20,6 +20,8 @@ import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
+import { PendingComponent } from './components/pending/pending.component';
+import { Component } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -44,7 +46,8 @@ const routes: Routes = [
       { path: 'vendors', component: ViewVendorsComponent},
       {path:'view-profile',component:ViewUserProfileComponent},
       {path:"create-invitation", component:CreateInvitationComponent},
-      {path:"edit-profil", component:UserEditProfileComponent}
+      {path:"edit-profil", component:UserEditProfileComponent},
+     {path:"reservation", component:PendingComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },
