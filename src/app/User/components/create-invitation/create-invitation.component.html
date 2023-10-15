@@ -1,23 +1,28 @@
-<div class="container">
-    <form action="">
-        <div class="mb-3">
-            <label for="" class="form-label">أسم العريس</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="أسم العريس">
+<div class="container my-2">
+    <h1 class="text-center mb-5 text-primary">إنشاء دعوة</h1>
+    <form action="" class="w-75 mx-auto">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="GroomName" id="GroomName" placeholder="">
+            <label for="GroomName">أسم العريس</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="BrideName" id="BrideName" placeholder="">
+            <label for="BrideName">أسم العروسة</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            class="form-control" name="WeddingDate" id="WeddingDate" placeholder="">
+          <label for="WeddingDate">تاريخ الزفاف</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="file"
+            class="form-control" name="formId1" id="CoverPicture" placeholder="">
+          <label for="CoverPicture">صورة غلاف</label>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">أسم العروسة</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="أسم العروسة">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">تاريخ الزفاف</label>
-            <input type="date" class="form-control" name="" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">صورةالغلاف</label>
-            <input type="file" name="" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <button class="primary-btn w-100">Done</button>
+            <button class="primary-btn rounded-2 w-100">Done</button>
         </div>
     </form>
 </div>
