@@ -1,276 +1,290 @@
-    <div class="Parent">
-        <div class="container">
-            <h1 class="text-center p-4">الحجـــــوزات</h1>
-            <div class="tabs-box">
-                <button class="tab-btn active">المعلقـة</button>
-                <button class="tab-btn">المقبولـة</button>
-                <button class="tab-btn">الملغيـة</button>
-                <button class="tab-btn">المرفوضـة</button>
-                <button class="tab-btn">السابقـة</button>
-                <div class="line"></div>
-            </div>
-    
-            <div class="content-box">
-                <div class="content active">
-                    <h2>المعلقـة</h2>
-                    <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col" class="text-center">معلومات البائع</th>
-                            <th scope="col" class="text-center">تاريخ الحجز</th>
-                            <th scope="col" class="text-center">المبلغ</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td class="text-center">
-                              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                              <span class="ms-2">محمد مصطفى</span>
-                            </td>
-                            <td class="text-center">27/07/2023</td>
-                            <td class="text-center">9000 L.E</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td class="text-center">
-                              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                              <span class="ms-2">محمد مصطفى</span>
-                            </td>
-                            <td class="text-center">27/07/2023</td>
-                            <td class="text-center">9000 L.E</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td class="text-center">
-                              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                              <span class="ms-2">محمد مصطفى</span>
-                            </td>
-                            <td class="text-center">27/07/2023</td>
-                            <td class="text-center">9000 L.E</td>
-                          </tr>
-                        </tbody>
-                      </table>
+<div class="Parent">
+  <div class="container">
+    <h1 class="text-center p-4">الحجـــــوزات</h1>
+    <div class="tabs-box">
+      <button class="tab-btn" [class.active]="activeTab === 'المعلقـة'"
+        (click)="setActiveTab('المعلقـة')">المعلقـة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
+        (click)="setActiveTab('المقبولـة')">المقبولـة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'الملغيـة'"
+        (click)="setActiveTab('الملغيـة')">الملغيـة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'المرفوضـة'"
+        (click)="setActiveTab('المرفوضـة')">المرفوضـة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
+        (click)="setActiveTab('السابقـة')">السابقـة</button>
+        <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
+      </div>
+
+    <div class="content-box">
+      <div class="content" [class.active]="activeTab === 'المعلقـة'">
+        <h2>المعلقـة</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">معلومات البائع</th>
+              <th scope="col" class="text-center">تاريخ الحجز</th>
+              <th scope="col" class="text-center">المبلغ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content" [class.active]="activeTab === 'المقبولـة'">
+        <h2>المقبولـة</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">معلومات البائع</th>
+              <th scope="col" class="text-center">تاريخ الحجز</th>
+              <th scope="col" class="text-center">المبلغ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content" [class.active]="activeTab === 'الملغيـة'">
+        <h2>الملغيـة</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">معلومات البائع</th>
+              <th scope="col" class="text-center">تاريخ الالغاء</th>
+              <th scope="col" class="text-center">المبلغ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content" [class.active]="activeTab === 'المرفوضـة'">
+        <h2>المرفوضـة</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">معلومات البائع</th>
+              <th scope="col" class="text-center">تاريخ الرفض</th>
+              <th scope="col" class="text-center">المبلغ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">9000 L.E</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content" [class.active]="activeTab === 'السابقـة'">
+        <h2>السابقـة</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">معلومات البائع</th>
+              <th scope="col" class="text-center">تاريخ الحجز</th>
+              <th scope="col" class="text-center">التعليقات</th>
+              <th scope="col" class="text-center">التقييم</th>
+              <th scope="col" class="text-center"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">
+                <input type="text" placeholder="أضف تعليقًا هنا">
+              </td>
+              <td class="d-flex justify-content-center">
+                <div class="rate">
+                  <input type="radio" id="star5_1" name="rate1" value="5" />
+                  <label for="star5_1" title="text">5 stars</label>
+                  <input type="radio" id="star4_1" name="rate1" value="4" />
+                  <label for="star4_1" title="text">4 stars</label>
+                  <input type="radio" id="star3_1" name="rate1" value="3" />
+                  <label for="star3_1" title="text">3 stars</label>
+                  <input type="radio" id="star2_1" name="rate1" value="2" />
+                  <label for="star2_1" title="text">2 stars</label>
+                  <input type="radio" id="star1_1" name="rate1" value="1" />
+                  <label for="star1_1" title="text">1 star</label>
                 </div>
-                <div class="content">
-                  <h2>المقبولـة</h2>
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col" class="text-center">معلومات البائع</th>
-                        <th scope="col" class="text-center">تاريخ الحجز</th>
-                        <th scope="col" class="text-center">المبلغ</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td class="text-center">
-                          <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                          <span class="ms-2">محمد مصطفى</span>
-                        </td>
-                        <td class="text-center">27/07/2023</td>
-                        <td class="text-center">9000 L.E</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td class="text-center">
-                          <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                          <span class="ms-2">محمد مصطفى</span>
-                        </td>
-                        <td class="text-center">27/07/2023</td>
-                        <td class="text-center">9000 L.E</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td class="text-center">
-                          <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                          <span class="ms-2">محمد مصطفى</span>
-                        </td>
-                        <td class="text-center">27/07/2023</td>
-                        <td class="text-center">9000 L.E</td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-                <div class="content">
-                    <h2>الملغيـة</h2>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col" class="text-center">معلومات البائع</th>
-                          <th scope="col" class="text-center">تاريخ الالغاء</th>
-                          <th scope="col" class="text-center">المبلغ</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td class="text-center">
-                            <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                            <span class="ms-2">محمد مصطفى</span>
-                          </td>
-                          <td class="text-center">27/07/2023</td>
-                          <td class="text-center">9000 L.E</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td class="text-center">
-                            <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                            <span class="ms-2">محمد مصطفى</span>
-                          </td>
-                          <td class="text-center">27/07/2023</td>
-                          <td class="text-center">9000 L.E</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td class="text-center">
-                            <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                            <span class="ms-2">محمد مصطفى</span>
-                          </td>
-                          <td class="text-center">27/07/2023</td>
-                          <td class="text-center">9000 L.E</td>
-                        </tr>
-                      </tbody>
-                    </table>
+              </td>
+              <td class="text-center">
+                <button type="button" class="btn btn-info">تـأكيد</button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">
+                <input type="text" placeholder="أضف تعليقًا هنا">
+              </td>
+              <td class="d-flex justify-content-center">
+                <div class="rate">
+                  <input type="radio" id="star5_2" name="rate2" value="5" />
+                  <label for="star5_2" title="text">5 stars</label>
+                  <input type="radio" id="star4_2" name="rate2" value="4" />
+                  <label for="star4_2" title="text">4 stars</label>
+                  <input type="radio" id="star3_2" name="rate2" value="3" />
+                  <label for="star3_2" title="text">3 stars</label>
+                  <input type="radio" id="star2_2" name="rate2" value="2" />
+                  <label for="star2_2" title="text">2 stars</label>
+                  <input type="radio" id="star1_2" name="rate2" value="1" />
+                  <label for="star1_2" title="text">1 star</label>
                 </div>
-                <div class="content">
-                    <h2>المرفوضـة</h2>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col" class="text-center">معلومات البائع</th>
-                          <th scope="col" class="text-center">تاريخ الرفض</th>
-                          <th scope="col" class="text-center">المبلغ</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td class="text-center">
-                            <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                            <span class="ms-2">محمد مصطفى</span>
-                          </td>
-                          <td class="text-center">27/07/2023</td>
-                          <td class="text-center">9000 L.E</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td class="text-center">
-                            <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                            <span class="ms-2">محمد مصطفى</span>
-                          </td>
-                          <td class="text-center">27/07/2023</td>
-                          <td class="text-center">9000 L.E</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td class="text-center">
-                            <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                            <span class="ms-2">محمد مصطفى</span>
-                          </td>
-                          <td class="text-center">27/07/2023</td>
-                          <td class="text-center">9000 L.E</td>
-                        </tr>
-                      </tbody>
-                    </table>
+              </td>
+              <td class="text-center">
+                <button type="button" class="btn btn-info">تـأكيد</button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="text-center">
+                <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
+                <span class="ms-2">محمد مصطفى</span>
+              </td>
+              <td class="text-center">27/07/2023</td>
+              <td class="text-center">
+                <input type="text" placeholder="أضف تعليقًا هنا">
+              </td>
+              <td class="d-flex justify-content-center">
+                <div class="rate">
+                  <input type="radio" id="star5_3" name="rate3" value="5" />
+                  <label for="star5_3" title="text">5 stars</label>
+                  <input type="radio" id="star4_3" name="rate3" value="4" />
+                  <label for="star4_3" title="text">4 stars</label>
+                  <input type="radio" id="star3_3" name="rate3" value="3" />
+                  <label for="star3_3" title="text">3 stars</label>
+                  <input type="radio" id="star2_3" name="rate3" value="2" />
+                  <label for="star2_3" title="text">2 stars</label>
+                  <input type="radio" id="star1_3" name="rate3" value="1" />
+                  <label for="star1_3" title="text">1 star</label>
                 </div>
-                
-                <div class="content">
-                  <h2>السابقـة</h2>
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col" class="text-center">معلومات البائع</th>
-                        <th scope="col" class="text-center">تاريخ الحجز</th>
-                        <th scope="col" class="text-center">التعليقات</th>
-                        <th scope="col" class="text-center">التقييم</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td class="text-center">
-                          <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                          <span class="ms-2">محمد مصطفى</span>
-                        </td>
-                        <td class="text-center">27/07/2023</td>
-                        <td class="text-center">
-                          <input type="text" placeholder="أضف تعليقًا هنا">
-                        </td>
-                        <td class="d-flex justify-content-center">
-                          <div class="rate">
-                            <input type="radio" id="star5_1" name="rate1" value="5" />
-                            <label for="star5_1" title="text">5 stars</label>
-                            <input type="radio" id="star4_1" name="rate1" value="4" />
-                            <label for="star4_1" title="text">4 stars</label>
-                            <input type="radio" id="star3_1" name="rate1" value="3" />
-                            <label for="star3_1" title="text">3 stars</label>
-                            <input type="radio" id="star2_1" name="rate1" value="2" />
-                            <label for="star2_1" title="text">2 stars</label>
-                            <input type="radio" id="star1_1" name="rate1" value="1" />
-                            <label for="star1_1" title="text">1 star</label>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td class="text-center">
-                          <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                          <span class="ms-2">محمد مصطفى</span>
-                        </td>
-                        <td class="text-center">27/07/2023</td>
-                        <td class="text-center">
-                          <input type="text" placeholder="أضف تعليقًا هنا">
-                        </td>
-                        <td class="d-flex justify-content-center">
-                          <div class="rate">
-                            <input type="radio" id="star5_2" name="rate2" value="5" />
-                            <label for="star5_2" title="text">5 stars</label>
-                            <input type="radio" id="star4_2" name="rate2" value="4" />
-                            <label for="star4_2" title="text">4 stars</label>
-                            <input type="radio" id="star3_2" name="rate2" value="3" />
-                            <label for="star3_2" title="text">3 stars</label>
-                            <input type="radio" id="star2_2" name="rate2" value="2" />
-                            <label for="star2_2" title="text">2 stars</label>
-                            <input type="radio" id="star1_2" name="rate2" value="1" />
-                            <label for="star1_2" title="text">1 star</label>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td class="text-center">
-                          <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-                          <span class="ms-2">محمد مصطفى</span>
-                        </td>
-                        <td class="text-center">27/07/2023</td>
-                        <td class="text-center">
-                          <input type="text" placeholder="أضف تعليقًا هنا">
-                        </td>
-                        <td class="d-flex justify-content-center">
-                          <div class="rate">
-                            <input type="radio" id="star5_3" name="rate3" value="5" />
-                            <label for="star5_3" title="text">5 stars</label>
-                            <input type="radio" id="star4_3" name="rate3" value="4" />
-                            <label for="star4_3" title="text">4 stars</label>
-                            <input type="radio" id="star3_3" name="rate3" value="3" />
-                            <label for="star3_3" title="text">3 stars</label>
-                            <input type="radio" id="star2_3" name="rate3" value="2" />
-                            <label for="star2_3" title="text">2 stars</label>
-                            <input type="radio" id="star1_3" name="rate3" value="1" />
-                            <label for="star1_3" title="text">1 star</label>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-        </div>
+              </td>
+              <td class="text-center">
+                <button type="button" class="btn btn-info">تـأكيد</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+</div>
