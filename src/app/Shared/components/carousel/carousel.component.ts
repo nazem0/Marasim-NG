@@ -107,7 +107,8 @@ export class CarouselComponent implements AfterViewInit {
       grabCursor: true,
       loop: true,
       slidesPerView: "auto",
-      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      // Because of rtl dir i had to replace the prev and next buttons :p
+      navigation: { nextEl: ".swiper-button-prev", prevEl: ".swiper-button-next" },
       pagination: { el: ".swiper-pagination" },
       autoplay: { delay: 3000 },
     });
