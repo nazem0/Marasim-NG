@@ -1,12 +1,12 @@
 <div id="carousel" class="position-relative">
   <!-- Carousel slider -->
-  <div class="swiper">
+  <div class="swiper swiper-carousel">
     <div class="swiper-wrapper">
       <ng-container *ngFor="let slide of slides;let i = index">
-        <div class="swiper-slide" [ngClass]="{'active-slide':i==3}">
+        <div class="swiper-slide">
           <!-- elements with  "swiper-carousel-animate-opacity" class will have animated opacity -->
           <div class="swiper-carousel-animate-opacity">
-            <img src="{{slide.image}}" alt="">
+            <img src="{{slide.image}}" alt="{{slide.title}}">
             <div class="slide-content text-white text-center">
               <h2>{{slide.title}}</h2>
               <p class="text-white">{{slide.description}}</p>
