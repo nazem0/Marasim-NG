@@ -1,3 +1,9 @@
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20%;
+}
 
 #carousel {
     height: 100%;
