@@ -12,6 +12,7 @@ import { ReviewComponent } from './components/review/review.component';
 import { RequestServiceComponent } from './components/request-service/request-service.component';
 import { AttachmentModalComponent } from './components/attachment-modal/attachment-modal.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { AcceptRejectVendorComponent } from './components/accept-reject-vendor/accept-reject-vendor.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     ReviewComponent,
     RequestServiceComponent,
     AttachmentModalComponent,
-    CarouselComponent
+    CarouselComponent,
+    AcceptRejectVendorComponent
   ],
   providers:[
   ],
@@ -45,7 +47,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     RequestServiceComponent,
     VendorCardComponent,
     AttachmentModalComponent,
-    CarouselComponent
+    CarouselComponent,
+    AcceptRejectVendorComponent
   ]
 })
 export class SharedModule { }

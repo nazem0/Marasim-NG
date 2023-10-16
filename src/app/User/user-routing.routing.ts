@@ -22,9 +22,14 @@ import { FollowingsComponent } from './components/followings/followings.componen
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
 import { PendingComponent } from './components/pending/pending.component';
+<<<<<<< HEAD
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { Component } from '@angular/core';
+=======
+import { AcceptRejectVendorComponent } from '../Shared/components/accept-reject-vendor/accept-reject-vendor.component';
+
+>>>>>>> 3c47813180cc5cc69a3054e31f69f95b81d9f91b
 const routes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
@@ -54,6 +59,8 @@ const routes: Routes = [
      {path:"no-follows" ,component:NoFollowsComponent},
       {path:"no-result" ,component:NoResultSearchComponent}
 
+     {path:"reservation", component:PendingComponent},
+     {path:"test",component:AcceptRejectVendorComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },
