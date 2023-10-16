@@ -22,7 +22,9 @@ import { FollowingsComponent } from './components/followings/followings.componen
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
 import { PendingComponent } from './components/pending/pending.component';
-
+import { NoFollowsComponent } from './components/no-follows/no-follows.component';
+import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
+import { Component } from '@angular/core';
 const routes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
@@ -48,7 +50,10 @@ const routes: Routes = [
       {path:"create-invitation", component:CreateInvitationComponent},
       {path:"edit-profil", component:UserEditProfileComponent},
       {path:"carousel",component:CarouselComponent},
-     {path:"reservation", component:PendingComponent}
+     {path:"reservation",component:PendingComponent},
+     {path:"no-follows" ,component:NoFollowsComponent},
+      {path:"no-result" ,component:NoResultSearchComponent}
+
     ],
   },
   { path: 'register', component: RegisterComponent },
