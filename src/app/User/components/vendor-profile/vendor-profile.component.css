@@ -39,7 +39,14 @@
   top: 4rem;
 }
 
-.swiper {
-  width: 60%;
-  height: 50%;
+.avatar{
+  width: 90px;
 }
+
+.banner{
+  background-image: linear-gradient(var(--primary-color), white);
+}
+
+
+
+
