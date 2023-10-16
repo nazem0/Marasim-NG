@@ -2,12 +2,12 @@
   <table class="table table-bordered">
       <thead class="text-center">
           <tr>
-            <th>مسلسل</th>
+            <th>#</th>
 
               <th>اسم العميل</th>
-              <th>تاريخ الطلب</th>
+              <th>تاريخ الحجز</th>
               <th>نوع الخدمه</th>
-              <th>تاريخ قبول الطلب</th>
+              <th>تاريخ قبول الحجز</th>
               <th *ngIf="activeTab == 'all'">الحالة</th>
               <th> اجراء </th>
           </tr>
@@ -15,7 +15,7 @@
       <tbody class="text-center">
         <tr *ngFor="let item of reservation , let i = index; ">
           <td>{{i+1}}</td>
-          <td>{{ item.customerName }}  {{item.customerPic}}</td>
+          <td ><a id="hh" class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(item)" data-bs-toggle="modal" data-bs-target="#customerModal">{{ item.customerName }}</a></td>
           <td>{{ item.requestDate }}</td>
           <td>{{ item.serviceType }}</td>
           <td>{{ item.acceptanceDate }}</td>
@@ -27,4 +27,24 @@
         </tr>
       </tbody>
   </table>
+</div>
+
+
+<!-- modal -->
+<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customerModalLabel">بيانات العميل</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
+        <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.telephone }}</p>
+        <p><strong>العنوان</strong> {{ selectedCustomer?.address }}</p>
+      </div>
+    </div>
+  </div>
 </div>

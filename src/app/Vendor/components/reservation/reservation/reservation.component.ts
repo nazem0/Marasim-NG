@@ -20,14 +20,14 @@ export class ReservationComponent implements OnInit {
         status: 'pending',
     },
     {
-        customerName: 'برعي متولي',
+        customerName: ' محسن',
         requestDate: '2023-09-26',
         serviceType: 'حجز قاعة اللؤلؤة',
         acceptanceDate: '2023-10-01',
         status: 'rejected',
     },
     {
-        customerName: 'برعي متولي',
+        customerName: 'برعي ',
         requestDate: '2023-09-26',
         serviceType: 'حجز قاعة اللؤلؤة',
         acceptanceDate: '2023-10-01',
