@@ -1,8 +1,8 @@
-<div id="app">
+<div id="carousel">
   <!-- Carousel slider -->
   <div class="swiper">
     <div class="swiper-wrapper">
-      <ng-container  *ngFor="let slide of slides;let i = index">
+      <ng-container *ngFor="let slide of slides;let i = index">
         <div class="swiper-slide" [ngClass]="{'active-slide':i==3}">
           <!-- elements with  "swiper-carousel-animate-opacity" class will have animated opacity -->
           <div class="swiper-carousel-animate-opacity">
