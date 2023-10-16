@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IService } from 'src/app/Models/IService';
 import { IUser } from 'src/app/Models/IUser';
 import { IVendor } from 'src/app/Models/IVendor';
 import { IVendorWithDetails } from 'src/app/Models/IVendorWithDetails';
 import { UserService } from 'src/app/Services/User.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
-// import Swiper from 'swiper';
-// import { Navigation, Pagination } from 'swiper/modules';
+
 
 
 @Component({
@@ -15,6 +14,9 @@ import { VendorService } from 'src/app/Services/Vendor.service';
   styleUrls: ['./vendor-profile.component.css']
 })
 export class VendorProfileComponent implements OnInit {
+  @ViewChild("filterContainer") filterContainer!: ElementRef;
+  @ViewChild("caret") caret!: ElementRef;
+
   currentUserVendor: IUser | null = null;
   currentVendor: IVendor | null = null;
   currentServices: IService[] | null = null;
@@ -39,8 +41,6 @@ export class VendorProfileComponent implements OnInit {
       behavior: "smooth"
     });
   }
-
-
 
   REVIEWS: any[] = [
     {
@@ -103,27 +103,33 @@ export class VendorProfileComponent implements OnInit {
   ];
 
 
+  slides: Array<{ title: string, description: string, image: string }> = [
+    {
+      title: 'test',
+      description: 'test',
+      image: '../assets/img/hall.webp'
+    },
+    {
+      title: 'test',
+      description: 'test',
+      image: '../assets/img/hall.webp'
+    },
+    {
+      title: 'test',
+      description: 'test',
+      image: '../assets/img/hall.webp'
+    },
+    {
+      title: 'test',
+      description: 'test',
+      image: '../assets/img/hall.webp'
+    },
+    {
+      title: 'test',
+      description: 'test',
+      image: '../assets/img/hall.webp'
+    }
+  ];
 
-  // swiper = new Swiper('.swiper', {
-  //   // Optional parameters
-  //   direction: 'horizontal',
-  //   loop: true,
-  
-  //   // If we need pagination
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //   },
-  
-  //   // Navigation arrows
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  
-  //   // And if we need scrollbar
-  //   scrollbar: {
-  //     el: '.swiper-scrollbar',
-  //   },
-  // });
 
 }
