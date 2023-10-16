@@ -4,11 +4,12 @@ import Swiper from 'swiper';
 @Component({
   selector: 'app-accept-reject-vendor',
   templateUrl: './accept-reject-vendor.component.html',
-  styleUrls: ['./effect.css','./accept-reject-vendor.component.css']
+  styleUrls: ['./accept-reject-vendor.component.css']
 })
 
 export class AcceptRejectVendorComponent implements AfterViewInit {
-
+  swiper : Swiper | null=null;
+  
   
   tinderEffect({ swiper, on }: { swiper: SpecialSwiper; on: (event: string, handler: Function) => void }): void {
     let r: HTMLElement, s: boolean|number, n: boolean, i: number, o: boolean, a: boolean, c: number;
@@ -271,11 +272,11 @@ export class AcceptRejectVendorComponent implements AfterViewInit {
         slide.style.opacity = opacity;
       });
     });
-  }
+  };
   ngAfterViewInit(): void {
-    let swiper = new Swiper(".swiper",
+    this.swiper = new Swiper(".swiper",
     {
-        modules: [this.tinderEffect], effect: "tinder", grabCursor: !0
+        modules: [this.tinderEffect], effect: "tinder", grabCursor: true
     });  
   }
 
