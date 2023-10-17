@@ -9,7 +9,7 @@ export class InvitationComponent implements OnInit{
   constructor(private ScrollReveal: ScrollRevealService) { }
   ngOnInit() {
     const sr = this.ScrollReveal.getScrollReveal();
-    sr.reveal('div', { scale: 0.85, distance: '-50px', duration: 1500 });
+    sr.reveal('#bride_groom_section *', { scale: 0.85, distance: '-50px', duration: 1500 });
   }
 
 }
