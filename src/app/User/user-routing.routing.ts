@@ -24,8 +24,6 @@ import { CarouselComponent } from '../Shared/components/carousel/carousel.compon
 import { PendingComponent } from './components/pending/pending.component';
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
-import { Component } from '@angular/core';
-import { AcceptRejectVendorComponent } from '../Shared/components/accept-reject-vendor/accept-reject-vendor.component';
 
 const routes: Routes = [
   {
@@ -34,11 +32,9 @@ const routes: Routes = [
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
-      // { path: 'profile-edit', component: UserProfileEditComponent }, //to vendor
       { path: 'invitation', component: InvitationComponent },
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
-
       { path: 'contact', component: ContactComponent },
       { path: 'feed', component: FeedComponent },
       { path: 'vendor-profile', component: VendorProfileComponent },
@@ -46,18 +42,16 @@ const routes: Routes = [
       { path: 'checkout', component: CheckoutComponent },
       { path: 'checkout/pass', component: CheckoutPassComponent },
       { path: 'checkout/fail', component: CheckoutFailComponent },
-      { path: 'checkout/loading', component: CheckoutLoadingComponent},
-      { path: 'vendors', component: ViewVendorsComponent},
-      {path:'view-profile',component:ViewUserProfileComponent},
-      {path:"create-invitation", component:CreateInvitationComponent},
-      {path:"edit-profil", component:UserEditProfileComponent},
-      {path:"carousel",component:CarouselComponent},
-     {path:"reservation",component:PendingComponent},
-     {path:"no-follows" ,component:NoFollowsComponent},
-      {path:"no-result" ,component:NoResultSearchComponent},
-
-     {path:"reservation", component:PendingComponent},
-     {path:"test",component:AcceptRejectVendorComponent}
+      { path: 'checkout/loading', component: CheckoutLoadingComponent },
+      { path: 'vendors', component: ViewVendorsComponent },
+      { path: 'view-profile', component: ViewUserProfileComponent },
+      { path: "create-invitation", component: CreateInvitationComponent },
+      { path: "edit-profil", component: UserEditProfileComponent },
+      { path: "carousel", component: CarouselComponent },
+      { path: "reservation", component: PendingComponent },
+      { path: "no-follows", component: NoFollowsComponent },
+      { path: "no-result", component: NoResultSearchComponent },
+      { path: "reservation", component: PendingComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },
