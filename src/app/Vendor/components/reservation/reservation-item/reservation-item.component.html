@@ -11,11 +11,17 @@
               <th *ngIf="activeTab == 'all'">الحالة</th>
               <th> اجراء </th>
           </tr>
+
       </thead>
       <tbody class="text-center">
         <tr *ngFor="let item of reservation , let i = index; ">
           <td>{{i+1}}</td>
-          <td ><a id="hh" class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(item)" data-bs-toggle="modal" data-bs-target="#customerModal">{{ item.customerName }}</a></td>
+          <td class="d-flex justify-content-between">
+            <a  class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(item)" data-bs-toggle="modal" data-bs-target="#customerModal">
+              <img [src]="item?.customerPic" alt="صورة العميل">
+              <span>{{ item.customerName }}</span>
+            </a>
+          </td>
           <td>{{ item.requestDate }}</td>
           <td>{{ item.serviceType }}</td>
           <td>{{ item.acceptanceDate }}</td>
@@ -41,9 +47,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
-        <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.telephone }}</p>
-        <p><strong>العنوان</strong> {{ selectedCustomer?.address }}</p>
+        <div class="customer-info">
+          <!-- Add the customer image here -->
+          <img [src]=" selectedCustomer?.img " alt="صورة العميل" class="customer-image">
+          <div class="customer-details">
+            <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
+            <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.telephone }}</p>
+            <p><strong>العنوان</strong> {{ selectedCustomer?.address }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

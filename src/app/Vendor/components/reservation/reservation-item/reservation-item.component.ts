@@ -9,18 +9,21 @@ import { VendorReservation } from '../models/vendorReservation';
 export class ReservationItemComponent implements OnInit {
   @Input() reservation: VendorReservation[] = [] as VendorReservation[];
   @Input() activeTab: string = 'all';
-  selectedCustomer: { name: string, telephone: string, address: string } | null = null; 
+  selectedCustomer: { name: string, telephone: string, address: string  ,img: string} | null = null; 
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  openCustomerModal(customer: VendorReservation) {
+  openCustomerModal(customer: VendorReservation ) {
     this.selectedCustomer = {
+      img :customer?.customerPic || "لا توجد صورة ",
       name: customer.customerName,
-      telephone: '123-456-7890', 
-      address: '123 Main St, City' 
+      telephone: '0123123123', 
+      address: 'كلابشة' 
     };
+    
+    
   }
 }

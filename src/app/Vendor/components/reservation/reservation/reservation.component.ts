@@ -18,6 +18,7 @@ export class ReservationComponent implements OnInit {
         serviceType: 'حجز قاعة اللؤلؤة',
         acceptanceDate: '2023-10-01',
         status: 'pending',
+        customerPic:'assets/img/groom.png'
     },
     {
         customerName: ' محسن',
@@ -25,6 +26,8 @@ export class ReservationComponent implements OnInit {
         serviceType: 'حجز قاعة اللؤلؤة',
         acceptanceDate: '2023-10-01',
         status: 'rejected',
+        customerPic:'assets/img/groom.png'
+
     },
     {
         customerName: 'برعي ',
@@ -32,6 +35,8 @@ export class ReservationComponent implements OnInit {
         serviceType: 'حجز قاعة اللؤلؤة',
         acceptanceDate: '2023-10-01',
         status: 'accepted',
+        customerPic:'assets/img/groom.png'
+
     },
   ];
  filteredReservations: VendorReservation[] = [];

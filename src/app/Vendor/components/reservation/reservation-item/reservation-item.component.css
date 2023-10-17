@@ -1,0 +1,19 @@
+@import url(../reservation/reservation.component.css);
+
+.customer-info {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 222px;
+  }
+  
+  .customer-image {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #23c0c9;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 110px; 
+  }
+  

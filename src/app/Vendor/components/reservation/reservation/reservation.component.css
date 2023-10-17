@@ -1,6 +1,4 @@
-/* *{
-    min-height: 0vh !important;
-  } */
+
   .container{
   height: 50vh;
   }
@@ -53,7 +51,7 @@
 
 
 
-  .img-vendor{
+img{
           width: 30px;
           height: 30px;
           border-radius: 50%;
