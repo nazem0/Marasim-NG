@@ -15,12 +15,14 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { RegisterComponent } from './components/register/register.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     CloudBannerComponent,
@@ -52,6 +54,7 @@ import { RegisterComponent } from './components/register/register.component';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent
-  ]
+  ],
+
 })
 export class SharedModule { }
