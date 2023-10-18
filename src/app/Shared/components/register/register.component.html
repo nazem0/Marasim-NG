@@ -6,7 +6,7 @@
                     <div>
                         <p class="display-6 text-center">تسجيل</p>
                     </div>
-                    <div class="mb-0 d-flex align-items-center gap-3">
+                    <div class=" d-flex align-items-center gap-3">
                         <label for="full_name">
                             <i class="fa-solid fa-user fs-3"></i>
                         </label>
@@ -14,7 +14,7 @@
                             name="full_name" placeholder="الأسم" formControlName="name">
                     </div>
 
-                    <div class="mb-0 d-flex align-items-center gap-3">
+                    <div class=" d-flex align-items-center gap-3">
                         <label for="email">
                             <i class="fa-solid fa-envelope fs-3"></i>
                         </label>
@@ -22,7 +22,7 @@
                             placeholder="البريد الألكتروني" formControlName="email">
                     </div>
 
-                    <div class="mb-0 d-flex align-items-center gap-3">
+                    <div class=" d-flex align-items-center gap-3">
                         <label for="password">
                             <i class="fa-solid fa-key fs-3"></i>
                         </label>
@@ -30,7 +30,7 @@
                             name="password" placeholder="كلمة السر" formControlName="password">
                     </div>
 
-                    <div class="mb-0 d-flex align-items-center gap-3">
+                    <div class=" d-flex align-items-center gap-3">
                         <label for="password">
                             <i class="fa-solid fa-key fs-3"></i>
                         </label>
@@ -38,14 +38,14 @@
                             name="ConfirmPassword" placeholder="تأكيد كلمة السر" />
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
-                        <div class="mb-0 d-flex align-items-center gap-3">
+                        <div class=" d-flex align-items-center gap-3">
                             <label for="phone">
                                 <i class="fa-solid fa-phone fs-3"></i>
                             </label>
                             <input id="phone" class="border-0 border-bottom border-2 w-100 p-2" type="tel" name="phone"
                                 placeholder="رقم الهاتف" formControlName="phoneNumber">
                         </div>
-                        <div class="mb-0 d-flex align-items-center gap-3">
+                        <div class=" d-flex align-items-center gap-3">
                             <label for="national_id">
                                 <i class="fa-solid fa-id-card fs-3"></i>
                             </label>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
 
-                        <div class="mb-0 d-flex align-items-center gap-3">
+                        <div class=" d-flex align-items-center gap-3">
                             <label for="male" class="d-flex align-items-center gap-4">
                                 <i class="fa fa-male fs-3"></i>
                                 <span>ذكر</span>
@@ -69,9 +69,9 @@
                             <input class="form-check-input" title="female" type="radio" name="gender" id="female"
                                 value="female" formControlName="gender">
                         </div>
-                        <div class="file-upload mb-0 d-flex align-items-center gap-3">
-                            <i class="fa-solid fa-camera fs-3"></i>
-                            <label for="picture" class="pic-label border-0 border-bottom border-2 w-100 p-2">
+                        <div class="file-upload d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-camera fs-3 me-2"></i>
+                            <label for="picture" class="pic-label border-bottom border-2 w-100 p-2">
                                 <span>أضف صورتك</span>
                             </label>
                             <input #UploadPic id="picture" class="d-none" type="file" name="picture"
@@ -80,6 +80,15 @@
                     </div>
                     <span class="ms-auto">{{PicName}}</span>
 
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="role" id="vendor"
+                            aria-label="agreement" />
+                        <label for="agreement">
+                            <span class="text-primary">
+                                سجل كمُقدم خدمة
+                            </span>
+                        </label>
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="agreement" id="agreement"
                             aria-label="agreement" />
@@ -90,6 +99,7 @@
                         </label>
                     </div>
 
+
                     <div>
                         <button type="submit" class="btn btn-primary w-100 fs-5">
                             تسجيل
@@ -99,7 +109,7 @@
             </div>
             <div class="leftSide">
                 <div class="w-75 mx-auto d-flex flex-column align-items-center">
-                    <img class="animated_border_radius bg-primary bg-gradient shadow w-100 mb-0"
+                    <img class="animated_border_radius bg-primary bg-gradient shadow w-100"
                         src="../assets/img/register_.png" alt="" />
                     <div class="text-center">
                         <span>لديك حساب بالفعل ؟</span>
@@ -112,4 +122,5 @@
             </div>
         </div>
     </div>
+    
 </section>
