@@ -30,7 +30,7 @@ const vendorRoutes: Routes = [
             { path: 'add-service', component: AddServiceComponent },
            // { path: 'pending', component: PendingComponent },
             { path: 'vendorform', component: VendorFormComponent },
-            { path: 'Followers', component: FollowersComponent },
+            { path: 'followers', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
             { path: 'card', component: VendorCardComponent },
             { path: 'profile-edit', component: ProfileEditComponent }

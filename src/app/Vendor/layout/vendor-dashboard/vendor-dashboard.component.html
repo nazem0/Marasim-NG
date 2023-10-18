@@ -1,30 +1,40 @@
-<aside id="sidebarMenu" class="sidebar bg-white sticky-top">
-
-  <div class="position-sticky">
-      <div class="list-group list-group-flush mx-3 mt-4 dark">
-          <a routerLink="/vendor" class="list-group-item list-group-item-action py-3 ripple" aria-current="true">
-              <i class="fas fa-user fa-fw "></i><span>الصفحة الشخصية</span>
-          </a>
-          <a routerLink="/vendor/profile"
-              class="list-group-item list-group-item-action py-3 ripple active">
-              <i class="fas fa-briefcase fa-fw "></i><span>قائمة الخدمات</span>
-          </a>
-          <a routerLink="/vendor/edit-service" class="list-group-item list-group-item-action py-3 ripple"><i
-                  class="fas fa-file-pen fa-fw "></i><span>تعديل البيانات</span></a>
-          <a routerLink="/vendor/stats" class="list-group-item list-group-item-action py-3 ripple"><i
-                  class="fas fa-chart-line fa-fw "></i><span>الاحصائيات</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-3 ripple">
-              <i class="fas fa-comment fa-fw "></i><span>المراجعات</span>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
-                  class="fas fa-clock-rotate-left fa-fw "></i><span>الاعمال السابقة</span></a>
-          <a routerLink="/vendor/reservation" class="list-group-item list-group-item-action py-3 ripple"><i
-                  class="fas fa-calendar fa-fw "></i><span>جدول الحجوزات</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
-                  class="fas fa-users fa-fw "></i><span>المتابعون</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-3 ripple"><i
-                  class="fas fa-money-bill fa-fw "></i><span>حالات الدفع</span></a>
-      </div>
-  </div>
-
+<aside
+  id="sidebarMenu"
+  class="sidebar border-end border-1 shadow"
+>    <a
+      routerLink="/vendor"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-current="true"
+    >
+      <i class="fas fa-user fa-fw"></i><span>الصفحة الشخصية</span>
+    </a>
+    <a routerLink="/vendor/profile" routerLinkActive="active">
+      <i class="fas fa-briefcase fa-fw"></i><span>قائمة الخدمات</span>
+    </a>
+    <a routerLink="/vendor/edit-service" routerLinkActive="active"
+      ><i class="fas fa-file-pen fa-fw"></i><span>تعديل البيانات</span></a
+    >
+    <a routerLink="/vendor/stats" routerLinkActive="active"
+      ><i class="fas fa-chart-line fa-fw"></i><span>الاحصائيات</span></a
+    >
+    <a routerLink="/vendor/reviews" routerLinkActive="active">
+      <i class="fas fa-comment fa-fw"></i><span>المراجعات</span>
+    </a>
+    <a routerLink="/vendor/work-history" routerLinkActive="active"
+      ><i class="fas fa-clock-rotate-left fa-fw"></i
+      ><span>الاعمال السابقة</span></a
+    >
+    <a routerLink="/vendor/reservation" routerLinkActive="active"
+      ><i class="fas fa-calendar fa-fw"></i><span>جدول الحجوزات</span></a
+    >
+    <a
+      routerLink="/vendor/followers"
+      routerLinkActive="active"
+      class="list-group-item list-group-item-action py-3"
+      ><i class="fas fa-users fa-fw"></i><span>المتابعون</span></a
+    >
+    <a href="#" class="list-group-item list-group-item-action py-3"
+      ><i class="fas fa-money-bill fa-fw"></i><span>حالات الدفع</span></a
+    >
 </aside>
