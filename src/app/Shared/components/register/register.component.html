@@ -54,29 +54,31 @@
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
-                        
+
                         <div class="mb-3 d-flex align-items-center gap-3">
-                            <label for="gender">
-                                <i class="fa-solid fa-venus-mars fs-3"></i>
+                            <label for="male" class="d-flex align-items-center gap-4">
+                                <i class="fa fa-male fs-3"></i>
+                                <span>رجُل</span>
                             </label>
-                            <select class="border-0 border-bottom border-2 w-100 p-2" name="gender" id="gender"
-                                aria-label="gender">
-                                <option value="النوع" selected disabled hidden>
-                                    النوع
-                                </option>
-                                <option value="ذكر">ذكر</option>
-                                <option value="أنثى">أنثى</option>
-                            </select>
+                            <input class="form-check-input" title="male" type="radio" name="gender" id="male"
+                                value="male">
+                            <label for="female" class="d-flex align-items-center gap-4">
+                                <i class="fa-solid fa-person-dress fs-3"></i>
+                                <span>أُنثى</span>
+                            </label>
+                            <input class="form-check-input" title="female" type="radio" name="gender" id="female"
+                                value="female">
                         </div>
-                        <div class="mb-3 d-flex align-items-center gap-3">
+                        <div class="file-upload mb-3 d-flex align-items-center gap-3">
                             <i class="fa-solid fa-camera fs-3"></i>
                             <label for="picture" class="pic-label border-0 border-bottom border-2 w-100 p-2">
                                 <span>أضف صورتك</span>
                             </label>
-                            <input id="picture" class="d-none" type="file" name="picture"
+                            <input #UploadPic id="picture" class="d-none" type="file" name="picture"
                                 placeholder="profile picture" />
                         </div>
                     </div>
+                    <span class="ms-auto">{{PicName}}</span>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="agreement" id="agreement"

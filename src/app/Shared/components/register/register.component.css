@@ -1,14 +1,16 @@
-section{
+section {
     overflow-x: hidden;
 }
 
-input:not([type="checkbox"]),
-select,.pic-label {
+input:not([type="checkbox"], [type="radio"]),
+select,
+.pic-label {
     position: relative;
     outline: unset;
     overflow: visible;
     min-height: 3rem;
 }
+
 input:focus {
     border-color: rgb(100, 100, 100) !important;
 }

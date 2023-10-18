@@ -13,6 +13,8 @@ import { RequestServiceComponent } from './components/request-service/request-se
 import { AttachmentModalComponent } from './components/attachment-modal/attachment-modal.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InputSelectComponent } from './components/input-select/input-select.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RequestServiceComponent,
     AttachmentModalComponent,
     CarouselComponent,
+    InputSelectComponent,
+    RegisterComponent
   ],
   providers:[
   ],
@@ -47,6 +51,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     VendorCardComponent,
     AttachmentModalComponent,
     CarouselComponent,
+    InputSelectComponent
   ]
 })
 export class SharedModule { }
