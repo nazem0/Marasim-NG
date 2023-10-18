@@ -288,3 +288,7 @@ button {
 .success-btn:hover i {
     color: color-mix(in srgb, var(--bs-success) 70%, rgb(0, 60, 0) 100%) !important;
 }
+
+a{
+    cursor: pointer;
+}

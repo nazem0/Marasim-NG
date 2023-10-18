@@ -3,13 +3,12 @@ section{
 }
 
 input:not([type="checkbox"]),
-select {
+select,.pic-label {
     position: relative;
     outline: unset;
     overflow: visible;
     min-height: 3rem;
 }
-
 input:focus {
     border-color: rgb(100, 100, 100) !important;
 }
