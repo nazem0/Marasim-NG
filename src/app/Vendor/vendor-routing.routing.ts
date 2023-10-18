@@ -33,7 +33,7 @@ const vendorRoutes: Routes = [
             { path: 'followers', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
             { path: 'card', component: VendorCardComponent },
-            { path: 'profile-edit', component: ProfileEditComponent }
+            { path: 'edit', component: ProfileEditComponent }
         ]
     }
 
