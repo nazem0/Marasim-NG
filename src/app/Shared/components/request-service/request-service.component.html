@@ -9,28 +9,31 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="reserveModalLabel">حجز خدمة</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form [formGroup]="requestServiceForm" (ngSubmit)="request()">
                     <div class="g-4 mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-tag"></i>
                             <input class="form-control" type="text" id="cuponInput" name="cupon"
-                                placeholder="كود العرض">
+                                formControlName="discount" placeholder="كود العرض">
                         </div>
                         <br>
                         <div class="d-flex align-items-center gap-3">
-                            <i class="fa-solid fa-hourglass-start"></i>
-                            <input class="form-control" type="date" id="startDate" name="startingDate"
-                                placeholder="تاريخ الحجز">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <input class="form-control" type="date" id="date" name="date" formControlName="date"
+                                placeholder="تاريخ الحجز" formControlName="date">
                         </div>
+                        <h5 class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['date'].hasError('required') && requestServiceForm.controls['date'].touched">ادخل
+                            تاريخ الحجز</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset"  class="danger-btn" data-bs-dismiss="modal">الغاء</button>
+                        <button type="submit" class="primary-btn">تأكيد</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="danger-btn" data-bs-dismiss="modal">الغاء</button>
-                <button type="button" class="primary-btn">تأكيد</button>
             </div>
         </div>
     </div>

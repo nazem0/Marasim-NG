@@ -2,7 +2,7 @@
     <div class="container border-0">
         <div class="row row-cols-md-2 row-cols-md-1 align-items-center g-4">
             <div class="py-4 px-5 border-0 shadow rightSide">
-                <form class="d-flex flex-column gap-2" action="">
+                <form [formGroup]="registerForm" (ngSubmit)="register()" class="d-flex flex-column gap-2" action="">
                     <div>
                         <p class="display-6 text-center">تسجيل</p>
                     </div>
@@ -11,7 +11,7 @@
                             <i class="fa-solid fa-user fs-3"></i>
                         </label>
                         <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
-                            name="full_name" placeholder="الأسم" />
+                            name="full_name" placeholder="الأسم" formControlName="name">
                     </div>
 
                     <div class="mb-3 d-flex align-items-center gap-3">
@@ -19,7 +19,7 @@
                             <i class="fa-solid fa-envelope fs-3"></i>
                         </label>
                         <input id="email" class="border-0 border-bottom border-2 w-100 p-2" type="email" name="email"
-                            placeholder="البريد الألكتروني" />
+                            placeholder="البريد الألكتروني" formControlName="email">
                     </div>
 
                     <div class="mb-3 d-flex align-items-center gap-3">
@@ -27,7 +27,7 @@
                             <i class="fa-solid fa-key fs-3"></i>
                         </label>
                         <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
-                            name="password" placeholder="كلمة السر" />
+                            name="password" placeholder="كلمة السر" formControlName="password">
                     </div>
 
                     <div class="mb-3 d-flex align-items-center gap-3">
@@ -43,14 +43,14 @@
                                 <i class="fa-solid fa-phone fs-3"></i>
                             </label>
                             <input id="phone" class="border-0 border-bottom border-2 w-100 p-2" type="tel" name="phone"
-                                placeholder="رقم الهاتف" />
+                                placeholder="رقم الهاتف" formControlName="phoneNumber">
                         </div>
                         <div class="mb-3 d-flex align-items-center gap-3">
                             <label for="national_id">
                                 <i class="fa-solid fa-id-card fs-3"></i>
                             </label>
                             <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
-                                name="national_id" placeholder="الرقم القومي" />
+                                name="national_id" placeholder="الرقم القومي" formControlName="SSN">
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
@@ -91,7 +91,7 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-primary w-100 fs-5">
+                        <button type="submit" class="btn btn-primary w-100 fs-5">
                             تسجيل
                         </button>
                     </div>
