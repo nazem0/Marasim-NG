@@ -4,7 +4,7 @@
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
     <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
       <div class="col card text-center pt-3" *ngFor="let service of services">
-        <img class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![0].resource">
+        <img title="{{service.title}}" class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![0].resource">
         <div class="card-body">
           <h3 class="card-title">{{service.title}}</h3>
           <p>{{service.description}}</p>
