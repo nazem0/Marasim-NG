@@ -12,12 +12,13 @@ import { ReviewComponent } from './components/review/review.component';
 import { RequestServiceComponent } from './components/request-service/request-service.component';
 import { AttachmentModalComponent } from './components/attachment-modal/attachment-modal.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
-    CommonModule
-    
+    CommonModule,
+    ReactiveFormsModule
   ],
   declarations: [
     CloudBannerComponent,

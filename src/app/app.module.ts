@@ -13,6 +13,7 @@ import { AddServiceComponent } from './Vendor/components/add-service/add-service
 import {HttpClientModule} from '@angular/common/http';
 import { AuthService } from './Services/Auth.service';
 import { AuthGuard } from './Guards/user.guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthGuard } from './Guards/user.guard';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
