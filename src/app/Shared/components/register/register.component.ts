@@ -15,11 +15,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   constructor(private ScrollReveal: ScrollRevealService, private builder: FormBuilder) {
     this.data = new FormData();
     this.registerForm = this.builder.group({
-      name: [null, [Validators.required]],
-      email: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      phoneNumber: [null, [Validators.required]],
-      SSN: [null, [Validators.required]],
+      name: [null, [Validators.required, Validators.minLength(2)]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]], // Pattern for password 
+      phoneNumber: [null, [Validators.required, Validators.minLength(11)]],
+      SSN: [null, [Validators.required, Validators.minLength(11)]],
       gender: [null, [Validators.required]],
     })
   }
