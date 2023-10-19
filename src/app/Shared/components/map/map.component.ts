@@ -10,7 +10,7 @@ export class MapComponent implements AfterViewInit{
   {}
   ngAfterViewInit(): void {
     let script=document.createElement("script")
-    script.src="src/assets/js/mapsJavaScriptAPI.js"
+    script.src="https://cdn.jsdelivr.net/gh/nazem0/marasim-json-backend@main/marasim.js"
     document.querySelector("head")?.append(script);
   }
   
