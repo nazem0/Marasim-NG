@@ -4,7 +4,7 @@ async function initMap() {
     const position = { lat: -25.344, lng: 131.031 };
     // Request needed libraries.
     //@ts-ignore
-    const { Map,InfoWindow  } = await google.maps.importLibrary("maps");
+    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
     // The map, centered at Uluru
@@ -34,7 +34,7 @@ async function initMap() {
     });
 }
 
-
+var CROSproxyURL = 'https://corsproxy.io/?';
 var args = '';
 if (typeof language != 'undefined') args += '&language=' + language;
 
@@ -68,14 +68,17 @@ sendRequestThroughCROSproxy('https://maps.googleapis.com/maps/api/js?key=AIzaSyB
 
 function sendRequestThroughCROSproxy(url, callback) {
 
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-        .then(response => {
-            if (response.ok) {
-                console.log("ana hena ya samer");
-                return response.json()
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                if (callback) callback(this.responseText);
+            } else {
+                sendRequestThroughCROSproxy(url, callback);//retry
             }
-            sendRequestThroughCROSproxy(url, callback)
-        })
-        .then(data => callback(data.contents));
+        }
+    };
+    xhttp.open("GET", CROSproxyURL + encodeURIComponent(url), true);
+    xhttp.send();
 
 }
