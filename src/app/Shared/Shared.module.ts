@@ -16,13 +16,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { RegisterComponent } from './components/register/register.component';
 import {RouterModule} from '@angular/router';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
   ],
   declarations: [
     CloudBannerComponent,
@@ -38,7 +44,8 @@ import {RouterModule} from '@angular/router';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapComponent,
   ],
   providers:[
   ],
@@ -53,7 +60,8 @@ import {RouterModule} from '@angular/router';
     VendorCardComponent,
     AttachmentModalComponent,
     CarouselComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    MapComponent
   ],
 
 })
