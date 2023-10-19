@@ -1,37 +1,4 @@
-var map;
-async function initMap() {
-    // The location of Uluru
-    const position = { lat: 24.0923346, lng: 32.9001062 };
-    // Request needed libraries.
-    //@ts-ignore
-    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-    map = new Map(document.getElementById("map"), {
-        zoom: 15,
-        center: position,
-        mapId: "Position",
-    });
-
-    // The marker, positioned at Uluru
-    const marker = new AdvancedMarkerElement({
-        map: map,
-        position: position,
-        title: "Position",
-        gmpDraggable: true,
-
-    });
-    const infoWindow = new InfoWindow();
-    marker.addListener("dragend", (event) => {
-        const position = marker.position;
-
-        infoWindow.close();
-        infoWindow.setContent(
-            `Pin dropped at: ${position.lat}, ${position.lng}`,
-        );
-        infoWindow.open(marker.map, marker);
-    });
-}
 
 var CROSproxyURL = 'https://corsproxy.io/?';
 var args = '';
