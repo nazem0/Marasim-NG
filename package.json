@@ -15,6 +15,7 @@
     "@angular/compiler": "^16.2.10",
     "@angular/core": "^16.2.10",
     "@angular/forms": "^16.2.10",
+    "@angular/google-maps": "^16.2.9",
     "@angular/platform-browser": "^16.2.10",
     "@angular/platform-browser-dynamic": "^16.2.10",
     "@angular/router": "^16.2.10",
@@ -25,7 +26,6 @@
     "rxjs": "~7.8.0",
     "scrollreveal": "^4.0.9",
     "swiper": "^10.3.1",
-    "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
@@ -40,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "tslib": "^2.6.2",
     "typescript": "~5.1.3"
   }
 }
