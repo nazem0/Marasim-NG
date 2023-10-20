@@ -36,3 +36,10 @@
     }
 
 }
+
+
+  
+  .invalid-button {
+    background-color: #727070; 
+    color: white;
+  }

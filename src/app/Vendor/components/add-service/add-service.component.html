@@ -42,7 +42,9 @@
       <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة" formControlName="description"></textarea>
       <span class="text-muted">تحتوي البيانات اللازمة علي علامة</span><span class="text-danger">(*)</span>
       <div class="d-flex justify-content-center align-items-center">
-        <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form" [disabled]="!formIsValid">تأكيــد</button>
+        <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
+          [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+          [disabled]="!formIsValid">تأكيــد</button>
       </div>
     </form>
   </div>
