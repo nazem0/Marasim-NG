@@ -15,9 +15,9 @@ export class CreatePostComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.postForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.pattern(/^[\u0600-\u06FF]{3,20}$/)]], 
+      title: ['', [Validators.required, Validators.pattern(/^[\p{L}]{3,30}$/u)]], 
       description: [''],
-      attachments: [null, Validators.required],
+      attachments: [null],
     });
     this.postForm.statusChanges.subscribe(() => {
       this.formIsValid = this.postForm.valid;
