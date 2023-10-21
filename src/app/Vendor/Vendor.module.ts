@@ -2,7 +2,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
@@ -42,6 +42,7 @@ import { VendorRoutes } from './vendor-routing.routing';
     FormsModule,
     SharedModule,
     NgChartsModule,
+    ReactiveFormsModule
   ],
   exports: [],
   declarations: [

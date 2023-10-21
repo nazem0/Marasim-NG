@@ -12,24 +12,39 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form [formGroup]="postForm" (ngSubmit)="submitPost()">
                     <div class="mb-3">
                       <label for="" class="form-label">العنوان</label>
-                      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                      <input type="text" id="title" class="form-control" formControlName="title" aria-describedby="helpId">
+                      <div *ngIf="postForm?.get('title')?.invalid && postForm?.get('title')?.touched" >
+                        <small class="text-danger">
+                                العنوان يجب أن يحتوي  على 3-20 حرفًا من الأحرف العربية فقط .
+                        </small>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">الوصف</label>
-                        <textarea class="form-control" name="" id="" rows="5"></textarea>
+                        <textarea id="description" class="form-control" formControlName="description" rows="5"></textarea>
+                        
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">مرفقات</label>
                         <br>
-                        <input type="file" name="" id="" multiple accept=".jpg">
+                        <input type="file" id="attachments" accept=".jpg,.png" multiple formControlName="attachments">
+                        <div *ngIf="postForm?.get('attachments')?.invalid && postForm?.get('attachments')?.touched" >
+                            <small class="text-danger"> يجب ان ترفق صورة واحده علي اقل و ان تكون بصيغة 
+                            jpg او png
+                        </small>
+                          </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">إضافة</button>
+                <button type="button" class="btn btn-primary" (click)="submitPost()"
+                [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+            [disabled]="!formIsValid"
+                >إضافة</button>
+
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
             </div>
         </div>
