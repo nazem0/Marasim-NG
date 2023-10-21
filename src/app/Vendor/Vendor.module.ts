@@ -32,6 +32,8 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 //import { ViewProfileComponent } from '../vendor/components/view-profile/view-profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 
@@ -42,7 +44,9 @@ import { VendorRoutes } from './vendor-routing.routing';
     FormsModule,
     SharedModule,
     NgChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
+    
   ],
   exports: [],
   declarations: [
