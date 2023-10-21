@@ -1,9 +1,10 @@
 <form>
+    <span *ngIf="comment.hasError('required')">Email is Required</span> 
     <div class="d-flex">
         <label for="add-comment"></label>
         <input class="form-control" title="comment" id="add-comment" type="text" name="commnet"
-        formControlName="comment" >
-        <button type="submit" class="primary-btn rounded-0" title="add comment" (click)="test()">
+        [formControl]="comment" >
+        <button type="button" class="primary-btn rounded-0" title="add comment" (click)="test()">
             <i class="fa-solid fa-paper-plane"></i>
         </button>
     </div>
