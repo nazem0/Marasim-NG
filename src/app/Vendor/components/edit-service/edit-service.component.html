@@ -18,10 +18,11 @@
               </div> -->
 
     <div class="F DivForm w-50">
-      <form>
+      <form [formGroup]="editServiceForm" (ngSubmit)="submitEditedService()">
         <div class="mb-3">
           <label for="exampleInputtitle" class="form-label">أســم الخدمــة</label><span class="text-danger">*</span>
-          <input type="text" class="form-control" id="exampleInputtitle">
+          <input type="text" class="form-control" id="exampleInputtitle" formControlName="title">
+
         </div>
         <!-- <div class="mb-3">
                           <label for="exampleInputcategory" class="form-label">فئة الخدمــة</label>
@@ -29,20 +30,22 @@
                         </div> -->
         <div class="mb-3">
           <label for="exampleInputprice" class="form-label">سعـر الخدمــة</label><span class="text-danger">*</span>
-          <input type="number" class="form-control" id="exampleInputprice">
+          <input type="number" class="form-control" id="exampleInputprice" formControlName="price">
         </div>
         <div class="mb-3">
           <label for="exampleInputlocation" class="form-label">المكــان</label>
-          <input type="text" class="form-control" id="exampleInputlocation">
+          <input type="text" class="form-control" id="exampleInputlocation" formControlName="location">
         </div>
         <div class="mb-3">
           <label for="exampleInputmedia" class="form-label">أرفاق وسائط ميديـا</label><span class="text-danger">*</span>
-          <input type="file" class="form-control" id="exampleInputmedia">
+          <input type="file" class="form-control" id="exampleInputmedia" formControlName="media">
         </div>
-        <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة" name="message" required></textarea>
+        <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة" formControlName="description"></textarea>
         <span class="text-muted">تحتوي البيانات اللازمة علي علامة</span><span class="text-danger">(*)</span>
         <div class="d-flex justify-content-center align-items-center">
-          <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form">تأكيــد</button>
+          <button type="submit" class="mx-auto btn btn-primary my-4 btn-v-form"
+            [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+            [disabled]="!formIsValid">تأكيــد</button>
         </div>
       </form>
     </div>
