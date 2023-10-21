@@ -21,7 +21,6 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { MapComponent } from './components/map/map.component';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

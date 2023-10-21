@@ -1,8 +1,9 @@
 <form>
     <div class="d-flex">
         <label for="add-comment"></label>
-        <input class="form-control" title="comment" id="add-comment" type="text" name="commnet">
-        <button type="submit" class="primary-btn rounded-0" title="add comment">
+        <input class="form-control" title="comment" id="add-comment" type="text" name="commnet"
+        formControlName="comment" >
+        <button type="submit" class="primary-btn rounded-0" title="add comment" (click)="test()">
             <i class="fa-solid fa-paper-plane"></i>
         </button>
     </div>
