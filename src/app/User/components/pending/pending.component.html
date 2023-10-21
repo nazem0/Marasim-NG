@@ -209,7 +209,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <th scope="row">1</th>
               <td class="text-center">
                 <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
@@ -236,8 +236,8 @@
               <td class="text-center">
                 <button type="button" class="btn btn-primary ">تـأكيد</button>
               </td>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
               <th scope="row">2</th>
               <td class="text-center">
                 <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
@@ -264,18 +264,76 @@
               <td class="text-center">
                 <button type="button" class="btn btn-primary">تـأكيد</button>
               </td>
-            </tr>
+            </tr> -->
             <tr>
               <th scope="row">3</th>
               <td class="text-center">
                 <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
                 <span class="ms-2">محمد مصطفى</span>
               </td>
-              <td class="text-center">27/07/2023</td>
-              <td class="text-center">
-                <input type="text" placeholder="أضف تعليقًا هنا">
-              </td>
-              <td class="d-flex justify-content-center">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                أضغط لتقييـم البائـع
+              </button>
+              
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">تقييـم البائع</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-colmun justify-content-center align-items-center">
+                      <div class="col2" style="max-width: 100%;">
+                        <div class="testimonial">
+                          <img src="../assets/img/vendor/p-1.jpg" alt="">
+                          <div class="name">محـمد مصطفى</div>
+                          <div class="d-flex justify-content-center">
+                            <div class="rate">
+                              <input type="radio" id="star5_3" name="rate3" value="5" />
+                              <label for="star5_3" title="text">5 stars</label>
+                              <input type="radio" id="star4_3" name="rate3" value="4" />
+                              <label for="star4_3" title="text">4 stars</label>
+                              <input type="radio" id="star3_3" name="rate3" value="3" />
+                              <label for="star3_3" title="text">3 stars</label>
+                              <input type="radio" id="star2_3" name="rate3" value="2" />
+                              <label for="star2_3" title="text">2 stars</label>
+                              <input type="radio" id="star1_3" name="rate3" value="1" />
+                              <label for="star1_3" title="text">1 star</label>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <input class="commit" type="text" placeholder="أضف تعليقًا هنا">
+                          </div>
+                          <div class="text-center">
+                            <button type="button" class="btn btn-primary">تـأكيد</button>
+                          </div>
+                          <!-- <p>
+                            Lorem Ipsum is simply dummy text of
+                            the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's
+                            standard dummy text ever since the 1500s,
+                          </p> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">أغلاق الصفحة</button>
+                      <button type="button" class="btn btn-primary">لاحظ لا يمكن اغلاق الصفحة الا عن طريق زر "أغلاق".</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </tr>
+          </tbody>
+        </table>
+        <div class="row2 d-flex flex-wrap">
+          <div class="col2">
+            <div class="testimonial">
+              <img src="../assets/img/vendor/p-1.jpg" alt="">
+              <div class="name">محـمد مصطفى</div>
+              <div class="d-flex justify-content-center">
                 <div class="rate">
                   <input type="radio" id="star5_3" name="rate3" value="5" />
                   <label for="star5_3" title="text">5 stars</label>
@@ -288,13 +346,89 @@
                   <input type="radio" id="star1_3" name="rate3" value="1" />
                   <label for="star1_3" title="text">1 star</label>
                 </div>
-              </td>
-              <td class="text-center">
+              </div>
+              <div class="text-center">
+                <input class="commit" type="text" placeholder="أضف تعليقًا هنا">
+              </div>
+              <div class="text-center">
                 <button type="button" class="btn btn-primary">تـأكيد</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </div>
+              <!-- <p>
+                Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry.
+                Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s,
+              </p> -->
+            </div>
+          </div>
+
+          <div class="col2">
+            <div class="testimonial">
+              <img src="../assets/img/vendor/p-1.jpg" alt="">
+              <div class="name">محـمد مصطفى</div>
+              <div class="d-flex justify-content-center">
+                <div class="rate">
+                  <input type="radio" id="star5_2" name="rate2" value="5" />
+                  <label for="star5_2" title="text">5 stars</label>
+                  <input type="radio" id="star4_2" name="rate2" value="4" />
+                  <label for="star4_2" title="text">4 stars</label>
+                  <input type="radio" id="star3_2" name="rate2" value="3" />
+                  <label for="star3_2" title="text">3 stars</label>
+                  <input type="radio" id="star2_2" name="rate2" value="2" />
+                  <label for="star2_2" title="text">2 stars</label>
+                  <input type="radio" id="star1_2" name="rate2" value="1" />
+                  <label for="star1_2" title="text">1 star</label>
+                </div>
+              </div>
+              <div class="text-center">
+                <input class="commit" type="text" placeholder="أضف تعليقًا هنا">
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary">تـأكيد</button>
+              </div>
+              <!-- <p>
+                Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry.
+                Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s,
+              </p> -->
+            </div>
+          </div>
+
+          <div class="col2">
+            <div class="testimonial">
+              <img src="../assets/img/vendor/p-1.jpg" alt="">
+              <div class="name">محـمد مصطفى</div>
+              <div class="d-flex justify-content-center">
+                <div class="rate">
+                  <input type="radio" id="star5_1" name="rate1" value="5" />
+                  <label for="star5_1" title="text">5 stars</label>
+                  <input type="radio" id="star4_1" name="rate1" value="4" />
+                  <label for="star4_1" title="text">4 stars</label>
+                  <input type="radio" id="star3_1" name="rate1" value="3" />
+                  <label for="star3_1" title="text">3 stars</label>
+                  <input type="radio" id="star2_1" name="rate1" value="2" />
+                  <label for="star2_1" title="text">2 stars</label>
+                  <input type="radio" id="star1_1" name="rate1" value="1" />
+                  <label for="star1_1" title="text">1 star</label>
+                </div>
+              </div>
+              <div class="text-center">
+                <input class="commit" type="text" placeholder="أضف تعليقًا هنا">
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary">تـأكيد</button>
+              </div>
+
+              <!-- <p>
+                Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry.
+                Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s,
+              </p> -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
