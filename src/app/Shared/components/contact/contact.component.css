@@ -5,6 +5,12 @@ svg {
 #envelope {
   animation: float 2s ease-in-out infinite;
 }
+.btn{
+  width: 20vh;
+}
+.form-control{
+  width: 60vh;
+}
 
 @keyframes float {
   0% {

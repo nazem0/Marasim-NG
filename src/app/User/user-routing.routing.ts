@@ -57,7 +57,9 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path:'map', component:MapComponent}
+  { path:'map', component:MapComponent},
+  { path: "contact", component: ContactComponent },
+
 
 ];
 
