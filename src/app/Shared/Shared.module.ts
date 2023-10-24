@@ -20,6 +20,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { MapComponent } from './components/map/map.component';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { AddCommentComponent } from './components/post/add-comment/add-comment.c
     RegisterComponent,
     MapComponent,
     AddCommentComponent,
+    LandingComponent,
   ],
   providers:[
   ],

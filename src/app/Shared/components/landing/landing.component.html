@@ -1,0 +1,98 @@
+ <!-- Navbar  -->
+ <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+  <div class="container-fluid">
+    <div class="row w-100">
+        <div
+            class="nav-logo col-2 d-flex flex-column justify-content-center">
+            <a class="navbar-brand" routerLink="">مـــــراســـم</a>
+        </div>
+        <button class="navbar-toggler col-2 btn btn-primary" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-8 nav-items justify-content-end"
+            id="navbarNav">
+            <ul
+                class="navbar-nav navbar-list align-items-center gap-3">
+                <li class="navbar-item">
+                    <a class="nav-link" routerLink="/">الرئيسية</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="nav-link" routerLink="/vendors">الخدمات</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a class="nav-link" routerLink="/contact">اتصل بنا</a>
+                </li>
+                <span class="nav-link">|</span>
+                <li class="navbar-item">
+                  <a class="nav-link" routerLink="/contact">سجل كمنظم</a>
+                </li>
+
+                <!-- <ng-container *ngIf="!isLogged">
+                  <li class="navbar-item ">
+                    <button class="btn btn-outline-primary m-1" routerLink="/login" > تسجيل الدخول</button>
+                    <button class="btn btn-outline-primary m-1" routerLink="/register" > سجل الان</button>
+                  </li>
+                </ng-container>
+                 <ng-container *ngIf="isLogged">
+                  <li class="navbar-item ">
+                        <div class="dropdown  ">
+                    <a href="#" class="d-flex align-items-center text-primary text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="50" height="50" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">محمد احمد</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-white text-small shadow">
+                        <li><a class="dropdown-item" routerLink="view-profile">البيانات الشخصية</a></li>
+                        <li><a class="dropdown-item" routerLink="edit-profil">تعديل البيانات</a></li>
+                        <li><a class="dropdown-item" routerLink="reservation">الحجوزات</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><button class="dropdown-item btn" (click)="logout()">تسجيل الخروج</button></li>
+                    </ul>
+                </div>
+                  </li>
+                </ng-container> -->
+            </ul>
+        </div>
+    </div>
+</div>
+</nav>
+
+
+<div class="hero-section">
+  <div class="video">
+    <video width="100%"
+    autoplay
+    muted
+    loop
+    src="../../../../assets/video/yt5s.io-Egyptian Wedding Teaser (4K Movie Quality)  @  Majestic Downtown LA, California-(1080p).mp4">
+    </video>
+  </div>
+  <div class="upper p-5">
+<div class="column">  <p class="wellcome-text">نشاركك ادق التفاصيل</p>
+  <p class="text-white fs-5">بكل سهولة حدد المناسب لك ونحن سنهتم بالبقية</p>
+  <p class="text-white fs-5">من بيتك وبضغطة زر</p>
+
+  <!-- <p class="wellcome-text"> اختر{{cat[0]}}</p> -->
+
+<button class="primary-btn mt-5">احجز حفل زفافك الان</button>
+<button class="btn text-white">هل لديك حساب بالفعل؟ سجل دخولك</button></div>
+
+    </div>
+
+</div>
+<!-- <script type="text/javascript">
+  var nav = document.querySelector('nav');
+
+  window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 100) {
+      nav.classList.add('bg-dark', 'shadow');
+    } else {
+      nav.classList.remove('bg-dark', 'shadow');
+    }
+  });
+</script> -->
