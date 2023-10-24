@@ -1,7 +1,6 @@
 import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -15,23 +14,19 @@ import { ReservationItemComponent } from './components/reservation/reservation-i
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
-import { PendingComponent } from '../User/components/pending/pending.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowerComponent } from './components/followers/follower/follower.component';
 import { StatNavComponent } from './components/statistic/stat-nav.component';
-
 import { TotalEarningsChartComponent } from './components/statistic/total-earnings-chart/total-earnings-chart.component';
 import { TotalServicesChartComponent } from './components/statistic/total-services-chart/total-services-chart.component';
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
 import { FilterComponent } from './components/vendors-page/filter/filter.component';
-import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
-//import { ViewProfileComponent } from '../vendor/components/view-profile/view-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -71,7 +66,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FilterComponent,
     ProfileEditComponent,
     VendorDashboardComponent,
-    //ngViewProfileComponent,
+    EditServiceComponent,
+    AddServiceComponent,
   ]
 })
 export class VendorModule { }

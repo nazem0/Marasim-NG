@@ -26,6 +26,11 @@ import { CheckoutLoadingComponent } from './components/checkout/checkout-loading
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
+import { LoginComponent } from '../Shared/components/login/login.component';
+import { PageNotFoundComponent } from '../Shared/components/page-not-found/page-not-found.component';
+import { ContactComponent } from '../Shared/components/contact/contact.component';
+import { HomeComponent } from '../Shared/components/home/home.component';
+import { PendingComponent } from './components/pending/pending.component';
 
 
 
@@ -61,7 +66,12 @@ import { CreateInvitationComponent } from './components/create-invitation/create
     CheckoutLoadingComponent,
     ViewVendorsComponent,
     ViewUserProfileComponent,
-    CreateInvitationComponent
+    CreateInvitationComponent,
+    LoginComponent,
+    PageNotFoundComponent,
+    ContactComponent,
+    HomeComponent,
+    PendingComponent,
   ]
 })
 export class UserModule { }
