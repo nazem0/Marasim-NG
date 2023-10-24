@@ -11,7 +11,7 @@
                             <i class="fa-solid fa-user fs-3"></i>
                         </label>
                         <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
-                            name="full_name" placeholder="الأسم" formControlName="name">
+                            name="full_name" placeholder="الأسم" formControlName="Name">
                     </div>
 
                     <div class=" d-flex align-items-center gap-3">
@@ -19,7 +19,7 @@
                             <i class="fa-solid fa-envelope fs-3"></i>
                         </label>
                         <input id="email" class="border-0 border-bottom border-2 w-100 p-2" type="email" name="email"
-                            placeholder="البريد الألكتروني" formControlName="email">
+                            placeholder="البريد الألكتروني" formControlName="Email">
                     </div>
 
                     <div class=" d-flex align-items-center gap-3">
@@ -27,7 +27,7 @@
                             <i class="fa-solid fa-key fs-3"></i>
                         </label>
                         <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
-                            name="password" placeholder="كلمة السر" formControlName="password">
+                            name="password" placeholder="كلمة السر" formControlName="Password">
                     </div>
 
                     <div class=" d-flex align-items-center gap-3">
@@ -35,7 +35,7 @@
                             <i class="fa-solid fa-key fs-3"></i>
                         </label>
                         <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
-                            name="ConfirmPassword" placeholder="تأكيد كلمة السر" />
+                            name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
                         <div class=" d-flex align-items-center gap-3">
@@ -43,14 +43,14 @@
                                 <i class="fa-solid fa-phone fs-3"></i>
                             </label>
                             <input id="phone" class="border-0 border-bottom border-2 w-100 p-2" type="tel" name="phone"
-                                placeholder="رقم الهاتف" formControlName="phoneNumber">
+                                placeholder="رقم الهاتف" formControlName="PhoneNumber">
                         </div>
                         <div class=" d-flex align-items-center gap-3">
                             <label for="national_id">
                                 <i class="fa-solid fa-id-card fs-3"></i>
                             </label>
                             <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
-                                name="national_id" placeholder="الرقم القومي" formControlName="SSN">
+                                name="national_id" placeholder="الرقم القومي" formControlName="NationalID">
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
@@ -60,14 +60,14 @@
                                 <i class="fa fa-male fs-3"></i>
                                 <span>ذكر</span>
                             </label>
-                            <input class="form-check-input" title="male" type="radio" name="gender" id="male"
-                                value="male" formControlName="gender">
+                            <input class="form-check-input" title="male" type="radio" name="Gender" id="male"
+                                value=true formControlName="Gender">
                             <label for="female" class="d-flex align-items-center gap-4">
                                 <i class="fa-solid fa-person-dress fs-3"></i>
                                 <span>أُنثى</span>
                             </label>
-                            <input class="form-check-input" title="female" type="radio" name="gender" id="female"
-                                value="female" formControlName="gender">
+                            <input class="form-check-input" title="female" type="radio" name="Gender" id="female"
+                                value=false formControlName="Gender">
                         </div>
                         <div class="file-upload d-flex align-items-center gap-3">
                             <i class="fa-solid fa-camera fs-3 me-2"></i>
@@ -75,7 +75,7 @@
                                 <span>أضف صورتك</span>
                             </label>
                             <input #UploadPic id="picture" class="d-none" type="file" name="picture"
-                                placeholder="profile picture" />
+                                placeholder="profile picture" formControlName="Picture">
                         </div>
                     </div>
                     <span class="ms-auto">{{PicName}}</span>
