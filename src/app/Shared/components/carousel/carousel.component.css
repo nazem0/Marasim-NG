@@ -15,8 +15,8 @@
 }
 
 #carousel .swiper-carousel .swiper-slide {
-  width: 520px;
-  height: 380px;
+  width: var(--slide-width);
+  height: var(--slide-height);
   border-radius: 8px;
   background: #18212b;
   max-width: calc(100% - 48px)

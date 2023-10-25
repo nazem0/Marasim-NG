@@ -1,13 +1,16 @@
-import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostBinding, Input } from '@angular/core';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  styleUrls: ['./carousel.component.css'],
+  
 })
 export class CarouselComponent implements AfterViewInit {
+  @Input() @HostBinding('style.--slide-width') slideWidth = '520px';
+  @Input() @HostBinding('style.--slide-height') slideHeight = '380px';
   @Input()
   slides: Array<{ title: string, description: string, image: string }> = [
     {
