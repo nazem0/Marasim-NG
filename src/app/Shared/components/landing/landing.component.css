@@ -207,3 +207,8 @@ color: white;
 .photo{
   width:200px ;
 }
+
+#carousel .swiper-carousel .swiper-slide {
+  width: 220px !important;
+  height: 380px;
+}
