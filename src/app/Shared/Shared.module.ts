@@ -21,6 +21,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { MapComponent } from './components/map/map.component';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { LandingComponent } from './components/landing/landing.component';
     MapComponent,
     AddCommentComponent,
     LandingComponent,
+    FooterComponent,
   ],
   providers:[
   ],

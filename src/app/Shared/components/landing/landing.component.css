@@ -21,7 +21,7 @@ video {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: fixed;
+
   left: 0;
   right: 0;
   top: 0;
@@ -51,4 +51,159 @@ video {
 
 .log {
 font-size:medium;
+}
+.indicator {
+  width: 100px;
+  height: 150px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  position: relative;
+}.arrows {
+	width: 60px;
+	height: 72px;
+	position: absolute;
+	left: 50%;
+	margin-left: -30px;
+	bottom: 20px;
+}
+
+.arrows path {
+	stroke: #2994D1;
+	fill: transparent;
+	stroke-width: 1px;
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+
+
+.info-bundle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.info-icon{
+  width:150px;
+
+}
+.info-text{
+font-size: medium;
+color:black;
+
+}
+.background-img{
+  height:30vh;
+  background-attachment: fixed;
+  background-image:url(../../../../assets/img/landing-background.jpg);
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+
+}
+/*/////////////////////////////////////////////////////////////////////////*/
+.content-left {
+  background-color: rgb(111, 182, 148);
+  background-size: cover;
+  background-position: 50% 100%;
+  height: 100%;
+  width: 100%;
+  padding: 30px 20px;
+  background-image: url(../../../../assets/img/1234.jpg);
+  height: 350px;
+
+}
+
+.content-center {
+  background-color: rgb(102, 166, 164);
+  background-size: cover;
+  background-position: 50% 100%;
+  height: 100%;
+  width: 100%;
+  padding: 30px 20px;
+  background-image: url(../../../../assets/img/123.jpg);
+  height: 350px;
+}
+
+.content-right {
+  background-color: powderblue;
+  background-size: cover;
+  background-position: 50% 100%;
+  height: 100%;
+  width: 100%;
+  padding: 30px 20px;
+  height: 350px;
+  background-image: url(../../../../assets/img/12345.jpg);
+}
+
+/* CARD TEXT STYLE */
+.custom-card h1 {
+
+  font-weight: 900;
+  font-size: 28px;
+  padding: 10px 0;
+}
+
+.custom-card h2 {
+  font-weight: 500;
+  font-size: 24px;
+  padding: 5px 0;
+}
+
+.custom-card h3 {
+  font-size: 18px;
+ ;
+
+}
+
+.custom-card a {
+
+color: white;
+  font-weight: 500;
+  font-size: 16px;
+
+  padding: 5px 0;
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-color: red;
+  width: 100px;
+
+
+}
+.photo{
+  width:200px ;
 }

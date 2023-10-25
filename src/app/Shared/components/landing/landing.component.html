@@ -5,21 +5,11 @@
       <div class="nav-logo col-2 d-flex flex-column justify-content-center">
         <a class="navbar-brand" routerLink="">مـــــراســـم</a>
       </div>
-      <button
-        class="ms-auto navbar-toggler col-2 btn btn-primary"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="ms-auto navbar-toggler col-2 btn btn-primary" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="collapse navbar-collapse col-8 nav-items justify-content-end"
-        id="navbarNav"
-      >
+      <div class="collapse navbar-collapse col-8 nav-items justify-content-end" id="navbarNav">
         <ul class="navbar-nav navbar-list align-items-center gap-3">
           <li class="navbar-item">
             <a class="nav-link" routerLink="/">الرئيسية</a>
@@ -67,15 +57,11 @@
   </div>
 </nav>
 
+
+
+<!-- ////////////////////////// -->
 <div class="hero-section">
-  <video
-    loop
-    muted
-    autoplay
-    oncanplay="this.play()"
-    onloadedmetadata="this.muted = true"
-    id="background-video"
-  >
+  <video loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" id="background-video">
     <source src="assets/video/Wedding.mp4" type="video/mp4" />
   </video>
   <div class="upper">
@@ -88,11 +74,76 @@
       <div class="d-flex gap-2 mt-5 ">
         <button class="primary-btn">احجز حفل زفافك الان</button>
         <div class="log d-flex align-items-center"><span class="text-white ">
-          هل لديك حساب بالفعل ؟
-          <a class="text-primary text-decoration-none">سجل دخولك</a>
-        </span>
+            هل لديك حساب بالفعل ؟
+            <a class="text-primary text-decoration-none">سجل دخولك</a>
+          </span>
+        </div>
       </div>
-      </div>
+      <a href=""><svg class="arrows">
+          <path href="#" class="a1" d="M0 0 L30 32 L60 0"></path>
+          <path class="a2" d="M0 20 L30 52 L60 20"></path>
+          <path class="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg></a>
     </div>
   </div>
 </div>
+
+<!-- ////////////////////////// -->
+
+
+<div class="sec-2 d-flex py-5  justify-content-center flex-column">
+  <h1 class="text-primary text-center">ما الذي علي فعله ؟</h1>
+  <div class="info d-flex gap-5 justify-content-center py-5">
+    <a class="info-bundle"> <img class="info-icon" src="../../../../assets/gif/register.gif">
+      <p class="info-text fs-5 py-4 ">قم بالتسجيل بالموقع</p>
+    </a>
+    <a class="info-bundle"><img class="info-icon" src="../../../../assets/gif/choose.gif">
+      <p class="info-text fs-5 py-4">اختر من مقدمي الخدمة ما يناسبك</p>
+    </a>
+    <a class="info-bundle"><img class="info-icon" src="../../../../assets/gif/pay.gif">
+      <p class="info-text fs-5 py-4">ادفع عربوناً </p>
+    </a>
+  </div>
+</div>
+
+<div class="background-img">
+</div>
+
+<div class="sec-2 container d-flex py-5  justify-content-center flex-column">
+  <h1 class="text-primary ms-3">فئات مقدمي الخدمة</h1>
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="custom-card content-left  text-white  d-flex flex-column justify-content-between">
+
+                <h1>مصور فوتوغرافي</h1>
+
+
+                <a href="#">اكتشف الان</a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="custom-card content-center text-white d-flex flex-column justify-content-between">
+
+                <h1>خبير تجميل</h1>
+
+                <a  href="#">اكتشف الان</a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="custom-card content-right text-white d-flex flex-column justify-content-between">
+
+                <h1>منظم حفلات</h1>
+
+                <a href="#">اكتشف الان</a>
+            </div>
+        </div>
+    </div>
+   <div class=" d-flex justify-content-end"> <a class="justify-content-end  text-primary fs-5 mt-5 text-decoration-none ">اكتشف المزيد</a></div>
+</div>
+
+  </div>
+
+<app-footer></app-footer>

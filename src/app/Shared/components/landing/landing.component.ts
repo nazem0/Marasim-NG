@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/Services/Auth.service';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -12,7 +13,15 @@ export class LandingComponent {
 
 
   isLogged:boolean=this.AuthService.loggedIn;
-  constructor(private AuthService:AuthService){;
+  constructor(private AuthService:AuthService){
+
+
+    // $(function() {
+    //   $('a[href*=#]').on('click', function(e:any) {
+    //     e.preventDefault();
+    //     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    //   });
+    // });
 
   const nav = document.querySelector('nav') as HTMLElement;
   window.addEventListener('scroll', function () {
