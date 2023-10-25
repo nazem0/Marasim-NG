@@ -1,43 +1,49 @@
-.hero-section{
+.hero-section {
   display: flex;
   flex-direction: row;
   position: relative;
+}
 
-  }
-  .upper{
-    display: flex;
-   flex-direction: row;
-   justify-content: start !important;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.579);
-    align-items: center;
-  }
-  .wellcome-text{
-  color: white;
-  text-align: center;
-  font-size: 10vh;
-  }
-/* @import url('./common.css'); */
+.upper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start !important;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+}
 
+video {
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 
-  .navbar-item a:hover {
-
-  color: var(--primary-color);
-  border-bottom: solid 1.5px;
-
-  transition:all;
-  transition-duration: 1.2s;
-
-  }
-.primary-btn
-{
-  color: white;
-  border-radius:5px;
-  width: 200px;
-  height: 60px;
-  background-color: var(--primary-color);
 }
 
 
+.navbar-item a {
+  transition: all 1s;
+}
+
+.navbar-item a:hover {
+
+  color: var(--primary-color);
+  /* border-bottom: solid 1.5px; */
+
+}
+
+.primary-btn {
+  color: white;
+  border-radius: 5px;
+  width: 200px;
+  height: 60px;
+}
