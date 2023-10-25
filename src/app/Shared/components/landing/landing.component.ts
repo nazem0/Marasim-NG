@@ -16,7 +16,7 @@ export class LandingComponent {
 
   const nav = document.querySelector('nav') as HTMLElement;
   window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 100) {
+    if (window.scrollY > 100) {
       nav.classList.add('bg-dark', 'shadow');
     } else {
       nav.classList.remove('bg-dark', 'shadow');

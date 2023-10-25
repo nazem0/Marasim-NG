@@ -1,15 +1,25 @@
 <!-- Navbar  -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark p-md-3">
   <div class="container-fluid">
     <div class="row w-100">
       <div class="nav-logo col-2 d-flex flex-column justify-content-center">
         <a class="navbar-brand" routerLink="">مـــــراســـم</a>
       </div>
-      <button class="navbar-toggler col-2 btn btn-primary" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="ms-auto navbar-toggler col-2 btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse col-8 nav-items justify-content-end" id="navbarNav">
+      <div
+        class="collapse navbar-collapse col-8 nav-items justify-content-end"
+        id="navbarNav"
+      >
         <ul class="navbar-nav navbar-list align-items-center gap-3">
           <li class="navbar-item">
             <a class="nav-link" routerLink="/">الرئيسية</a>
@@ -57,25 +67,31 @@
   </div>
 </nav>
 
-
 <div class="hero-section">
-  <video loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" id="background-video">
-
-    <source src="assets/video/Wedding.mp4" type="video/mp4">
-
+  <video
+    loop
+    muted
+    autoplay
+    oncanplay="this.play()"
+    onloadedmetadata="this.muted = true"
+    id="background-video"
+  >
+    <source src="assets/video/Wedding.mp4" type="video/mp4" />
   </video>
   <div class="upper">
-    <div class="container">
+    <div class="container text-center">
       <p class="display-2 text-white">نشاركك ادق التفاصيل</p>
       <p class="text-white fs-5">بكل سهولة حدد المناسب لك ونحن سنهتم بالبقية</p>
       <p class="text-white fs-5">من بيتك وبضغطة زر</p>
 
       <!-- <p class="wellcome-text"> اختر{{cat[0]}}</p> -->
-
-      <button class="primary-btn mt-5">احجز حفل زفافك الان</button>
-      <button class="btn text-white">هل لديك حساب بالفعل؟ سجل دخولك</button>
+      <div class="mt-5">
+        <button class="primary-btn">احجز حفل زفافك الان</button>
+        <p class="text-white mt-2">
+          هل لديك حساب بالفعل ؟
+          <a class="text-primary text-decoration-none">سجل دخولك</a>
+        </p>
+      </div>
     </div>
-
   </div>
-
 </div>
