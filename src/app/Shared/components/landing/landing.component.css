@@ -38,7 +38,7 @@ video {
 .navbar-item a:hover {
 
   color: var(--primary-color);
-  /* border-bottom: solid 1.5px; */
+  border-bottom: solid 1.5px;
 
 }
 
@@ -46,5 +46,9 @@ video {
   color: white;
   border-radius: 5px;
   width: 200px;
-  height: 60px;
+  height: 65px;
+}
+
+.log {
+font-size:medium;
 }
