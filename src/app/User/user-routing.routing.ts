@@ -30,7 +30,7 @@ import { LandingComponent } from '../Shared/components/landing/landing.component
 const routes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
-      { path: '', component: HomeComponent },
+      { path: '', component: LandingComponent },
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
@@ -60,7 +60,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path:'map', component:MapComponent},
   { path: "contact", component: ContactComponent },
-  { path: "landing", component: LandingComponent },
+  { path: "home", component: HomeComponent },
 
 
 
