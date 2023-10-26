@@ -124,9 +124,18 @@ color:black;
 
 }
 .background-img{
-  height:30vh;
+  height:40vh;
   background-attachment: fixed;
-  background-image:url(../../../../assets/img/landing-background.jpg);
+  background-image:url(../../../../assets/img/landing-background2.jpg);
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+
+}
+.background-img2{
+  height:40vh;
+  background-attachment: fixed;
+  background-image:url(../../../../assets/img/landing-background1.jpg);
   background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center;
