@@ -1,66 +1,9 @@
 <!-- Navbar  -->
-<nav class="navbar fixed-top navbar-expand-sm navbar-dark p-md-3">
-  <div class="container-fluid">
-    <div class="row w-100">
-      <div class="nav-logo col-2 d-flex flex-column justify-content-center">
-        <a class="navbar-brand" routerLink="">مـــــراســـم</a>
-      </div>
-      <button class="ms-auto navbar-toggler col-2 btn btn-primary" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse col-8 nav-items justify-content-end" id="navbarNav">
-        <ul class="navbar-nav navbar-list align-items-center gap-3">
-          <li class="navbar-item">
-            <a class="nav-link" routerLink="/">الرئيسية</a>
-          </li>
-          <li class="navbar-item">
-            <a class="nav-link" routerLink="/vendors">الخدمات</a>
-          </li>
-
-          <li class="navbar-item">
-            <a class="nav-link" routerLink="/contact">اتصل بنا</a>
-          </li>
-          <li class="text-white-50">|</li>
-          <li class="navbar-item">
-            <a class="nav-link" routerLink="/contact">سجل كمنظم</a>
-          </li>
-
-          <!-- <ng-container *ngIf="!isLogged">
-                  <li class="navbar-item ">
-                    <button class="btn btn-outline-primary m-1" routerLink="/login" > تسجيل الدخول</button>
-                    <button class="btn btn-outline-primary m-1" routerLink="/register" > سجل الان</button>
-                  </li>
-                </ng-container>
-                 <ng-container *ngIf="isLogged">
-                  <li class="navbar-item ">
-                        <div class="dropdown  ">
-                    <a href="#" class="d-flex align-items-center text-primary text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="hugenerd" width="50" height="50" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">محمد احمد</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-white text-small shadow">
-                        <li><a class="dropdown-item" routerLink="view-profile">البيانات الشخصية</a></li>
-                        <li><a class="dropdown-item" routerLink="edit-profil">تعديل البيانات</a></li>
-                        <li><a class="dropdown-item" routerLink="reservation">الحجوزات</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><button class="dropdown-item btn" (click)="logout()">تسجيل الخروج</button></li>
-                    </ul>
-                </div>
-                  </li>
-                </ng-container> -->
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
 
 
 <!-- ////////////////////////// -->
 <div class="hero-section">
+  <app-nav2></app-nav2>
   <video preload loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" id="background-video">
     <source src="assets/video/Wedding.mp4" type="video/mp4" />
   </video>
@@ -91,8 +34,8 @@
 <!-- ////////////////////////// -->
 
 
-<div class="sec-2 d-flex py-5  justify-content-center flex-column">
-  <h1 class="text-primary text-center">ما الذي علي فعله ؟</h1>
+<div class="sec-2 container d-flex py-5  justify-content-center flex-column">
+  <h2 class="text-primary text-center">ما الذي علي فعله ؟</h2>
   <div class="info d-flex gap-5 justify-content-center py-5">
     <a class="info-bundle"> <img class="info-icon" src="../../../../assets/gif/register.gif">
       <p class="info-text fs-5 py-4 ">قم بالتسجيل بالموقع</p>
@@ -110,13 +53,13 @@
 </div>
 
 <div class="sec-2 container d-flex py-5  justify-content-center flex-column">
-  <h1 class="text-primary ms-3">فئات مقدمي الخدمة</h1>
-  <div class="container mt-5">
+  <h2 class="text-primary ms-3">فئات مقدمي الخدمة</h2>
+  <div class="mt-5">
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="custom-card content-left  text-white  d-flex flex-column justify-content-between">
 
-          <h1>مصور فوتوغرافي</h1>
+          <h2>مصور فوتوغرافي</h2>
 
 
           <a href="#">اكتشف الان</a>
@@ -126,7 +69,7 @@
       <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="custom-card content-center text-white d-flex flex-column justify-content-between">
 
-          <h1>خبير تجميل</h1>
+          <h2>خبير تجميل</h2>
 
           <a href="#">اكتشف الان</a>
         </div>
@@ -135,7 +78,7 @@
       <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="custom-card content-right text-white d-flex flex-column justify-content-between">
 
-          <h1>منظم حفلات</h1>
+          <h2>منظم حفلات</h2>
 
           <a href="#">اكتشف الان</a>
         </div>
@@ -147,9 +90,9 @@
 
 </div>
 <div class="py-5">
-  <h1 class="text-primary ms-3 mb-5">مقدمو الخدمة الأكثر طلباً</h1>
+  <h2 class="text-primary ms-3 mb-5">مقدمو الخدمة الأكثر طلباً</h2>
   <div>
-    <app-carousel [slideWidth]="'300px'"></app-carousel>
+    <app-carousel></app-carousel>
   </div>
 </div>
 <app-footer></app-footer>

@@ -30,16 +30,7 @@ video {
 }
 
 
-.navbar-item a {
-  transition: all 1s;
-}
 
-.navbar-item a:hover {
-
-  color: var(--primary-color);
-  border-bottom: solid 1.5px;
-
-}
 
 .primary-btn {
   color: white;
@@ -110,6 +101,7 @@ font-size:medium;
 .info-bundle{
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   text-decoration: none;
 }
@@ -171,21 +163,14 @@ color:black;
 .custom-card h1 {
 
   font-weight: 900;
-  font-size: 28px;
   padding: 10px 0;
 }
 
 .custom-card h2 {
   font-weight: 500;
-  font-size: 24px;
   padding: 5px 0;
 }
 
-.custom-card h3 {
-  font-size: 18px;
- ;
-
-}
 
 .custom-card a {
 
