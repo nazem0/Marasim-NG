@@ -12,3 +12,6 @@ color:rgb(150, 150, 28);
 {
   color: rgb(58, 105, 58);
 }
+.chart-container{
+  width: 600px;
+}

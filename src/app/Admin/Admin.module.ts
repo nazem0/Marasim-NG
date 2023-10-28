@@ -11,7 +11,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { PaymentsComponent } from './components/payments/payments.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -25,11 +25,12 @@ import { HomeComponent } from './components/home/home.component';
     ServicesComponent,
     PaymentsComponent,
     ReservationsComponent,
-    HomeComponent
+    HomeComponent,
+   
   ],
   imports: [
     CommonModule,
-    AdminRoutingRoutes
+    AdminRoutingRoutes, NgChartsModule,
   ]
 })
 export class AdminModule { }
