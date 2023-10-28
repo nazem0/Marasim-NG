@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServiceService } from 'src/app/Services/service.service';
 
 
 @Component({
@@ -8,16 +9,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent {
+  @ViewChild("UploadedPictures") UploadedPictures: ElementRef | null = null;
   serviceForm: FormGroup;
   formIsValid = false;
-
-  constructor(private formBuilder: FormBuilder) {
+  data:FormData;
+  constructor(private formBuilder: FormBuilder,private ServiceService:ServiceService) {
+    this.data=new FormData();
     this.serviceForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      price: [null, [Validators.required]],
-      location: [''],
-      media: [null, [Validators.required]],
-      description: [''],
+      Title: [null, [Validators.required]],
+      Price: [null, [Validators.required]],
+      Pictures: [null, [Validators.required]],
+      Description: [null,[Validators.required]],
     });
 
     this.serviceForm.statusChanges.subscribe(() => {
@@ -27,8 +29,12 @@ export class AddServiceComponent {
 
   submitService() {
     if (this.formIsValid) {
-      const formData = this.serviceForm.value;
-      console.log(formData);
+      this.data.append('Title', this.serviceForm.get('Title')?.value);
+      this.data.append('Description', this.serviceForm.get('Description')?.value);
+      this.data.append('Price', this.serviceForm.get('Price')?.value);
+      this.data.append('Pictures',this.UploadedPictures?.nativeElement.files);
+      this.ServiceService.AddService(this.data)
+      .subscribe((response)=>console.log(response));
     }
   }
 }

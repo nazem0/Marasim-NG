@@ -20,26 +20,26 @@
 
     <form class="F DivForm w-50" [formGroup]="serviceForm" (ngSubmit)="submitService()">
       <div class="mb-3">
-        <label for="exampleInputtitle" class="form-label">أســم الخدمــة</label><span class="text-danger">*</span>
-        <input type="text" class="form-control" id="exampleInputtitle" formControlName="title">
+        <label for="Inputtitle" class="form-label">أســم الخدمــة</label><span class="text-danger">*</span>
+        <input type="text" class="form-control" id="Inputtitle" formControlName="Title">
       </div>
       <!-- <div class="mb-3">
-                          <label for="exampleInputcategory" class="form-label">فئة الخدمــة</label>
-                          <input type="text" class="form-control" id="exampleInputcategory" aria-describedby="emailHelp">
+                          <label for="Inputcategory" class="form-label">فئة الخدمــة</label>
+                          <input type="text" class="form-control" id="Inputcategory" aria-describedby="emailHelp">
                         </div> -->
       <div class="mb-3">
-        <label for="exampleInputprice" class="form-label">سعـر الخدمــة</label><span class="text-danger">*</span>
-        <input type="number" class="form-control" id="exampleInputprice" formControlName="price">
+        <label for="Inputprice" class="form-label">سعـر الخدمــة</label><span class="text-danger">*</span>
+        <input type="number" class="form-control" id="Inputprice" formControlName="Price">
       </div>
+      <!-- <div class="mb-3">
+        <label for="Inputlocation" class="form-label">المكــان</label>
+        <input type="text" class="form-control" id="Inputlocation" formControlName="location">
+      </div> -->
       <div class="mb-3">
-        <label for="exampleInputlocation" class="form-label">المكــان</label>
-        <input type="text" class="form-control" id="exampleInputlocation" formControlName="location">
+        <label for="Inputmedia" class="form-label">أرفاق وسائط ميديـا</label><span class="text-danger">*</span>
+        <input #UploadedPictures type="file" class="form-control" id="Inputmedia" formControlName="Pictures" multiple>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputmedia" class="form-label">أرفاق وسائط ميديـا</label><span class="text-danger">*</span>
-        <input type="file" class="form-control" id="exampleInputmedia" formControlName="media">
-      </div>
-      <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة" formControlName="description"></textarea>
+      <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة" formControlName="Description"></textarea>
       <span class="text-muted">تحتوي البيانات اللازمة علي علامة</span><span class="text-danger">(*)</span>
       <div class="d-flex justify-content-center align-items-center">
         <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
