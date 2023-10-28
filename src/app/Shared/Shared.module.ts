@@ -21,8 +21,9 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { MapComponent } from './components/map/map.component';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { Nav2Component } from './components/landing/nav2/nav2.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { Nav2Component } from './components/landing/nav2/nav2.component';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,
+    LoginComponent,
     RegisterComponent,
     MapComponent,
     AddCommentComponent,

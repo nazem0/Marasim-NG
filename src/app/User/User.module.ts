@@ -67,7 +67,6 @@ import { PendingComponent } from './components/pending/pending.component';
     ViewVendorsComponent,
     ViewUserProfileComponent,
     CreateInvitationComponent,
-    LoginComponent,
     PageNotFoundComponent,
     ContactComponent,
     HomeComponent,
