@@ -4,7 +4,13 @@ import { AdminRoutingRoutes } from './admin-routing.routing';
 import { LayoutComponent } from './layout/layout.component';
 import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboard.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { AddCategoryComponent } from './components/categories/add-category/add-category.component';
+import { ViewUsersComponent } from './components/view-users/view-users.component';
+import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { ServicesComponent } from './components/services/services.component';
+import { PaymentsComponent } from './components/payments/payments.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -13,7 +19,13 @@ import { AddCategoryComponent } from './components/categories/add-category/add-c
     LayoutComponent,
     AdminDashboardComponent,
     CategoriesComponent,
-    AddCategoryComponent
+    ViewUsersComponent,
+    ViewVendorsComponent,
+    PostsComponent,
+    ServicesComponent,
+    PaymentsComponent,
+    ReservationsComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

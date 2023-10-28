@@ -1,17 +1,17 @@
 <main class="container">
-  <h1 class="text-center text-primary mt-5">الفئات</h1>
+  <h1 class="text-center text-primary mt-5">العملاء</h1>
 
   <div class="container searching mb-5 mt-5 ">
     <div class="search-bar">
       <div class="input-group">
-        <span class="input-group-text"><i class="fa-solid fa-add"></i>
+        <span class="input-group-text"><i class="fa-solid fa-search"></i>
         </span>
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInputGroup2" placeholder="اضافة خدمة">
-          <label for="floatingInputGroup2" class="mt-2 px-2">اضافة خدمة</label>
+          <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
+          <label for="floatingInputGroup2" class="mt-2 px-2">بحث</label>
         </div>
 
-        <button class="btn btn-primary button__shared">اضافة</button>
+        <button class="btn btn-primary button__shared">بحث <i class="fa-solid fa-search"></i></button>
       </div>
 
 
@@ -22,11 +22,12 @@
 
 
   <div class="d-flex flex-column justify-content-center">
-  <div class="table-responsive-md border ">
-    <table class="table  table-white text-primary text-center  " >
+  <div class="table-responsive-md ">
+    <table class="table  table-white text-primary text-center border " >
       <thead>
         <tr>
-          <th scope="col" class="col text-danger">اسم الفئة</th>
+          <th scope="col" class="col text-danger">الاسم</th>
+          <th scope="col" class="col text-danger">تاريخ الانضمام</th>
 
           <th scope="col" class="col text-danger"></th>
 
@@ -35,7 +36,11 @@
       <tbody>
         <!-- *ngfor="let vendor of Vendors" -->
         <tr>
-          <td scope="row">مصور فوتوغرافي</td>
+          <td scope="row">
+            <img class="vendor-img" src="../../../../assets/img/chefs.webp" alt="">
+            صهيب احمد محمد
+          </td>
+          <td>18/10/2018</td>
           <td class="d-flex gap-2 justify-content-center">
             <button type="button" class="btn btn-primary">عرض</button>
             <button type="button" class="btn btn-danger">حذف</button>
@@ -51,7 +56,11 @@
 
       <tbody>
         <tr>
-          <td scope="row">قاعة افراح</td>
+          <td scope="row">
+            <img class="vendor-img" src="../../../../assets/img/chefs.webp" alt="">
+            صهيب احمد محمد
+          </td>
+          <td>18/10/2018</td>
           <td class="d-flex gap-2 justify-content-center">
             <button type="button" class="btn btn-primary">عرض</button>
             <button type="button" class="btn btn-danger">حذف</button>
@@ -68,7 +77,10 @@
 
       <tbody>
         <tr>
-          <td scope="row">خبير تجميل</td>
+          <td scope="row">
+            <img class="vendor-img" src="../../../../assets/img/chefs.webp" alt="">
+              صهيب احمد محمد </td>
+          <td>18/10/2018</td>
           <td class="d-flex gap-2 justify-content-center">
             <button type="button" class="btn btn-primary">عرض</button>
             <button type="button" class="btn btn-danger">حذف</button>
