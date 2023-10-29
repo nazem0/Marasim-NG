@@ -19,11 +19,11 @@ import { InterceptorService } from './Services/interceptor.service';
     ReactiveFormsModule,
   ],
   providers: [AuthGuard,
-  //   {
-  //   provide:HTTP_INTERCEPTORS,
-  //   useClass:InterceptorService,
-  //   multi:true
-  // }
+    {
+    provide:HTTP_INTERCEPTORS,
+    useClass:InterceptorService,
+    multi:true
+  }
 ],
   bootstrap: [AppComponent]
 })
