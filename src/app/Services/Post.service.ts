@@ -2,22 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IAttachment, IComment, IPost, IReaction } from '../Models/IPost';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
 
-  get():Observable<IPost[]> {
-    return this.httpClient.get<IPost[]>("http://localhost:3000/posts")
+  AddPost(Post: any) {
+    return this.HttpClient.post(`${environment.apiUrl}/Post/AddPost`, Post)
   }
-  getAttachments(postID:number):Observable<IAttachment[]>{
-    return this.httpClient.get<IAttachment[]>(`http://localhost:3000/post/${postID}/postAttachments`)
+
+  Get(): Observable<IPost[]> {
+    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
-  getReacts(postID:number):Observable<IReaction[]>{
-    return this.httpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
+
+  GetByVendorID(): Observable<IPost[]> {
+    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/GetByVendorID`)
   }
-  getComments(postID:number):Observable<IComment[]>{
-    return this.httpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comments`)
+  GetAttachments(postID: number): Observable<IAttachment[]> {
+    return this.HttpClient.get<IAttachment[]>(`${environment.apiUrl}/PostAttachment/GetPostAttachmentByPostID?PostID=${postID}`)
+  }
+
+
+  
+  GetReacts(postID: number): Observable<IReaction[]> {
+    return this.HttpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
+  }
+  GetComments(postID: number): Observable<IComment[]> {
+    return this.HttpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comments`)
   }
 }
 

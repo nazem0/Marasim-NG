@@ -9,14 +9,15 @@ import { PostService } from 'src/app/Services/Post.service';
 })
 export class AttachmentsComponent implements OnInit {
   @Input() postTitle!: string;
-  attachments: IAttachment[] = []
   @Input() postID!: number;
+  attachments: IAttachment[]  = []
 
-  constructor(private post: PostService) {
-    
+  constructor(private PostService: PostService) {
+
   }
 
-  ngOnInit(){
-    this.post.getAttachments(this.postID).subscribe((result) => this.attachments = result)
+  ngOnInit() {
+    this.PostService.GetAttachments(this.postID).subscribe((result) => 
+    this.attachments = result)
   }
 }

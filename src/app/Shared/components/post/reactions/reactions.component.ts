@@ -18,6 +18,6 @@ constructor(private post:PostService) {
 
 }
 ngOnInit(){
-  this.post.getReacts(this.postID).subscribe((result)=>this.reactions=result)
+  this.post.GetReacts(this.postID).subscribe((result)=>this.reactions=result)
 }
 }

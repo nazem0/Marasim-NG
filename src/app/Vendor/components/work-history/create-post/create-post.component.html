@@ -16,8 +16,8 @@
                 <form [formGroup]="postForm" (ngSubmit)="submitPost()">
                     <div class="mb-3">
                       <label for="" class="form-label">العنوان</label>
-                      <input type="text" id="title" class="form-control" formControlName="title" aria-describedby="helpId">
-                      <div *ngIf="postForm?.get('title')?.invalid && postForm?.get('title')?.touched" >
+                      <input type="text" id="title" class="form-control" formControlName="Title" aria-describedby="helpId">
+                      <div *ngIf="postForm?.get('Title')?.invalid && postForm?.get('Title')?.touched" >
                         <small class="text-danger">
                             العنوان يجب أن يحتوي  على 3-30 حرفًا
                         </small>
@@ -25,13 +25,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">الوصف</label>
-                        <textarea id="description" class="form-control" formControlName="description" rows="5"></textarea>
+                        <textarea id="description" class="form-control" formControlName="Description" rows="5"></textarea>
 
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">مرفقات</label>
                         <br>
-                        <input type="file" id="attachments" accept=".jpg,.png" multiple formControlName="attachments">
+                        <input #UploadedPictures type="file" class="form-control" id="Inputmedia"
+                            formControlName="Pictures" multiple>
                         <!-- <div *ngIf="postForm?.get('attachments')?.invalid && postForm?.get('attachments')?.touched" >
                             <small class="text-danger"> يجب ان ترفق صورة واحده علي اقل و ان تكون بصيغة
                             jpg او png

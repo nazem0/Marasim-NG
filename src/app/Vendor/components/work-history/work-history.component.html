@@ -2,8 +2,12 @@
     <div class="container">
         <h1 class="text-center my-5 text-primary">المنشورات والأعمال السابقة</h1>
         <app-create-post></app-create-post>
-        <div *ngFor="let post of posts" class="my-4">
-            <app-post [post]="post"></app-post>
+
+        <div *ngIf="posts; else elseBlock">
+            <div *ngFor="let post of posts" class="my-4">
+                <app-post [post]="post"></app-post>
+            </div>
         </div>
+        <ng-template #elseBlock>Content to render when condition is false.</ng-template>
     </div>
 </section>

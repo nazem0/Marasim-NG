@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostService } from 'src/app/Services/Post.service';
 
 
 @Component({
@@ -8,17 +9,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent {
-
+  @ViewChild("UploadedPictures") UploadedPictures: ElementRef | null = null;
   postForm: FormGroup;
   formIsValid = false;
+  data: FormData;
 
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private PostService: PostService) {
+    this.data = new FormData();
     this.postForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.pattern(/^[\p{L}]{3,30}$/u)]], 
-      description: [''],
-      attachments: [null],
+      Title: ['', [Validators.required, Validators.pattern(/^[\p{L} ]{5,30}$/u)]], 
+      Description: [''],
+      Pictures: [null],
     });
+
     this.postForm.statusChanges.subscribe(() => {
       this.formIsValid = this.postForm.valid;
     });
@@ -27,8 +31,13 @@ export class CreatePostComponent {
 
   submitPost() {
     if (this.postForm.valid) {
-      const formData = this.postForm.value;
-      console.log(formData);
+      this.data.append('Title', this.postForm.get('Title')?.value);
+      this.data.append('Description', this.postForm.get('Description')?.value);
+      for (var i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
+        this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
+      }
+      this.PostService.AddPost(this.data)
+        .subscribe((response) => console.log(response));
     }
   }
 }

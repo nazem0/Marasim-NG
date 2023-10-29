@@ -19,7 +19,7 @@ export class FeedComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.postService.get().subscribe((result: IPost[]) => {
+    this.postService.Get().subscribe((result: IPost[]) => {
       this.posts = result;
       console.log(this.posts);
     });
