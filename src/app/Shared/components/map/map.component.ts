@@ -16,7 +16,8 @@ export class MapComponent implements AfterViewInit {
     let script = document.createElement('script');
     script.src = 'assets/js/mapsJavaScriptAPI.js';
     let mapInit = document.createElement('script');
-    mapInit.innerHTML = `var map; 
+    mapInit.innerHTML = `
+    var map; 
     var marker;
     const latSpan = document.getElementById("lat");
     const lngSpan = document.getElementById("lng");

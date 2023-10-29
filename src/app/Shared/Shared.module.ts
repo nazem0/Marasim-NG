@@ -24,6 +24,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Nav2Component } from './components/landing/nav2/nav2.component';
 import { LoginComponent } from './components/login/login.component';
+import { VendorRegisterationComponent } from './components/vendor-register/vendor-register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -33,6 +35,7 @@ import { LoginComponent } from './components/login/login.component';
     GoogleMapsModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    FormsModule
   ],
   declarations: [
     CloudBannerComponent,
@@ -50,6 +53,7 @@ import { LoginComponent } from './components/login/login.component';
     InputSelectComponent,
     LoginComponent,
     RegisterComponent,
+    VendorRegisterationComponent,
     MapComponent,
     AddCommentComponent,
     LandingComponent,
