@@ -12,14 +12,14 @@ export class AddServiceComponent {
   @ViewChild("UploadedPictures") UploadedPictures: ElementRef | null = null;
   serviceForm: FormGroup;
   formIsValid = false;
-  data:FormData;
-  constructor(private formBuilder: FormBuilder,private ServiceService:ServiceService) {
-    this.data=new FormData();
+  data: FormData;
+  constructor(private formBuilder: FormBuilder, private ServiceService: ServiceService) {
+    this.data = new FormData();
     this.serviceForm = this.formBuilder.group({
       Title: [null, [Validators.required]],
       Price: [null, [Validators.required]],
       Pictures: [null, [Validators.required]],
-      Description: [null,[Validators.required]],
+      Description: [null, [Validators.required]],
     });
 
     this.serviceForm.statusChanges.subscribe(() => {
@@ -32,9 +32,12 @@ export class AddServiceComponent {
       this.data.append('Title', this.serviceForm.get('Title')?.value);
       this.data.append('Description', this.serviceForm.get('Description')?.value);
       this.data.append('Price', this.serviceForm.get('Price')?.value);
-      this.data.append('Pictures',this.UploadedPictures?.nativeElement.files);
+      for (var i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
+        this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
+      }
+      // this.data.append('Pictures', this.UploadedPictures?.nativeElement.files);
       this.ServiceService.AddService(this.data)
-      .subscribe((response)=>console.log(response));
+        .subscribe((response) => console.log(response));
     }
   }
 }
