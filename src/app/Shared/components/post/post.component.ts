@@ -8,4 +8,6 @@ import { IPost } from 'src/app/Models/IPost';
 })
 export class PostComponent {
   @Input() post!:IPost;
+  vendorPic:string='../../../../assets/img/chefs.webp'
+  vendorName:string='صهيب احمد محمد'
 }

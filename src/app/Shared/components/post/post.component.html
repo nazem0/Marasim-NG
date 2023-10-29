@@ -1,8 +1,20 @@
-<div class="post pt-4 overflow-hidden rounded-4">
+<div class="post overflow-hidden ">
     <div class="post-body">
+
+      <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
+
+        <img class="vendorPic" [src]="vendorPic" alt="">
+
+        <div class="d-flex flex-column">
+          <span class="fs-5">{{vendorName}}</span>
+          <span class="text-muted">{{post.date}}</span>
+        </div>
+
+
+      </div>
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="post-title fw-bold fs-4">{{post.title}}</span>
-            <span class="text-muted">{{post.date}}</span>
         </div>
         <p class="post-description">{{post.description}}</p>
     </div>

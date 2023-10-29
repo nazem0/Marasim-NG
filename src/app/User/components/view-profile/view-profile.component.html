@@ -7,26 +7,28 @@
 
       <div class="info-card d-flex flex-column   bg-white p-4 position-relative">
           <div>
-            <div class="Card  " >
+            <div class="Card" >
               <img class="img-fluid img-thumbnail " style=" width: 200px;  height: 200px; border-radius: 50%;" src="../assets/img/chefs.webp" alt="">
               <h3 class="text-center mt-3">صهيب احمد محمد</h3>
           </div>
-          <h3 class="mt-5 text-primary te">بياناتك</h3>
+          <div class="d-flex justify-content-between align-items-center mt-5">
+            <h3 class="text-primary">بياناتك</h3>
+
+            <button [routerLink]="['/edit']" routerLinkActive="router-link-active"   class="primary-btn edit-icon rounded-2 ">
+              تعديل
+            </button>
+
+          </div>
+
               <hr>
               <br>
               <h5>البريد</h5>
-              <span class="text-muted ">{{user.email}}</span>
+              <span class="text-muted">{{user.email}}</span>
 
               <h5 class="mt-3">رقم الهاتف</h5>
               <span class="text-muted">{{user.phone}}</span><br>
 
-              <h5 class="mt-3">العنوان</h5>
 
-              <span class="text-muted ">{{user.location}}</span>
-          </div>
-          <button [routerLink]="['/edit']" routerLinkActive="router-link-active"   class="primary-btn edit-icon rounded-2 ">
-              <i class="fa fa-edit"></i>
-          </button>
 
       </div>
   </div>

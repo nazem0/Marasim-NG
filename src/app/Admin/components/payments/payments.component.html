@@ -1,1 +1,101 @@
-<p>payments works!</p>
+<main class="container">
+  <h1 class="text-center text-primary mt-5">العملاء</h1>
+
+  <div class="container searching mb-5 mt-5 ">
+    <div class="search-bar">
+      <div class="input-group">
+        <span class="input-group-text"><i class="fa-solid fa-search"></i>
+        </span>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
+          <label for="floatingInputGroup2" class="mt-2 px-2">بحث باسم العميل</label>
+        </div>
+
+        <button class="btn btn-primary button__shared">بحث <i class="fa-solid fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="d-flex flex-column justify-content-center">
+  <div class="table-responsive-md ">
+    <table class="table  table-white text-primary text-center border " >
+      <thead>
+        <tr>
+          <th scope="col" class="col text-danger"> العميل</th>
+          <th scope="col" class="col text-danger">مقدم الخدمة</th>
+          <th scope="col" class="col text-danger">حساب العميل</th>
+          <th scope="col" class="col text-danger">العربون</th>
+          <th scope="col" class="col text-danger"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <!-- *ngfor="let vendor of Vendors" -->
+        <tr>
+          <td scope="row">صهيب احمد محمد</td>
+          <td>محمد احمد محمد</td>
+          <td>SohaybAhmed@instapay.com</td>
+          <td>7000</td>
+          <td class="d-flex gap-2 justify-content-center">
+            <button type="button" class="btn btn-primary">تأكيد</button>
+            <button type="button" class="btn btn-danger">إلغاء</button>
+          </td>
+         </tr>
+         </tbody>
+
+
+                          <!---------- TO BE DELETED ------------>
+
+
+
+                          <tbody>
+                            <!-- *ngfor="let vendor of Vendors" -->
+                            <tr>
+                              <td scope="row">صهيب احمد محمد</td>
+                              <td>محمد احمد محمد</td>
+                              <td>SohaybAhmed@instapay.com</td>
+                              <td>7000</td>
+                              <td class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-primary">تأكيد</button>
+                                <button type="button" class="btn btn-danger">إلغاء</button>
+
+                              </td>
+                            </tr>
+                          </tbody>
+
+
+
+
+
+
+
+
+                          <tbody>
+                            <!-- *ngfor="let vendor of Vendors" -->
+                            <tr>
+                              <td scope="row">صهيب احمد محمد</td>
+                              <td>محمد احمد محمد</td>
+                              <td>SohaybAhmed@instapay.com</td>
+                              <td>7000</td>
+                              <td class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-primary">تأكيد</button>
+                                <button type="button" class="btn btn-danger">إلغاء</button>
+
+                              </td>
+                            </tr>
+                          </tbody>
+
+
+
+                            <!---------- TO BE DELETED ------------>
+
+
+    </table>
+
+  </div>
+  </div>
+  </main>
+
+
+

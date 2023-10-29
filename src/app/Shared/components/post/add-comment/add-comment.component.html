@@ -1,11 +1,11 @@
 <form>
-    <span *ngIf="comment.hasError('required')">Email is Required</span> 
+    <span *ngIf="comment.hasError('required')">Email is Required</span>
     <div class="d-flex">
         <label for="add-comment"></label>
-        <input class="form-control" title="comment" id="add-comment" type="text" name="commnet"
+        <input class="form-control" title="comment" id="add-comment" type="text" name="commnet" placeholder="اضف تعليقا"
         [formControl]="comment" >
         <button type="button" class="primary-btn rounded-0" title="add comment" (click)="test()">
-            <i class="fa-solid fa-paper-plane"></i>
+            <i class="fa-solid fa-comment"></i>
         </button>
     </div>
 </form>

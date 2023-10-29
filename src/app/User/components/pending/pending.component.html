@@ -8,10 +8,9 @@
         (click)="setActiveTab('المعلقـة')">المعلقـة</button>
         <button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
           (click)="setActiveTab('المقبولـة')">المقبولـة</button>
-        <button class="tab-btn" [class.active]="activeTab === 'الملغيـة'"
-          (click)="setActiveTab('الملغيـة')">الملغيـة</button>
-        <button class="tab-btn" [class.active]="activeTab === 'المرفوضـة'"
-          (click)="setActiveTab('المرفوضـة')">المرفوضـة</button>
+        <button class="tab-btn" [class.active]="activeTab === 'المرفوضة'"
+          (click)="setActiveTab('المرفوضة')">المرفوضة</button>
+
         <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
           (click)="setActiveTab('السابقـة')">السابقـة</button>
         <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
@@ -30,14 +29,7 @@
           (click)="setActiveTab('المعلقـة')">المعلقـة</button></li>
         <li><button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
           (click)="setActiveTab('المقبولـة')">المقبولـة</button></li>
-        <li>
-          <button class="tab-btn" [class.active]="activeTab === 'الملغيـة'"
-          (click)="setActiveTab('الملغيـة')">الملغيـة</button>
-        </li>
-        <li>
-          <button class="tab-btn" [class.active]="activeTab === 'المرفوضـة'"
-          (click)="setActiveTab('المرفوضـة')">المرفوضـة</button>
-        </li>
+
         <li>
           <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
           (click)="setActiveTab('السابقـة')">السابقـة</button>
@@ -147,14 +139,13 @@
         </tbody>
       </table>
     </div>
-    <div class="content" [class.active]="activeTab === 'الملغيـة'">
-      <h2>الملغيـة</h2>
+    <div class="content" [class.active]="activeTab === 'المرفوضة'">
+      <h2>المرفوضة</h2>
       <table class="table ">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col" class="text-center">معلومات البائع</th>
-            <th scope="col" class="text-center">تاريخ الالغاء</th>
             <th scope="col" class="text-center">المبلغ</th>
           </tr>
         </thead>
@@ -165,7 +156,6 @@
               <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
               <span class="ms-2">محمد مصطفى</span>
             </td>
-            <td class="text-center text-pp">27/07/2023</td>
             <td class="text-center text-pp">9000 L.E</td>
           </tr>
           <tr>
@@ -174,7 +164,6 @@
               <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
               <span class="ms-2">محمد مصطفى</span>
             </td>
-            <td class="text-center text-pp">27/07/2023</td>
             <td class="text-center text-pp">9000 L.E</td>
           </tr>
           <tr>
@@ -183,56 +172,14 @@
               <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
               <span class="ms-2">محمد مصطفى</span>
             </td>
-            <td class="text-center text-pp">27/07/2023</td>
             <td class="text-center text-pp">9000 L.E</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="content" [class.active]="activeTab === 'المرفوضـة'">
-      <h2>المرفوضـة</h2>
-      <table class="table ">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col" class="text-center">معلومات البائع</th>
-            <th scope="col" class="text-center">تاريخ الرفض</th>
-            <th scope="col" class="text-center">المبلغ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
     <div class="content fs-5" [class.active]="activeTab === 'السابقـة'">
-      <h2>السابقـة</h2>
+      <h2>السابقـة</h2> 
       <table class="table">
         <thead>
           <tr>

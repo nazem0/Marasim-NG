@@ -4,8 +4,17 @@
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
     max-width:40rem;
     margin: 0 auto;
+    border-radius : 10px;
 }
 .post-body{
     padding: 1rem 1.25rem;
+
+}
+
+.vendorPic{
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 
 }
