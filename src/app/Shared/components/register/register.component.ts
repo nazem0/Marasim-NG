@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.data.append('Gender',this.registerForm.get('Gender')?.value);
     // this.registerForm.get('Picture')?.updateValueAndValidity();
     this.data.append('Picture',this.UploadPic?.nativeElement.files[0]);
-    this.data.forEach(i => console.log(i));
     // console.log(this.data);
     this.RegisterService.registerUser(this.data).subscribe(
       (response) => console.log(response),

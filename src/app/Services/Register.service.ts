@@ -13,4 +13,7 @@ export class RegisterService {
   registerUser(user: any):Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}/Account/Register`, user)
   }
+  registerVendor(vendor:any):Observable<any>{
+    return this.http.post(`${environment.apiUrl}/Account/RegisterAsVendor`,vendor)
+  }
 }

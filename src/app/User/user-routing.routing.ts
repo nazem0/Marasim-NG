@@ -24,8 +24,8 @@ import { CarouselComponent } from '../Shared/components/carousel/carousel.compon
 import { PendingComponent } from './components/pending/pending.component';
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
-import { MapComponent } from '../Shared/components/map/map.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
+import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
 
 const routes: Routes = [
   {
@@ -57,8 +57,9 @@ const routes: Routes = [
     ],
   },
   { path: 'register', component: RegisterComponent },
+  { path: 'vendor-registeration', component: VendorRegisterationComponent },
+  
   { path: 'login', component: LoginComponent },
-  { path:'map', component:MapComponent},
   { path: "contact", component: ContactComponent },
   { path: "landing", component: LandingComponent },
 

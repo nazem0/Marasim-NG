@@ -18,7 +18,6 @@ import { RegisterComponent } from './components/register/register.component';
 import {RouterModule} from '@angular/router';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { MapComponent } from './components/map/map.component';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -54,7 +53,6 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     VendorRegisterationComponent,
-    MapComponent,
     AddCommentComponent,
     LandingComponent,
     FooterComponent,
@@ -74,7 +72,6 @@ import { FormsModule } from '@angular/forms';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,
-    MapComponent
   ],
 
 })

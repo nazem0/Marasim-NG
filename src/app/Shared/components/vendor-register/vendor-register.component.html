@@ -1,0 +1,165 @@
+<section class="min-vh-100 d-flex flex-column justify-content-center">
+    <div class="container border-0">
+        <div class="row row-cols-md-2 row-cols-md-1 align-items-center g-4">
+            <div class="py-4 px-5 border-0 shadow rightSide">
+                <form [formGroup]="registerForm" (ngSubmit)="register()" class="d-flex flex-column gap-2" action="">
+                    <div>
+                        <p class="display-6 text-center">
+                            تسجيل كمقدم خدمة
+                        </p>
+                    </div>
+                    <div class=" d-flex align-items-center gap-3">
+                        <label for="full_name">
+                            <i class="fa-solid fa-user fs-3"></i>
+                        </label>
+                        <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
+                            name="full_name" placeholder="الأسم" formControlName="Name">
+                    </div>
+                    <div class=" d-flex gap-3">
+                        <label for="summary">
+                            <i class="fa-solid fa-pen-to-square fs-3"></i>
+                        </label>
+                        <textarea class="border-0 border-bottom border-2 w-100 p-2" name="Summary" id="summary" cols="30" rows="4"
+                            formControlName="Summary" placeholder="أكتب نبذة عن نفسك"></textarea>
+                    </div>
+                    <div class=" d-flex align-items-center gap-3">
+                        <label for="email">
+                            <i class="fa-solid fa-envelope fs-3"></i>
+                        </label>
+                        <input id="email" class="border-0 border-bottom border-2 w-100 p-2" type="email" name="email"
+                            placeholder="البريد الألكتروني" formControlName="Email">
+                    </div>
+
+                    <div class=" d-flex align-items-center gap-3">
+                        <label for="password">
+                            <i class="fa-solid fa-key fs-3"></i>
+                        </label>
+                        <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
+                            name="password" placeholder="كلمة السر" formControlName="Password">
+                    </div>
+
+                    <div class=" d-flex align-items-center gap-3">
+                        <label for="password">
+                            <i class="fa-solid fa-key fs-3"></i>
+                        </label>
+                        <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
+                            name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
+                    </div>
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <div class=" d-flex align-items-center gap-3">
+                            <label for="phone">
+                                <i class="fa-solid fa-phone-flip fs-3"></i>
+                            </label>
+                            <input id="phone" class="border-0 border-bottom border-2 w-100 p-2" type="tel" name="phone"
+                                placeholder="رقم الهاتف" formControlName="PhoneNumber">
+                        </div>
+                        <div class=" d-flex align-items-center gap-3">
+                            <label for="national_id">
+                                <i class="fa-solid fa-id-card fs-3"></i>
+                            </label>
+                            <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
+                                name="national_id" placeholder="الرقم القومي" formControlName="NationalID">
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-lg-2">
+
+                        <div class=" d-flex align-items-center gap-3">
+                            <label for="male" class="d-flex align-items-center gap-4">
+                                <i class="fa fa-male fs-3"></i>
+                                <span>ذكر</span>
+                            </label>
+                            <input class="form-check-input" title="male" type="radio" name="Gender" id="male" value=true
+                                formControlName="Gender">
+                            <label for="female" class="d-flex align-items-center gap-4">
+                                <i class="fa-solid fa-person-dress fs-3"></i>
+                                <span>أُنثى</span>
+                            </label>
+                            <input class="form-check-input" title="female" type="radio" name="Gender" id="female"
+                                value=false formControlName="Gender">
+                        </div>
+                        <div class="file-upload d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-camera fs-3 me-2"></i>
+                            <label for="picture" class="pic-label border-bottom border-2 w-100 p-2">
+                                <span>أضف صورتك</span>
+                            </label>
+                            <input #UploadPic id="picture" class="d-none" type="file" name="picture"
+                                placeholder="profile picture" formControlName="Picture">
+                        </div>
+                    </div>
+                    <span class="ms-auto">{{PicName}}</span>
+                    <div class="row row-cols-2">
+                        <div class="d-flex align-items-center gap-3">
+                            <label for="Latitude">خطوط الطول</label>
+                            <input #Latitude id="lat" type="text" class="border-0 border-bottom border-2 w-100 p-2"
+                                formControlName="Latitude">
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <label for="Longitude">دوائر العرض</label>
+                            <input #Longitude id="lng" type="text" class="border-0 border-bottom border-2 w-100 p-2"
+                                formControlName="Longitude">
+                        </div>
+                    </div>
+                    <!-- Map -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="primary-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        حدد موقعك على الخريطة
+                    </button>
+
+
+
+                    <!-- End Map -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="agreement" id="agreement"
+                            aria-label="agreement" />
+                        <label for="agreement">
+                            <a class="text-decoration-none text-primary">
+                                اقبل الشروط والأحكام
+                            </a>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary w-100 fs-5">
+                            تسجيل
+                        </button>
+                        <!-- <button type="submit" class="btn btn-primary w-100 fs-5" [disabled]="!registerForm.valid">
+                            تسجيل
+                        </button> -->
+                    </div>
+                </form>
+            </div>
+            <div class="leftSide">
+                <div class="w-75 mx-auto d-flex flex-column align-items-center">
+                    <img class="animated_border_radius bg-primary bg-gradient shadow w-100"
+                        src="../assets/img/register_.png" alt="" />
+                    <div class="text-center">
+                        <span>لديك حساب بالفعل ؟</span>
+                        <br class="d-block d-lg-none">
+                        <a class="fs-3 link-primary text-decoration-none" [routerLink]="['/login']">
+                            تسجيل الدخول
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="main-container">
+                        <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box" />
+                        <div id="map">
+
+                        </div>
+                        <button id="myButton" class="btn btn-outline-primary">My Button</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">أخترت مكاني</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
