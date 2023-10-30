@@ -122,6 +122,11 @@
                             تسجيل
                         </button>
                     </div>
+                    <div *ngIf="ErrorResponse!=null">
+                        <p *ngFor="let error of ErrorResponse.error">
+                            {{error.description}}
+                        </p>
+                    </div>
                 </form>
             </div>
             <div class="leftSide">

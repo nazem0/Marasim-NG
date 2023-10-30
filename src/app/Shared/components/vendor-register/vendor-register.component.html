@@ -1,4 +1,5 @@
 <section class="min-vh-100 d-flex flex-column justify-content-center">
+
     <div class="container border-0">
         <div class="row row-cols-md-2 row-cols-md-1 align-items-center g-4">
             <div class="py-4 px-5 border-0 shadow rightSide">
@@ -149,7 +150,9 @@
                             </a>
                         </label>
                     </div> -->
-                    <a class="text-decoration-none text-primary" routerLink="/vendor-registeration">سجل كمقدم خدمة</a>
+                    <a class="text-decoration-none text-primary" routerLink="/register">
+                        سجل كمستخدم
+                    </a>
                     <div>
                         <!-- <button type="submit" class="btn btn-primary w-100 fs-5">
                             تسجيل
@@ -157,6 +160,11 @@
                         <button type="submit" class="btn btn-primary w-100 fs-5" [disabled]="!registerForm.valid">
                             تسجيل
                         </button>
+                    </div>
+                    <div *ngIf="ErrorResponse!=null">
+                        <p *ngFor="let error of ErrorResponse.error">
+                            {{error.description}}
+                        </p>
                     </div>
                 </form>
             </div>

@@ -4,6 +4,8 @@ import { IRegisterUserViewModel } from 'src/app/Models/IRegisterModel';
 import { IUser } from 'src/app/Models/IUser';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
+import { RegisterationErrorResponse } from 'src/app/Services/RegisterationErrorResponse';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +19,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   data: FormData;
   PasswordRegEx = (/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/);
   PhoneNumberRegEx = (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/);
-  constructor(private ScrollReveal: ScrollRevealService, private builder: FormBuilder, private RegisterService: RegisterService) {
+  ErrorResponse: RegisterationErrorResponse | null = null;
+
+  constructor(private ScrollReveal: ScrollRevealService, private builder: FormBuilder, private RegisterService: RegisterService,private Router:Router) {
     this.data = new FormData();
     this.registerForm = this.builder.group({
       Name: [null, [Validators.required, Validators.minLength(2)]],
@@ -54,8 +58,15 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       this.data.set('Gender', this.registerForm.get('Gender')?.value);
       this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
       this.RegisterService.registerUser(this.data).subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error)
+        next: (response) => {
+          console.log(response)
+          this.Router.navigate(["/login"]);
+        },
+        error: (error) => {
+          console.log("object");
+          this.ErrorResponse = error as RegisterationErrorResponse;
+          console.log(error);
+        }
       })
     }
   }
