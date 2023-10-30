@@ -4,24 +4,32 @@ import { Observable, forkJoin } from 'rxjs';
 import { IReview } from '../Models/IReview';
 import { IVendor } from '../Models/IVendor';
 import { IUser } from '../Models/IUser';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
-  constructor(private http: HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
 
-  get():Observable<IReview[]> {
-    return this.http.get<IReview[]>("http://localhost:3000/reviews")
+  Get(): Observable<IReview[]> {
+    return this.HttpClient.get<IReview[]>(`${environment.apiUrl}/Review/Get`)
   }
 
-  getByUserID(ID:number):Observable<IReview[]>
-  {
-    if(ID){
-      return this.http.get<IReview[]>(`http://localhost:3000/reviews/?userId=${ID}`)
-    }
-    else{
-      throw "No Reviews";
-    }
+  GetByVendorID(VendorID: number): Observable<IReview[]> {
+    return this.HttpClient.get<IReview[]>(`${environment.apiUrl}/Review/GetByVendorID?VendorID=${VendorID}`)
   }
+
+  Add(Review: any){
+    return this.HttpClient.post(`${environment.apiUrl}/Review/AddReview`, Review)
+  }
+
+  Update(Review: any, ReviewID: number){
+    return this.HttpClient.post(`${environment.apiUrl}/Review/Update?ReviewID=${ReviewID}`, Review)
+  }
+
+  Delete(ReviewID: number){
+    return this.HttpClient.delete(`${environment.apiUrl}/Review/Delete?ReviewID=${ReviewID}`)
+  }
+
 }
 
 

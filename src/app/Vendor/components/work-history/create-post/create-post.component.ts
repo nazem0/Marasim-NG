@@ -36,7 +36,7 @@ export class CreatePostComponent {
       for (var i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
         this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
       }
-      this.PostService.AddPost(this.data)
+      this.PostService.Add(this.data)
         .subscribe((response) => console.log(response));
     }
   }
