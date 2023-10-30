@@ -12,10 +12,10 @@ export class ServiceService {
     return this.HttpClient.get(`${environment.apiUrl}/service/getall`)
   }
   GetById(Id:number){
-    return this.HttpClient.post(`${environment.apiUrl}/service/getbyid`,Id)
+    return this.HttpClient.get(`${environment.apiUrl}/service/getbyid/${Id}`)
   }
   GetByVendorId(Id:number){
-    return this.HttpClient.post(`${environment.apiUrl}/service/getbyvendorid`,Id)
+    return this.HttpClient.get(`${environment.apiUrl}/service/getbyvendorid/${Id}`)
   }
   AddService(Service:any){
     return this.HttpClient.post(`${environment.apiUrl}/service/add`,Service)
