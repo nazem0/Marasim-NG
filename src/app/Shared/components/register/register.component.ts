@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       Name: [null, [Validators.required, Validators.minLength(2)]],
       Email: [null, [Validators.required, Validators.email]],
       Password: [null, [Validators.required,Validators.pattern(this.PasswordRegEx)]],
-      ConfirmPassword: [null, [Validators.required,this.confirmPasswordValidator]],
+      ConfirmPassword: [null, [Validators.required]],
       PhoneNumber: [null, [Validators.required, Validators.minLength(11),Validators.pattern(this.PhoneNumberRegEx)]],
       NationalID: [null, [Validators.required, Validators.minLength(11)]],
       Gender: [null, [Validators.required]],
@@ -58,12 +58,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         error: (error) => console.log(error)
       })
     }
-  }
-  confirmPasswordValidator(control: AbstractControl): {[key: string]: any} | null {
-    if (control.value == control.root.get('Password')?.value) {
-      return {confirmPassword: true};
-    }
-    return null;
   }
 
 }

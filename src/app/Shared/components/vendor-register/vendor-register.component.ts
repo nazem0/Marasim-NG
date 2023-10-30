@@ -41,14 +41,15 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       Name: [null, [Validators.required, Validators.minLength(2)]],
       Email: [null, [Validators.required, Validators.email]],
       Password: [null, [Validators.required,Validators.pattern(this.PasswordRegEx)]],
-      ConfirmPassword: [null, [Validators.required,this.confirmPasswordValidator]],
+      ConfirmPassword: [null, [Validators.required]],
       PhoneNumber: [null, [Validators.required, Validators.minLength(11),Validators.pattern(this.PhoneNumberRegEx)]],
       NationalID: [null, [Validators.required, Validators.minLength(11)]],
       Gender: [null, [Validators.required]],
       Picture: [null, [Validators.required]],
-      Latitude: [null, [Validators.required]],
-      Longitude: [null, [Validators.required]],
-      Address: [null, [Validators.required]],
+      Latitude: [null],
+      Longitude: [null],
+      Address: [null],
+      Summary : [null, [Validators.required,Validators.minLength(20), Validators.maxLength(1000) ]]
     });
   }
   ngOnInit() {
@@ -194,6 +195,9 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
         address = formattedAddress;
         this.registerForm.get("Address")?.patchValue(address)
       }
+    if(this.registerForm.valid)
+    {
+      
       this.data.append('Address',this.registerForm.get('Address')?.value);
       this.data.append('Name', this.registerForm.get('Name')?.value);
       this.data.append('Email', this.registerForm.get('Email')?.value);
@@ -212,25 +216,23 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       this.data.append('Latitude',this.registerForm.get('Latitude')?.value);
       this.data.append('Longitude',this.registerForm.get('Longitude')?.value);
       this.data.append('Summary',this.registerForm.get('Summary')?.value);
-      this.RegisterService.registerVendor(this.data).subscribe(
-        (response) => console.log(response),
-        (error) => {
-          console.log(error.message);
-        }
-      );
+      this.RegisterService.registerVendor(this.data).subscribe({
+        next: (response) => console.log(response),
+        error: (error) => console.log(error)
+      })
+    }
     });
   }
+
+  
+  
+
+
+
   decodeLatLng(lat: number, lng: number) {
     const apiKey = '7d34f18319b241f08196de233370d818';
     return this.HttpClient.get(
-      `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}`
+      `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}&language=native`
     );
-  }
-
-  confirmPasswordValidator(control: AbstractControl): {[key: string]: any} | null {
-    if (control.value == control.root.get('Password')?.value) {
-      return {confirmPassword: true};
-    }
-    return null;
   }
 }

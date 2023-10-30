@@ -46,7 +46,7 @@
                         <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
                             name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
                     </div>
-                    <small *ngIf="registerForm?.get('ConfirmPassword')?.invalid && registerForm?.get('ConfirmPassword')?.touched" class="text-danger">
+                    <small *ngIf="registerForm?.get('ConfirmPassword')?.value != registerForm?.get('Password')?.value && registerForm?.get('ConfirmPassword')?.touched" class="text-danger">
                         يجب ان يطابق هذا الحقل ما قمت بكتابته في كلمة السر
                     </small>
                     <div class="row row-cols-1 row-cols-lg-2">
