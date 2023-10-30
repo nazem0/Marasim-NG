@@ -15,6 +15,9 @@
                         <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
                             name="full_name" placeholder="الأسم" formControlName="Name">
                     </div>
+                    <small *ngIf="registerForm?.get('Name')?.invalid && registerForm?.get('Name')?.touched" class="text-danger">
+                        لم تقم بإدخال اسمك بالكامل بشكل صحيح
+                    </small>
                     <div class=" d-flex gap-3">
                         <label for="summary">
                             <i class="fa-solid fa-pen-to-square fs-3"></i>
@@ -22,6 +25,9 @@
                         <textarea class="border-0 border-bottom border-2 w-100 p-2" name="Summary" id="summary" cols="30" rows="4"
                             formControlName="Summary" placeholder="أكتب نبذة عن نفسك"></textarea>
                     </div>
+                    <small *ngIf="registerForm?.get('Summary')?.invalid && registerForm?.get('Summary')?.touched" class="text-danger">
+                        لم تقم بإدخال نبذة مختصرة تحتوي على 20 حرف على الأقل
+                    </small>
                     <div class=" d-flex align-items-center gap-3">
                         <label for="email">
                             <i class="fa-solid fa-envelope fs-3"></i>
@@ -29,7 +35,9 @@
                         <input id="email" class="border-0 border-bottom border-2 w-100 p-2" type="email" name="email"
                             placeholder="البريد الألكتروني" formControlName="Email">
                     </div>
-
+                    <small *ngIf="registerForm?.get('Email')?.invalid && registerForm?.get('Email')?.touched" class="text-danger">
+                        لم تقم بإدخال بريدك الألكتروني بشكل صحيح
+                    </small>
                     <div class=" d-flex align-items-center gap-3">
                         <label for="password">
                             <i class="fa-solid fa-key fs-3"></i>
@@ -37,7 +45,9 @@
                         <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
                             name="password" placeholder="كلمة السر" formControlName="Password">
                     </div>
-
+                    <small *ngIf="registerForm?.get('Password')?.invalid && registerForm?.get('Password')?.touched" class="text-danger">
+                        يجب ان تكون كلمة السر مكونة من 8 احرف وتحتوي على ارقام ورموز
+                    </small>
                     <div class=" d-flex align-items-center gap-3">
                         <label for="password">
                             <i class="fa-solid fa-key fs-3"></i>
@@ -45,6 +55,9 @@
                         <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
                             name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
                     </div>
+                    <small *ngIf="registerForm?.get('ConfirmPassword')?.valid && registerForm?.get('ConfirmPassword')?.touched" class="text-danger">
+                        يجب ان يطابق هذا الحقل ما قمت بكتابته في كلمة السر
+                    </small>
                     <div class="row row-cols-1 row-cols-lg-2">
                         <div class=" d-flex align-items-center gap-3">
                             <label for="phone">
@@ -60,6 +73,12 @@
                             <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
                                 name="national_id" placeholder="الرقم القومي" formControlName="NationalID">
                         </div>
+                        <small *ngIf="registerForm?.get('PhoneNumber')?.invalid && registerForm?.get('PhoneNumber')?.touched" class="text-danger">
+                            يجب إدخال رقم الهاتف وبشكل صحيح
+                        </small>
+                        <small *ngIf="registerForm?.get('NationalID')?.invalid && registerForm?.get('NationalID')?.touched" class="text-danger">
+                            يجب عليك إدخال رقمك القومي
+                        </small>
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
 
@@ -85,20 +104,32 @@
                             <input #UploadPic id="picture" class="d-none" type="file" name="picture"
                                 placeholder="profile picture" formControlName="Picture">
                         </div>
+                        <small *ngIf="registerForm?.get('Gender')?.invalid && registerForm?.get('Gender')?.touched" class="text-danger">
+                            يجب اختيار النوع
+                        </small>
+                        <small *ngIf="registerForm?.get('Picture')?.invalid && registerForm?.get('Picture')?.touched" class="text-danger">
+                            يجب اضافة صورة شخصية
+                        </small>
                     </div>
                     <span class="ms-auto">{{PicName}}</span>
-                    <div class="row row-cols-2">
+                    <div class="row row-cols-2 d-none">
                         <div class="d-flex align-items-center gap-3">
-                            <label for="Latitude">خطوط الطول</label>
+                            <label for="lat">خطوط الطول</label>
                             <input #Latitude id="lat" type="text" class="border-0 border-bottom border-2 w-100 p-2"
                                 formControlName="Latitude">
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <label for="Longitude">دوائر العرض</label>
+                            <label for="lng">دوائر العرض</label>
                             <input #Longitude id="lng" type="text" class="border-0 border-bottom border-2 w-100 p-2"
                                 formControlName="Longitude">
                         </div>
                     </div>
+                    <small *ngIf="
+                    registerForm?.get('Latitude')?.value == null ||
+                    registerForm?.get('Longitude')?.value == null" 
+                    class="text-danger">
+                        يجب تحديد عنوانك
+                    </small>
                     <!-- Map -->
                     <!-- Button trigger modal -->
                     <button type="button" class="primary-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -108,7 +139,7 @@
 
 
                     <!-- End Map -->
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="agreement" id="agreement"
                             aria-label="agreement" />
                         <label for="agreement">
@@ -116,14 +147,14 @@
                                 اقبل الشروط والأحكام
                             </a>
                         </label>
-                    </div>
+                    </div> -->
                     <div>
-                        <button type="submit" class="btn btn-primary w-100 fs-5">
-                            تسجيل
-                        </button>
-                        <!-- <button type="submit" class="btn btn-primary w-100 fs-5" [disabled]="!registerForm.valid">
+                        <!-- <button type="submit" class="btn btn-primary w-100 fs-5">
                             تسجيل
                         </button> -->
+                        <button type="submit" class="btn btn-primary w-100 fs-5" [disabled]="!registerForm.valid">
+                            تسجيل
+                        </button>
                     </div>
                 </form>
             </div>

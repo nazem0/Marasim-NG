@@ -4,7 +4,7 @@
             <div class="py-4 px-5 border-0 shadow rightSide">
                 <form [formGroup]="registerForm" (ngSubmit)="register()" class="d-flex flex-column gap-2" action="">
                     <div>
-                        <p class="display-6 text-center">تسجيل</p>
+                        <p class="display-6 text-center">تسجيل كمستخدم</p>
                     </div>
                     <div class=" d-flex align-items-center gap-3">
                         <label for="full_name">
@@ -12,7 +12,10 @@
                         </label>
                         <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
                             name="full_name" placeholder="الأسم" formControlName="Name">
-                    </div>
+                        </div>
+                        <small *ngIf="registerForm?.get('Name')?.invalid && registerForm?.get('Name')?.touched" class="text-danger">
+                            لم تقم بإدخال اسمك بالكامل بشكل صحيح
+                        </small>
 
                     <div class=" d-flex align-items-center gap-3">
                         <label for="email">
@@ -22,6 +25,10 @@
                             placeholder="البريد الألكتروني" formControlName="Email">
                     </div>
 
+                    <small *ngIf="registerForm?.get('Email')?.invalid && registerForm?.get('Email')?.touched" class="text-danger">
+                        لم تقم بإدخال بريدك الألكتروني بشكل صحيح
+                    </small>
+
                     <div class=" d-flex align-items-center gap-3">
                         <label for="password">
                             <i class="fa-solid fa-key fs-3"></i>
@@ -29,7 +36,9 @@
                         <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
                             name="password" placeholder="كلمة السر" formControlName="Password">
                     </div>
-
+                    <small *ngIf="registerForm?.get('Password')?.invalid && registerForm?.get('Password')?.touched" class="text-danger">
+                        يجب ان تكون كلمة السر مكونة من 8 احرف وتحتوي على ارقام ورموز
+                    </small>
                     <div class=" d-flex align-items-center gap-3">
                         <label for="password">
                             <i class="fa-solid fa-key fs-3"></i>
@@ -37,6 +46,9 @@
                         <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
                             name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
                     </div>
+                    <small *ngIf="registerForm?.get('ConfirmPassword')?.invalid && registerForm?.get('ConfirmPassword')?.touched" class="text-danger">
+                        يجب ان يطابق هذا الحقل ما قمت بكتابته في كلمة السر
+                    </small>
                     <div class="row row-cols-1 row-cols-lg-2">
                         <div class=" d-flex align-items-center gap-3">
                             <label for="phone">
@@ -52,6 +64,12 @@
                             <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
                                 name="national_id" placeholder="الرقم القومي" formControlName="NationalID">
                         </div>
+                        <small *ngIf="registerForm?.get('PhoneNumber')?.invalid && registerForm?.get('PhoneNumber')?.touched" class="text-danger">
+                            يجب إدخال رقم الهاتف وبشكل صحيح
+                        </small>
+                        <small *ngIf="registerForm?.get('NationalID')?.invalid && registerForm?.get('NationalID')?.touched" class="text-danger">
+                            يجب عليك إدخال رقمك القومي
+                        </small>
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2">
 
@@ -60,8 +78,8 @@
                                 <i class="fa fa-male fs-3"></i>
                                 <span>ذكر</span>
                             </label>
-                            <input class="form-check-input" title="male" type="radio" name="Gender" id="male"
-                                value=true formControlName="Gender">
+                            <input class="form-check-input" title="male" type="radio" name="Gender" id="male" value=true
+                                formControlName="Gender">
                             <label for="female" class="d-flex align-items-center gap-4">
                                 <i class="fa-solid fa-person-dress fs-3"></i>
                                 <span>أُنثى</span>
@@ -69,6 +87,7 @@
                             <input class="form-check-input" title="female" type="radio" name="Gender" id="female"
                                 value=false formControlName="Gender">
                         </div>
+                        
                         <div class="file-upload d-flex align-items-center gap-3">
                             <i class="fa-solid fa-camera fs-3 me-2"></i>
                             <label for="picture" class="pic-label border-bottom border-2 w-100 p-2">
@@ -77,19 +96,17 @@
                             <input #UploadPic id="picture" class="d-none" type="file" name="picture"
                                 placeholder="profile picture" formControlName="Picture">
                         </div>
+                        <small *ngIf="registerForm?.get('Gender')?.invalid && registerForm?.get('Gender')?.touched" class="text-danger">
+                            يجب اختيار النوع
+                        </small>
+                        <small *ngIf="registerForm?.get('Picture')?.invalid && registerForm?.get('Picture')?.touched" class="text-danger">
+                            يجب اضافة صورة شخصية
+                        </small>
                     </div>
                     <span class="ms-auto">{{PicName}}</span>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="role" id="vendor"
-                            aria-label="vendor" />
-                        <label for="vendor">
-                            <span class="text-primary">
-                                سجل كمُقدم خدمة
-                            </span>
-                        </label>
-                    </div>
-                    <div class="form-check">
+                    <a class="text-decoration-none text-primary" routerLink="/vendor-registeration">سجل كمقدم خدمة</a>
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="agreement" id="agreement"
                             aria-label="agreement" />
                         <label for="agreement">
@@ -97,7 +114,7 @@
                                 اقبل الشروط والأحكام
                             </a>
                         </label>
-                    </div>
+                    </div> -->
 
 
                     <div>
@@ -122,5 +139,5 @@
             </div>
         </div>
     </div>
-    
+
 </section>

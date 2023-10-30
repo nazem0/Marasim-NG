@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
 import { OpenCageDataResponse } from 'src/app/Models/OpenCageDataResponse';
@@ -27,6 +27,8 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
   };
   registerForm: FormGroup;
   data: FormData;
+  PasswordRegEx = (/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/);
+  PhoneNumberRegEx = (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/);
   address : string ="";
   constructor(
     private ScrollReveal: ScrollRevealService,
@@ -37,11 +39,10 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
     this.data = new FormData();
     this.registerForm = this.builder.group({
       Name: [null, [Validators.required, Validators.minLength(2)]],
-      Summary:[null,[Validators.required, Validators.minLength(10)]],
       Email: [null, [Validators.required, Validators.email]],
-      Password: [null, [Validators.required]],
-      ConfirmPassword: [null, [Validators.required]],
-      PhoneNumber: [null, [Validators.required, Validators.minLength(11)]],
+      Password: [null, [Validators.required,Validators.pattern(this.PasswordRegEx)]],
+      ConfirmPassword: [null, [Validators.required,this.confirmPasswordValidator]],
+      PhoneNumber: [null, [Validators.required, Validators.minLength(11),Validators.pattern(this.PhoneNumberRegEx)]],
       NationalID: [null, [Validators.required, Validators.minLength(11)]],
       Gender: [null, [Validators.required]],
       Picture: [null, [Validators.required]],
@@ -224,5 +225,12 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
     return this.HttpClient.get(
       `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}`
     );
+  }
+
+  confirmPasswordValidator(control: AbstractControl): {[key: string]: any} | null {
+    if (control.value == control.root.get('Password')?.value) {
+      return {confirmPassword: true};
+    }
+    return null;
   }
 }
