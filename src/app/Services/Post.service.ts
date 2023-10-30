@@ -8,8 +8,16 @@ import { environment } from 'src/environments/environment';
 export class PostService {
   constructor(private HttpClient: HttpClient) { }
 
-  AddPost(Post: any) {
+  Add(Post: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Post/AddPost`, Post)
+  }
+
+  Update(Post: any, PostID: number) {
+    return this.HttpClient.post(`${environment.apiUrl}/Post/Update?PostID=${PostID}`, Post)
+  }
+
+  Delete(PostID: number) {
+    return this.HttpClient.delete(`${environment.apiUrl}/Post/Delete?PostID=${PostID}`)
   }
 
   Get(): Observable<IPost[]> {
@@ -24,7 +32,10 @@ export class PostService {
   }
 
 
-  
+
+
+
+
   GetReacts(postID: number): Observable<IReaction[]> {
     return this.HttpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
   }
