@@ -1,0 +1,102 @@
+
+<div class="container searching py-5">
+  <div class="search-bar">
+    <div class="input-group">
+      <span class="input-group-text"><i class="fa-solid fa-search"></i>
+      </span>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
+        <label for="floatingInputGroup2" class="mt-2 px-2">بحث</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-select py-0" id="floatingSelectGrid">
+          <option disabled hidden selected value="">اختر من بين الفئات</option>
+          <option value="1">القاعات</option>
+          <option value="2">المصورين</option>
+          <option value="3">المطاعم</option>
+          <option value="4">صالونات التجميل</option>
+          <option value="5">النوادى</option>
+        </select>
+        <!-- <label for="floatingSelectGrid">اختر من بين الفئات</label> -->
+      </div>
+
+      <button title="فلتر" class="btn btn-primary button__shared" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <i class="fa-solid fa-filter text-white"></i>
+      </button>
+
+      <button class="btn btn-primary button__shared">بحث <i class="fa-solid fa-search text-white"></i></button>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+<div class="py-5 container">
+  <h2 class="text-primary ms-3 mb-5">مقدمو الخدمة الأكثر طلباً</h2>
+  <div>
+    <div id="carousel" class="position-relative">
+      <!-- Carousel slider -->
+      <div class="swiper swiper-carousel">
+        <div class="swiper-wrapper">
+          <ng-container *ngFor="let slide of slides;let i = index">
+            <div class="swiper-slide">
+              <!-- elements with  "swiper-carousel-animate-opacity" class will have animated opacity -->
+              <div class="swiper-carousel-animate-opacity">
+                <img src="{{slide.image}}" alt="{{slide.title}}">
+                <div class="slide-content text-white text-center">
+                  <h2>{{slide.title}}</h2>
+                  <p class="text-white">{{slide.description}}</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-2 container d-flex py-5  justify-content-center flex-column">
+  <h2 class="text-primary ms-3">فئات مقدمي الخدمة</h2>
+  <div class="mt-5">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="custom-card content-left  text-white  d-flex flex-column justify-content-between">
+
+          <h2>مصور فوتوغرافي</h2>
+
+
+          <a href="#">اكتشف الان</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="custom-card content-center text-white d-flex flex-column justify-content-between">
+
+          <h2>خبير تجميل</h2>
+
+          <a href="#">اكتشف الان</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="custom-card content-right text-white d-flex flex-column justify-content-between">
+
+          <h2>منظم حفلات</h2>
+
+          <a href="#">اكتشف الان</a>
+        </div>
+      </div>
+    </div>
+    <div class=" d-flex justify-content-end"> <a
+        class="justify-content-end  text-primary fs-5 mt-5 text-decoration-none ">اكتشف المزيد</a></div>
+  </div>
+
+</div>
