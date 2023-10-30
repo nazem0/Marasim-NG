@@ -38,7 +38,7 @@ header{
     font-size: 18px;
     transition: color 0.3s;
 }
-  
+
 .navbar-item a:hover {
     /* color: #f39c12; */
     color: var(--primary-color);
@@ -65,25 +65,25 @@ header{
     background-color: var(--primary-background-color);
     text-align: center !important;
 }
-  
+
 .navbar-list {
     list-style: none;
     display: flex;
     gap: 40px;
 }
-  
+
 .navbar-item {
     display: inline-block;
     margin: 0 15px;
 }
-  
+
 .navbar-item a {
     text-decoration: none;
     color: var(--priamry-text-color);
     font-size: 18px;
     transition: color 0.3s;
 }
-  
+
 .navbar-item a:hover {
     color: #f39c12;
 }
@@ -99,12 +99,12 @@ header{
     display: flex;
     gap: 40px;
 } */
-  
+
 /* .navbar-item {
     display: inline-block;
     margin: 0 15px;
 } */
-  
+
 /* hero section */
 
 .Sec-1{
@@ -446,7 +446,7 @@ header{
     .S2-branch {
         top: -116px;
         right: 224px;
-    
+
     }
 }
 
@@ -561,7 +561,7 @@ header{
     .S2-branch {
         right: 226px;
     }
-    
+
     .S2-flower {
         right: 20px;
     }
@@ -570,7 +570,7 @@ header{
     .S2-branch {
         display: none;
     }
-    
+
     .S2-flower {
         right: 20px;
     }
@@ -588,4 +588,13 @@ header{
     .for-round::before, .for-round::after {
     width: 110px !important;
     }
+}
+
+
+.fa-brands.fa-instagram {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
