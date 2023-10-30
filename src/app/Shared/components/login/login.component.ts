@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/Services/Auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
   data: FormData;
+  LoginError : string |  null = null;
   constructor(
+    private Router : Router,
     private ScrollReveal: ScrollRevealService,
     private Builder: FormBuilder,
     private AuthService: AuthService,
@@ -39,15 +42,18 @@ export class LoginComponent implements OnInit {
     }
     let x : Subscription=this.AuthService.login(this.data).subscribe({
       next:(response)=>{
+        console.log(response);
         let LoginResponse = response as LoginResponse;
         // 4 days, then cookie will expire
         this.CookieService.set('Marasim-Login-Token',LoginResponse.token,4)
-        console.log(this.CookieService.get('Marasim-Login-Token'));
+        this.Router.navigate(["/"]);
       },
-      error:(error)=>console.log(error),
+      error:()=>{
+        this.LoginError = "البريد او كلمة المرور غير صحيح"
+      },
       complete:()=>x.unsubscribe()
     });
-    // Route To Whatever :| I'M DONE
+    
 
   }
 }
