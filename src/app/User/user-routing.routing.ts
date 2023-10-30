@@ -1,3 +1,5 @@
+import { HomeComponent } from './../Shared/components/home/home.component';
+import { Home2Component } from './components/home/home.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
@@ -12,7 +14,6 @@ import { UserEditProfileComponent } from './components/edit-profile/edit-profile
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
 import { LayoutComponent } from './layout/layout.component';
-import { HomeComponent } from '../Shared/components/home/home.component';
 import { ContactComponent } from '../Shared/components/contact/contact.component';
 import { LoginComponent } from '../Shared/components/login/login.component';
 import { RegisterComponent } from '../Shared/components/register/register.component';
@@ -26,6 +27,10 @@ import { NoFollowsComponent } from './components/no-follows/no-follows.component
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
 import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
+import { FooterComponent } from '../Shared/components/footer/footer.component';
+
+
+
 
 const routes: Routes = [
   {
@@ -54,11 +59,15 @@ const routes: Routes = [
       { path: "no-follows", component: NoFollowsComponent },
       { path: "no-result", component: NoResultSearchComponent },
       { path: "reservation", component: PendingComponent },
+      { path: "home", component: Home2Component },
+
+
+
     ],
   },
   { path: 'register', component: RegisterComponent },
   { path: 'vendor-registeration', component: VendorRegisterationComponent },
-  
+
   { path: 'login', component: LoginComponent },
   { path: "contact", component: ContactComponent },
   { path: "landing", component: LandingComponent },
