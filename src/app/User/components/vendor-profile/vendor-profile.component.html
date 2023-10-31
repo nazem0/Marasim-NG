@@ -1,7 +1,8 @@
 <meta name="referrer" content="no-referrer" />
 
 <!-- Header -->
-<div class="justify-content-center align-items-center d-flex flex-column banner pt-4 gap-2">
+
+<!-- <div class="justify-content-center align-items-center d-flex flex-column banner pt-4 gap-2">
     <img class="rounded-circle avatar" [src]='currentUserVendor?.photo' alt="avatar">
     <h5 class=" text-center">{{currentUserVendor?.name}}</h5>
     <h4 class=" text-center">{{currentVendor?.summary}}</h4>
@@ -12,141 +13,206 @@
             </li>
         </ul>
     </div>
+</div> -->
+<div class="container-fluid d-flex flex-row p-4 header align-items-center">
+  <div class="img-container ms-5">
+    <img class="rounded-circle avatar" [src]="currentUserVendor?.photo" alt="avatar" />
+  </div>
+  <div class="vendor-info ms-4">
+
+    <h5 class="fs-3 ">{{ currentUserVendor?.name }}</h5>
+
+    <div class="row gap-2 py-2">
+
+      <span class="text-muted">مصور فوتوغرافي</span>
+      <ul class="list-inline mb-2">
+        <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
+            <i class="fas fa-star text-warning"></i>
+        </li>
+    </ul>
+      <button class="btn btn-outline-primary w-50">تابع
+
+      </button>
+
+    </div>
+
+    <div class="counter row">
+
+      <div class="d-flex flex-row gap-4">
+        <span>36,2K <span class="text-muted">المتابعين</span> </span>
+        <span>35 <span class="text-muted">المتابعون</span> </span>
+        <span>35 <span class="text-muted">المنشورات</span> </span>
+      </div>
+    </div>
+  </div>
+  <div></div>
 </div>
+<div class="nav-btns position-sticky bg-white z-2">
+
+  <div class="routung-bar d-flex flex-row container ">
+    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('AboutUs')">
+      معلومات عنا
+    </button>
+    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('WorkHistory')">
+      الاعمال السابقة
+    </button>
+    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('Reviews')">
+      المراجعات
+    </button>
+    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('Services')">
+      الخدمات
+    </button>
+    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('Map')">
+      الموقع
+    </button>
+  </div>
+<hr>
+</div>
+
 <!-- End Header -->
 
 <div class="position-relative container justify-content-center align-items-center">
-    <!-- Main Component -->
-    <div class=" p-0">
-        <!-- Pictures Preview -->
-        <section>
-            <app-carousel [slides]="slides"></app-carousel>
-        </section>
-        <!-- End Pictures Preview -->
+  <!-- Main Component -->
+  <div class="p-0">
+    <!-- Pictures Preview -->
+    <section>
+      <app-carousel [slides]="slides"></app-carousel>
+    </section>
+    <!-- End Pictures Preview -->
 
-        <!-- Routing Buttons -->
-        <section class="position-sticky filter-stick bg-white container-fluid z-2 py-1">
-            <div class="row row-cols-3 row-cols-lg-5 align-content-center justify-content-center g-2 p-3">
-                <div>
-                    <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
-                        عنا</button>
-                </div>
-                <div>
-                    <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
-                        السابقة</button>
-                </div>
-                <div>
-                    <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
-                </div>
-                <div>
-                    <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Services')">الخدمات</button>
-                </div>
-                <div>
-                    <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Map')">الموقع</button>
-                </div>
+    <!-- Routing Buttons -->
+    <!-- <section class="position-sticky filter-stick bg-white container-fluid z-2 py-1">
+      <div class="row row-cols-3 row-cols-lg-5 align-content-center justify-content-center g-2 p-3">
+        <div>
+          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('AboutUs')">
+            معلومات عنا
+          </button>
+        </div>
+        <div>
+          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('WorkHistory')">
+            الاعمال السابقة
+          </button>
+        </div>
+        <div>
+          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Reviews')">
+            المراجعات
+          </button>
+        </div>
+        <div>
+          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Services')">
+            الخدمات
+          </button>
+        </div>
+        <div>
+          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Map')">
+            الموقع
+          </button>
+        </div>
+      </div>
+    </section> -->
+    <!-- End Routing Buttons -->
+
+
+
+    <!-- About -->
+    <section id="AboutUs">
+      <div class="py-3">
+        <h2 class="text-primary">معلومات عنا</h2>
+        <div>
+          <p class="arabic-text">
+            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+            النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+            المساحة، لقد تم توليد هذا النص من مولد النص العربى.هذا النص هو مثال
+            لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+            النص العربى.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- End About -->
+
+
+
+    <!-- Work History -->
+    <section id="WorkHistory">
+      <div class="py-3">
+        <h2 class="text-primary">الاعمال السابقة</h2>
+        <div>
+          <div *ngFor="let post of posts" class="my-4">
+            <app-post [post]="post"></app-post>
+          </div>
+        </div>
+        <button class="primary-btn">اعرض المزيد</button>
+      </div>
+    </section>
+    <!-- End Work History -->
+
+
+
+    <!-- Reviews -->
+    <section id="Reviews">
+      <div class="py-3">
+        <h2 class="text-primary">المراجعات</h2>
+        <div *ngFor="let review of REVIEWS" class="vstack gap-4 mt-5">
+          <app-review [Review]="review"></app-review>
+          <hr class="m-0" />
+        </div>
+      </div>
+    </section>
+    <!-- End Reviews -->
+
+    <!-- Services -->
+    <section id="Services">
+      <div class="py-3">
+        <h2 class="text-primary">الخدمات المتاحة</h2>
+        <section class="container-fluid d-flex flex-column justify-content-center align-items-center">
+          <div
+            class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
+            <div class="col card text-center pt-3" *ngFor="let service of currentServices">
+              <img class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![1].resource" />
+              <div class="card-body">
+                <h3 class="card-title">{{ service.title }}</h3>
+                <p class="card-text">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى.
+                </p>
+                <app-request-service>[service]="service"</app-request-service>
+              </div>
             </div>
+          </div>
         </section>
-        <!-- End Routing Buttons -->
+      </div>
+    </section>
+    <!-- End Services -->
 
-        <hr class="my-0">
 
-        <!-- About -->
-        <section id="AboutUs">
-            <div class="p-3">
-                <h2>معلومات عنا</h2>
-                <div>
-                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص من
-                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
-                        من
-                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص
-                        من
-                        مولد النص العربى.
-                    </p>
-                </div>
-                <button class="primary-btn">إقراء المزيد</button>
-            </div>
-        </section>
-        <!-- End About -->
+    <!-- Map -->
+    <ng-container *ngIf="currentVendor">
+      <section id="Map">
+        <div class="py-3 w-50">
+          <h2 class="text-primary py-3">موقعنا</h2>
+          <img title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
+              currentVendor.location.lat
+            }},{{
+              currentVendor.location.lng
+            }}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{
+              currentVendor.location.lat
+            }},{{
+              currentVendor.location.lng
+            }}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en" />
+        </div>
+      </section>
+    </ng-container>
+    <!-- End Map -->
+  </div>
+  <!-- End Main Component -->
 
-        <hr class="my-0">
+  <!------------------------------------------------->
+  <!------------------------------------------------->
+  <!------------------------------------------------->
 
-        <!-- Work History -->
-        <section id="WorkHistory">
-            <div class="p-3">
-                <h2>الاعمال السابقة</h2>
-                <div>
-                    <div *ngFor="let post of posts" class="my-4">
-                        <app-post [post]="post"></app-post>
-                    </div>
-                </div>
-                <button class="primary-btn">اعرض المزيد</button>
-            </div>
-        </section>
-        <!-- End Work History -->
-
-        <hr class="my-0">
-
-        <!-- Reviews -->
-        <section id="Reviews">
-            <div class="p-3">
-                <h2>المراجعات</h2>
-                <div *ngFor="let review of REVIEWS" class="vstack gap-4 mt-5">
-                    <app-review [Review]="review"></app-review>
-                    <hr class="m-0">
-                </div>
-            </div>
-        </section>
-        <!-- End Reviews -->
-
-        <!-- Services -->
-        <section id="Services">
-            <div class="p-3">
-                <h2>الخدمات المتاحة</h2>
-                <section class="container-fluid d-flex flex-column justify-content-center align-items-center">
-                    <div
-                        class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-                        <div class="col card text-center pt-3" *ngFor="let service of currentServices">
-                            <img class="card-img-top mx-auto rounded" [src]='service.serviceAttachments![1].resource'>
-                            <div class="card-body">
-                                <h3 class="card-title">{{service.title}}</h3>
-                                <p class="card-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                                    توليد هذا
-                                    النص
-                                    من مولد النص العربى.
-                                </p>
-                                <app-request-service>[service]="service"</app-request-service>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
-        <!-- End Services -->
-
-        <hr class="my-0">
-
-        <!-- Map -->
-        <ng-container *ngIf="currentVendor">
-            <section id="Map">
-                <div class="p-3">
-                    <h2>موقعنا</h2>
-                    <img title="موقع مقدم الخدمة"
-                        src="https://maps.googleapis.com/maps/api/staticmap?center={{currentVendor.location.lat}},{{currentVendor.location.lng}}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{currentVendor.location.lat}},{{currentVendor.location.lng}}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en">
-                </div>
-            </section>
-        </ng-container>
-        <!-- End Map -->
-
-    </div>
-    <!-- End Main Component -->
-
-    <!------------------------------------------------->
-    <!------------------------------------------------->
-    <!------------------------------------------------->
-
-    <!-- Side Component -->
-    <!-- <div class="col-lg-4 col-md-12 flex-column">
+  <!-- Side Component -->
+  <!-- <div class="col-lg-4 col-md-12 flex-column">
         <section class="container-fluid position-sticky filter-stick">
             <div class="overflow-hidden w-100 position-relative">
                 <button class="fav-button btn position-absolute"><i class="fa-regular fa-heart"></i></button>
@@ -163,6 +229,5 @@
             </div>
         </section>
     </div> -->
-    <!-- Side Component -->
-
+  <!-- Side Component -->
 </div>

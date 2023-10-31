@@ -3,6 +3,11 @@ export interface IPost {
     title: string, 
     description: string,
     dateTime: string,
+    postAttachments: IAttachment[],
+    comment: IComment[],
+    react: IReaction[],
+    vendorName: string,
+    vendorPicUrl: string
   }
   
   export interface IReaction {

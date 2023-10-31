@@ -31,7 +31,6 @@ import { PageNotFoundComponent } from '../Shared/components/page-not-found/page-
 import { ContactComponent } from '../Shared/components/contact/contact.component';
 import { HomeComponent } from '../Shared/components/home/home.component';
 import { PendingComponent } from './components/pending/pending.component';
-import { FooterComponent } from '../Shared/components/footer/footer.component';
 import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
 
 
@@ -72,7 +71,6 @@ import { CarouselComponent } from '../Shared/components/carousel/carousel.compon
     ContactComponent,
     HomeComponent,
     PendingComponent,
-    FooterComponent,
 
 
   ]
