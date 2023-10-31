@@ -27,6 +27,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
 
 
@@ -41,7 +42,7 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     NgChartsModule,
     ReactiveFormsModule,
     NgxPaginationModule
-    
+
   ],
   exports: [],
   declarations: [
@@ -67,6 +68,7 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     ProfileEditComponent,
     VendorDashboardComponent,
     EditServiceComponent,
+    VhomeComponent,
     CreateServiceComponent,
   ]
 })
