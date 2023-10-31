@@ -29,7 +29,7 @@ import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
-
+import { FooterComponent } from '../Shared/components/footer/footer.component';
 
 
 
@@ -41,7 +41,8 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     SharedModule,
     NgChartsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
 
   ],
   exports: [],
@@ -70,6 +71,7 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     EditServiceComponent,
     VhomeComponent,
     CreateServiceComponent,
+    FooterComponent
   ]
 })
 export class VendorModule { }
