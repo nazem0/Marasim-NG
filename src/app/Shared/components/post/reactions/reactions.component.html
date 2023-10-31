@@ -1,7 +1,7 @@
 <!-- Button trigger modal -->
 <div class="d-flex flex-column mt-3" >
   <button (click)="isLiked=!isLiked" class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
-    <i class="fa-thumbs-up fs-3" [ngClass]="{'fa': isLiked, 'fa-regular text-dark': !isLiked}"></i>
+    <i class="fa fa-thumbs-up fs-3" [ngClass]="{'fa': isLiked, 'fa-regular text-dark': !isLiked}"></i>
     <span [ngClass]="{'d-none': isLiked, '': !isLiked}" >اعجبني</span>
     <ng-container *ngIf="isLiked" >
     <span [ngClass]="{'text-primary': isLiked, 'text-dark': !isLiked}" >اعجبك</span>
