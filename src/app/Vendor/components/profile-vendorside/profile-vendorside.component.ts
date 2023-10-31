@@ -53,7 +53,7 @@ export class ProfileVendorsideComponent {
       // media: 'image1.png', 
       title: 'Post 1',
       description: 'Description for post 1',
-      date: '2023-02-15T12:00:00Z',
+      dateTime: '2023-02-15T12:00:00Z',
       reactions: [
         { id: 1, userId: 1, postId: 1, dateTime: '2023-02-15T12:05:00Z' },
         { id: 2, userId: 2, postId: 1, value: 'like', dateTime: '2023-02-15T12:10:00Z' }
@@ -74,7 +74,7 @@ export class ProfileVendorsideComponent {
       // media: 'image2.png',
       title: 'Post 2',
       description: 'Description for post 2',
-      date: '2023-02-16T09:30:00Z',
+      dateTime: '2023-02-16T09:30:00Z',
       reactions: [
         { id: 3, userId: 1, postId: 2, dateTime: '2023-02-16T09:35:00Z' }
       ],

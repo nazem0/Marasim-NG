@@ -9,7 +9,7 @@
   transition: 0.8s all;
   max-width: 28rem;
   width: 5rem;
-  z-index: 10124;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;

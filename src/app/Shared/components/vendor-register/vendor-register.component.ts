@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
 import { OpenCageDataResponse } from 'src/app/Models/OpenCageDataResponse';
-import { RegisterationErrorResponse } from 'src/app/Services/RegisterationErrorResponse';
+import { RegisterationErrorResponse } from 'src/app/Models/RegisterationErrorResponse';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-vendor-register',
