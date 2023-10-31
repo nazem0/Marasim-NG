@@ -15,7 +15,7 @@ export class CommentsComponent {
     
   }
 
-  ngOnInit(){
-    this.post.GetComments(this.postID).subscribe((result)=>this.comments=result)
-  }
+  // ngOnInit(){
+  //   this.post.GetComments(this.postID).subscribe((result)=>this.comments=result)
+  // }
 }
