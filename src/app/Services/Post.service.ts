@@ -24,24 +24,25 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorID(): Observable<IPost[]> {
-    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/GetByVendorID`)
-  }
-  GetAttachments(postID: number): Observable<IAttachment[]> {
-    return this.HttpClient.get<IAttachment[]>(`${environment.apiUrl}/PostAttachment/GetPostAttachmentByPostID?PostID=${postID}`)
+  GetByVendorID(VendorID: number): Observable<any[]> {
+    return this.HttpClient.get<any[]>(`${environment.apiUrl}/Post/GetByVendorID?VendorID=${VendorID}`)
   }
 
+  // GetAttachments(postID: number): Observable<IAttachment[]> {
+  //   return this.HttpClient.get<IAttachment[]>(`${environment.apiUrl}/PostAttachment/GetPostAttachmentByPostID?PostID=${postID}`)
+  // }
 
 
 
 
 
-  GetReacts(postID: number): Observable<IReaction[]> {
-    return this.HttpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
-  }
-  GetComments(postID: number): Observable<IComment[]> {
-    return this.HttpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comments`)
-  }
+
+  // GetReacts(postID: number): Observable<IReaction[]> {
+  //   return this.HttpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
+  // }
+  // GetComments(postID: number): Observable<IComment[]> {
+  //   return this.HttpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comments`)
+  // }
 }
 
 

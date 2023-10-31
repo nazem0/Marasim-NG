@@ -13,7 +13,12 @@ export class WorkHistoryComponent implements OnInit {
   constructor(private PostService: PostService) { }
 
   ngOnInit() {
-    this.PostService.GetByVendorID().subscribe(result => {
+    // this.PostService.GetByVendorID(1).subscribe(result => {
+    //   console.log(result)
+    //   this.posts = result;
+    // })
+
+    this.PostService.Get().subscribe(result => {
       console.log(result)
       this.posts = result;
     })
