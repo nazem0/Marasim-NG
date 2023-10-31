@@ -4,7 +4,7 @@
   <app-create-service></app-create-service>
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
     <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
-      <div class="col card text-center pt-3" *ngFor="let service of services">
+      <div class="col card text-center p-0 overflow-hidden" *ngFor="let service of services">
         <div [attr.id]="'carousel-'+service.id" class="carousel slide">
           <div class="carousel-inner">
             <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">

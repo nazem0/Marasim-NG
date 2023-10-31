@@ -11,7 +11,7 @@ import { ReservationComponent } from './components/reservation/reservation/reser
 import { StatNavComponent } from './components/statistic/stat-nav.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
-import { CreateOfferComponent } from './components/vendor-services/create-offer/create-offer.component';
+import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
-import { CreateOfferComponent } from './components/vendor-services/create-offer/create-offer.component';
+import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';

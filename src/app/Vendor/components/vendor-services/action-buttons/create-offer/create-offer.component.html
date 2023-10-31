@@ -1,15 +1,16 @@
 <!-- Button trigger modal -->
 <button title="إضافة تخفيض على الخدمة" type="button" class="primary-btn" data-bs-toggle="modal"
-    data-bs-target="#exampleModal">
-    <i class="fa fa-percentage"></i>
+    attr.data-bs-target="#Modal{{service!.id}}">
+    <!-- <i class="fa fa-percentage"></i> -->
+    أضف تخفيض
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal{{service!.id}}" tabindex="-1" attr.aria-labelledby="Modal{{service!.id}}Label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">إضافة عرض</h1>
+                <h1 class="modal-title fs-5" id="Modal{{service!.id}}Label">إضافة عرض</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
