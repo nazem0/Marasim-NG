@@ -70,7 +70,7 @@ import { FormsModule } from '@angular/forms';
     VendorCardComponent,
     AttachmentModalComponent,
     CarouselComponent,
-    InputSelectComponent
+    InputSelectComponent,
   ],
 
 })

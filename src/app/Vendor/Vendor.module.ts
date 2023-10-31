@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
 import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
-import { CreateOfferComponent } from './components/vendor-services/create-offer/create-offer.component';
+import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
@@ -13,7 +13,6 @@ import { ReservationComponent } from './components/reservation/reservation/reser
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
-import { AddServiceComponent } from './components/add-service/add-service.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
@@ -29,6 +28,7 @@ import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashb
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { VhomeComponent } from './components/vhome/vhome.component';
+import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
 
 
 
@@ -42,7 +42,7 @@ import { VhomeComponent } from './components/vhome/vhome.component';
     NgChartsModule,
     ReactiveFormsModule,
     NgxPaginationModule
-    
+
   ],
   exports: [],
   declarations: [
@@ -68,8 +68,8 @@ import { VhomeComponent } from './components/vhome/vhome.component';
     ProfileEditComponent,
     VendorDashboardComponent,
     EditServiceComponent,
-    AddServiceComponent,
     VhomeComponent,
+    CreateServiceComponent,
   ]
 })
 export class VendorModule { }

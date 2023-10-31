@@ -9,7 +9,7 @@ export class PostService {
   constructor(private HttpClient: HttpClient) { }
 
   Add(Post: any) {
-    return this.HttpClient.post(`${environment.apiUrl}/Post/AddPost`, Post)
+    return this.HttpClient.post(`${environment.apiUrl}/Post/Add`, Post)
   }
 
   Update(Post: any, PostID: number) {
