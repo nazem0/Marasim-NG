@@ -13,7 +13,6 @@ import { ReservationComponent } from './components/reservation/reservation/reser
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
-import { AddServiceComponent } from './components/add-service/add-service.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
@@ -28,6 +27,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
 
 
 
@@ -67,7 +67,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProfileEditComponent,
     VendorDashboardComponent,
     EditServiceComponent,
-    AddServiceComponent,
+    CreateServiceComponent,
   ]
 })
 export class VendorModule { }

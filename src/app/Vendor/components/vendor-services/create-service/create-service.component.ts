@@ -2,13 +2,12 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from 'src/app/Services/service.service';
 
-
 @Component({
-  selector: 'app-add-service',
-  templateUrl: './add-service.component.html',
-  styleUrls: ['./add-service.component.css']
+  selector: 'app-create-service',
+  templateUrl: './create-service.component.html',
+  styleUrls: ['./create-service.component.css']
 })
-export class AddServiceComponent {
+export class CreateServiceComponent {
   @ViewChild("UploadedPictures") UploadedPictures: ElementRef | null = null;
   serviceForm: FormGroup;
   formIsValid = false;

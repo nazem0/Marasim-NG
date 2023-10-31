@@ -5,6 +5,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
 import { IService } from '../Models/IService';
 import { IServiceAttachment } from '../Models/IServiceAttachment';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
     providedIn: 'root'
@@ -30,7 +31,10 @@ export class VendorService {
             throw "Check ID";
         }
     }
-    getServicesWithAttachments(ID: Number): Observable<IService[]> {
-        return this.http.get<IService[]>(`http://localhost:3000/vendors/${ID}/services?_embed=serviceAttachments`)
+    getServices(ID: Number): Observable<IService[]> {
+        return this.http.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${ID}`)
+    }
+    getServicesByVendorId(Id:number){
+        return this.http.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${Id}`)
     }
 }

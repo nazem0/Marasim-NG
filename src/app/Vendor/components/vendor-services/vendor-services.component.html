@@ -1,10 +1,27 @@
 <!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 <div class="container">
   <h1 class="text-center my-5 text-primary">قائمة الخدمات</h1>
+  <app-create-service></app-create-service>
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
     <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
       <div class="col card text-center pt-3" *ngFor="let service of services">
-        <img title="{{service.title}}" class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![0].resource">
+        <div [attr.id]="'carousel-'+service.id" class="carousel slide">
+          <div class="carousel-inner">
+            <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
+              <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+                <img src="{{apiUrl}}{{service.userId}}/serviceAttachment/{{pic.serviceID}}-{{service.title}}/{{pic.attachmentUrl}}" class="d-block w-100 carousel-pic" alt="...">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
         <div class="card-body">
           <h3 class="card-title">{{service.title}}</h3>
           <p>{{service.description}}</p>

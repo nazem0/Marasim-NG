@@ -29,7 +29,8 @@ export class VendorProfileComponent implements OnInit {
       this.currentVendor = responseList[0];
       this.currentUserVendor = responseList[1];
     });
-    this.vendor.getServicesWithAttachments(1).subscribe(result => {
+    this.vendor.getServices(1).subscribe(result => {
+      console.log(result);
       this.currentServices = result;
     })
   }

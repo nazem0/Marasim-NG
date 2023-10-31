@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.development';
 import { VendorService } from 'src/app/Services/Vendor.service';
 import { Component, OnInit } from '@angular/core';
 import { IService } from 'src/app/Models/IService';
@@ -12,10 +13,15 @@ export class VendorServicesComponent implements OnInit {
     Name: 'أحمد محمد خالد',
     Category: 'مصور فوتوغرافى'
   }
-  services: IService[] = []
+  services: any[] = []
+  apiUrl=environment.serverUrl;
   constructor(private VendorService: VendorService) {
-    this.VendorService.getServicesWithAttachments(3).subscribe(
-      (services) => this.services = services
+    
+    this.VendorService.getServicesByVendorId(1).subscribe(
+      (services) => {
+        console.log(services);
+        this.services = services
+      }
     )
 
   }
