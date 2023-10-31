@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
@@ -11,15 +12,20 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '../Services/Auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router,private CookieService:CookieService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authService.isAuthenticated()) {
+    if (this.CookieService.get("Role").includes("vendor")) {
+      console.log("Authorized")
+      console.log(this.CookieService.get("Role"))
+
       return true;
     } else {
+      console.log("Unauthorized")
+      console.log(this.CookieService.get("Role"))
       this.router.navigate(['/']);
 
       return false;

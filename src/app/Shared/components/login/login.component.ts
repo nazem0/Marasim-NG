@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
         let LoginResponse = response as LoginResponse;
         console.log(LoginResponse);
-        this.AuthService.addCookies(LoginResponse.token,LoginResponse.profilePicture,LoginResponse.role,LoginResponse.name);
+        this.AuthService.addCookies(LoginResponse.token,LoginResponse.profilePicture,LoginResponse.role,LoginResponse.name,LoginResponse.id);
         this.Router.navigate(["/"]);
       },
       error:()=>{

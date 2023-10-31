@@ -12,8 +12,10 @@ export class NavBarComponent   {
   apiUrl=environment.serverUrl;
   
   constructor(public AuthService:AuthService,private CookieService:CookieService){}
-  userId = this.CookieService.get("ProfilePicture");
+  userId = this.CookieService.get("Id");
   profilePicture = this.CookieService.get("ProfilePicture");
+  name = this.CookieService.get("Name");
+  role = this.CookieService.get("Role")
   logout(){
     this.AuthService.logout();
     this.AuthService.removeCookies();
