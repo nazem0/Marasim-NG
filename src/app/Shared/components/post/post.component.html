@@ -19,7 +19,7 @@
         <p class="post-description">{{post.description}}</p>
     </div>
     <!-- Carousel : Attachments -->
-    <app-attachments [postAttachments]="post.postAttachments" [postID]="post.id"></app-attachments>
+    <app-attachments [postAttachments]="post.postAttachments" [postID]="post.id" [vendorID]="post.vendorUserID" [postTitle]="post.title"></app-attachments>
     <!-- End Carousel -->
     <!-- Modal : Reactions -->
     <app-reactions [postID]="post.id" [userName]="post.title"></app-reactions>

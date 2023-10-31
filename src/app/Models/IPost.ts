@@ -7,7 +7,8 @@ export interface IPost {
     comment: IComment[],
     react: IReaction[],
     vendorName: string,
-    vendorPicUrl: string
+    vendorPicUrl: string,
+    vendorUserID: string
   }
   
   export interface IReaction {

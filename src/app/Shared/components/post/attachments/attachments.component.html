@@ -2,8 +2,9 @@
     <!-- OL Here -->
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item" *ngFor="let attachment of postAttachments; let i = index" [class.active]="i === 0">
-            <app-attachment-modal [source]="attachment.attachmentUrl"></app-attachment-modal>
+            <app-attachment-modal source="{{apiUrl}}{{vendorID}}/PostAttachment/{{postID}}-{{postTitle}}/{{attachment.attachmentUrl}}"></app-attachment-modal>
         </div>
+        <!-- {{apiUrl}}{{service.userId}}/serviceAttachment/{{pic.serviceID}}-{{service.title}}/{{pic.attachmentUrl}} -->
     </div>
     <ng-container *ngIf="postAttachments.length>1">
         <button class="carousel-control-prev bg-dark z-0" type="button" [attr.data-bs-target]="'#p_c'+postID" data-bs-slide="prev">
