@@ -26,6 +26,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     } else {
       console.log("Unauthorized")
       console.log(this.CookieService.get("Role"))
+      this.router.resetConfig(this.router.config);
       this.router.navigate(['/']);
 
       return false;
