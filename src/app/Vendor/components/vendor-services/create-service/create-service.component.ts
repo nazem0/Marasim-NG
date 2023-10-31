@@ -28,10 +28,10 @@ export class CreateServiceComponent {
 
   submitService() {
     if (this.formIsValid) {
-      this.data.append('Title', this.serviceForm.get('Title')?.value);
-      this.data.append('Description', this.serviceForm.get('Description')?.value);
-      this.data.append('Price', this.serviceForm.get('Price')?.value);
-      for (var i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
+      this.data.set('Title', this.serviceForm.get('Title')?.value);
+      this.data.set('Description', this.serviceForm.get('Description')?.value);
+      this.data.set('Price', this.serviceForm.get('Price')?.value);
+      for (let i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
         this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
       }
       // this.data.append('Pictures', this.UploadedPictures?.nativeElement.files);

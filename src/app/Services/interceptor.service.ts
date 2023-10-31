@@ -10,7 +10,7 @@ export class InterceptorService implements HttpInterceptor {
 
   constructor(private CookieService:CookieService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let token = this.CookieService.get('Marasim-Login-Token');
+    let token = this.CookieService.get('Token');
     req = req.clone({
       setHeaders:{
         Authorization:`Bearer ${token}`

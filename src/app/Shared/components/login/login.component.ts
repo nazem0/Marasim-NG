@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
     sr.reveal('.leftSide', { origin: 'left', duration: 1200, distance: '500px' })
   }
   async Login() {
-    this.data.append('Email', this.LoginForm.get('Email')?.value);
-    this.data.append('Password', this.LoginForm.get('Password')?.value);
-    this.data.append('RememberMe', this.LoginForm.get('RememberMe')?.value);
+    this.data.set('Email', this.LoginForm.get('Email')?.value);
+    this.data.set('Password', this.LoginForm.get('Password')?.value);
+    this.data.set('RememberMe', this.LoginForm.get('RememberMe')?.value);
     if(this.LoginForm.get('RememberMe')?.value){
 
     }
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
       next:(response)=>{
         console.log(response);
         let LoginResponse = response as LoginResponse;
-        // 4 days, then cookie will expire
-        this.CookieService.set('Marasim-Login-Token',LoginResponse.token,4)
+        console.log(LoginResponse);
+        this.AuthService.addCookies(LoginResponse.token,LoginResponse.profilePicture,LoginResponse.role,LoginResponse.name,LoginResponse.id);
         this.Router.navigate(["/"]);
       },
       error:()=>{
@@ -60,4 +60,8 @@ export class LoginComponent implements OnInit {
 
 interface LoginResponse{
   token:string
+  profilePicture:string
+  role:string
+  name:string
+  id:string
 }
