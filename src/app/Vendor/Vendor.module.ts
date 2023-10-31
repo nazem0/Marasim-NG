@@ -31,7 +31,6 @@ import { WalletComponent } from './components/wallet/wallet.component';
 
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
-import { FooterComponent } from '../Shared/components/footer/footer.component';
 
 
 
@@ -75,7 +74,6 @@ import { FooterComponent } from '../Shared/components/footer/footer.component';
 
     VhomeComponent,
     CreateServiceComponent,
-    FooterComponent
   ]
 })
 export class VendorModule { }

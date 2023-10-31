@@ -25,6 +25,7 @@ import { Nav2Component } from './components/landing/nav2/nav2.component';
 import { LoginComponent } from './components/login/login.component';
 import { VendorRegisterationComponent } from './components/vendor-register/vendor-register.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { FormsModule } from '@angular/forms';
     AddCommentComponent,
     LandingComponent,
     Nav2Component,
+    FooterComponent
   ],
   providers:[
   ],
@@ -71,6 +73,7 @@ import { FormsModule } from '@angular/forms';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,
+    FooterComponent
   ],
 
 })
