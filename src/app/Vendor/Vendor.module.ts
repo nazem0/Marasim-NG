@@ -27,6 +27,8 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { WalletComponent } from './components/wallet/wallet.component';
+
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
 import { FooterComponent } from '../Shared/components/footer/footer.component';
@@ -69,6 +71,8 @@ import { FooterComponent } from '../Shared/components/footer/footer.component';
     ProfileEditComponent,
     VendorDashboardComponent,
     EditServiceComponent,
+    WalletComponent,
+
     VhomeComponent,
     CreateServiceComponent,
     FooterComponent

@@ -14,6 +14,7 @@ import { VendorReviewsComponent } from './components/vendor-reviews/vendor-revie
 import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
+import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 
 const vendorRoutes: Routes = [
@@ -33,8 +34,8 @@ const vendorRoutes: Routes = [
             { path: 'stats', component: StatNavComponent },
             { path: 'card', component: VendorCardComponent },
             { path: 'edit', component: ProfileEditComponent },
+            { path: 'wallet', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
-
         ]
     }
 
