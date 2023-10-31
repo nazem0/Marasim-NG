@@ -27,17 +27,17 @@
                     <li>
 
                     </li>
-                    <ng-container *ngIf="!isLogged">
+                    <ng-template #NotLoggedIn>
                       <li class="navbar-item ">
                         <button class="btn btn-outline-primary m-1" routerLink="/login" > تسجيل الدخول</button>
                         <button class="btn btn-outline-primary m-1" routerLink="/register" > سجل الان</button>
                       </li>
-                    </ng-container>
-                     <ng-container *ngIf="isLogged">
+                    </ng-template>
+                     <ng-container *ngIf="AuthService.isLoggedIn | async;else NotLoggedIn">
                       <li class="navbar-item ">
                             <div class="dropdown  ">
                         <a href="#" class="d-flex align-items-center text-primary text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="50" height="50" class="rounded-circle">
+                            <!-- <img src="{{apiUrl}}{{userId}}/ProfilePicture/{{pic.attachmentUrl}}" alt="hugenerd" width="50" height="50" class="rounded-circle"> -->
                             <span class="d-none d-sm-inline mx-1">محمد احمد</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-white text-small shadow">
