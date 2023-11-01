@@ -28,6 +28,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { WalletComponent } from './components/wallet/wallet.component';
 
 
 
@@ -68,6 +69,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VendorDashboardComponent,
     EditServiceComponent,
     AddServiceComponent,
+    WalletComponent,
   ]
 })
 export class VendorModule { }
