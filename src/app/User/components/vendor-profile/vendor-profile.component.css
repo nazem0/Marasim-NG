@@ -55,20 +55,29 @@ border-radius: 0 !important;
 
 .nav-btn:hover
 {
-color: #088f95;
+color: var(--primary-color);
   border-bottom:2px solid #088f95;
-  background-color: #d5e3e4;
+  background-color: #f0f9fa;
 }
 
 
 
 
 .nav-btns{
-  border-bottom: .5px solid rgba(253, 253, 253, 0.418);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.418);
+
 }
 
 hr{
   margin: 0 !important;
   padding: 0 !important;
+
 }
 
+.sss{
+  background-image: linear-gradient(to bottom ,rgb(198, 223, 223),white);
+}
+
+.map{
+  width: 700px;
+}

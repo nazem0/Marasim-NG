@@ -1,13 +1,16 @@
 <!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 
-<div class="row align-items-center">
-    <div class="col m-0 ">
-        <img class="rounded-circle" [src]='Review.User.PicURL' alt="avatar">
+<div class="d-flex flex-row align-items-center">
+    <div class=>
+      <div class="row justify-content-center pe-3">
+        <img class="review-img rounded-circle" [src]='Review.User.PicURL' alt="avatar">
+      </div>
+
     </div>
 
-    <div class="col-10 justify-content-center my-auto">
+    <div class="review justify-content-center  ">
         <div class="d-flex justify-content-between">
-            <h5 class="">{{Review.User.Name}}</h5>
+            <h5 class="customer-name m-0 ">{{Review.User.Name}}</h5>
             <span>{{Review.Date}}</span>
         </div>
         <ul class="list-inline m-0">
@@ -15,7 +18,7 @@
                 <i class="fas fa-star text-warning"></i>
             </li>
         </ul>
-        <h6><span class="text-body fw-light">تقيم على: </span>{{Review.Service}}</h6>
+        <span><span class=" fw-light">تقيم على: </span>{{Review.Service}}</span>
         <p>{{Review.Description}}</p>
     </div>
 </div>

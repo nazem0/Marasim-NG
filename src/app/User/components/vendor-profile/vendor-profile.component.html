@@ -1,51 +1,36 @@
 <meta name="referrer" content="no-referrer" />
 
-<!-- Header -->
-
-<!-- <div class="justify-content-center align-items-center d-flex flex-column banner pt-4 gap-2">
-    <img class="rounded-circle avatar" [src]='currentUserVendor?.photo' alt="avatar">
-    <h5 class=" text-center">{{currentUserVendor?.name}}</h5>
-    <h4 class=" text-center">{{currentVendor?.summary}}</h4>
-    <div class="fs-4">
-        <ul class="list-inline mb-2">
-            <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
-                <i class="fas fa-star text-warning"></i>
-            </li>
-        </ul>
-    </div>
-</div> -->
-<div class="container-fluid d-flex flex-row p-4 header align-items-center">
-  <div class="img-container ms-5">
-    <img class="rounded-circle avatar" [src]="currentUserVendor?.photo" alt="avatar" />
+<div class="container-fluid sss d-flex flex-row p-4 header  ">
+  <div class="img-container ">
+    <img class="rounded-circle avatar shadow  " [src]="currentUserVendor?.photo" alt="avatar" />
   </div>
-  <div class="vendor-info ms-4">
+  <div class="vendor-info ms-4 mt-2">
 
-    <h5 class="fs-3 ">{{ currentUserVendor?.name }}</h5>
+    <h5 class="fs-3">{{ currentUserVendor?.name }}</h5>
 
-    <div class="row gap-2 py-2">
+    <div class="row gap-2 py-2 ">
 
-      <span class="text-muted">مصور فوتوغرافي</span>
+      <span class="text-muted text-white">مصور فوتوغرافي</span>
       <ul class="list-inline mb-2">
         <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
             <i class="fas fa-star text-warning"></i>
         </li>
     </ul>
-      <button class="btn btn-outline-primary w-50">تابع
-
-      </button>
+      <button class="btn btn-warning w-50 text-white "><i class="fas fa-plus text-white me-1 my-auto"></i>تابع</button>
 
     </div>
 
-    <div class="counter row">
+    <div class="counter row mt-2" >
 
-      <div class="d-flex flex-row gap-4">
-        <span>36,2K <span class="text-muted">المتابعين</span> </span>
-        <span>35 <span class="text-muted">المتابعون</span> </span>
-        <span>35 <span class="text-muted">المنشورات</span> </span>
+      <div class="d-flex flex-row gap-4 text-white">
+        <span class="">36,2K <span class="text-muted text-white">المتابعين</span> </span>
+        <span class="">35 <span class="text-muted text-white">المتابعون</span> </span>
+        <span class="">35 <span class="text-muted text-white">المنشورات</span> </span>
       </div>
     </div>
+
   </div>
-  <div></div>
+
 </div>
 <div class="nav-btns position-sticky bg-white z-2">
 
@@ -189,9 +174,9 @@
     <!-- Map -->
     <ng-container *ngIf="currentVendor">
       <section id="Map">
-        <div class="py-3 w-50">
+        <div class="py-3">
           <h2 class="text-primary py-3">موقعنا</h2>
-          <img title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
+          <div class="ms-5">       <img class="map" title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
               currentVendor.location.lat
             }},{{
               currentVendor.location.lng
@@ -201,6 +186,7 @@
               currentVendor.location.lng
             }}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en" />
         </div>
+      </div>
       </section>
     </ng-container>
     <!-- End Map -->

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IService } from 'src/app/Models/IService';
 import { IUser } from 'src/app/Models/IUser';
 import { IVendor } from 'src/app/Models/IVendor';
@@ -13,7 +13,7 @@ import { VendorService } from 'src/app/Services/Vendor.service';
   templateUrl: './vendor-profile.component.html',
   styleUrls: ['./vendor-profile.component.css']
 })
-export class VendorProfileComponent implements OnInit {
+export class VendorProfileComponent implements OnInit ,AfterViewInit {
   @ViewChild("filterContainer") filterContainer!: ElementRef;
   @ViewChild("caret") caret!: ElementRef;
 
@@ -23,6 +23,9 @@ export class VendorProfileComponent implements OnInit {
   vendorWithDetails: IVendorWithDetails | undefined;
 
   constructor(private vendor: VendorService, private user: UserService) { }
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit() {
     this.vendor.getVendorWithUser(1, 3).subscribe(responseList => {
@@ -33,6 +36,19 @@ export class VendorProfileComponent implements OnInit {
       console.log(result);
       this.currentServices = result;
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
   scrollToTargetAdjusted(x: string) {
     var elementPosition = document.getElementById(x)!.getBoundingClientRect().top;
