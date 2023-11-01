@@ -105,21 +105,42 @@ section{
       align-items: center;
     }
     /* ////////////////////// */
-    @media screen and (max-width: 600px) {
-  }
+@media screen and (max-width: 768px) {
+        .hero-wallet{
+            flex-direction: column-reverse;
+        }
+        .bbbb , .uuuu{
+            width: 100%;
+        }
+}
   
-  @media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
       .modal-content {
           width: 75% !important;
       }
-  }
+}
   
-  @media screen and (max-width: 567px) {
+@media screen and (max-width: 567px) {
       .modal-content {
           width: 100% !important;
       }
-  }
+}
     
-  @media screen and (max-width:960px) {
-  }
-  
+@media screen and (max-width:544px) {
+    .img-cust {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-left: 9px;
+    }
+}
+@media screen and (max-width:478px) {
+    .img-cust {
+        display: none;
+    }
+}
+@media screen and (max-width:478px) {
+    .cards{
+        padding: 0 10px;
+    }
+}
