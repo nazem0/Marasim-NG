@@ -3,11 +3,11 @@
 
       <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
 
-        <img class="vendorPic" [src]="vendorPic" alt="">
+        <img class="vendorPic" [src]="post.vendorPicUrl" alt="">
 
         <div class="d-flex flex-column">
-          <span class="fs-5">{{vendorName}}</span>
-          <span class="text-muted">{{post.date}}</span>
+          <span class="fs-5">{{post.vendorName}}</span>
+          <span class="text-muted">{{post.dateTime}}</span>
         </div>
 
 
@@ -19,7 +19,7 @@
         <p class="post-description">{{post.description}}</p>
     </div>
     <!-- Carousel : Attachments -->
-    <app-attachments [postID]="post.id"></app-attachments>
+    <app-attachments [postAttachments]="post.postAttachments" [postID] = "post.id"></app-attachments>
     <!-- End Carousel -->
     <!-- Modal : Reactions -->
     <app-reactions [postID]="post.id" [userName]="post.title"></app-reactions>

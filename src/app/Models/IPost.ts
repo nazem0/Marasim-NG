@@ -2,7 +2,12 @@ export interface IPost {
     id: number,
     title: string, 
     description: string,
-    date: string,
+    dateTime: string,
+    postAttachments: IAttachment[],
+    comment: IComment[],
+    react: IReaction[],
+    vendorName: string,
+    vendorPicUrl: string
   }
   
   export interface IReaction {

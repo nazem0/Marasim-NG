@@ -47,9 +47,12 @@
 
 
 <section *ngFor="let cat of categories let i = index" class="container">
-  <div class="col-sm-12 align-items-center cover-img d-flex flex-column rounded-4">
-    <h1 class="text-white mt-2">{{cat.name}}</h1>
-    <p class="text-white mb-4">اختر ما يناسبك من {{cat.name}} المتعددة لدينا</p>
+  <div class="col-sm-12 cover-img d-flex flex-column rounded-4">
+    <h1 class="text-primary mt-2">{{cat.name}}</h1>
+    <div>
+      <div class="gradient mb-3"><p class="text-white mb-4 ms-1 ">اختر ما يناسبك من {{cat.name}} المتعددة لدينا</p></div>
+    </div>
+
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
       <div
         class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
@@ -59,13 +62,15 @@
             <h5 class="card-title">{{item.summary}}</h5>
             <p class="card-text"> {{item.summary}}</p>
             <p>{{item.location.lat}} + {{item.location.lng}}</p>
-            <button class ="primary-btn" routerLink="/vendor-profile">Request Pricing</button>
+            <button class ="primary-btn" routerLink="/vendor-profile">المزيد من التفاصيل</button>
           </div>
         </div>
       </div>
+
     </div>
-    <br>
-    <button class=" danger-btn mb-3 fs-4 border-0">عرض المزيد..</button>
+    <div class="d-flex justify-content-center">
+      <button class="primary-btn my-3 fs-5 border-0">عرض المزيد..</button>
+    </div>
   </div>
 
 

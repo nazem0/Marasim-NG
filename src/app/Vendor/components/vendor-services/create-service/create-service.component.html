@@ -1,0 +1,63 @@
+<!-- Button trigger modal -->
+<div class="d-flex justify-content-center">
+    <button title="أضف سابقة أعمال" type="button" class="primary-btn w-50 py-3 mb-3 shadow " data-bs-toggle="modal"
+        data-bs-target="#create-post">
+        <i class="fa fa-add"></i> اضافة خدمة
+    </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="create-post" tabindex="-1" aria-labelledby="create-postLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="create-postLabel">أضافــة خدمـة</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- resposive 100%  PATH-->
+                <h1 class="text-center mt-5 title-edit-page"></h1>
+
+                <div class="container">
+                    <div class="parent my-5 d-flex justify-content-center">
+                        <form class="F DivForm w-50" [formGroup]="serviceForm" (ngSubmit)="submitService()">
+                            <div class="mb-3">
+                                <label for="Inputtitle" class="form-label">أســم الخدمــة</label><span
+                                    class="text-danger">*</span>
+                                <input type="text" class="form-control" id="Inputtitle" formControlName="Title">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Inputprice" class="form-label">سعـر الخدمــة</label><span
+                                    class="text-danger">*</span>
+                                <input type="number" class="form-control" id="Inputprice" formControlName="Price">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Inputmedia" class="form-label">أرفاق وسائط ميديـا</label><span
+                                    class="text-danger">*</span>
+                                <input #UploadedPictures type="file" class="form-control" id="Inputmedia"
+                                    formControlName="Pictures" multiple>
+                            </div>
+                            <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة"
+                                formControlName="Description"></textarea>
+                            <span class="text-muted">تحتوي البيانات اللازمة علي علامة</span><span
+                                class="text-danger">(*)</span>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex justify-content-center align-items-center">
+                    <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
+                        [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+                        [disabled]="!formIsValid"
+                        (click)="submitService()"
+                        >تأكيــد</button>
+                </div>
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>

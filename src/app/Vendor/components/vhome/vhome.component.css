@@ -1,0 +1,30 @@
+.info-img{
+   width:800px
+}
+.card-img{
+width: 50px;
+}
+.info-cards-container{
+  background-color: rgba(211, 211, 211, 0.27);
+  width: 100%;
+
+}
+.card:hover{
+  background-color: rgba(211, 211, 211, 0.27) !important;
+
+}
+
+.card-container{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+gap: 5px;
+padding: 10px 0px;
+justify-content: center;
+
+}
+a{
+  text-decoration: none;
+}
+.contact-img{
+  width: 400px;
+}

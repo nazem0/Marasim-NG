@@ -40,13 +40,33 @@
 }
 
 .avatar{
-  width: 90px;
+  width: 200px;
 }
 
 .banner{
   background-image: linear-gradient(var(--primary-color), white);
 }
+.nav-btn{
+border-radius: 0 !important;
+}
+
+
+.nav-btn:hover
+{
+color: #088f95;
+  border-bottom:2px solid #088f95;
+  background-color: #d5e3e4;
+}
 
 
 
+
+.nav-btns{
+  border-bottom: .5px solid rgba(253, 253, 253, 0.418);
+}
+
+hr{
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
