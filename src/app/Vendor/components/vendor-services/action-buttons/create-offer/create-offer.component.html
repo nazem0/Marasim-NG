@@ -6,7 +6,8 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="Modal{{service!.id}}" tabindex="-1" attr.aria-labelledby="Modal{{service!.id}}Label" aria-hidden="true">
+<div class="modal fade" id="Modal{{service!.id}}" tabindex="-1" attr.aria-labelledby="Modal{{service!.id}}Label"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,63 +15,76 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form  [formGroup]="offerForm" (ngSubmit)="submitOffer()">
                     <div class="row row-cols-md-2 g-4 mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-tag"></i>
                             <input class="form-control" type="text" id="cuponInput" name="cupon"
-                                placeholder="كود العرض">
+                                placeholder="كود العرض" formControlName="Code">
+                              
                         </div>
 
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-hashtag"></i>
                             <input class="form-control" type="number" id="limit" name="limit" min="1"
-                                placeholder="الحد الأقصى للأستخدامات">
+                                placeholder="الحد الأقصى للأستخدامات"  formControlName="Limit">
                         </div>
+                        
                     </div>
 
                     <div class="row row-cols-md-2 gy-5 mb-5">
+                        <!-- <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-hourglass-start"></i>
+                            <input class="form-control" type="datetime-local" id="startDate" name="StartDate"
+                                placeholder="تاريخ البدأ"  formControlName="StartDate">
+                        </div> -->
+
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-hourglass-start"></i>
-                            <input class="form-control" type="date" id="startDate" name="startingDate"
-                                placeholder="تاريخ البدأ">
+                            <label for="StartDate">تاريخ البدأ</label>
+                            <span id="StartDate">{{ getCurrentDateTime() }}</span>
                         </div>
 
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-hourglass-end"></i>
-                            <input class="form-control" type="date" id="expDate" name="expirationDate"
-                                placeholder="تاريخ الإنتهاء">
+                            <input class="form-control" type="datetime-local" id="expDate" name="expirationDate"
+                                placeholder="تاريخ الإنتهاء"  formControlName="ExpirationDate">
                         </div>
                     </div>
+                    <div class="d-flex align-items-center gap-3  mb-5">
+                        <i class="fa-solid fa-hashtag"></i>
+                        <input class="form-control" type="number" id="Discount" name="Discount" min="1"
+                            placeholder="الخصم"  formControlName="Discount">
+                    </div>
+                 
                     <div class="mb-5">
                         <button type="button" class="btn btn-primary w-100">إضافة</button>
                     </div>
+                    
 
-                    <div class="row row-cols-md-3 align-items-center justify-content-center gy-5">
+                    <div class="row row-cols-md-3 align-items-center justify-content-evenly gy-5">
+                      
+
                         <div class="d-flex align-items-center justify-content-center gap-3">
+                            <label for="oldPrice">السعر القديم</label>
                             <i class="fa-regular fa-money-bill-1"></i>
-
-                            <span>{{service?.price}}</span>
+                            <span id="oldPrice"></span>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-center gap-3">
-
+                            <label for="newPrice">السعر الجديد</label>
                             <i class="fa-solid fa-money-bill-1"></i>
-
-                            <span>newPrice$</span>
+                            <span id="newPrice"></span>
                         </div>
-                        <div class="d-flex align-items-center justify-content-center gap-3">
 
-                            <i class="fa-solid fa-percent"></i>
-
-                            <span>0%</span>
-                        </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+                [disabled]="!formIsValid"
+                (click)="submitOffer()">تأكيــد</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
             </div>
         </div>
     </div>
