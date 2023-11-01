@@ -53,16 +53,12 @@ const routes: Routes = [
       { path: 'vendors', component: ViewVendorsComponent },
       { path: 'view-profile', component: ViewUserProfileComponent },
       { path: "create-invitation", component: CreateInvitationComponent },
-      { path: "edit-profil", component: UserEditProfileComponent },
-      { path: "carousel", component: CarouselComponent },
+      { path: "edit-profile", component: UserEditProfileComponent },
       { path: "reservation", component: PendingComponent },
       { path: "no-follows", component: NoFollowsComponent },
       { path: "no-result", component: NoResultSearchComponent },
       { path: "reservation", component: PendingComponent },
       { path: "home", component: Home2Component },
-
-
-
     ],
   },
   { path: 'register', component: RegisterComponent },

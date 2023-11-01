@@ -12,6 +12,7 @@
     width: 0px;
     overflow: hidden;
     transition: all 1s;
+    min-height: 70vh;
 }
 
 @media (min-width: 786px) {
