@@ -27,14 +27,11 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
-<<<<<<< HEAD
 import { WalletComponent } from './components/wallet/wallet.component';
 
-=======
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
 import { FooterComponent } from '../Shared/components/footer/footer.component';
->>>>>>> c8887399fa8d39e32113da33dce81d6d76f25598
 
 
 
@@ -74,14 +71,11 @@ import { FooterComponent } from '../Shared/components/footer/footer.component';
     ProfileEditComponent,
     VendorDashboardComponent,
     EditServiceComponent,
-<<<<<<< HEAD
-    AddServiceComponent,
     WalletComponent,
-=======
+
     VhomeComponent,
     CreateServiceComponent,
     FooterComponent
->>>>>>> c8887399fa8d39e32113da33dce81d6d76f25598
   ]
 })
 export class VendorModule { }

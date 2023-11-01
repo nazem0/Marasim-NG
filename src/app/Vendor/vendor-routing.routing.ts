@@ -14,11 +14,8 @@ import { VendorReviewsComponent } from './components/vendor-reviews/vendor-revie
 import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
-<<<<<<< HEAD
 import { WalletComponent } from './components/wallet/wallet.component';
-=======
 import { VhomeComponent } from './components/vhome/vhome.component';
->>>>>>> c8887399fa8d39e32113da33dce81d6d76f25598
 
 const vendorRoutes: Routes = [
     {
@@ -37,12 +34,8 @@ const vendorRoutes: Routes = [
             { path: 'stats', component: StatNavComponent },
             { path: 'card', component: VendorCardComponent },
             { path: 'edit', component: ProfileEditComponent },
-<<<<<<< HEAD
-            { path: 'wallet', component: WalletComponent }
-=======
+            { path: 'wallet', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
-
->>>>>>> c8887399fa8d39e32113da33dce81d6d76f25598
         ]
     }
 
