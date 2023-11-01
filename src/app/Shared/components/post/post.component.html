@@ -3,7 +3,7 @@
 
       <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
 
-        <img class="vendorPic" [src]="post.vendorPicUrl" alt="">
+        <img class="vendorPic" src="{{apiUrl}}/{{post.vendorUserID}}/profilepicture/{{post.vendorPicUrl}}" alt="">
 
         <div class="d-flex flex-column">
           <span class="fs-5">{{post.vendorName}}</span>
