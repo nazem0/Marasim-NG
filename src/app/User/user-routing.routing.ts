@@ -1,7 +1,7 @@
 import { HomeComponent } from './../Shared/components/home/home.component';
 import { Home2Component } from './components/home/home.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
-import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
+import { ViewVendorsComponent } from '../Shared/components/view-vendors/view-vendors.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
 import { CheckoutFailComponent } from './components/checkout//checkout-fail/checkout-fail.component';
 import { CheckoutLoadingComponent } from './components/checkout//checkout-loading/checkout-loading.component';

@@ -20,12 +20,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
 import { LandingComponent } from './components/landing/landing.component';
-
 import { Nav2Component } from './components/landing/nav2/nav2.component';
 import { LoginComponent } from './components/login/login.component';
 import { VendorRegisterationComponent } from './components/vendor-register/vendor-register.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 
 @NgModule({
   imports: [
@@ -35,7 +37,9 @@ import { FooterComponent } from './components/footer/footer.component';
     GoogleMapsModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    PasswordStrengthMeterModule.forRoot()
   ],
   declarations: [
     CloudBannerComponent,
@@ -57,7 +61,13 @@ import { FooterComponent } from './components/footer/footer.component';
     AddCommentComponent,
     LandingComponent,
     Nav2Component,
-    FooterComponent
+    FooterComponent,
+    ViewVendorsComponent,
+
+
+
+
+
   ],
   providers:[
   ],
@@ -73,7 +83,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,
-    FooterComponent
+    FooterComponent,
+    MatPaginatorModule,
+    ViewVendorsComponent
   ],
 
 })

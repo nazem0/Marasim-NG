@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
@@ -16,11 +15,12 @@ import { VendorServicesComponent } from './components/vendor-services/vendor-ser
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
+import { ViewVendorsComponent } from '../Shared/components/view-vendors/view-vendors.component';
 
 const vendorRoutes: Routes = [
     {
         path: '', component: LayoutComponent, children: [
-            { path: '', component: VendorsPageComponent },
+            { path: '', component: ViewVendorsComponent },
             { path: 'profile', component: ProfileVendorsideComponent },
             { path: 'create-offer', component: CreateOfferComponent },
             { path: 'reviews', component: VendorReviewsComponent },
@@ -36,6 +36,8 @@ const vendorRoutes: Routes = [
             { path: 'edit', component: ProfileEditComponent },
             { path: 'wallet', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
+            { path: 'vendors', component: ViewVendorsComponent },
+
         ]
     }
 

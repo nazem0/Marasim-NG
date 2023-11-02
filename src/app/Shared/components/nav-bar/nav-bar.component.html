@@ -30,7 +30,7 @@
                     <ng-template #NotLoggedIn>
                       <li class="navbar-item ">
                         <button class="btn btn-outline-primary m-1" routerLink="/login" > تسجيل الدخول</button>
-                        <button class="btn btn-outline-primary m-1" routerLink="/register" > سجل الان</button>
+                        <button class="btn btn-outline-primary m-1 reg" routerLink="/register" > سجل الان</button>
                       </li>
                     </ng-template>
                      <ng-container *ngIf="AuthService.isLoggedIn | async;else NotLoggedIn">

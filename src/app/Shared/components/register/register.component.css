@@ -40,3 +40,44 @@ input:focus {
 
     }
 }
+
+.Password__strength-meter{
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.15;
+  --font-main: "PingARLT",serif;
+  --infinte-color: #76e8cd;
+  --swiper-pagination-bottom: -58px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  color: #444;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+  background-color: #eee;
+  border-radius: 4px;
+  height: 5px;
+  position: relative;
+  width: 200px;
+}
+.Password__strength-meter--fill{
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.15;
+  --font-main: "PingARLT",serif;
+  --infinte-color: #76e8cd;
+  --swiper-pagination-bottom: -58px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  color: #444;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+  background: 0 0;
+  border-radius: inherit;
+  height: inherit;
+  position: absolute;
+  transition: width .5s ease-in-out,background .25s;
+  background-color: #00af6c;
+  width: 100%;
+}
