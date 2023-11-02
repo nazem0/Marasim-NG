@@ -18,7 +18,7 @@ import { ContactComponent } from '../Shared/components/contact/contact.component
 import { LoginComponent } from '../Shared/components/login/login.component';
 import { RegisterComponent } from '../Shared/components/register/register.component';
 import { FeedComponent } from './components/feed/feed.component';
-import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
+import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { CarouselComponent } from '../Shared/components/carousel/carousel.component';

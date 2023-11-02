@@ -30,8 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
-
-
+import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 
 @NgModule({
   imports: [

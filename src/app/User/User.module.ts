@@ -15,7 +15,7 @@ import { UserRoutes } from './user-routing.routing';
 import { GeneratedPackageCardComponent } from './components/generated-packages/generated-package-card/generated-package-card.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
-import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
+import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { FilterComponent } from './components/feed/filter/filter.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { FollowingComponent } from './components/followings/following/following.component';

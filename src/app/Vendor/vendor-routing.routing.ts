@@ -16,6 +16,7 @@ import { WorkHistoryComponent } from './components/work-history/work-history.com
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { ViewVendorsComponent } from '../Shared/components/view-vendors/view-vendors.component';
+import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 
 const vendorRoutes: Routes = [
     {
@@ -37,7 +38,7 @@ const vendorRoutes: Routes = [
             { path: 'wallet', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
             { path: 'vendors', component: ViewVendorsComponent },
-
+            { path :'vendor-profile',  component : VendorProfileComponent},
         ]
     }
 
