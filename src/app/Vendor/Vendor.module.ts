@@ -1,10 +1,10 @@
+import { ViewVendorsComponent } from './../Shared/components/view-vendors/view-vendors.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
-import { VendorsPageComponent } from './components/vendors-page/vendors-page.component';
 import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
@@ -22,7 +22,7 @@ import { StatNavComponent } from './components/statistic/stat-nav.component';
 import { TotalEarningsChartComponent } from './components/statistic/total-earnings-chart/total-earnings-chart.component';
 import { TotalServicesChartComponent } from './components/statistic/total-services-chart/total-services-chart.component';
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
-import { FilterComponent } from './components/vendors-page/filter/filter.component';
+import { FilterComponent } from '../Shared/components/view-vendors/filter/filter.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
@@ -37,6 +37,8 @@ import { MatRippleModule } from '@angular/material/core';
 
 
 
+import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -50,11 +52,10 @@ import { MatRippleModule } from '@angular/material/core';
     MatButtonModule,
     MatFormFieldModule,    
     MatRippleModule,
-
-  ],
+    ReactiveFormsModule
+    ],
   exports: [],
   declarations: [
-    VendorsPageComponent,
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,

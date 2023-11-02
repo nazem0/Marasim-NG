@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory, ICategoryWithVendors } from 'src/app/Models/ICategory';
-import { CategoryService } from './../../../Services/Category.service';
+import { CategoryService } from '../../../Services/Category.service';
 import { IVendor } from 'src/app/Models/IVendor';
 
 @Component({

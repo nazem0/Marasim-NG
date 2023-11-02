@@ -45,6 +45,8 @@
                         </label>
                         <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
                             name="password" placeholder="كلمة السر" formControlName="Password">
+                            <password-strength-meter [password]="this.registerForm.get('Password')?.value"
+                            class="w-50 mt-5 "></password-strength-meter>
                     </div>
                     <small *ngIf="registerForm?.get('Password')?.invalid && registerForm?.get('Password')?.touched" class="text-danger">
                         يجب ان تكون كلمة السر مكونة من 8 احرف وتحتوي على ارقام ورموز
@@ -128,7 +130,7 @@
                     <small *ngIf="
                     registerForm?.get('Latitude')?.value == '' &&
                     registerForm?.get('Longitude')?.value == ''
-                    " 
+                    "
                     class="text-danger">
                         يجب تحديد عنوانك
                     </small>

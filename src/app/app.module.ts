@@ -7,13 +7,16 @@ import { AuthService } from './Services/Auth.service';
 import { AuthGuard } from './Guards/user.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './Services/interceptor.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularPaginatorModule } from 'angular-paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbModule,
+    AngularPaginatorModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthGuard,
     {

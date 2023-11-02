@@ -1,5 +1,5 @@
 import { ICategory } from 'src/app/Models/ICategory';
-import { CategoryService } from './../../../../Services/Category.service';
+import { CategoryService } from '../../../../Services/Category.service';
 import { Component } from '@angular/core';
 
 @Component({

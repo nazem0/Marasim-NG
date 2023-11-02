@@ -12,6 +12,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
+
+
+
+
+
+
+
+
+
   @ViewChild("UploadPic") UploadPic: ElementRef | null = null;
   PicName: string = "";
 
@@ -73,4 +82,4 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
 }
 
-  
+

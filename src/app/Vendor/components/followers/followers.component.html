@@ -25,16 +25,14 @@
     <h3 class="favtext fs-1 mt-2 text-primary">المُتابِعون </h3>
   </div>
   <div id="favlist" class="favlist container text-center mt-5 ">
-
-
     <hr class="mt-3">
       <div class="container text-center  mt-4">
+<div class="d-flex flex-column gap-3 w-50">
+  <div  *ngFor=" let follower of Followers">
+    <app-follower [UserID]="follower.userId"></app-follower>
+</div>
+</div>
 
-      <div *ngFor=" let follower of Followers" class=" row ">
-
-               <app-follower [UserID]="follower.userId"></app-follower>
-
-          </div>
 
       </div>
     </div>

@@ -15,7 +15,7 @@ import { UserRoutes } from './user-routing.routing';
 import { GeneratedPackageCardComponent } from './components/generated-packages/generated-package-card/generated-package-card.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { SharedModule } from '../Shared/Shared.module';
-import { VendorProfileComponent } from './components/vendor-profile/vendor-profile.component';
+import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { FilterComponent } from './components/feed/filter/filter.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { FollowingComponent } from './components/followings/following/following.component';
@@ -23,7 +23,6 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
 import { CheckoutFailComponent } from './components/checkout/checkout-fail/checkout-fail.component';
 import { CheckoutLoadingComponent } from './components/checkout/checkout-loading/checkout-loading.component';
-import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { LoginComponent } from '../Shared/components/login/login.component';
@@ -64,7 +63,6 @@ import { CarouselComponent } from '../Shared/components/carousel/carousel.compon
     CheckoutPassComponent,
     CheckoutFailComponent,
     CheckoutLoadingComponent,
-    ViewVendorsComponent,
     ViewUserProfileComponent,
     CreateInvitationComponent,
     PageNotFoundComponent,
