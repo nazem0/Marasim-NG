@@ -26,6 +26,12 @@ import { LoginComponent } from './components/login/login.component';
 import { VendorRegisterationComponent } from './components/vendor-register/vendor-register.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   imports: [
@@ -35,7 +41,11 @@ import { FooterComponent } from './components/footer/footer.component';
     GoogleMapsModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatFormFieldModule,    
+    MatRippleModule,
   ],
   declarations: [
     CloudBannerComponent,
@@ -57,7 +67,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AddCommentComponent,
     LandingComponent,
     Nav2Component,
-    FooterComponent
+    FooterComponent,
+    PaginatorComponent
   ],
   providers:[
   ],
@@ -73,7 +84,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,
-    FooterComponent
+    FooterComponent,
+    PaginatorComponent
   ],
 
 })

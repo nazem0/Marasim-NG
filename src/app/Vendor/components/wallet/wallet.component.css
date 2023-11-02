@@ -144,3 +144,8 @@ section{
         padding: 0 10px;
     }
 }
+
+
+.mat-form-field {
+  margin-right: 12px;
+}

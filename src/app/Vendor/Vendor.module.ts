@@ -28,9 +28,12 @@ import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashb
 import { VendorRoutes } from './vendor-routing.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { WalletComponent } from './components/wallet/wallet.component';
-
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
 
 
 
@@ -43,7 +46,10 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     NgChartsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-
+    MatPaginatorModule,
+    MatButtonModule,
+    MatFormFieldModule,    
+    MatRippleModule,
 
   ],
   exports: [],
@@ -71,7 +77,7 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     VendorDashboardComponent,
     EditServiceComponent,
     WalletComponent,
-
+    
     VhomeComponent,
     CreateServiceComponent,
   ]
