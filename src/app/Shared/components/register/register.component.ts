@@ -13,14 +13,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
 
-
-
-
-
-
-
-
-
   @ViewChild("UploadPic") UploadPic: ElementRef | null = null;
   PicName: string = "";
 
@@ -72,8 +64,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
           this.Router.navigate(["/login"]);
         },
         error: (error) => {
-          console.log("object");
-          this.ErrorResponse = error as RegisterationErrorResponse;
+          console.log(this.data)
           console.log(error);
         }
       })

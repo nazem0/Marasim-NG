@@ -200,32 +200,33 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       }
       if (this.registerForm.valid) {
 
-        this.data.append('Address', this.registerForm.get('Address')?.value);
-        this.data.append('Name', this.registerForm.get('Name')?.value);
-        this.data.append('Email', this.registerForm.get('Email')?.value);
-        this.data.append('Password', this.registerForm.get('Password')?.value);
-        this.data.append(
+        this.data.set('Address', this.registerForm.get('Address')?.value);
+        this.data.set('Name', this.registerForm.get('Name')?.value);
+        this.data.set('Email', this.registerForm.get('Email')?.value);
+        this.data.set('Password', this.registerForm.get('Password')?.value);
+        this.data.set(
           'ConfirmPassword',
           this.registerForm.get('ConfirmPassword')?.value
         );
-        this.data.append(
+        this.data.set(
           'PhoneNumber',
           this.registerForm.get('PhoneNumber')?.value
         );
-        this.data.append('NationalID', this.registerForm.get('NationalID')?.value);
-        this.data.append('Gender', this.registerForm.get('Gender')?.value);
-        this.data.append('Picture', this.UploadPic?.nativeElement.files[0]);
-        this.data.append('Latitude', this.registerForm.get('Latitude')?.value);
-        this.data.append('Longitude', this.registerForm.get('Longitude')?.value);
-        this.data.append('Summary', this.registerForm.get('Summary')?.value);
+        this.data.set('NationalID', this.registerForm.get('NationalID')?.value);
+        this.data.set('Gender', this.registerForm.get('Gender')?.value);
+        this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
+        this.data.set('Latitude', this.registerForm.get('Latitude')?.value);
+        this.data.set('Longitude', this.registerForm.get('Longitude')?.value);
+        this.data.set('Summary', this.registerForm.get('Summary')?.value);
         this.RegisterService.registerVendor(this.data).subscribe({
           next: (response) => {
             console.log(response)
+            this.data.forEach(v=>console.log(v))
             this.Router.navigate(["/login"]);
           },
           error: (error) => {
             console.log("object");
-            this.ErrorResponse = error as RegisterationErrorResponse;
+            this.data.forEach(v=>console.log(v))
             console.log(error);
           }
         })
