@@ -106,7 +106,7 @@
                 <span>أضف صورتك</span>
               </label>
               <input #UploadPic id="picture" class="d-none" type="file" name="picture" placeholder="profile picture"
-                formControlName="Picture">
+                formControlName="Picture" accept="image/*">
             </div>
             <small *ngIf="registerForm?.get('Gender')?.invalid && registerForm?.get('Gender')?.touched"
               class="text-danger">

@@ -1,50 +1,52 @@
-/* @import url('./common.css'); */
-
 .navbar {
-text-align: center !important;
-z-index: 1000;
-min-height: 4rem;
-background-color: #24262b !important;
+  text-align: center !important;
+  z-index: 1000;
+  min-height: 4rem;
+  background-color: #24262b !important;
 
 }
+
 .navbar-item a {
-text-decoration: none;
-color: white;
-transition: color 0.3s;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
 }
 
 .navbar-item a:hover {
-/* color: #f39c12; */
-color:var(--primary-color);
-}
-.inquire button{
-padding: 1rem;
-width: 160px;
-border-radius: 40px;
-background-color: var(--primary-background-color);
+  /* color: #f39c12; */
+  color: var(--primary-color);
 }
 
-.logout-btn:hover{
-  color: var(--primary-color) !important ;
+.inquire button {
+  padding: 1rem;
+  width: 160px;
+  border-radius: 40px;
+  background-color: var(--primary-background-color);
+}
+
+.logout-btn:hover {
+  color: var(--primary-color) !important;
 }
 
 @media screen and (max-width: 991px) {
-.inquire{
-display: none;
-}
-.navbar-toggler{
-position: absolute;
-left: 0;
-margin-left: 10px;
-}
-}
-
-
-.reg{
-background-color: var(--primary-color-heavy);
-color: white;
-}
-.reg:hover{
- border:1px  white solid ;
-
+  .inquire {
+    display: none;
   }
+
+  .navbar-toggler {
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
+  }
+}
+
+
+.reg {
+  background-color: var(--primary-color-heavy);
+  color: white;
+}
+
+.reg:hover {
+  border: 1px white solid;
+
+}

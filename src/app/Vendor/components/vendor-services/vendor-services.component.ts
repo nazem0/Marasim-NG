@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment.development';
 import { VendorService } from 'src/app/Services/Vendor.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,9 +16,9 @@ export class VendorServicesComponent implements OnInit {
   }
   services: any[] = []
   apiUrl=environment.serverUrl;
-  constructor(private VendorService: VendorService) {
+  constructor(private VendorService: VendorService, private CookieService:CookieService) {
     
-    this.VendorService.getServicesByVendorId(1).subscribe(
+    this.VendorService.getServicesByVendorId(parseInt(this.CookieService.get("VendorId"))).subscribe(
       (services) => {
         console.log(services);
         this.services = services

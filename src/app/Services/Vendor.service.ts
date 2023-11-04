@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IVendor } from '../Models/IVendor';
@@ -11,7 +12,7 @@ import { environment } from 'src/environments/environment.development';
     providedIn: 'root'
 })
 export class VendorService {
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private CookieService:CookieService) {
     }
     public getVendorWithUser(vendorId: number, userId: number): Observable<[IVendor, IUser]> {
         return forkJoin

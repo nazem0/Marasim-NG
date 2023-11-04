@@ -1,16 +1,16 @@
 <!-- Button trigger modal -->
 <div class="d-flex justify-content-center">
     <button title="أضف سابقة أعمال" type="button" class="primary-btn w-50 py-3 mb-3 shadow " data-bs-toggle="modal"
-        data-bs-target="#create-post">
+        data-bs-target="#create-service">
         <i class="fa fa-add"></i> اضافة خدمة
     </button>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="create-post" tabindex="-1" aria-labelledby="create-postLabel" aria-hidden="true">
+<div class="modal fade" id="create-service" tabindex="-1" aria-labelledby="create-serviceLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="create-postLabel">أضافــة خدمـة</h1>
+                <h1 class="modal-title fs-5" id="create-serviceLabel">أضافــة خدمـة</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -36,7 +36,7 @@
                                 <label for="Inputmedia" class="form-label">أرفاق وسائط ميديـا</label><span
                                     class="text-danger">*</span>
                                 <input #UploadedPictures type="file" class="form-control" id="Inputmedia"
-                                    formControlName="Pictures" multiple>
+                                    formControlName="Pictures" multiple accept="image/*">
                             </div>
                             <textarea class="form-control" rows="5" placeholder="وصـف الخدمــة"
                                 formControlName="Description"></textarea>

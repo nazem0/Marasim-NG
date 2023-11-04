@@ -27,14 +27,16 @@ export class AuthService {
     return this.HttpClient.post(`${environment.apiUrl}/account/login`, credentials)
   }
 
-  addCookies(token:string,ProfilePicture:string,Role:string,Name:string,Id:string){
+  addCookies(token:string,ProfilePicture:string,Role:string,Name:string,Id:string,vendorId?:string){
     // 4 days, then cookie will expire
     this.CookieService.set('Token',token,4);
     this.CookieService.set('ProfilePicture',ProfilePicture,4);
     this.CookieService.set('Role',Role,4);
     this.CookieService.set('Name',Name,4)
     this.CookieService.set('Id',Id,4)
-    
+    if(vendorId)
+      this.CookieService.set("VendorId",vendorId,4)
+    console.log(vendorId);
     this._isLoggedIn.next(true)
   }
   removeCookies() {
