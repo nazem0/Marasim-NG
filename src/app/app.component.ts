@@ -25,7 +25,6 @@ export class AppComponent {
   navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
       this.loader = true;
-      console.log(this.loader);
 
     }
     if (event instanceof NavigationEnd) {
