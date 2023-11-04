@@ -1,33 +1,34 @@
-<div class="post overflow-hidden ">
-    <div class="post-body">
+<div class="post overflow-hidden" *ngIf="post">
+  <div class="post-body">
 
-      <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
+    <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
 
-        <img class="vendorPic" src="{{apiUrl}}/{{post.vendorUserID}}/profilepicture/{{post.vendorPicUrl}}" alt="">
+      <img class="vendorPic" src="{{apiUrl}}/{{post.vendorUserID}}/profilepicture/{{post.vendorPicUrl}}" alt="">
 
-        <div class="d-flex flex-column">
-          <span class="fs-5">{{post.vendorName}}</span>
-          <span class="text-muted">{{post.dateTime}}</span>
-        </div>
-
-
+      <div class="d-flex flex-column">
+        <span class="fs-5">{{post.vendorName}}</span>
+        <span class="text-muted">{{post.dateTime}}</span>
       </div>
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="post-title fw-bold fs-4">{{post.title}}</span>
-        </div>
-        <p class="post-description">{{post.description}}</p>
-    </div>
-    <!-- Carousel : Attachments -->
-    <app-attachments [postAttachments]="post.postAttachments" [postID]="post.id" [vendorID]="post.vendorUserID" [postTitle]="post.title"></app-attachments>
-    <!-- End Carousel -->
-    <!-- Modal : Reactions -->
-    <app-reactions [postID]="post.id" [userName]="post.title"></app-reactions>
-    <!-- End Modal -->
-    <!-- Accordion : Comments -->
-    <app-comments [postID]="post.id" [userName]="post.title"></app-comments>
-    <!-- End Accordion -->
 
-    <!-- Add Comment -->
-    <app-add-comment></app-add-comment>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="post-title fw-bold fs-4">{{post.title}}</span>
+    </div>
+    <p class="post-description">{{post.description}}</p>
+  </div>
+  <!-- Carousel : Attachments -->
+  <app-attachments [postAttachments]="post.postAttachments" [postID]="post.id" [vendorID]="post.vendorUserID"
+    [postTitle]="post.title"></app-attachments>
+  <!-- End Carousel -->
+  <!-- Modal : Reactions -->
+  <app-reactions [postID]="post.id" [userName]="post.title"></app-reactions>
+  <!-- End Modal -->
+  <!-- Accordion : Comments -->
+  <app-comments [postID]="post.id" [userName]="post.title"></app-comments>
+  <!-- End Accordion -->
+
+  <!-- Add Comment -->
+  <app-add-comment></app-add-comment>
 </div>

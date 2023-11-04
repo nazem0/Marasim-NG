@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.development';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-  @Input() post!:IPost;
+  @Input() post:IPost|null =  null;
   apiUrl=environment.serverUrl;
 
 }
