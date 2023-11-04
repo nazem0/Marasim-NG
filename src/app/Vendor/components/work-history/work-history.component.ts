@@ -15,12 +15,6 @@ export class WorkHistoryComponent implements OnInit {
 
   ngOnInit() {
     this.PostService.GetByVendorID(parseInt(this.CookieService.get("VendorId"))).subscribe(result => {
-      console.log(result)
-      this.posts = result;
-    })
-
-    this.PostService.Get().subscribe(result => {
-      console.log(result)
       this.posts = result;
     })
   }
