@@ -5,6 +5,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
 import { IService } from '../Models/IService';
 import { IServiceAttachment } from '../Models/IServiceAttachment';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,10 @@ export class UserService {
   get(){
     return this.http.get<IUser[]>("http://localhost:3000/users/")
   }
-  getByID(ID:number|null=null):Observable<IUser>
+  getByID(ID:string|null=null):Observable<IUser>
   {
     if(ID){
-      return this.http.get<IUser>(`http://localhost:3000/users/${ID}`)
+      return this.http.get<IUser>(`${environment.apiUrl}/user/UserDetails/${ID}`)
     }
     else{
       throw "Check ID";

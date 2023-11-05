@@ -21,7 +21,7 @@ export interface IPost {
   
   export interface IComment {
     id: number,
-    userId: number,  
+    userId: string,  
     postId: number,
     text: string,
     dateTime: string,
