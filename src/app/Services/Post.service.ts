@@ -40,6 +40,15 @@ export class PostService {
     return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postID}`)
   }
 
+  AddReact(React:any){
+    return this.HttpClient.post(`${environment.apiUrl}/React/Add`, React)
+  }
+
+  DeleteReact(postID:number){
+    return this.HttpClient.delete(`${environment.apiUrl}/React/Delete/${postID}`)
+  }
+
+
   //Comments Requests
 
 
