@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IReaction } from 'src/app/Models/IPost';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-reaction',
@@ -7,5 +8,7 @@ import { IReaction } from 'src/app/Models/IPost';
   styleUrls: ['./reaction.component.css']
 })
 export class ReactionComponent {
-@Input() reaction:IReaction|null=null
+  @Input() reaction: IReaction | null = null
+  apiUrl = environment.serverUrl;
+
 }

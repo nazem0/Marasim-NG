@@ -16,7 +16,7 @@ export class FollowerComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.UserService.getByID(this.UserID).subscribe(
+    this.UserService.getByID(this.User?.id).subscribe(
       (User)=>{
         this.User=User
       console.log(this.User);

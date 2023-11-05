@@ -16,7 +16,7 @@ export class FollowingComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.UserService.getByID(this.vendorID).subscribe(
+    this.UserService.getByID(this.vendor!.id).subscribe(
       (vendor)=>{
         this.vendor=vendor
       console.log(this.vendor);
