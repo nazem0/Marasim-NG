@@ -1,7 +1,6 @@
-import { UserService } from 'src/app/Services/User.service';
 import { Component, Input } from '@angular/core';
 import { IComment } from 'src/app/Models/IPost';
-import { IUser } from 'src/app/Models/IUser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-comment',
@@ -9,8 +8,6 @@ import { IUser } from 'src/app/Models/IUser';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent {
-@Input() comment:IComment|null = null;
-
-constructor(){
-}
+  @Input() comment: IComment | null = null;
+  apiUrl = environment.serverUrl;
 }

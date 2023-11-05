@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 export class PostService {
   constructor(private HttpClient: HttpClient) { }
 
+  //Posts Requests
+
   Add(Post: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Post/Add`, Post)
   }
@@ -28,18 +30,25 @@ export class PostService {
     return this.HttpClient.get<any[]>(`${environment.apiUrl}/Post/GetByVendorID?VendorID=${VendorID}`)
   }
 
+  //Reacts Requests
+
   GetReacts(postID: number): Observable<IReaction[]> {
     return this.HttpClient.get<IReaction[]>(`${environment.apiUrl}/React/GetReactsByPostID/${postID}`)
   }
 
   IsLiked(postID: number): Observable<boolean>{
     return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postID}`)
-
   }
+
+  //Comments Requests
 
 
   GetComments(postID: number): Observable<IComment[]> {
     return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostID/${postID}`)
+  }
+
+  AddComment(Comment: any){
+    return this.HttpClient.post(`${environment.apiUrl}/Comment/Add`, Comment)
   }
 }
 

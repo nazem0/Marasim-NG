@@ -1,37 +1,42 @@
 <!-- Button trigger modal -->
-<div class="d-flex flex-column mt-3" >
-  <button (click)="isLiked=!isLiked" class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
-    <i class="fa fa-thumbs-up fs-3" [ngClass]="{'fa': isLiked, 'fa-regular text-dark': !isLiked}"></i>
-    <span [ngClass]="{'d-none': isLiked, '': !isLiked}" >اعجبني</span>
-    <ng-container *ngIf="isLiked" >
-    <span [ngClass]="{'text-primary': isLiked, 'text-dark': !isLiked}" >اعجبك</span>
-  </ng-container>
-  </button>
-  <button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
-      attr.data-bs-target="#p_comm{{postID}}">
-      <span><i class="fa-regular fa-thumbs-up"></i> {{reactions.length}}</span>
-  </button>
+<div class="d-flex flex-column mt-3">
+    <button (click)="isLiked=!isLiked"
+        class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
+        <div *ngIf="isLiked; else elseBlock"><i class="fa-solid fa-thumbs-up fs-3"></i></div>
+        <ng-template #elseBlock><i class="fa-regular fa-thumbs-up fs-3 text-dark"></i></ng-template>
+
+
+        <!-- <i class="fa-thumbs-up fs-3" [ngClass]="isLiked ? 'fa-solid' : 'fa-regular text-dark'"></i> -->
+        <!-- <span [ngClass]="{'d-none': isLiked, '': !isLiked}">اعجبني</span>
+        <ng-container *ngIf="isLiked">
+            <span [ngClass]="{'text-primary': isLiked, 'text-dark': !isLiked}">اعجبك</span>
+        </ng-container> -->
+    </button>
+    <button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
+        attr.data-bs-target="#p_comm{{postID}}">
+        <span><i class="fa-regular fa-thumbs-up"></i> {{reactions.length}}</span>
+    </button>
 </div>
 
 
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="p_comm{{postID}}" tabindex="-1"
-        attr.aria-labelledby="p_comm{{postID}}Label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="p_comm{{postID}}Label">Reactions</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Modal -->
+<div class="modal fade" id="p_comm{{postID}}" tabindex="-1" attr.aria-labelledby="p_comm{{postID}}Label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="p_comm{{postID}}Label">Reactions</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngFor="let reaction of reactions">
+                    <app-reaction [reaction]="reaction"></app-reaction>
+                    <hr>
                 </div>
-                <div class="modal-body">
-                    <div *ngFor="let reaction of reactions">
-                        <app-reaction [reaction]="reaction"></app-reaction>
-                        <hr>
-                    </div>
 
-                </div>
             </div>
         </div>
     </div>
+</div>
