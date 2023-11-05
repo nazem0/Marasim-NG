@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
+import { IUser } from 'src/app/Models/IUser';
 
 @Component({
   selector: 'app-user-edit-profile',
@@ -7,7 +8,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class UserEditProfileComponent {
   @ViewChild("UploadPic") UploadPic: ElementRef | null = null;
-
+  @Input() User:IUser| null = null;
   ngAfterViewInit(): void {
     };
   }
