@@ -1,3 +1,5 @@
+import { IUser } from "./IUser"
+
 export interface IPost {
     id: number,
     title: string, 
@@ -13,18 +15,21 @@ export interface IPost {
   
   export interface IReaction {
     id: number,
-    userId: number,
-    postId: number,
+    userID: string,
+    postID: number,
     dateTime: string,
-    value?: string, 
+    userName: string,
+    userPicUrl: string
   }
   
   export interface IComment {
     id: number,
-    userId: number,  
-    postId: number,
+    userID: string,  
+    postID: number,
     text: string,
     dateTime: string,
+    userName: string,
+    userPicUrl: string
   }
   
   export interface IAttachment {

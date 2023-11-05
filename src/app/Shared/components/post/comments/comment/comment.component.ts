@@ -10,13 +10,7 @@ import { IUser } from 'src/app/Models/IUser';
 })
 export class CommentComponent {
 @Input() comment:IComment|null = null;
-user : IUser | null=null
 
-constructor(private UserService:UserService){
-}
-ngOnInit(){
-  this.UserService.getByID(this.comment?.userId).subscribe(
-    (user:IUser)=>this.user=user
-  )
+constructor(){
 }
 }
