@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IReaction } from 'src/app/Models/IPost';
 import { PostService } from 'src/app/Services/Post.service';
 
 @Component({
@@ -9,12 +10,12 @@ import { PostService } from 'src/app/Services/Post.service';
 export class ReactionsComponent {
   isLiked: boolean = false
   @Input() postID!: number;
-  reactions: { id: number, userId: number, postId: number, dateTime: string }[] = []
-  @Input() userName!: string;
-  constructor(private post: PostService) {
+  reactions: IReaction[] = []
+  constructor(private PostService: PostService) {
 
   }
-  // ngOnInit(){
-  //   this.post.GetReacts(this.postID).subscribe((result)=>this.reactions=result)
-  // }
+  ngOnInit() {
+    this.PostService.GetReacts(this.postID).subscribe((result) => this.reactions = result)
+    this.PostService.IsLiked(this.postID).subscribe((result) => this.isLiked = result)
+  }
 }

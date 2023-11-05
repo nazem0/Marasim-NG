@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center gap-2 mb-3">
-    <img class="userPic" src="https://placehold.co/200x200" alt="">
+    <img class="userPic" src="{{apiUrl}}/{{reaction?.userID}}/profilepicture/{{reaction?.userPicUrl}}" alt="">
     <div class="d-flex justify-content-between w-100">
-        <span class="fw-bold">{{reaction?.userId}}</span>
+        <span class="fw-bold">{{reaction?.userName}}</span>
         <small class="text-muted">{{reaction?.dateTime}}</small>
     </div>
 </div>

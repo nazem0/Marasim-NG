@@ -28,21 +28,19 @@ export class PostService {
     return this.HttpClient.get<any[]>(`${environment.apiUrl}/Post/GetByVendorID?VendorID=${VendorID}`)
   }
 
-  // GetAttachments(postID: number): Observable<IAttachment[]> {
-  //   return this.HttpClient.get<IAttachment[]>(`${environment.apiUrl}/PostAttachment/GetPostAttachmentByPostID?PostID=${postID}`)
-  // }
+  GetReacts(postID: number): Observable<IReaction[]> {
+    return this.HttpClient.get<IReaction[]>(`${environment.apiUrl}/React/GetReactsByPostID/${postID}`)
+  }
+
+  IsLiked(postID: number): Observable<boolean>{
+    return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postID}`)
+
+  }
 
 
-
-
-
-
-  // GetReacts(postID: number): Observable<IReaction[]> {
-  //   return this.HttpClient.get<IReaction[]>(`http://localhost:3000/post/${postID}/reacts`)
-  // }
-  // GetComments(postID: number): Observable<IComment[]> {
-  //   return this.HttpClient.get<IComment[]>(`http://localhost:3000/post/${postID}/comments`)
-  // }
+  GetComments(postID: number): Observable<IComment[]> {
+    return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostID/${postID}`)
+  }
 }
 
 

@@ -14,7 +14,7 @@
           <div class="d-flex justify-content-between align-items-center mt-5">
             <h3 class="text-primary">بياناتك</h3>
 
-            <button [routerLink]="['/edit']" routerLinkActive="router-link-active"   class="primary-btn edit-icon rounded-2 ">
+            <button data-bs-toggle="modal" data-bs-target="#staticBackdrop"   class="primary-btn edit-icon rounded-2 ">
               تعديل
             </button>
 
@@ -31,5 +31,28 @@
 
 
       </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <app-user-edit-profile></app-user-edit-profile>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">عودة</button>
+        <button type="button" class="btn btn-primary">حفظ</button>
+      </div>
+    </div>
   </div>
 </div>
