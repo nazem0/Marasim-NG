@@ -10,7 +10,7 @@ import { InterceptorService } from './Services/interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularPaginatorModule } from 'angular-paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     NgbModule,
     AngularPaginatorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [AuthGuard,
     {
