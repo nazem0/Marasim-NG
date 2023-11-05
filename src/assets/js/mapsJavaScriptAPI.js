@@ -29,7 +29,7 @@ var createAndExecutePayload = function (googleAPIjs) {
     document.head.appendChild(script);
 }
 
-sendRequestThroughCROSproxy('https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap' + args, (googleAPIjs) => {
+sendRequestThroughCROSproxy('https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places&callback=initAutocomplete' + args, (googleAPIjs) => {
     createAndExecutePayload(googleAPIjs);
 });
 

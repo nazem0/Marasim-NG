@@ -115,7 +115,7 @@
                         </small>
                     </div>
                     <span class="ms-auto">{{PicName}}</span>
-                    <div class="row row-cols-2 d-none">
+                    <div class="row row-cols-2">
                         <div class="d-flex align-items-center gap-3">
                             <label for="lat">خطوط الطول</label>
                             <input #Latitude id="lat" type="text" class="border-0 border-bottom border-2 w-100 p-2"
@@ -136,6 +136,13 @@
                     </small>
                     <!-- Map -->
                     <!-- Button trigger modal -->
+                    <div class="main-container">
+                        <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box" />
+                        <div id="map">
+
+                        </div>
+                        <button id="myButton" class="btn btn-outline-primary">My Button</button>
+                    </div>
                     <button type="button" class="primary-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         حدد موقعك على الخريطة
                     </button>
@@ -190,13 +197,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="main-container">
-                        <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box" />
-                        <div id="map">
-
-                        </div>
-                        <button id="myButton" class="btn btn-outline-primary">My Button</button>
-                    </div>
+                    
                 </div>
                 <div class="modal-footer">
 
