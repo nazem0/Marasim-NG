@@ -28,6 +28,8 @@ import { NoResultSearchComponent } from './components/no-result-search/no-result
 import { LandingComponent } from '../Shared/components/landing/landing.component';
 import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
 import { FooterComponent } from '../Shared/components/footer/footer.component';
+import { FollowingComponent } from './components/followings/following/following.component';
+import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
 
 
 
@@ -59,6 +61,7 @@ const routes: Routes = [
       { path: "no-result", component: NoResultSearchComponent },
       { path: "reservation", component: PendingComponent },
       { path: "home", component: Home2Component },
+      { path: "vendorfvendor", component: VendorFollowingVendorComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },

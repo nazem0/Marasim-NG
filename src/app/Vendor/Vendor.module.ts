@@ -54,7 +54,9 @@ import { VendorProfileComponent } from '../Shared/components/vendor-profile/vend
     MatRippleModule,
     ReactiveFormsModule,
     ],
-  exports: [],
+  exports: [
+    FollowersComponent,
+  ],
   declarations: [
     CreateOfferComponent,
     VendorReviewsComponent,
@@ -67,8 +69,7 @@ import { VendorProfileComponent } from '../Shared/components/vendor-profile/vend
     VendorFormComponent,
     ProfileVendorsideComponent,
     ActionButtonsComponent,
-    FollowersComponent,
-    FollowerComponent,
+
     StatNavComponent,
     TotalEarningsChartComponent,
     TotalServicesChartComponent,

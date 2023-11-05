@@ -33,6 +33,9 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+import { FollowersComponent } from '../Vendor/components/followers/followers.component';
+import { FollowerComponent } from '../Vendor/components/followers/follower/follower.component';
+import { VendorFollowingVendorComponent } from './components/vendor-following-vendor/vendor-following-vendor.component';
 
 @NgModule({
   imports: [
@@ -48,6 +51,7 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
     MatFormFieldModule,    
     MatRippleModule,
     PasswordStrengthMeterModule.forRoot()
+
   ],
   declarations: [
     CloudBannerComponent,
@@ -72,6 +76,10 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
     FooterComponent,
     PaginatorComponent,
     ViewVendorsComponent,
+    FollowersComponent,
+    FollowerComponent,
+    VendorFollowingVendorComponent,
+
   ],
   providers:[
   ],
@@ -90,7 +98,10 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
     FooterComponent,
     PaginatorComponent,
     MatPaginatorModule,
-    ViewVendorsComponent
+    ViewVendorsComponent,
+    FollowersComponent,
+    FollowerComponent,
+    VendorFollowingVendorComponent
   ],
 
 })

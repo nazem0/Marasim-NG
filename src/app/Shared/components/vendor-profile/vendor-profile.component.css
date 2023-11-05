@@ -10,6 +10,10 @@
   background-color: #088f95
 }
 
+.Links a{
+  text-decoration: none;
+}
+
 .fav-button {
   top: 3px;
   left: 3px;
