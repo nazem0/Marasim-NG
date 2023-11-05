@@ -111,6 +111,7 @@ export class WalletComponent implements OnInit {
     // });
 
     this.pageSlice = this.cardItems.slice(0, this.pageSize);
+    
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {
@@ -120,15 +121,22 @@ export class WalletComponent implements OnInit {
   }
 
   onepageChange(event: PageEvent) {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
+    // const startIndex = event.pageIndex * event.pageSize;
+    // let endIndex = startIndex + event.pageSize;
 
-    if (startIndex < this.cardItems.length) {
-      this.pageSlice = this.cardItems.slice(startIndex, endIndex);
-    }
+    // if (startIndex < this.cardItems.length) {
+    //   this.pageSlice = this.cardItems.slice(startIndex, endIndex);
+    // }
 
+    // this.pageSlice = this.cardItems.slice(startIndex, endIndex);
+
+
+  const startIndex = event.pageIndex * event.pageSize;
+  const endIndex = startIndex + event.pageSize;
+  
+  if (startIndex < this.cardItems.length) {
     this.pageSlice = this.cardItems.slice(startIndex, endIndex);
-
+  }
 
   }
 

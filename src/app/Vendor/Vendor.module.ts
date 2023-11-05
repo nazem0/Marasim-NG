@@ -52,7 +52,7 @@ import { VendorProfileComponent } from '../Shared/components/vendor-profile/vend
     MatButtonModule,
     MatFormFieldModule,    
     MatRippleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     ],
   exports: [],
   declarations: [

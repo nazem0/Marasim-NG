@@ -36,19 +36,6 @@ export class VendorProfileComponent implements OnInit ,AfterViewInit {
       console.log(result);
       this.currentServices = result;
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
   scrollToTargetAdjusted(x: string) {
     var elementPosition = document.getElementById(x)!.getBoundingClientRect().top;
