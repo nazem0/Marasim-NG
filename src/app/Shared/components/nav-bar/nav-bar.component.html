@@ -18,7 +18,7 @@
                         <a class="nav-link" routerLink="/vendors">الفئات</a>
                     </li>
 
-                      <ng-container *ngIf="isVendor"  >
+                      <ng-container *ngIf=" AuthService.isLoggedIn && isVendor"  >
 
 
                         <li class="nav-item dropdown">
