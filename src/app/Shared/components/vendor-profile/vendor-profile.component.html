@@ -2,78 +2,76 @@
 
 <div class="container-fluid sss d-flex flex-row p-4 header  ">
   <div class="img-container ">
-    <img class="rounded-circle avatar shadow  " [src]="currentUserVendor?.picUrl" alt="avatar" />
+    <img class="rounded-circle avatar shadow  " [src]="Vendor?.user?.picUrl" alt="avatar" />
   </div>
   <div class="vendor-info ms-4 mt-2">
 
-    <h5 class="fs-3">{{ currentUserVendor?.name }}</h5>
+    <h5 class="fs-3">{{ Vendor?.user?.name }}</h5>
 
     <div class="row gap-2 py-2 ">
 
       <span class="text-muted text-white">مصور فوتوغرافي</span>
       <ul class="list-inline mb-2">
         <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
-            <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
         </li>
-    </ul>
+      </ul>
       <button class="btn btn-warning w-50 text-white "><i class="fas fa-plus text-white me-1 my-auto"></i>تابع</button>
 
     </div>
 
-    <div class="counter row mt-2" >
+    <div class="counter row mt-2">
       <div class="d-flex flex-row gap-4 text-white Links">
-        <span class="">36,2K <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#exampleModal2">المتابعين</a> </span>
-        <span class="">35 <a href="" class="text-muted text-white " data-bs-toggle="modal" data-bs-target="#exampleModal">المتابعون</a> </span>
+        <span class="">36,2K <a class="text-muted text-white" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2">المتابعين</a> </span>
+        <span class="">35 <a href="" class="text-muted text-white " data-bs-toggle="modal"
+            data-bs-target="#exampleModal">المتابعون</a> </span>
         <span class="">35 <a routerLink="/feed" class="text-muted text-white">المنشورات</a> </span>
       </div>
 
       <!-- /////////////////---Modal المتابعون---///////////////// -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog d-flex justify-content-center">
-    <div class="modal-content w-50">
-      <div class="modal-header">
-        <div class="d-flex flex-row gap-2 ">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">المتابعون</h1>
-          <i class="fas fa-users fa-2x"></i>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-50">
+            <div class="modal-header">
+              <div class="d-flex flex-row gap-2 ">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">المتابعون</h1>
+                <i class="fas fa-users fa-2x"></i>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-vendor-following-vendor></app-vendor-following-vendor>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
+            </div>
+          </div>
         </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <app-vendor-following-vendor></app-vendor-following-vendor>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- المتابعين -->
-
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog d-flex justify-content-center">
-    <div class="modal-content w-50">
-      <div class="modal-header">
-        <div class="d-flex flex-row gap-2 ">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">المتابعين</h1>
-          <i class="fas fa-users fa-2x"></i>
+      <!-- المتابعين -->
+      <!-- /////////////////---Modal---///////////////// -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-50">
+            <div class="modal-header">
+              <div class="d-flex flex-row gap-2 ">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">المتابعين</h1>
+                <i class="fas fa-users fa-2x"></i>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-followers></app-followers>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
+            </div>
+          </div>
         </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <app-followers></app-followers>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- /////////////////---Modal---///////////////// -->
-
-
     </div>
 
   </div>
@@ -82,23 +80,23 @@
 <div class="nav-btns position-sticky bg-white z-2">
 
   <div class="routung-bar d-flex flex-row container ">
-    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('AboutUs')">
+    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
       معلومات عنا
     </button>
-    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('WorkHistory')">
+    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('WorkHistory')">
       الاعمال السابقة
     </button>
-    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('Reviews')">
+    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
       المراجعات
     </button>
-    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('Services')">
+    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
       الخدمات
     </button>
-    <button class="col nav-btn btn bbbb" (click)="scrollToTargetAdjusted('Map')">
+    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('Map')">
       الموقع
     </button>
   </div>
-<hr>
+  <hr>
 </div>
 
 <!-- End Header -->
@@ -219,21 +217,21 @@
 
 
     <!-- Map -->
-    <ng-container *ngIf="currentVendor">
+    <ng-container *ngIf="Vendor">
       <section id="Map">
         <div class="py-3">
           <h2 class="text-primary py-3">موقعنا</h2>
-          <div class="ms-5">       <img class="map" title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
-              currentVendor.latitude
+          <div class="ms-5"> <img class="map" title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
+            Vendor.latitude
             }},{{
-              currentVendor.longitude
+              Vendor.longitude
             }}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{
-              currentVendor.latitude
+              Vendor.latitude
             }},{{
-              currentVendor.longitude
+              Vendor.longitude
             }}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en" />
+          </div>
         </div>
-      </div>
       </section>
     </ng-container>
     <!-- End Map -->
@@ -264,6 +262,3 @@
     </div> -->
   <!-- Side Component -->
 </div>
-
-
-

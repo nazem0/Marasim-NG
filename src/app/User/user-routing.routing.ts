@@ -43,7 +43,7 @@ const routes: Routes = [
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'feed', component: FeedComponent },
-      { path: 'vendors/vendor-profile/:name', component: VendorProfileComponent },
+      { path: 'vendors/vendor-profile/:id', component: VendorProfileComponent },
       { path: 'followings', component: FollowingsComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'checkout/pass', component: CheckoutPassComponent },

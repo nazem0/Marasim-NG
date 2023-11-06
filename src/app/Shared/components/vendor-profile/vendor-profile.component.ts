@@ -1,10 +1,14 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IService } from 'src/app/Models/IService';
 import { IUser } from 'src/app/Models/IUser';
 import { IVendor } from 'src/app/Models/IVendor';
 import { IVendorWithDetails } from 'src/app/Models/IVendorWithDetails';
+import { PostService } from 'src/app/Services/Post.service';
+import { ReviewService } from 'src/app/Services/Review.service';
 import { UserService } from 'src/app/Services/User.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
+import { ServiceService } from 'src/app/Services/service.service';
 
 
 
@@ -13,30 +17,39 @@ import { VendorService } from 'src/app/Services/Vendor.service';
   templateUrl: './vendor-profile.component.html',
   styleUrls: ['./vendor-profile.component.css']
 })
-export class VendorProfileComponent implements OnInit ,AfterViewInit {
+export class VendorProfileComponent implements OnInit, AfterViewInit {
   @ViewChild("filterContainer") filterContainer!: ElementRef;
   @ViewChild("caret") caret!: ElementRef;
 
-  currentUserVendor: IUser | null = null;
-  currentVendor: IVendor | null = null;
+  vendorID: number | null = null;
+  Vendor: IVendor | null = null;
   currentServices: IService[] | null = null;
-  vendorWithDetails: IVendorWithDetails | undefined;
 
-  constructor(private vendor: VendorService, private user: UserService) { }
+  constructor(
+    private VendorService: VendorService,
+    private ReviewService: ReviewService,
+    private PostService: PostService,
+    private ServiceService: ServiceService,
+    private ActivatedRoute: ActivatedRoute) { }
+
+  ngOnInit() {
+    // get vendor Id from router
+    this.vendorID = parseInt(this.ActivatedRoute.snapshot.paramMap.get("id")!);
+
+    this.VendorService.GetByVendorId(this.vendorID)
+      .subscribe((result) =>{
+        this.Vendor = result
+        console.log(result)
+      } )
+        
+
+  }
+
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
   }
 
-  ngOnInit() {
-    this.vendor.getVendorWithUser(1, 3).subscribe(responseList => {
-      this.currentVendor = responseList[0];
-      this.currentUserVendor = responseList[1];
-    });
-    this.vendor.getServices(1).subscribe(result => {
-      console.log(result);
-      this.currentServices = result;
-    })
-  }
+
   scrollToTargetAdjusted(x: string) {
     var elementPosition = document.getElementById(x)!.getBoundingClientRect().top;
     var offsetPosition: number = (elementPosition) + (window.scrollY - 160);

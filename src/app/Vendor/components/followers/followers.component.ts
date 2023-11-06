@@ -10,10 +10,10 @@ import { UserService } from '../../../Services/User.service';
 export class FollowersComponent {
   Followers: IFollowing[] = [];
   constructor(private UserService: UserService) {
-    this.UserService.getFollowing(2).subscribe(
-      (result) => {
-        this.Followers = result
-      console.log(result);
-      }
-      )
+    // this.UserService.getFollowing(2).subscribe(
+    //   (result) => {
+    //     this.Followers = result
+    //   console.log(result);
+    //   }
+    //   )
   }}
