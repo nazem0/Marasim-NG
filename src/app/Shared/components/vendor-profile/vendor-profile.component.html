@@ -1,14 +1,15 @@
 <meta name="referrer" content="no-referrer" />
 
-<div class="container-fluid sss d-flex flex-row p-4 header  ">
+<div class="header d-flex flex-column p-4 align-items-center justify-content-center" *ngIf="Vendor">
   <div class="img-container ">
-    <img class="rounded-circle avatar shadow  " [src]="Vendor?.user?.picUrl" alt="avatar" />
+    <img class="rounded-circle avatar shadow" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}"
+      alt="avatar" />
   </div>
-  <div class="vendor-info ms-4 mt-2">
+  <div class="vendor-info mt-3 text-center">
 
-    <h5 class="fs-3">{{ Vendor?.user?.name }}</h5>
+    <h5 class="fs-3">{{ Vendor.name }}</h5>
 
-    <div class="row gap-2 py-2 ">
+    <div class="row gap-2 py-2 justify-content-center">
 
       <span class="text-muted text-white">مصور فوتوغرافي</span>
       <ul class="list-inline mb-2">
@@ -36,7 +37,7 @@
           <div class="modal-content w-50">
             <div class="modal-header">
               <div class="d-flex flex-row gap-2 ">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">المتابعون</h1>
+                <h1 class="modal-title fs-5">المتابعون</h1>
                 <i class="fas fa-users fa-2x"></i>
               </div>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -58,7 +59,7 @@
           <div class="modal-content w-50">
             <div class="modal-header">
               <div class="d-flex flex-row gap-2 ">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">المتابعين</h1>
+                <h1 class="modal-title fs-5">المتابعين</h1>
                 <i class="fas fa-users fa-2x"></i>
               </div>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

@@ -9,6 +9,7 @@ import { ReviewService } from 'src/app/Services/Review.service';
 import { UserService } from 'src/app/Services/User.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
 import { ServiceService } from 'src/app/Services/service.service';
+import { environment } from 'src/environments/environment.development';
 
 
 
@@ -17,19 +18,14 @@ import { ServiceService } from 'src/app/Services/service.service';
   templateUrl: './vendor-profile.component.html',
   styleUrls: ['./vendor-profile.component.css']
 })
-export class VendorProfileComponent implements OnInit, AfterViewInit {
-  @ViewChild("filterContainer") filterContainer!: ElementRef;
-  @ViewChild("caret") caret!: ElementRef;
-
+export class VendorProfileComponent implements OnInit {
   vendorID: number | null = null;
   Vendor: IVendor | null = null;
   currentServices: IService[] | null = null;
+  apiUrl=environment.serverUrl;
 
   constructor(
     private VendorService: VendorService,
-    private ReviewService: ReviewService,
-    private PostService: PostService,
-    private ServiceService: ServiceService,
     private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -43,10 +39,6 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
       } )
         
 
-  }
-
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
   }
 
 
