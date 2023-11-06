@@ -14,7 +14,7 @@
         <label for="floatingInputGroup2" class="mt-2 px-2">بحث</label>
       </div>
       <div class="form-floating">
-        <select class="form-select py-0" id="floatingSelectGrid">
+        <select class="form-select py-0" id="CategorySelection">
           <option disabled hidden selected value="">اختر من بين الفئات</option>
           <option *ngFor="let Category of Categories" [value]="Category.id">{{Category.name}}</option>
         </select>
@@ -49,11 +49,11 @@
       <div
         class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
         <div class="col card text-center p-0 m-0" *ngFor="let Vendor of Category.vendors">
-          <img class="card-img-top rounded p-0 m-0" [src]='Vendor.user.picUrl'> <!-- get vendor photo from user -->
+          <img class="card-img-top rounded p-0 m-0" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}"> <!-- get vendor photo from user -->
           <div class="card-body">
-            <h5 class="card-title">{{Vendor.user.name}}</h5>
+            <h5 class="card-title">{{Vendor.name}}</h5>
             <p class="card-text"> {{Vendor.summary}}</p>
-            <p>{{Vendor.adddress}}</p>
+            <p>{{Vendor.address}}</p>
             <button class ="primary-btn" [routerLink]="['vendor-profile/',Vendor.id]">المزيد من التفاصيل</button>
           </div>
         </div>
@@ -126,7 +126,7 @@
 
         <div class="form-floating2 mb-3">
 
-          <select class="form-select p-0" id="floatingSelectGrid">
+          <select class="form-select p-0" id="LocationSelection">
             <option disabled hidden selected value="">اختر المحافظة</option>
             <option value="0">الكل</option>
             <option value="1">القاهرة</option>

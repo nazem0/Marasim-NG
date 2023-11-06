@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.development';
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from 'src/app/Models/ICategory';
 import { CategoryService } from '../../../Services/Category.service';
@@ -11,13 +12,16 @@ import { VendorService } from 'src/app/Services/Vendor.service';
 })
 export class ViewVendorsComponent implements OnInit {
   Categories: ICategory[] | null = null;
-
+  apiUrl=environment.serverUrl;
   constructor(private CategoryService: CategoryService) {
 
   }
   ngOnInit() {
     this.CategoryService.GetAll()
-      .subscribe((result) => this.Categories = result)
+      .subscribe((result) => {
+        this.Categories = result
+        console.log(this.Categories);
+      })
   }
 
 
