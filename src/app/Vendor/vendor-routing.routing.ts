@@ -21,7 +21,7 @@ import { ViewVendorsComponent } from '../User/components/view-vendors/view-vendo
 const vendorRoutes: Routes = [
     {
         path: '', component: LayoutComponent, children: [
-            { path: '', component: ViewVendorsComponent },
+            { path: '', component: VhomeComponent },
             { path: 'profile', component: ProfileVendorsideComponent },
             { path: 'create-offer', component: CreateOfferComponent },
             { path: 'reviews', component: VendorReviewsComponent },
