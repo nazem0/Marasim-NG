@@ -12,7 +12,7 @@ export class FilterComponent {
 
   constructor(private CategoryService: CategoryService) {
 
-    this.CategoryService.get().subscribe(
+    this.CategoryService.GetAll().subscribe(
       (categories) => this.categories = categories
     )
 

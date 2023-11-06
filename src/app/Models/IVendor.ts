@@ -1,11 +1,17 @@
-export interface  IVendor {
-    id: number,
-    userId: number,
-    categoryId: number,
+export interface IVendor {
+    userID: number,
     summary: string,
-    location: {
-        lat: number,
-        lng: number
+    latitude: number,
+    longitude: number,
+    adddress: string
+    categoryId: number,
+    externalUrl: string,
+    id: number,
+    user: {
+        name: string,
+        picUrl: string,
+        gender: boolean,
+        nationalID: number
     }
 }
 
