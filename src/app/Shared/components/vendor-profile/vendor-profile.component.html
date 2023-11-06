@@ -80,20 +80,20 @@
 </div>
 <div class="nav-btns position-sticky bg-white z-2">
 
-  <div class="routung-bar d-flex flex-row container ">
-    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
+  <div class="d-flex flex-wrap justify-content-center">
+    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
       معلومات عنا
     </button>
-    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('WorkHistory')">
+    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('WorkHistory')">
       الاعمال السابقة
     </button>
-    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
+    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
       المراجعات
     </button>
-    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
+    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
       الخدمات
     </button>
-    <button class="col nav-btn btn" (click)="scrollToTargetAdjusted('Map')">
+    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Map')">
       الموقع
     </button>
   </div>
@@ -199,8 +199,8 @@
         <section class="container-fluid d-flex flex-column justify-content-center align-items-center">
           <div
             class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-            <div class="col card text-center pt-3" *ngFor="let service of currentServices">
-              <img class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![1].resource" />
+            <div class="col card text-center pt-3" *ngFor="let service of Vendor?.services">
+              <img class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![0].resource" />
               <div class="card-body">
                 <h3 class="card-title">{{ service.title }}</h3>
                 <p class="card-text">
