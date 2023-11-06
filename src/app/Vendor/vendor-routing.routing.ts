@@ -29,7 +29,6 @@ const vendorRoutes: Routes = [
             { path: 'work-history', component: WorkHistoryComponent },
             { path: 'reservation', component: ReservationComponent },
             { path: 'edit-service', component: EditServiceComponent },
-           // { path: 'pending', component: PendingComponent },
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
