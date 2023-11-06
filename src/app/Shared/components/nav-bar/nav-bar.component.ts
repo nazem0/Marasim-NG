@@ -10,8 +10,11 @@ import { environment } from 'src/environments/environment.development';
 })
 export class NavBarComponent   {
   apiUrl=environment.serverUrl;
-  isVendor=this.CookieService.get('Role').includes('vendor');
-  constructor(public AuthService:AuthService,private CookieService:CookieService){}
+  isVendor:boolean=this.CookieService.get('Role').includes('vendor');
+
+  constructor(public AuthService:AuthService,private CookieService:CookieService){
+    this.isVendor=true;
+  }
   userId = this.CookieService.get("Id");
   profilePicture = this.CookieService.get("ProfilePicture");
   name = this.CookieService.get("Name");

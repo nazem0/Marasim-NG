@@ -5,7 +5,26 @@
   background-color: #24262b !important;
 
 }
+.navd:hover{
+color: var(--primary-color);
+}
 
+.dbg{
+  background-color: #343A40;
+}
+.dbg   a:hover,
+.dbg a:hover ~ .dbg i{
+background-color: #52575C;
+color: var(--primary-color);
+}
+
+.dbg a{
+color: white;  }
+
+
+.navd{
+  color: white;
+}
 .navbar-item a {
   text-decoration: none;
   color: white;
