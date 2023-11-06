@@ -17,12 +17,33 @@
                     <li class="navbar-item">
                         <a class="nav-link" routerLink="/vendors">الفئات</a>
                     </li>
+
+                      <ng-container *ngIf="isVendor"  >
+
+
+                        <li class="nav-item dropdown">
+                          <a class=" navd nav-link dropdown-toggle  " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">خيارات</a>
+                          <div class="dbg dropdown-menu ">
+                            <a  class="dropdown-item " routerLink="vendor/work-history" >المنشورات</a>
+                            <a class="dropdown-item " routerLink="vendor/services" >قائمة الخدمات</a>
+                            <a  class="dropdown-item "routerLink="vendor/reviews" >المراجعات</a>
+                            <a  class="dropdown-item " routerLink="vendor/reservation">جدول الحجوزات</a>
+                            <a  class="dropdown-item " routerLink="vendor/wallet" >المحفظة</a>
+                          </div>
+                        </li>
+
+
+
+                        </ng-container>
+
+
+
+
                     <li class="navbar-item">
                         <a class="nav-link" routerLink="/contact">اتصل بنا</a>
                     </li>
-                    <li>
 
-                    </li>
+
                     <ng-template #NotLoggedIn>
                         <li class="navbar-item ">
                             <button class="btn btn-outline-primary m-1" routerLink="/login"> تسجيل الدخول</button>
