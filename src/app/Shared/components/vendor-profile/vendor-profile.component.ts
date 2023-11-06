@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FullVendorInfo } from 'src/app/Models/FullVendorInfo';
 import { IService } from 'src/app/Models/IService';
 import { IUser } from 'src/app/Models/IUser';
 import { IVendor } from 'src/app/Models/IVendor';
@@ -20,7 +21,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class VendorProfileComponent implements OnInit {
   vendorID: number | null = null;
-  Vendor: IVendor | null = null;
+  Vendor: FullVendorInfo | null = null;
   currentServices: IService[] | null = null;
   apiUrl=environment.serverUrl;
 
