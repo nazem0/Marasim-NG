@@ -40,65 +40,94 @@ video {
 }
 
 .log {
-font-size:medium;
+  font-size: medium;
 }
+
 .indicator {
   width: 100px;
   height: 150px;
   border: 2px solid #fff;
   border-radius: 50px;
   position: relative;
-}.arrows {
-	width: 60px;
-	height: 72px;
-	position: absolute;
-	left: 50%;
-	margin-left: -30px;
-	bottom: 20px;
+}
+
+.arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 20px;
 }
 
 .arrows path {
-	stroke: #2994D1;
-	fill: transparent;
-	stroke-width: 1px;
-	animation: arrow 2s infinite;
-	-webkit-animation: arrow 2s infinite;
+  stroke: #2994D1;
+  fill: transparent;
+  stroke-width: 1px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
 }
 
-@keyframes arrow
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+@keyframes arrow {
+  0% {
+    opacity: 0
+  }
+
+  40% {
+    opacity: 1
+  }
+
+  80% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 0
+  }
 }
 
-@-webkit-keyframes arrow /*Safari and Chrome*/
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+@-webkit-keyframes arrow
+
+/*Safari and Chrome*/
+  {
+  0% {
+    opacity: 0
+  }
+
+  40% {
+    opacity: 1
+  }
+
+  80% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 0
+  }
 }
 
 .arrows path.a1 {
-	animation-delay:-1s;
-	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+  /* Safari 和 Chrome */
 }
 
 .arrows path.a2 {
-	animation-delay:-0.5s;
-	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+  /* Safari 和 Chrome */
 }
 
 .arrows path.a3 {
-	animation-delay:0s;
-	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  /* Safari 和 Chrome */
 }
 
 
 
-.info-bundle{
+.info-bundle {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -106,33 +135,37 @@ font-size:medium;
   text-decoration: none;
 }
 
-.info-icon{
-  width:150px;
+.info-icon {
+  width: 150px;
 
 }
-.info-text{
-font-size: medium;
-color:black;
+
+.info-text {
+  font-size: medium;
+  color: black;
 
 }
-.background-img{
-  height:40vh;
+
+.background-img {
+  height: 40vh;
   background-attachment: fixed;
-  background-image:url(../../../../assets/img/landing-background2.jpg);
-  background-size:     cover;
-  background-repeat:   no-repeat;
+  background-image: url(../../../../assets/img/landing-background2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 
 }
-.background-img2{
-  height:40vh;
+
+.background-img2 {
+  height: 40vh;
   background-attachment: fixed;
-  background-image:url(../../../../assets/img/landing-background1.jpg);
-  background-size:     cover;
-  background-repeat:   no-repeat;
+  background-image: url(../../../../assets/img/landing-background1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 
 }
+
 /*/////////////////////////////////////////////////////////////////////////*/
 .content-left {
   background-color: rgb(111, 182, 148);
@@ -183,7 +216,7 @@ color:black;
 
 .custom-card a {
 
-color: white;
+  color: white;
   font-weight: 500;
   font-size: 16px;
 
@@ -197,8 +230,9 @@ color: white;
 
 
 }
-.photo{
-  width:200px ;
+
+.photo {
+  width: 200px;
 }
 
 #carousel .swiper-carousel .swiper-slide {

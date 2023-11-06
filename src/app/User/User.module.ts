@@ -31,6 +31,7 @@ import { ContactComponent } from '../Shared/components/contact/contact.component
 import { HomeComponent } from '../Shared/components/home/home.component';
 import { PendingComponent } from './components/pending/pending.component';
 import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
+import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { CarouselComponent } from '../Shared/components/carousel/carousel.compon
   exports: [],
   declarations: [
     UserCheckListComponent,
+    ViewVendorsComponent,
     InvitationListComponent,
     UserEditProfileComponent,
     CoverComponent,

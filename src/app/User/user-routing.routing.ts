@@ -1,7 +1,6 @@
 import { HomeComponent } from './../Shared/components/home/home.component';
 import { Home2Component } from './components/home/home.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
-import { ViewVendorsComponent } from '../Shared/components/view-vendors/view-vendors.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
 import { CheckoutFailComponent } from './components/checkout//checkout-fail/checkout-fail.component';
 import { CheckoutLoadingComponent } from './components/checkout//checkout-loading/checkout-loading.component';
@@ -21,15 +20,13 @@ import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
-import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
 import { PendingComponent } from './components/pending/pending.component';
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
 import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
-import { FooterComponent } from '../Shared/components/footer/footer.component';
-import { FollowingComponent } from './components/followings/following/following.component';
 import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
+import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 
 
 

@@ -30,8 +30,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRippleModule } from '@angular/material/core';
-import { MatSliderModule } from '@angular/material/slider';
-import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FollowersComponent } from '../Vendor/components/followers/followers.component';
 import { FollowerComponent } from '../Vendor/components/followers/follower/follower.component';
@@ -75,7 +73,6 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
     Nav2Component,
     FooterComponent,
     PaginatorComponent,
-    ViewVendorsComponent,
     FollowersComponent,
     FollowerComponent,
     VendorFollowingVendorComponent,
@@ -98,7 +95,6 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
     FooterComponent,
     PaginatorComponent,
     MatPaginatorModule,
-    ViewVendorsComponent,
     FollowersComponent,
     FollowerComponent,
     VendorFollowingVendorComponent
