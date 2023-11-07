@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IAttachment, IComment, IPost, IReaction } from '../Models/IPost';
+import { IPostAttachment, IComment, IPost, IReaction } from '../Models/IPost';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })

@@ -78,27 +78,7 @@
   </div>
 
 </div>
-<div class="nav-btns position-sticky bg-white z-2">
 
-  <div class="d-flex flex-wrap justify-content-center">
-    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
-      معلومات عنا
-    </button>
-    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('WorkHistory')">
-      الاعمال السابقة
-    </button>
-    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
-      المراجعات
-    </button>
-    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
-      الخدمات
-    </button>
-    <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Map')">
-      الموقع
-    </button>
-  </div>
-  <hr>
-</div>
 
 <!-- End Header -->
 
@@ -144,19 +124,34 @@
     <!-- End Routing Buttons -->
 
 
+    <div class="nav-btns position-sticky bg-white z-2">
+      <div class="d-flex flex-wrap justify-content-center">
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
+          معلومات عنا
+        </button>
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('WorkHistory')">
+          المنشورات
+        </button>
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
+          المراجعات
+        </button>
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
+          الخدمات
+        </button>
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Map')">
+          الموقع
+        </button>
+      </div>
+      <hr>
+    </div>
+
 
     <!-- About -->
     <section id="AboutUs">
       <div class="py-3">
         <h2 class="text-primary">معلومات عنا</h2>
         <div>
-          <p class="arabic-text">
-            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-            النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-            المساحة، لقد تم توليد هذا النص من مولد النص العربى.هذا النص هو مثال
-            لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-            النص العربى.
-          </p>
+          <p class="arabic-text">{{Vendor?.summary}}</p>
         </div>
       </div>
     </section>
@@ -167,9 +162,9 @@
     <!-- Work History -->
     <section id="WorkHistory">
       <div class="py-3">
-        <h2 class="text-primary">الاعمال السابقة</h2>
+        <h2 class="text-primary">المنشورات</h2>
         <div>
-          <div *ngFor="let post of posts" class="my-4">
+          <div *ngFor="let post of Vendor?.posts| slice:0:1" class="my-4">
             <app-post [post]="post"></app-post>
           </div>
         </div>
@@ -200,13 +195,34 @@
           <div
             class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
             <div class="col card text-center pt-3" *ngFor="let service of Vendor?.services">
-              <img class="card-img-top mx-auto rounded" [src]="service.serviceAttachments![0].resource" />
+              <!-- <img class="card-img-top mx-auto rounded" *ngFor="let item of service.serviceAttachments" src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{service.id}}-{{service.title}}/{{item.attachmentUrl}}" /> -->
+              
+              
+              
+              <div [attr.id]="'carousel-'+service.id" class="carousel slide">
+                <div class="carousel-inner">
+                  <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
+                    <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+                      <img src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{service.title}}/{{pic.attachmentUrl}}" class="d-block w-100 carousel-pic" alt="...">
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+
+
+
+              
               <div class="card-body">
-                <h3 class="card-title">{{ service.title }}</h3>
-                <p class="card-text">
-                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                  توليد هذا النص من مولد النص العربى.
-                </p>
+                <h3 class="card-title">{{service.title}}</h3>
+                <p class="card-text">{{service.description}}</p>
                 <app-request-service>[service]="service"</app-request-service>
               </div>
             </div>
