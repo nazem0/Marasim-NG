@@ -48,7 +48,7 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
     MatButtonModule,
     MatFormFieldModule,    
     MatRippleModule,
-    PasswordStrengthMeterModule.forRoot()
+    PasswordStrengthMeterModule
 
   ],
   declarations: [
