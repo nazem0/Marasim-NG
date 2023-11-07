@@ -22,4 +22,7 @@ export class ReservationService {
   GetAcceptedByUserId(UserId:string){
     return this.HttpClient.get<Reservation[]>(`${environment.apiUrl}/Reservation/GetAcceptedByUserId/${UserId}`)
   }
+  GetRejectedByUserId(UserId:string){
+    return this.HttpClient.get<Reservation[]>(`${environment.apiUrl}/Reservation/GetRejectedByUserId/${UserId}`)
+  }
 }

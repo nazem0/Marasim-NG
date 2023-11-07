@@ -14,6 +14,7 @@ export class ReservationsComponent {
   apiUrl=environment.serverUrl;
   PendingReservations:Reservation[]|null = null;
   AcceptedReservations:Reservation[]|null = null;
+  RejectedReservations:Reservation[]|null = null;
   constructor(
     private ReservationService:ReservationService,
     private CookieService:CookieService
@@ -29,6 +30,12 @@ export class ReservationsComponent {
       next:(response)=>{
         this.AcceptedReservations=response
         console.log(this.AcceptedReservations);
+      }
+    })
+    this.ReservationService.GetRejectedByUserId(this.CookieService.get("Id")).subscribe({
+      next:(response)=>{
+        this.RejectedReservations=response
+        console.log(this.RejectedReservations);
       }
     })
   }
