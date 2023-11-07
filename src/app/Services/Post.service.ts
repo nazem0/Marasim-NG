@@ -52,7 +52,7 @@ export class PostService {
   //Comments Requests
 
 
-  GetComments(postID: number): Observable<IComment[]> {
+  GetCommentsByPostId(postID: number): Observable<IComment[]> {
     return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostID/${postID}`)
   }
 

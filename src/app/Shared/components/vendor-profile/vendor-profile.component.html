@@ -7,7 +7,7 @@
   </div>
 
   <div class="vendor-info mt-3 text-center">
-    
+
     <!-- Vendor Info -->
     <h5 class="fs-3">{{Vendor.name}}</h5>
     <div class="row gap-2 py-2 justify-content-center">
@@ -163,7 +163,7 @@
       <div class="py-3">
         <h2 class="text-primary">المنشورات</h2>
         <div>
-          <div *ngFor="let post of Vendor?.posts| slice:0:1" class="my-4">
+          <div *ngFor="let post of Vendor?.posts| slice:0:2" class="my-4">
             <app-post [post]="post"></app-post>
           </div>
         </div>

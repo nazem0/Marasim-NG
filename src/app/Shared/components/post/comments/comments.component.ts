@@ -10,12 +10,11 @@ import { PostService } from 'src/app/Services/Post.service';
 export class CommentsComponent {
   @Input() postID!:number;
   comments: IComment[]=[]
-  @Input() userName!:string;
+  
   constructor(private post:PostService) {
-    
   }
 
   ngOnInit(){
-    this.post.GetComments(this.postID).subscribe((result)=>this.comments=result)
+    this.post.GetCommentsByPostId(this.postID).subscribe((result)=>this.comments=result)
   }
 }
