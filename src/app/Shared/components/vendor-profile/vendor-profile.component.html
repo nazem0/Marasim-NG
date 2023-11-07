@@ -5,12 +5,12 @@
     <img class="rounded-circle avatar shadow" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}"
       alt="avatar" />
   </div>
+
   <div class="vendor-info mt-3 text-center">
-
+    
+    <!-- Vendor Info -->
     <h5 class="fs-3">{{Vendor.name}}</h5>
-
     <div class="row gap-2 py-2 justify-content-center">
-
       <span class="text-muted text-white">{{category?.name}}</span>
       <ul class="list-inline mb-2">
         <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
@@ -18,7 +18,6 @@
         </li>
       </ul>
       <button class="btn btn-warning w-50 text-white "><i class="fas fa-plus text-white me-1 my-auto"></i>تابع</button>
-
     </div>
 
     <div class="counter row mt-2">
@@ -196,22 +195,26 @@
             class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
             <div class="col card text-center pt-3" *ngFor="let service of Vendor?.services">
               <!-- <img class="card-img-top mx-auto rounded" *ngFor="let item of service.serviceAttachments" src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{service.id}}-{{service.title}}/{{item.attachmentUrl}}" /> -->
-              
-              
-              
+
+
+
               <div [attr.id]="'carousel-'+service.id" class="carousel slide">
                 <div class="carousel-inner">
                   <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
                     <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
-                      <img src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{service.title}}/{{pic.attachmentUrl}}" class="d-block w-100 carousel-pic" alt="...">
+                      <img
+                        src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{service.title}}/{{pic.attachmentUrl}}"
+                        class="d-block w-100 carousel-pic" alt="...">
                     </div>
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-'+service.id"
+                  data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-'+service.id"
+                  data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
@@ -219,7 +222,7 @@
 
 
 
-              
+
               <div class="card-body">
                 <h3 class="card-title">{{service.title}}</h3>
                 <p class="card-text">{{service.description}}</p>

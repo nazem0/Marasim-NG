@@ -11,7 +11,7 @@ export interface IPost {
   react: IReaction[],
   vendorName: string,
   vendorPicUrl: string,
-  vendorUserID: string
+  vendorUserId: string
 }
 
 export interface IReaction {
