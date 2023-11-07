@@ -25,11 +25,18 @@
         {{activeTab}}
       </button>
       <ul class="dropdown-menu">
-        <li><button class="tab-btn" [class.active]="activeTab === 'المعلقـة'"
-          (click)="setActiveTab('المعلقـة')">المعلقـة</button></li>
-        <li><button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
-          (click)="setActiveTab('المقبولـة')">المقبولـة</button></li>
-
+        <li>
+          <button class="tab-btn" [class.active]="activeTab === 'المعلقـة'"
+          (click)="setActiveTab('المعلقـة')">المعلقـة</button>
+        </li>
+        <li>
+          <button class="tab-btn" [class.active]="activeTab === 'المقبولـة'"
+          (click)="setActiveTab('المقبولـة')">المقبولـة</button>
+        </li>
+        <li>
+          <button class="tab-btn" [class.active]="activeTab === 'المرفوضة'"
+          (click)="setActiveTab('المرفوضة')">المرفوضة</button>
+        </li>  
         <li>
           <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
           (click)="setActiveTab('السابقـة')">السابقـة</button>
@@ -305,7 +312,6 @@
                 </div>
               </div>
             </td>
-
           </tr>
 
         </tbody>
