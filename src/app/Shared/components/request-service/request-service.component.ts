@@ -1,3 +1,4 @@
+import { ReservationService } from './../../../Services/Reservation.service';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
@@ -12,7 +13,7 @@ export class RequestServiceComponent {
   requestServiceForm: FormGroup;
   data: FormData;
 
-  constructor(private builder: FormBuilder) {
+  constructor(private builder: FormBuilder,private ReservationService:ReservationService) {
     this.data = new FormData()
     this.requestServiceForm = this.builder.group({
       discount: [null, [Validators.required]],
@@ -21,7 +22,7 @@ export class RequestServiceComponent {
   }
 
   request() {
-    console.log(this.requestServiceForm.value)
-    //////API (BOOKING REQUEST) (use FormData to collect data)
+    // if()
+    // this.ReservationService.addReservation()
   }
 }
