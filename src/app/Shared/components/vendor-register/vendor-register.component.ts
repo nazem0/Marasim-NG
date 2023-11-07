@@ -1,17 +1,13 @@
+import { CategoryService } from 'src/app/Services/Category.service';
 import { HttpClient } from '@angular/common/http';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
 import { OpenCageDataResponse } from 'src/app/Models/OpenCageDataResponse';
 import { RegisterationErrorResponse } from 'src/app/Models/RegisterationErrorResponse';
 import { Router } from '@angular/router';
+import { CategoryName } from 'src/app/Models/CategoryName';
 @Component({
   selector: 'app-vendor-register',
   templateUrl: './vendor-register.component.html',
@@ -21,10 +17,11 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
   @ViewChild('Latitude') Latitude: ElementRef | null = null;
   @ViewChild('Longitude') Longitude: ElementRef | null = null;
   @ViewChild('UploadPic') UploadPic: ElementRef | null = null;
-  @ViewChild('PacInput') PacInput : ElementRef | null = null;
+  @ViewChild('PacInput') PacInput: ElementRef | null = null;
   PicName: string = '';
   registerForm: FormGroup;
   data: FormData;
+  Categories: CategoryName[] | null = null;
   PasswordRegEx = (/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/);
   PhoneNumberRegEx = (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/);
   address: string = "";
@@ -34,7 +31,8 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
     private builder: FormBuilder,
     private RegisterService: RegisterService,
     private HttpClient: HttpClient,
-    private Router: Router
+    private Router: Router,
+    private CategoryService: CategoryService
   ) {
     this.data = new FormData();
     this.registerForm = this.builder.group({
@@ -48,11 +46,15 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       Picture: [null, [Validators.required]],
       Latitude: [null],
       Longitude: [null],
-      Address: [null],
+      Address: [""],
+      CategoryId: [null, [Validators.required]],
       Summary: [null, [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]]
     });
   }
   ngOnInit() {
+    this.CategoryService.GetNames().subscribe((response) => this.Categories = response);
+    // Map
+    this.addMapScripts();
     const sr = this.ScrollReveal.getScrollReveal();
     sr.reveal('.rightSide', {
       origin: 'right',
@@ -70,61 +72,37 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
     this.UploadPic?.nativeElement.addEventListener('change', (e: any) => {
       this.PicName = e.target?.files[0].name;
     });
-    // Map
 
-    let script = document.createElement('script');
-    script.src = 'assets/js/mapsJavaScriptAPI.js';
-    let mapInit = document.createElement('script');
-    mapInit.src='assets/js/mapInit.js';
-    mapInit.type = 'text/javascript';
-    document.querySelector('head')?.append(script, mapInit);
+    
   }
 
   async register() {
     let address = "";
     this.registerForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value)
     this.registerForm.get("Longitude")?.patchValue(this.Longitude?.nativeElement.value)
-    if(this.PacInput && this.PacInput.nativeElement.value != "")
-    {
+    if (this.PacInput && this.PacInput.nativeElement.value != "" && this.PacInput.nativeElement.value != null) {
       address = this.PacInput.nativeElement.value;
       this.registerForm.get("Address")?.patchValue(address)
       console.log(address);
     }
-    else{
-      this.decodeLatLng(this.Latitude?.nativeElement.value, this.Longitude?.nativeElement.value).subscribe((response) => {
-        let formattedResponse = response as OpenCageDataResponse
-        let formattedAddress = formattedResponse.results[0].formatted
-        if (formattedAddress.includes("unnamed road")) {
-          address = formattedAddress.replace("unnamed road", formattedResponse.results[0].components.state);
-          this.registerForm.get("Address")?.patchValue(address);
-        }
-        else {
-          address = formattedAddress;
-          this.registerForm.get("Address")?.patchValue(address)
-        }
-      });
+    else {
+      this.decodeLatLng(this.Latitude?.nativeElement.value, this.Longitude?.nativeElement.value)
+        .subscribe((response) => {
+          let formattedResponse = response as OpenCageDataResponse
+          let formattedAddress = formattedResponse.results[0].formatted
+          if (formattedAddress.includes("unnamed road")) {
+            address = formattedAddress.replace("unnamed road", formattedResponse.results[0].components.state);
+            this.registerForm.get("Address")?.patchValue(address);
+          }
+          else {
+            address = formattedAddress;
+            this.registerForm.get("Address")?.patchValue(address)
+          }
+        });
 
     }
     if (this.registerForm.valid) {
-
-      this.data.set('Address', this.registerForm.get('Address')?.value);
-      this.data.set('Name', this.registerForm.get('Name')?.value);
-      this.data.set('Email', this.registerForm.get('Email')?.value);
-      this.data.set('Password', this.registerForm.get('Password')?.value);
-      this.data.set(
-        'ConfirmPassword',
-        this.registerForm.get('ConfirmPassword')?.value
-      );
-      this.data.set(
-        'PhoneNumber',
-        this.registerForm.get('PhoneNumber')?.value
-      );
-      this.data.set('NationalID', this.registerForm.get('NationalID')?.value);
-      this.data.set('Gender', this.registerForm.get('Gender')?.value);
-      this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
-      this.data.set('Latitude', this.registerForm.get('Latitude')?.value);
-      this.data.set('Longitude', this.registerForm.get('Longitude')?.value);
-      this.data.set('Summary', this.registerForm.get('Summary')?.value);
+      this.setData();
       this.RegisterService.registerVendor(this.data).subscribe({
         next: (response) => {
           console.log(response)
@@ -142,7 +120,21 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
 
 
 
-
+  setData() {
+    this.data.set('Address', this.registerForm.get('Address')?.value);
+    this.data.set('Name', this.registerForm.get('Name')?.value);
+    this.data.set('CategoryId', this.registerForm.get('CategoryId')?.value)
+    this.data.set('Email', this.registerForm.get('Email')?.value);
+    this.data.set('Password', this.registerForm.get('Password')?.value);
+    this.data.set('ConfirmPassword', this.registerForm.get('ConfirmPassword')?.value);
+    this.data.set('PhoneNumber', this.registerForm.get('PhoneNumber')?.value);
+    this.data.set('NationalID', this.registerForm.get('NationalID')?.value);
+    this.data.set('Gender', this.registerForm.get('Gender')?.value);
+    this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
+    this.data.set('Latitude', this.registerForm.get('Latitude')?.value);
+    this.data.set('Longitude', this.registerForm.get('Longitude')?.value);
+    this.data.set('Summary', this.registerForm.get('Summary')?.value);
+  }
 
 
   decodeLatLng(lat: number, lng: number) {
@@ -150,5 +142,14 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
     return this.HttpClient.get(
       `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}&language=native`
     );
+  }
+
+  addMapScripts(){
+    let script = document.createElement('script');
+    script.src = 'assets/js/mapsJavaScriptAPI.js';
+    let mapInit = document.createElement('script');
+    mapInit.src = 'assets/js/mapInit.js';
+    mapInit.type = 'text/javascript';
+    document.querySelector('head')?.append(script, mapInit);
   }
 }

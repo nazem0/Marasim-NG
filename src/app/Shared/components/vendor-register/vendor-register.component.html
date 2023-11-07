@@ -19,6 +19,18 @@
                     <small *ngIf="registerForm?.get('Name')?.invalid && registerForm?.get('Name')?.touched" class="text-danger">
                         لم تقم بإدخال اسمك بالكامل بشكل صحيح
                     </small>
+                    <div>
+                        <select class="form-select border-0 border-bottom border-2 rounded-0"
+                        title="الفئة" name="الفئة" id="category" formControlName="CategoryId">
+                            <option [value]="null" disabled>اختر فئة الخدمة المُقدمة</option>
+                            <ng-container *ngFor="let category of Categories">
+                                <option [value]="category.id">{{category.name}}</option>
+                            </ng-container>
+                        </select>
+                        <small *ngIf="registerForm?.get('CategoryId')?.invalid && registerForm?.get('CategoryId')?.touched" class="text-danger">
+                            لم تقم بإدخال اسمك بالكامل بشكل صحيح
+                        </small>
+                    </div>
                     <div class=" d-flex gap-3">
                         <label for="summary">
                             <i class="fa-solid fa-pen-to-square fs-3"></i>
@@ -129,7 +141,7 @@
                     </div>
                     <div class="d-flex">
                         <input id="pac-input" class="controls border-0 border-bottom border-2 w-100 p-2" type="text" placeholder="ابحث عن عنوانك" #PacInput />
-                        <button type="button" id="gps-button" class="custom-map-control-button primary-btn rounded-1"><i class='fa-solid fa-location-dot'></i></button>
+                        <button title="حدد موقعي" type="button" id="gps-button" class="custom-map-control-button primary-btn rounded-1"><i class='fa-solid fa-location-dot'></i></button>
 
                     </div>
                     <small *ngIf="
