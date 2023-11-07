@@ -5,7 +5,6 @@ import { IVendor } from '../Models/IVendor';
 import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
 import { IService } from '../Models/IService';
-import { IServiceAttachment } from '../Models/IServiceAttachment';
 import { environment } from 'src/environments/environment.development';
 import { FullVendorInfo } from '../Models/FullVendorInfo';
 
@@ -20,8 +19,12 @@ export class VendorService {
     GetAll() {
         return this.HttpClient.get(`${environment.apiUrl}/Vendor/GetAll`)
     }
-    GetByVendorId(VendorID: number): Observable<FullVendorInfo>{
-        return this.HttpClient.get<FullVendorInfo>(`${environment.apiUrl}/Vendor/GetVendorByID/${VendorID}`)
+    GetByVendorId(VendorID: number): Observable<IVendor>{
+        return this.HttpClient.get<IVendor>(`${environment.apiUrl}/Vendor/GetVendorByID/${VendorID}`)
+    }
+
+    GetVendorFullFull(VendorID: number): Observable<FullVendorInfo>{
+        return this.HttpClient.get<FullVendorInfo>(`${environment.apiUrl}/Vendor/GetVendorFullFull/${VendorID}`)
     }
 
 

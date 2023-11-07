@@ -2,6 +2,7 @@ import { IUser } from "./IUser"
 
 export interface IPost {
   id: number,
+  vendorId: number,
   title: string,
   description: string,
   dateTime: string,
@@ -11,17 +12,6 @@ export interface IPost {
   vendorName: string,
   vendorPicUrl: string,
   vendorUserID: string
-}
-
-export interface IPostPartial {
-  id: number,
-  vendorId: number,
-  title: string,
-  description: string,
-  dateTime: string,
-  postAttachments: IPostAttachment[],
-  comment: IComment[],
-  react: IReaction[]
 }
 
 export interface IReaction {
