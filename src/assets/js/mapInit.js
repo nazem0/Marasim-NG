@@ -6,8 +6,8 @@ var infoWindow;
 var markers = [];
 
 async function initAutocomplete() {
-    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    try{
+        const { Map, InfoWindow } = await google.maps.importLibrary("maps");
 
     let pos = {
         lat: 24.0923346,
@@ -43,13 +43,6 @@ async function initAutocomplete() {
                 return;
             }
 
-            const icon = {
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25),
-            };
-
             // Create a marker for each place.
             const newMarker = new google.maps.Marker({
                 map: map,
@@ -60,6 +53,7 @@ async function initAutocomplete() {
             newMarker.addListener("dragend", (event) => {
                 updateLatAndLng(event.latLng.lat(), event.latLng.lng());
             });
+            newMarker.addListener("click", ()=>zoomIn(newMarker,map));
 
             markers.push(newMarker);
 
@@ -95,10 +89,11 @@ async function initAutocomplete() {
         updateLatAndLng(event.latLng.lat(), event.latLng.lng());
     });
 
-    marker.addListener("click", () => {
-        map.setZoom(17);
-        map.setCenter(marker.position);
-    });
+    marker.addListener("click", ()=>zoomIn(marker,map));
+    }
+    catch{
+        initAutocomplete();
+    }
 }
 
 function updateLatAndLng(lat, lng) {
@@ -121,12 +116,6 @@ function getCurrentLocation() {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                 };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent(
-                    "موقعك من خلال خطوط الطول ودوائر العرض: " + pos.lat + ", " + pos.lng
-                );
-                infoWindow.open(map);
                 map.setCenter(pos);
 
                 clearMarkers();
@@ -141,6 +130,7 @@ function getCurrentLocation() {
                 newMarker.addListener("dragend", (event) => {
                     updateLatAndLng(event.latLng.lat(), event.latLng.lng());
                 });
+                newMarker.addListener("click", ()=>zoomIn(newMarker,map));
 
                 markers.push(newMarker);
 
@@ -164,5 +154,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     );
     infoWindow.open(map);
 }
+function zoomIn(markerParam,map) {
+console.log("here");
+    map.setZoom(17);
+    map.setCenter(markerParam.position);
 
+}
 window.initAutocomplete = initAutocomplete;
