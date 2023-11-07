@@ -34,6 +34,7 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FollowersComponent } from '../Vendor/components/followers/followers.component';
 import { FollowerComponent } from '../Vendor/components/followers/follower/follower.component';
 import { VendorFollowingVendorComponent } from './components/vendor-following-vendor/vendor-following-vendor.component';
+import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
 
 @NgModule({
   imports: [
@@ -48,7 +49,7 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
     MatButtonModule,
     MatFormFieldModule,    
     MatRippleModule,
-    PasswordStrengthMeterModule
+    PasswordStrengthMeterModule.forRoot(DEFAULT_PSM_OPTIONS)
 
   ],
   declarations: [
