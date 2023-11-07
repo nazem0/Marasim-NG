@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class VendorProfileComponent implements OnInit , AfterViewInit {
   apiUrl = environment.serverUrl;
-  vendorID: number | null = null;
+  vendorId: number | null = null;
   Vendor: FullVendorInfo | null = null;
   category: ICategory | null = null;
   reviews: IReview[] | null = null;
@@ -30,16 +30,22 @@ export class VendorProfileComponent implements OnInit , AfterViewInit {
 
   ngOnInit() {
     // get vendor Id from router
-    this.vendorID = parseInt(this.ActivatedRoute.snapshot.paramMap.get("id")!);
-    console.log(this.vendorID)
+    this.vendorId = parseInt(this.ActivatedRoute.snapshot.paramMap.get("id")!);
+    console.log(this.vendorId)
   }
 
   ngAfterViewInit(): void {
-    this.VendorService.GetVendorFullFull(this.vendorID!)
+    this.CategoryService.GetByVendorId(this.vendorId!)
+    .subscribe((result) => {
+      this.category = result;
+    })
+    this.VendorService.GetVendorFullFull(this.vendorId!)
       .subscribe((result) => {
         this.Vendor = result;
         console.log(result);
       })
+
+    
 
 
   }

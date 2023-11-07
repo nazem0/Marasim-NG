@@ -19,6 +19,10 @@ export class CategoryService {
     return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetById/${categoryId}`)
   }
 
+  GetByVendorId(vendorId : number ): Observable<ICategory> {
+    return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetByVendorId/${vendorId}`)
+  }
+
   GetNames(): Observable<CategoryName[]>{
     return this.http.get<CategoryName[]>(`${environment.apiUrl}/Category/GetNames`)
   }
