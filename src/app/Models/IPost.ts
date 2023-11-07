@@ -16,8 +16,8 @@ export interface IPost {
 
 export interface IReaction {
   id: number,
-  userID: string,
-  postID: number,
+  userId: string,
+  postId: number,
   dateTime: string,
   userName: string,
   userPicUrl: string
@@ -25,8 +25,8 @@ export interface IReaction {
 
 export interface IComment {
   id: number,
-  userID: string,
-  postID: number,
+  userId: string,
+  postId: number,
   text: string,
   dateTime: string,
   userName: string,
