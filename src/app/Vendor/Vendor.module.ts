@@ -26,10 +26,6 @@ import { VendorRoutes } from './vendor-routing.routing';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -39,10 +35,6 @@ import { MatRippleModule } from '@angular/material/core';
     SharedModule,
     NgChartsModule,
     ReactiveFormsModule,
-    MatPaginatorModule,
-    MatButtonModule,
-    MatFormFieldModule,    
-    MatRippleModule,
     ReactiveFormsModule,
     ],
   exports: [

@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './Services/interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatPaginatorModule,
     ToastrModule.forRoot({
      "titleClass":"text-white",
      "messageClass":"text-white",
