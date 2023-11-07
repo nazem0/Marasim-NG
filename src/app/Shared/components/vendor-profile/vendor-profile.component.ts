@@ -14,19 +14,16 @@ import { VendorService } from 'src/app/Services/Vendor.service';
 import { ServiceService } from 'src/app/Services/service.service';
 import { environment } from 'src/environments/environment.development';
 
-
-
 @Component({
   selector: 'app-vendor-profile',
   templateUrl: './vendor-profile.component.html',
   styleUrls: ['./vendor-profile.component.css']
 })
 export class VendorProfileComponent implements OnInit {
+  apiUrl=environment.serverUrl;
   vendorID: number | null = null;
   Vendor: FullVendorInfo | null = null;
-  currentServices: IService[] | null = null;
-  apiUrl=environment.serverUrl;
-  vendor: IVendor | null = null;
+  // vendor: IVendor | null = null;
   category: ICategory | null = null;
   services: IService[] | null = null;
   posts: IPost[] | null = null;
@@ -54,10 +51,10 @@ export class VendorProfileComponent implements OnInit {
   ngAfterViewInit(): void {
     this.VendorService.GetByVendorId(this.vendorID!)
       .subscribe((result) => {
-        this.vendor = result;
+        this.Vendor = result;
       })
 
-    this.CategoryService.GetById(this.vendor?.categoryId!)
+    this.CategoryService.GetById(this.Vendor?.categoryId!)
       .subscribe((result) => {
         this.category = result;
       })
