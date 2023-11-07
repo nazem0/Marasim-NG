@@ -61,33 +61,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-          </tr>
+          <ng-container *ngFor="let Reservation of PendingReservations;let i=index">
+
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td class="text-center">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" class="img-vendor">
+                <span class="ms-2">{{Reservation.vendor.name}}</span>
+              </td>
+              <td class="text-center text-pp">{{Reservation.dateTime}}</td>
+              <td class="text-center text-pp">{{Reservation.price}}</td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
     </div>
@@ -104,45 +89,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-            <td class="text-center">
-              <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout">ادفع جزء من
-                  المبلغ</a></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-            <td class="text-center">
-              <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout">ادفع جزء من
-                  المبلغ</a></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td class="text-center">
-              <img src="../assets/img/vendor/p-1.jpg" class="img-vendor">
-              <span class="ms-2">محمد مصطفى</span>
-            </td>
-            <td class="text-center text-pp">27/07/2023</td>
-            <td class="text-center text-pp">9000 L.E</td>
-            <td class="text-center">
-              <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout">ادفع جزء من
-                  المبلغ</a></button>
-            </td>
-          </tr>
+          <ng-container *ngFor="let Reservation of AcceptedReservations;let i=index">
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td class="text-center">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" class="img-vendor">
+                <span class="ms-2">{{Reservation.vendor.name}}</span>
+              </td>
+              <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
+              <td class="text-center text-pp">{{Reservation.price}}</td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
     </div>

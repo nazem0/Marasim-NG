@@ -9,12 +9,11 @@ import { InterceptorService } from './Services/interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DateFormatArabicPipe } from './Pipes/DateFormatArabic.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     })
   ],
   providers: [AuthGuard,
+    // { provide: LOCALE_ID, useValue: "ar-EG" },
     {
     provide:HTTP_INTERCEPTORS,
     useClass:InterceptorService,

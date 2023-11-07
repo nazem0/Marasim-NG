@@ -13,3 +13,10 @@ export interface IVendor {
     userId: string;
   }
 
+  export interface VendorMinInfo {
+    userId: string;
+    id: number;
+    name: string;
+    picUrl: string;
+  }
+
