@@ -26,7 +26,11 @@ import { ToastrModule } from 'ngx-toastr';
     NgbModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+     "titleClass":"text-white",
+     "messageClass":"text-white",
+     "positionClass": 'toast-bottom-right',
+    })
   ],
   providers: [AuthGuard,
     {

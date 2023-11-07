@@ -3,7 +3,7 @@ import { ReservationService } from './../../../Services/Reservation.service';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
-import { error } from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-request-service',
@@ -15,7 +15,11 @@ export class RequestServiceComponent {
   requestServiceForm: FormGroup;
   data: FormData;
 
-  constructor(private builder: FormBuilder, private ReservationService: ReservationService, private CookieService: CookieService) {
+  constructor(
+    private builder: FormBuilder,
+    private ReservationService: ReservationService,
+    private CookieService: CookieService,
+    private Toastr:ToastrService) {
     this.data = new FormData()
     this.requestServiceForm = this.builder.group({
       PromoCode: [null],
@@ -32,8 +36,8 @@ export class RequestServiceComponent {
       this.data.set("DateTime",this.requestServiceForm.get("DateTime")?.value)
       this.ReservationService.addReservation(this.data).subscribe(
         {
-          next:(respone)=>console.log(respone),
-          error:(error)=>console.log(error)
+          next:()=>this.Toastr.success("تم حجز الخدمة"),
+          error:()=>this.Toastr.error("برجاء التأكد من التاريخ والمحاولة مرة أخرى","حدث خطأ")
         }
       )
     }
