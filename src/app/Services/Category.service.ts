@@ -13,4 +13,8 @@ export class CategoryService {
   GetAll(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(`${environment.apiUrl}/Category/GetAll`)
   }
+
+  GetById(categoryId : number ): Observable<ICategory> {
+    return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetById/${categoryId}`)
+  }
 }

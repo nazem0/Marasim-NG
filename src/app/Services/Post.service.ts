@@ -26,8 +26,8 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorID(VendorID: number): Observable<any[]> {
-    return this.HttpClient.get<any[]>(`${environment.apiUrl}/Post/GetByVendorID?VendorID=${VendorID}`)
+  GetByVendorID(VendorID: number): Observable<IPost[]> {
+    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/GetByVendorID?VendorID=${VendorID}`)
   }
 
   //Reacts Requests
