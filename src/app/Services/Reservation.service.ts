@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ReservationService {
 
-  constructor(private HttpClient:HttpClient) { }
-  addReservation(Data:AddReservation){
-  return this.HttpClient.post(`${environment.apiUrl}/Reservation/Add`,Data)
+  constructor(private HttpClient: HttpClient) { }
+  addReservation(Data: any) {
+    return this.HttpClient.post(`${environment.apiUrl}/Reservation/Add`, Data)
   }
 }
