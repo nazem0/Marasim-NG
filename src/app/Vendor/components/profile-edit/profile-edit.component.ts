@@ -10,7 +10,7 @@ User={
   name:"صهيب احمد محمد",
   email:"sohayb@so.com",
   phone:'01159100078',
-  passwoard:'sohayb123'
+  password:'sohayb123'
 };
 
 cats=[
