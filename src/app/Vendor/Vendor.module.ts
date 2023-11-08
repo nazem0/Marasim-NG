@@ -26,6 +26,7 @@ import { VendorRoutes } from './vendor-routing.routing';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
+import { VDashboardComponent } from './layout/v-dashboard/v-dashboard.component';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     WalletComponent,
     VhomeComponent,
     CreateServiceComponent,
+    VDashboardComponent,
   ]
 })
 export class VendorModule { }
