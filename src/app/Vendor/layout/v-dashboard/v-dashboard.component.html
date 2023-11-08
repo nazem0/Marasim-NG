@@ -80,7 +80,7 @@
       <div class="profile-details ms-3">
         <img src="{{apiUrl}}{{userId}}/ProfilePicture/{{profilePicture}}" alt="profileImg">
         <div class="name_job ms-2">
-          <div class="name">{{name}}</div>
+          <div class="name">{{name | truncate: 12}}</div>
         </div>
       </div>
       <button class="btn" (click)="logout()"><i class='fa-solid fa-right-from-bracket' id="log_out"></i></button>
