@@ -289,8 +289,16 @@ button {
     color: color-mix(in srgb, var(--bs-success) 70%, rgb(0, 60, 0) 100%) !important;
 }
 
-a{
+a {
     cursor: pointer;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+
+.pac-container {
+    z-index: 2000 !important;
+}
