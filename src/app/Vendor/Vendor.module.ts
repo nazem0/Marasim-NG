@@ -8,8 +8,8 @@ import { CreateOfferComponent } from './components/vendor-services/action-button
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
-// import { ReservationComponent } from './components/reservation/reservation/reservation.component';
-// import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
+import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
@@ -44,8 +44,8 @@ import { CreateServiceComponent } from './components/vendor-services/create-serv
     CreateOfferComponent,
     VendorReviewsComponent,
     WorkHistoryComponent,
-    // ReservationComponent,
-    // ReservationItemComponent,
+    ReservationComponent,
+    ReservationItemComponent,
     VendorServicesComponent,
     CreatePostComponent,
     LayoutComponent,

@@ -4,9 +4,8 @@ import { ProfileVendorsideComponent } from './components/profile-vendorside/prof
 import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { FollowersComponent } from './components/followers/followers.component';
-//import { PendingComponent } from './components/pending/pending.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-// import { ReservationComponent } from './components/reservation/reservation/reservation.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { StatNavComponent } from './components/statistic/stat-nav.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
@@ -27,7 +26,7 @@ const vendorRoutes: Routes = [
             { path: 'reviews', component: VendorReviewsComponent },
             { path: 'services', component: VendorServicesComponent },
             { path: 'work-history', component: WorkHistoryComponent },
-            // { path: 'reservation', component: ReservationComponent },
+            { path: 'reservation', component: ReservationComponent },
             { path: 'edit-service', component: EditServiceComponent },
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers', component: FollowersComponent },
