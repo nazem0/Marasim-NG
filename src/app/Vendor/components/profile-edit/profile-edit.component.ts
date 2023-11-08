@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-edit.component.css']
 })
 export class ProfileEditComponent {
+User={
+  name:"صهيب احمد محمد",
+  email:"sohayb@so.com",
+  phone:'01159100078',
+  passwoard:'sohayb123'
+};
+
+cats=[
+  {name:"مصور"},
+  {name:"طباخ"},
+  {name:"منسق حفلات"},
+  {name:"قاعة"},
+]
 
 }
