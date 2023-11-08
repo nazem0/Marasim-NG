@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { VendorReservation } from '../../../../Models/vendorReservation';
+import { VendorReservation } from 'src/app/Models/Reservation';
+import { ReservationService } from 'src/app/Services/Reservation.service';
 
 
 @Component({
@@ -8,48 +9,30 @@ import { VendorReservation } from '../../../../Models/vendorReservation';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-  
+
   @Output() activeTab: string = 'all';
-  search :string = '';
-  reservations: VendorReservation[] = [
-    {
-        customerName: 'برعي متولي',
-        requestDate: '2023-09-26',
-        serviceType: 'حجز قاعة اللؤلؤة',
-        acceptanceDate: '2023-10-01',
-        status: 'pending',
-        customerPic:'assets/img/groom.png'
-    },
-    {
-        customerName: ' محسن',
-        requestDate: '2023-09-26',
-        serviceType: 'حجز قاعة اللؤلؤة',
-        acceptanceDate: '2023-10-01',
-        status: 'rejected',
-        customerPic:'assets/img/groom.png'
+  search: string = '';
+  Reservations: VendorReservation[] = [];
+  filteredReservations: VendorReservation[] = [];
 
-    },
-    {
-        customerName: 'برعي ',
-        requestDate: '2023-09-26',
-        serviceType: 'حجز قاعة اللؤلؤة',
-        acceptanceDate: '2023-10-01',
-        status: 'accepted',
-        customerPic:'assets/img/groom.png'
-
-    },
-  ];
- filteredReservations: VendorReservation[] = [];
-
-  constructor() { }
+  constructor(private ReservationService:ReservationService) { }
 
   ngOnInit() {
-    this.filterReservations(this.activeTab);      
+    this.filterReservations(this.activeTab);
+    this.getReservations();
   }
 
   filterReservations(tab: string) {
-      this.activeTab = tab;
-      this.filteredReservations = this.reservations.filter(item => item.status == tab || tab=='all');
+    this.activeTab = tab;
+    this.filteredReservations = this.Reservations.filter(item => item.Status == tab || tab == 'all');
+  }
+  getReservations(){
+    this.ReservationService.GetAllVendorReservations().subscribe({
+      next:(response)=>{
+        this.Reservations=response
+        console.log(this.Reservations);
+      }
+    })
   }
 }
 

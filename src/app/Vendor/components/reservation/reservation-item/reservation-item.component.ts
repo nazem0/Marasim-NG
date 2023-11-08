@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { VendorReservation } from '../../../../Models/vendorReservation';
+import { IUser } from 'src/app/Models/IUser';
+import { VendorReservation } from 'src/app/Models/Reservation';
 
 @Component({
   selector: 'app-reservation-item',
@@ -7,23 +8,16 @@ import { VendorReservation } from '../../../../Models/vendorReservation';
   styleUrls: ['./reservation-item.component.css']
 })
 export class ReservationItemComponent implements OnInit {
-  @Input() reservation: VendorReservation[] = [] as VendorReservation[];
+  @Input() Reservations: VendorReservation[] = [];
   @Input() activeTab: string = 'all';
-  selectedCustomer: { name: string, telephone: string, address: string  ,img: string} | null = null; 
+  selectedCustomer: IUser | null = null; 
 
-  constructor() { }
 
   ngOnInit() {
+    
   }
 
-  openCustomerModal(customer: VendorReservation ) {
-    this.selectedCustomer = {
-      img :customer?.customerPic || "لا توجد صورة ",
-      name: customer.customerName,
-      telephone: '0123123123', 
-      address: 'كلابشة' 
-    };
-    
-    
+  openCustomerModal(User: IUser ) {
+    this.selectedCustomer = User;
   }
 }

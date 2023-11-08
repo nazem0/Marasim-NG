@@ -1,8 +1,9 @@
+import { VendorReservation } from './../Models/Reservation';
 import { AddReservation } from './../Models/AddReservation';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { Reservation } from '../Models/Reservation';
+import { UserReservation } from '../Models/Reservation';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,17 @@ export class ReservationService {
   addReservation(Data: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Reservation/Add`, Data)
   }
-  GetAllByUserId(UserId:string){
-    return this.HttpClient.get<Reservation[]>(`${environment.apiUrl}/Reservation/GetAllByUserId/${UserId}`)
+  GetAllUserReservations(){
+    return this.HttpClient.get<UserReservation[]>(`${environment.apiUrl}/Reservation/GetAllByUserId`)
   }
-  GetPendingByUserId(UserId:string){
-    return this.HttpClient.get<Reservation[]>(`${environment.apiUrl}/Reservation/GetPendingByUserId/${UserId}`)
+  GetUserReservationsByStatus(Status:string){
+    return this.HttpClient.get<UserReservation[]>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus/${Status}`)
   }
-  GetAcceptedByUserId(UserId:string){
-    return this.HttpClient.get<Reservation[]>(`${environment.apiUrl}/Reservation/GetAcceptedByUserId/${UserId}`)
+  GetVendorReservationsByStatus(Status:string){
+    return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/${Status}`)
   }
-  GetRejectedByUserId(UserId:string){
-    return this.HttpClient.get<Reservation[]>(`${environment.apiUrl}/Reservation/GetRejectedByUserId/${UserId}`)
+  GetAllVendorReservations(){
+    return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
+
   }
 }

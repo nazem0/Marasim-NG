@@ -27,16 +27,16 @@
         <button class="tab-btn" [class.active]="activeTab === 'all'" (click)="filterReservations('all')">جميع الحجوزات
         </button>
         <button class="tab-btn" [class.active]="activeTab === 'accepted'"
-            (click)="filterReservations('accepted')">المقبولـة</button>
+            (click)="filterReservations('a')">المقبولـة</button>
         <button class="tab-btn" [class.active]="activeTab === 'rejected'"
-            (click)="filterReservations('rejected')">المرفوضـة</button>
+            (click)="filterReservations('r')">المرفوضـة</button>
         <button class="tab-btn" [class.active]="activeTab === 'pending'"
-            (click)="filterReservations('pending')">المعلقة</button>
+            (click)="filterReservations('p')">المعلقة</button>
         <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
     </div>
 
     <div class="tab-content" id="myTabContent">
 
-        <app-reservation-item [reservation]="filteredReservations" [activeTab]="activeTab"></app-reservation-item>
+        <app-reservation-item [Reservations]="filteredReservations" [activeTab]="activeTab"></app-reservation-item>
     </div>
 </div>
