@@ -36,6 +36,7 @@ import { FollowerComponent } from '../Vendor/components/followers/follower/follo
 import { VendorFollowingVendorComponent } from './components/vendor-following-vendor/vendor-following-vendor.component';
 import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
 import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
+import { TruncatePipe } from '../Pipes/Truncate.pipe';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 
   ],
   declarations: [
+    TruncatePipe,
     DateFormatArabicPipe,
     CloudBannerComponent,
     PostComponent,
@@ -101,7 +103,8 @@ import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
     FollowersComponent,
     FollowerComponent,
     VendorFollowingVendorComponent,
-    DateFormatArabicPipe
+    DateFormatArabicPipe,
+    TruncatePipe
   ],
 
 })
