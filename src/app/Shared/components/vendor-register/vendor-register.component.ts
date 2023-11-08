@@ -1,6 +1,6 @@
 import { CategoryService } from 'src/app/Services/Category.service';
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
@@ -13,11 +13,14 @@ import { CategoryName } from 'src/app/Models/CategoryName';
   templateUrl: './vendor-register.component.html',
   styleUrls: ['./vendor-register.component.css'],
 })
-export class VendorRegisterationComponent implements OnInit, AfterViewInit {
+export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('Latitude') Latitude: ElementRef | null = null;
   @ViewChild('Longitude') Longitude: ElementRef | null = null;
   @ViewChild('UploadPic') UploadPic: ElementRef | null = null;
   @ViewChild('PacInput') PacInput: ElementRef | null = null;
+  head:HTMLHeadElement=document.querySelector('head')!;
+  script = document.createElement('script');
+  mapInit = document.createElement('script');
   PicName: string = '';
   registerForm: FormGroup;
   data: FormData;
@@ -51,6 +54,7 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       Summary: [null, [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]]
     });
   }
+
   ngOnInit() {
     this.CategoryService.GetNames().subscribe((response) => this.Categories = response);
     // Map
@@ -72,51 +76,51 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
     this.UploadPic?.nativeElement.addEventListener('change', (e: any) => {
       this.PicName = e.target?.files[0].name;
     });
-
-    
   }
-
-  async register() {
-    let address = "";
-    this.registerForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value)
-    this.registerForm.get("Longitude")?.patchValue(this.Longitude?.nativeElement.value)
-    if (this.PacInput && this.PacInput.nativeElement.value != "" && this.PacInput.nativeElement.value != null) {
-      address = this.PacInput.nativeElement.value;
-      this.registerForm.get("Address")?.patchValue(address)
-      console.log(address);
-    }
-    else {
+  ngOnDestroy(): void {
+    this.removeMapScripts();
+  }
+  register() {
+    this.registerForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value);
+    this.registerForm.get("Longitude")?.patchValue(this.Longitude?.nativeElement.value);
+  
+    if (this.PacInput && this.PacInput.nativeElement.value !== "" && this.PacInput.nativeElement.value !== null) {
+      this.updateFormAndSubmit(this.PacInput.nativeElement.value);
+    } else {
       this.decodeLatLng(this.Latitude?.nativeElement.value, this.Longitude?.nativeElement.value)
         .subscribe((response) => {
-          let formattedResponse = response as OpenCageDataResponse
-          let formattedAddress = formattedResponse.results[0].formatted
+          let formattedResponse = response as OpenCageDataResponse;
+          let formattedAddress = formattedResponse.results[0].formatted;
           if (formattedAddress.includes("unnamed road")) {
-            address = formattedAddress.replace("unnamed road", formattedResponse.results[0].components.state);
-            this.registerForm.get("Address")?.patchValue(address);
-          }
-          else {
-            address = formattedAddress;
-            this.registerForm.get("Address")?.patchValue(address)
+            this.updateFormAndSubmit(formattedAddress.replace("unnamed road", formattedResponse.results[0].components.state));
+          } else {
+            this.updateFormAndSubmit(formattedAddress);
           }
         });
-
     }
+  }
+  
+  updateFormAndSubmit(address: string) {
+    this.registerForm.get("Address")?.patchValue(address);
+    console.log(address);
+  
     if (this.registerForm.valid) {
       this.setData();
       this.RegisterService.registerVendor(this.data).subscribe({
         next: (response) => {
-          console.log(response)
-          this.data.forEach(v => console.log(v))
+          console.log(response);
+          this.data.forEach((v) => console.log(v));
           this.Router.navigate(["/login"]);
         },
         error: (error) => {
           console.log("object");
-          this.data.forEach(v => console.log(v))
+          this.data.forEach((v) => console.log(v));
           console.log(error);
         }
-      })
+      });
     }
   }
+  
 
 
 
@@ -145,11 +149,18 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
   }
 
   addMapScripts(){
-    let script = document.createElement('script');
-    script.src = 'assets/js/mapsJavaScriptAPI.js';
-    let mapInit = document.createElement('script');
-    mapInit.src = 'assets/js/mapInit.js';
-    mapInit.type = 'text/javascript';
-    document.querySelector('head')?.append(script, mapInit);
+    this.script.src = 'assets/js/mapsJavaScriptAPI.js';
+    this.mapInit.src = 'assets/js/mapInit.js';
+    this.mapInit.type = 'text/javascript';
+    this.head?.append(this.script, this.mapInit);
   }
+  removeMapScripts() {
+    const childNodes = this.head.childNodes;
+    const numberOfNodesToRemove = Math.min(14, childNodes.length); // Ensure we don't go beyond the number of child nodes.
+  
+    for (let i = 0; i < numberOfNodesToRemove; i++) {
+      this.head.removeChild(childNodes[childNodes.length - 1]); // Remove the last child node.
+    }
+  }
+  
 }
