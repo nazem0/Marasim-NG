@@ -27,3 +27,10 @@ export interface VendorReservation {
   user: IUser
 }
 
+export interface CheckoutReservation {
+  dateTime: Date;
+  address: string;
+  price: number;
+  serviceName: string;
+  vendor: VendorMinInfo;
+}

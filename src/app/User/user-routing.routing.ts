@@ -46,7 +46,7 @@ const routes: Routes = [
       { path: 'feed', component: FeedComponent },
       { path: 'vendors/:id', component: VendorProfileComponent },
       { path: 'followings', component: FollowingsComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path: 'checkout/:id', component: CheckoutComponent },
       { path: 'checkout/pass', component: CheckoutPassComponent },
       { path: 'checkout/fail', component: CheckoutFailComponent },
       { path: 'checkout/loading', component: CheckoutLoadingComponent },

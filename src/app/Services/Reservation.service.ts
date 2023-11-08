@@ -1,5 +1,4 @@
-import { VendorReservation } from './../Models/Reservation';
-import { AddReservation } from './../Models/AddReservation';
+import { VendorReservation, CheckoutReservation } from './../Models/Reservation';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
@@ -25,6 +24,8 @@ export class ReservationService {
   }
   GetAllVendorReservations(){
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
-
+  }
+  CheckoutReservationById(Id:number){
+    return this.HttpClient.get<CheckoutReservation>(`${environment.apiUrl}/Reservation/CheckoutReservationById/${Id}`)
   }
 }

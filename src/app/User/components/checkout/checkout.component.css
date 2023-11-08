@@ -14,3 +14,8 @@
   width: 115px;
 }
 }
+.vendorPicture{
+  height: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
