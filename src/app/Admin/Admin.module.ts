@@ -12,6 +12,8 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgChartsModule } from 'ng2-charts';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { NgChartsModule } from 'ng2-charts';
     PaymentsComponent,
     ReservationsComponent,
     HomeComponent,
+    DashboardComponent,
+    EditAdminComponent,
    
   ],
   imports: [
