@@ -30,6 +30,7 @@ import { ContactComponent } from '../Shared/components/contact/contact.component
 import { HomeComponent } from '../Shared/components/home/home.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
     CommonModule,
     UserRoutes,
     SharedModule,
+    ReactiveFormsModule
   ],
   exports: [],
   declarations: [
