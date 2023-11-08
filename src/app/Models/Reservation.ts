@@ -1,4 +1,4 @@
-import { UserMinInfo } from "./IUser";
+import { IUser, UserMinInfo } from "./IUser";
 import { VendorMinInfo } from "./IVendor";
 
 export interface UserReservation {
@@ -18,6 +18,6 @@ export interface VendorReservation {
   Status: string
   IsDeleted: boolean
   DateTime: string
-  User: UserMinInfo
+  User: IUser
 }
 

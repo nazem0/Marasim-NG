@@ -14,18 +14,18 @@
 
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let item of reservation , let i = index; ">
+        <tr *ngFor="let Reservation of Reservations , let i = index; ">
           <td>{{i+1}}</td>
           <td class="d-flex justify-content-between">
-            <a  class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(item)" data-bs-toggle="modal" data-bs-target="#customerModal">
-              <img [src]="item?.customerPic" alt="صورة العميل">
-              <span>{{ item.customerName }}</span>
+            <a  class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.User)" data-bs-toggle="modal" data-bs-target="#customerModal">
+              <img [src]="Reservation.User.picUrl" alt="صورة العميل">
+              <span>{{ Reservation.User.name }}</span>
             </a>
           </td>
-          <td>{{ item.requestDate }}</td>
-          <td>{{ item.serviceType }}</td>
-          <td>{{ item.acceptanceDate }}</td>
-          <td *ngIf="activeTab == 'all'">{{ item.status }}</td>
+          <td>{{ Reservation.DateTime }}</td>
+          <!-- <td>{{ Reservation.serviceType }}</td>
+          <td>{{ Reservation.acceptanceDate }}</td> -->
+          <td *ngIf="activeTab == 'all'">{{ Reservation.Status }}</td>
           <td>
               <button class="btn btn-success acceptBtn">قبول</button>
               <button class="btn btn-danger rejectBtn">رفض</button>
@@ -49,11 +49,10 @@
       <div class="modal-body">
         <div class="customer-info">
           <!-- Add the customer image here -->
-          <img [src]=" selectedCustomer?.img " alt="صورة العميل" class="customer-image">
+          <img [src]=" selectedCustomer?.picUrl" alt="صورة العميل" class="customer-image">
           <div class="customer-details">
             <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
-            <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.telephone }}</p>
-            <p><strong>العنوان</strong> {{ selectedCustomer?.address }}</p>
+            <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.phoneNumber }}</p>
           </div>
         </div>
       </div>

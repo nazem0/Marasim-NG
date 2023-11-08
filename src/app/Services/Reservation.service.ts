@@ -23,4 +23,8 @@ export class ReservationService {
   GetVendorReservationsByStatus(Status:string){
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/${Status}`)
   }
+  GetAllVendorReservations(){
+    return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
+
+  }
 }
