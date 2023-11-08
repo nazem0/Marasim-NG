@@ -15,7 +15,7 @@ const routes: Routes = [
       {path:"users",component:ViewUsersComponent},
       {path:"categories",component:CategoriesComponent},
       {path:"home",component:HomeComponent},
-      {path:"payment",component:PaymentsComponent},
+      {path:"payments",component:PaymentsComponent},
 
     ]
   },
