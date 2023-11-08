@@ -1,88 +1,79 @@
-<div class="container" *ngIf="Reservation">
+<div class="container">
   <div class="row py-5 text-center">
-      <div class="col">
-          <h2>ادفع عربون</h2>
-          <p>30%</p>
-      </div>
+    <div class="col">
+      <h2>ادفع عربون</h2>
+      <p>30%</p>
+    </div>
   </div>
   <div class="row g-3 mb-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-          <div class="card">
-              <div class="card-body">
-                  <h4 class="d-flex justify-content-between align-items-center mb-3" id="countPlan">
-                      <span class="text-primary">خطتك</span>
-                  </h4>
-                  <ul class="list-group mb-3" id="plan">
-                      <li class="list-group-item d-flex justify-content-between lh-sm">
-                          <div class="d-flex align-items-center w-100">
-                              <img class="vendorPicture" src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" alt="">
-                              <div class="ms-3 w-100">
-                                  <span class="fw-bold">{{Reservation.vendor.name}}</span>
-                                  <div class="d-flex justify-content-between">
-                                      <span>{{Reservation.serviceName}}</span>
-                                      <span> | </span>
-                                      <span>{{Reservation.price * 0.3}}</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </li>
-                  </ul>
-                  <!-- <ul class="list-group list-group-item rounded" id="sumPlan">
+    <div class="col-md-5 col-lg-4 order-md-last">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="d-flex justify-content-between align-items-center mb-3" id="countPlan">
+            <span class="text-primary">خطتك</span>
+          </h4>
+          <ul class="list-group mb-3" id="plan">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div class="d-flex align-items-center w-100" *ngIf="Reservation">
+                <img class="vendorPicture"
+                  src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" alt="">
+                <div class="ms-3 w-100">
+                  <span class="fw-bold">{{Reservation.vendor.name}}</span>
+                  <div class="d-flex justify-content-between">
+                    <span>{{Reservation.serviceName}}</span>
+                    <span> | </span>
+                    <span>{{Reservation.price * 0.3}}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- <ul class="list-group list-group-item rounded" id="sumPlan">
                       <li class="list-group-item d-flex justify-content-between">
                           <span class="col">المجموع</span>
                       </li>
                   </ul> -->
-              </div>
-          </div>
+        </div>
       </div>
-      <div class="col-md-7 col-lg-8">
-          <div class="card border">
-              <div class="card-body">
-                  <h4 class="mb-3 mt-3">بيانات الطلب</h4>
-                  <form class="needs-validation">
-                      <div class="row g-3">
-                          <hr class="my-4">
-                          <h4 class="mb-1">طرق الدفع</h4>
-                          <small class="text-muted">*سوف يتوفر طرق دفع اخري قريبا</small>
-                          <div class="my-3">
-                              <div class="form-check">
-                                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input mt-5" checked required placeholder="طريقة الدفع">
-                                  <img src="../assets/img/unnamed.webp" alt="" class="instapay_icon">
-                              </div>
-                              <div class="row gy-3">
-                                  <div class="col-md-6">
-                                      <label for="cc-name" class="form-label">Instapay account</label>
-                                      <input type="text" class="form-control" id="cc-name" placeholder="example@instapay" required>
-                                      <div class="invalid-feedback">
-                                          account is required
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <label for="cc-number" class="form-label">phone number</label>
-                                      <input type="text" class="form-control" id="cc-number" placeholder="*********01" required>
-                                      <small class="text-muted">phone number which connected with instapay account</small>
-                                      <div class="invalid-feedback">
-                                          phone number is required
-                                      </div>
-                                  </div>
-                              </div>
-                              <h5 class="mt-5">
-                                قم بارسال المبلغ على هذا الحساب
-                                Marasim&#64;Insapay
-                              </h5>
-                              <span class="fw-bold"></span>
-                              <small class="text-muted">*تأكد من صحة الحساب قبل ارسال المبلغ</small>
-                              <div class="form-check">
-                                  <input type="checkbox" class="form-check-input" id="same-address">
-                                  <label class="form-check-label" for="same-address">ارسل لي فاتورة الي بريدي الالكتروني</label>
-                              </div>
-                          </div>
-                          <hr class="my-4">
-                          <button class="w-100 btn btn-primary btn-lg" type="submit">تحقق من الدفع</button>
-                      </div>
-                  </form>
+    </div>
+    <div class="col-md-7 col-lg-8">
+      <div class="card border">
+        <div class="card-body">
+          <h4 class="mb-3 mt-3">بيانات الطلب</h4>
+          <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" class="needs-validation">
+            <div class="row g-3">
+              <hr class="my-4">
+              <h4 class="mb-1">طرق الدفع</h4>
+              <small class="text-muted">*سوف يتوفر طرق دفع اخري قريبا</small>
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input mt-5" checked required
+                    placeholder="طريقة الدفع">
+                  <img src="../assets/img/unnamed.webp" alt="" class="instapay_icon">
+                </div>
+
+                <div>
+                  <label for="cc-name" class="form-label">حسابك على إنستا باي</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="example@instapay" required
+                    formControlName="InstaPay">
+                    <small *ngIf="checkoutForm?.get('InstaPay')?.invalid && checkoutForm?.get('InstaPay')?.touched"
+                    class="text-danger">
+                    يجب إدخال اسم حساب إنستا باي
+                </small>
+                </div>
+                <h5 class="mt-5">
+                  قم بارسال المبلغ على هذا الحساب
+                  Marasim&#64;Insapay
+                </h5>
+                <span class="fw-bold"></span>
+                <small class="text-muted">*تأكد من صحة الحساب قبل ارسال المبلغ</small>
               </div>
-          </div>
+              <hr class="my-4">
+              <button class="w-100 btn btn-primary btn-lg" type="submit">تحقق من الدفع</button>
+            </div>
+          </form>
+        </div>
       </div>
+    </div>
   </div>
 </div>
