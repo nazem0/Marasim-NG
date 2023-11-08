@@ -28,11 +28,11 @@ export class VendorService {
     }
 
 
-    // What is this doing here??? services??? Move to Service.service.ts
-    getServices(ID: Number): Observable<IService[]> {
-        return this.HttpClient.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${ID}`)
-    }
-    getServicesByVendorId(Id:number){
-        return this.HttpClient.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${Id}`)
-    }
+    // // What is this doing here??? services??? Move to Service.service.ts
+    // getServices(ID: Number): Observable<IService[]> {
+    //     return this.HttpClient.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${ID}`)
+    // }
+    // getServicesByVendorId(Id:number){
+    //     return this.HttpClient.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${Id}`)
+    // }
 }
