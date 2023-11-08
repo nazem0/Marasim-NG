@@ -17,15 +17,15 @@
         <tr *ngFor="let Reservation of Reservations , let i = index; ">
           <td>{{i+1}}</td>
           <td class="d-flex justify-content-between">
-            <a  class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.User)" data-bs-toggle="modal" data-bs-target="#customerModal">
-              <img [src]="Reservation.User.picUrl" alt="صورة العميل">
-              <span>{{ Reservation.User.name }}</span>
+            <a  class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.user)" data-bs-toggle="modal" data-bs-target="#customerModal">
+              <img [src]="Reservation.user.picUrl" alt="صورة العميل">
+              <span>{{ Reservation.user.name }}</span>
             </a>
           </td>
-          <td>{{ Reservation.DateTime }}</td>
+          <td>{{ Reservation.dateTime }}</td>
           <!-- <td>{{ Reservation.serviceType }}</td>
           <td>{{ Reservation.acceptanceDate }}</td> -->
-          <td *ngIf="activeTab == 'all'">{{ Reservation.Status }}</td>
+          <td *ngIf="activeTab == 'all'">{{ Reservation.status }}</td>
           <td>
               <button class="btn btn-success acceptBtn">قبول</button>
               <button class="btn btn-danger rejectBtn">رفض</button>

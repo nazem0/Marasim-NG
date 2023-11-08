@@ -24,7 +24,7 @@ export class ReservationComponent implements OnInit {
 
   filterReservations(tab: string) {
     this.activeTab = tab;
-    this.filteredReservations = this.Reservations.filter(item => item.Status == tab || tab == 'all');
+    this.filteredReservations = this.Reservations.filter(item => item.status == tab || tab == 'all');
   }
   getReservations(){
     this.ReservationService.GetAllVendorReservations().subscribe({
