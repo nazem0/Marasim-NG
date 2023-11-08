@@ -4,7 +4,6 @@ import { IVendor } from '../Models/IVendor';
 import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
 import { IService } from '../Models/IService';
-import { IServiceAttachment } from '../Models/IServiceAttachment';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({

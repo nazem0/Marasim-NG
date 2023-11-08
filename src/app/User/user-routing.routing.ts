@@ -20,13 +20,14 @@ import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
-import { PendingComponent } from './components/pending/pending.component';
+
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
 import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
 import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 
 
@@ -43,7 +44,7 @@ const routes: Routes = [
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'feed', component: FeedComponent },
-      { path: 'vendor-profile', component: VendorProfileComponent },
+      { path: 'vendors/vendor-profile/:id', component: VendorProfileComponent },
       { path: 'followings', component: FollowingsComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'checkout/pass', component: CheckoutPassComponent },
@@ -52,11 +53,9 @@ const routes: Routes = [
       { path: 'vendors', component: ViewVendorsComponent },
       { path: 'view-profile', component: ViewUserProfileComponent },
       { path: "create-invitation", component: CreateInvitationComponent },
-      { path: "edit-profile", component: UserEditProfileComponent },
-      { path: "reservation", component: PendingComponent },
       { path: "no-follows", component: NoFollowsComponent },
       { path: "no-result", component: NoResultSearchComponent },
-      { path: "reservation", component: PendingComponent },
+      { path: "reservation", component: ReservationsComponent },
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
     ],

@@ -15,8 +15,8 @@ import { VendorServicesComponent } from './components/vendor-services/vendor-ser
 import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
-import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
-import { ViewVendorsComponent } from '../User/components/view-vendors/view-vendors.component';
+// import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
+// import { ViewVendorsComponent } from '../User/components/view-vendors/view-vendors.component';
 
 const vendorRoutes: Routes = [
     {
@@ -29,7 +29,6 @@ const vendorRoutes: Routes = [
             { path: 'work-history', component: WorkHistoryComponent },
             { path: 'reservation', component: ReservationComponent },
             { path: 'edit-service', component: EditServiceComponent },
-           // { path: 'pending', component: PendingComponent },
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
@@ -37,7 +36,7 @@ const vendorRoutes: Routes = [
             { path: 'edit', component: ProfileEditComponent },
             { path: 'wallet', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
-            { path :'vendor-profile',  component : VendorProfileComponent},
+            // { path :'vendor-profile',  component : VendorProfileComponent},
         ]
     }
 

@@ -23,14 +23,9 @@ import { CompletedOrdersChartComponent } from './components/statistic/completed-
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -40,11 +35,6 @@ import { MatRippleModule } from '@angular/material/core';
     SharedModule,
     NgChartsModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
-    MatPaginatorModule,
-    MatButtonModule,
-    MatFormFieldModule,    
-    MatRippleModule,
     ReactiveFormsModule,
     ],
   exports: [

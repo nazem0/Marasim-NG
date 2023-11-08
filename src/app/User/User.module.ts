@@ -25,12 +25,10 @@ import { CheckoutFailComponent } from './components/checkout/checkout-fail/check
 import { CheckoutLoadingComponent } from './components/checkout/checkout-loading/checkout-loading.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
-import { LoginComponent } from '../Shared/components/login/login.component';
 import { PageNotFoundComponent } from '../Shared/components/page-not-found/page-not-found.component';
 import { ContactComponent } from '../Shared/components/contact/contact.component';
 import { HomeComponent } from '../Shared/components/home/home.component';
-import { PendingComponent } from './components/pending/pending.component';
-import { CarouselComponent } from '../Shared/components/carousel/carousel.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 
 
@@ -70,7 +68,7 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
     PageNotFoundComponent,
     ContactComponent,
     HomeComponent,
-    PendingComponent,
+    ReservationsComponent,
 
 
   ]

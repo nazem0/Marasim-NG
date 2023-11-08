@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategory, ICategoryWithVendors } from '../Models/ICategory';
+import { ICategory } from '../Models/ICategory';
 import { environment } from 'src/environments/environment.development';
+import { CategoryName } from '../Models/CategoryName';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,19 @@ import { environment } from 'src/environments/environment.development';
 export class CategoryService {
 
   constructor(private http: HttpClient) { }
-  get(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>(`${environment.apiUrl}/`)
+  GetAll(): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>(`${environment.apiUrl}/Category/GetAll`)
   }
 
-  getVendorsByCategoryID(ID: number): Observable<ICategoryWithVendors> {
-    return this.http.get<ICategoryWithVendors>(`http://localhost:3000/categories/${ID}?_embed=vendors`)
+  GetById(categoryId : number ): Observable<ICategory> {
+    return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetById/${categoryId}`)
+  }
+
+  GetByVendorId(vendorId : number ): Observable<ICategory> {
+    return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetByVendorId/${vendorId}`)
+  }
+
+  GetNames(): Observable<CategoryName[]>{
+    return this.http.get<CategoryName[]>(`${environment.apiUrl}/Category/GetNames`)
   }
 }

@@ -1,7 +1,9 @@
+import { environment } from 'src/environments/environment.development';
 import { Component, OnInit } from '@angular/core';
-import { ICategory, ICategoryWithVendors } from 'src/app/Models/ICategory';
+import { ICategory } from 'src/app/Models/ICategory';
 import { CategoryService } from '../../../Services/Category.service';
 import { IVendor } from 'src/app/Models/IVendor';
+import { VendorService } from 'src/app/Services/Vendor.service';
 
 @Component({
   selector: 'app-view-vendors',
@@ -9,26 +11,18 @@ import { IVendor } from 'src/app/Models/IVendor';
   styleUrls: ['./view-vendors.component.css']
 })
 export class ViewVendorsComponent implements OnInit {
-  Vendors: IVendor[] | null = null;
-  categories: ICategory[] | null = null;
-  CatWithVendors: ICategoryWithVendors | null = null;
-  catID: number = 1; ////////////////////////////// WE NEEED TO GET ID
-
+  Categories: ICategory[] | null = null;
+  apiUrl=environment.serverUrl;
   constructor(private CategoryService: CategoryService) {
 
   }
   ngOnInit() {
-    this.CategoryService.get()
-      .subscribe((categories) => this.categories = categories
-      )
-    this.CategoryService.getVendorsByCategoryID(this.catID)
+    this.CategoryService.GetAll()
       .subscribe((result) => {
-        console.log(result)
-        this.CatWithVendors = result
-      }
-      )
+        this.Categories = result
+        console.log(this.Categories);
+      })
   }
-
 
 
   rate: string = "";

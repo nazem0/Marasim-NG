@@ -34,6 +34,8 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FollowersComponent } from '../Vendor/components/followers/followers.component';
 import { FollowerComponent } from '../Vendor/components/followers/follower/follower.component';
 import { VendorFollowingVendorComponent } from './components/vendor-following-vendor/vendor-following-vendor.component';
+import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
+import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 
 @NgModule({
   imports: [
@@ -48,10 +50,11 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
     MatButtonModule,
     MatFormFieldModule,    
     MatRippleModule,
-    PasswordStrengthMeterModule.forRoot()
+    PasswordStrengthMeterModule.forRoot(DEFAULT_PSM_OPTIONS)
 
   ],
   declarations: [
+    DateFormatArabicPipe,
     CloudBannerComponent,
     PostComponent,
     AttachmentsComponent,
@@ -97,7 +100,8 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
     MatPaginatorModule,
     FollowersComponent,
     FollowerComponent,
-    VendorFollowingVendorComponent
+    VendorFollowingVendorComponent,
+    DateFormatArabicPipe
   ],
 
 })

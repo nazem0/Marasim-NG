@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IAttachment } from 'src/app/Models/IPost';
-import { PostService } from 'src/app/Services/Post.service';
+import { IPostAttachment } from 'src/app/Models/IPost';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,7 +13,7 @@ export class AttachmentsComponent {
   @Input() postID!: number;
   @Input() postTitle!: string;
   @Input() vendorID!: string;
-  @Input() postAttachments!: IAttachment[];
+  @Input() postAttachments!: IPostAttachment[];
   
 
 }

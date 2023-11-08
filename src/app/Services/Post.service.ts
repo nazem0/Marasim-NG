@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IAttachment, IComment, IPost, IReaction } from '../Models/IPost';
+import { IPostAttachment, IComment, IPost, IReaction } from '../Models/IPost';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -26,8 +26,8 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorID(VendorID: number): Observable<any[]> {
-    return this.HttpClient.get<any[]>(`${environment.apiUrl}/Post/GetByVendorID?VendorID=${VendorID}`)
+  GetByVendorID(VendorID: number): Observable<IPost[]> {
+    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/GetByVendorID/${VendorID}`)
   }
 
   //Reacts Requests
@@ -52,7 +52,7 @@ export class PostService {
   //Comments Requests
 
 
-  GetComments(postID: number): Observable<IComment[]> {
+  GetCommentsByPostId(postID: number): Observable<IComment[]> {
     return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostID/${postID}`)
   }
 

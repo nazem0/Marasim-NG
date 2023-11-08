@@ -44,7 +44,8 @@
 }
 
 .avatar{
-  width: 200px;
+  width: 180px;
+aspect-ratio: 1;
 
 
 }
@@ -78,7 +79,7 @@ hr{
 
 }
 
-.sss{
+.header{
   background-image: linear-gradient(to bottom ,rgb(198, 223, 223),white);
 }
 

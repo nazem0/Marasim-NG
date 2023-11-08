@@ -1,6 +1,9 @@
+import { CookieService } from 'ngx-cookie-service';
+import { ReservationService } from './../../../Services/Reservation.service';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-request-service',
@@ -12,16 +15,31 @@ export class RequestServiceComponent {
   requestServiceForm: FormGroup;
   data: FormData;
 
-  constructor(private builder: FormBuilder) {
+  constructor(
+    private builder: FormBuilder,
+    private ReservationService: ReservationService,
+    private CookieService: CookieService,
+    private Toastr:ToastrService) {
     this.data = new FormData()
     this.requestServiceForm = this.builder.group({
-      discount: [null, [Validators.required]],
-      date: [null, [Validators.required]],
+      PromoCode: [null],
+      DateTime: [null, [Validators.required]],
     })
   }
 
   request() {
-    console.log(this.requestServiceForm.value)
-    //////API (BOOKING REQUEST) (use FormData to collect data)
+    if (this.requestServiceForm.valid) {
+      console.log("valid");
+      this.data.set("UserId", this.CookieService.get("Id"));
+      this.data.set("ServiceId", this.service!.id.toString())
+      this.data.set("PromoCode", this.requestServiceForm.get("PromoCode")?.value)
+      this.data.set("DateTime",this.requestServiceForm.get("DateTime")?.value)
+      this.ReservationService.addReservation(this.data).subscribe(
+        {
+          next:()=>this.Toastr.success("تم حجز الخدمة"),
+          error:()=>this.Toastr.error("برجاء التأكد من التاريخ والمحاولة مرة أخرى","حدث خطأ")
+        }
+      )
+    }
   }
 }
