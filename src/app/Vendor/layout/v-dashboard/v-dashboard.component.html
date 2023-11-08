@@ -1,11 +1,7 @@
-
 <div class="sidebar" [class.open]="sidebarOpen">
   <div class="logo-details">
-
-      <div class="logo_name ms-2" >مراسم</div>
-
-      <i class='fa-solid fa-bars' id="btn" (click)="toggleSidebar()" ></i>
-
+    <div class="logo_name ms-2">مراسم</div>
+    <i class='fa-solid fa-bars' id="btn" (click)="toggleSidebar()"></i>
   </div>
   <ul class="nav-list">
 
@@ -14,82 +10,80 @@
         <i class="fas fa-user fa-fw"></i>
         <span class="links_name">الصفحة الشخصية</span>
       </a>
-       <span class="tooltip">الصفحة الشخصية</span>
+      <span class="tooltip">الصفحة الشخصية</span>
     </li>
     <li>
-     <a routerLink="/vendor/services">
-       <i class='fas fa-briefcase fa-fw' ></i>
-       <span class="links_name">قائمة الخدمات</span>
-     </a>
-     <span class="tooltip">قائمة الخدمات</span>
-   </li>
-   <li>
-     <a routerLink="/vendor/edit">
-       <i class='fas fa-user-tie fa-fw' ></i>
-       <span class="links_name">تعديل البيانات</span>
-     </a>
-     <span class="tooltip">تعديل البيانات</span>
-   </li>
+      <a routerLink="/vendor/services">
+        <i class='fas fa-briefcase fa-fw'></i>
+        <span class="links_name">قائمة الخدمات</span>
+      </a>
+      <span class="tooltip">قائمة الخدمات</span>
+    </li>
+    <li>
+      <a routerLink="/vendor/edit">
+        <i class='fas fa-user-tie fa-fw'></i>
+        <span class="links_name">تعديل البيانات</span>
+      </a>
+      <span class="tooltip">تعديل البيانات</span>
+    </li>
 
     <li>
       <a routerLink="/vendor/stats">
-        <i class='fas fa-chart-line fa-fw' ></i>
+        <i class='fas fa-chart-line fa-fw'></i>
         <span class="links_name">الاحصائيات</span>
       </a>
       <span class="tooltip">الاحصائيات</span>
     </li>
-   <li>
-     <a routerLink="/vendor/reviews">
-       <i class='fas fa-comment fa-fw' ></i>
-       <span class="links_name"> المراجعات </span>
-     </a>
-     <span class="tooltip"> المراجعات</span>
-   </li>
-   <li>
-    <a routerLink="/vendor/work-history">
-      <i class="fa-solid fa-square-plus"></i>
-      <span class="links_name">المنشورات</span>
-    </a>
-    <span class="tooltip">المنشورات</span>
-  </li>
-  <li>
-    <a routerLink="/vendor/reservation">
-      <i class="fas fa-calendar fa-fw"></i>
-      <span class="links_name">جدول الحجوزات</span>
-    </a>
-    <span class="tooltip">جدول الحجوزات</span>
-  </li>
-  <li>
-    <a routerLink="/vendor/followers">
-      <i class="fas fa-users fa-fw"></i>
-      <span class="links_name">المتابعين</span>
-    </a>
-    <span class="tooltip">المتابعين</span>
-  </li>
-  <li>
-    <a routerLink="/vendor/edit">
-      <i class="fas fa-file-pen fa-fw"></i>
-      <span class="links_name">تعديل البيانات</span>
-    </a>
-    <span class="tooltip"> تعديل البيانات</span>
-  </li>
-  <li>
-    <a routerLink="/vendor/wallet">
-      <i class="fas fa-wallet fa-fw"></i>
-      <span class="links_name">المحفظة</span>
-    </a>
-    <span class="tooltip">المحفظة</span>
-  </li>
-  
-
-   <li class="profile">
-       <div class="profile-details ms-3">
-         <img src="../../../../assets/img/groom.png" alt="profileImg">
-         <div class="name_job ms-2">
-           <div class="name">صهيب احمد </div>
-         </div>
-       </div>
-     <button routerLink="/login"><i class='fa-solid fa-right-from-bracket' id="log_out" ></i></button>
-   </li>
+    <li>
+      <a routerLink="/vendor/reviews">
+        <i class='fas fa-comment fa-fw'></i>
+        <span class="links_name"> المراجعات </span>
+      </a>
+      <span class="tooltip"> المراجعات</span>
+    </li>
+    <li>
+      <a routerLink="/vendor/work-history">
+        <i class="fa-solid fa-square-plus"></i>
+        <span class="links_name">المنشورات</span>
+      </a>
+      <span class="tooltip">المنشورات</span>
+    </li>
+    <li>
+      <a routerLink="/vendor/reservation">
+        <i class="fas fa-calendar fa-fw"></i>
+        <span class="links_name">جدول الحجوزات</span>
+      </a>
+      <span class="tooltip">جدول الحجوزات</span>
+    </li>
+    <li>
+      <a routerLink="/vendor/followers">
+        <i class="fas fa-users fa-fw"></i>
+        <span class="links_name">المتابعين</span>
+      </a>
+      <span class="tooltip">المتابعين</span>
+    </li>
+    <li>
+      <a routerLink="/vendor/edit">
+        <i class="fas fa-file-pen fa-fw"></i>
+        <span class="links_name">تعديل البيانات</span>
+      </a>
+      <span class="tooltip"> تعديل البيانات</span>
+    </li>
+    <li>
+      <a routerLink="/vendor/wallet">
+        <i class="fas fa-wallet fa-fw"></i>
+        <span class="links_name">المحفظة</span>
+      </a>
+      <span class="tooltip">المحفظة</span>
+    </li>
+    <li class="profile">
+      <div class="profile-details ms-3">
+        <img src="{{apiUrl}}{{userId}}/ProfilePicture/{{profilePicture}}" alt="profileImg">
+        <div class="name_job ms-2">
+          <div class="name">{{name}}</div>
+        </div>
+      </div>
+      <button class="btn" (click)="logout()"><i class='fa-solid fa-right-from-bracket' id="log_out"></i></button>
+    </li>
   </ul>
 </div>
