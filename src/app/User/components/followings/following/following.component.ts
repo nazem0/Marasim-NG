@@ -1,7 +1,8 @@
-import { UserService } from 'src/app/Services/User.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { IVendor } from 'src/app/Models/IVendor';
-import { IUser } from 'src/app/Models/IUser';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { IFollowVendor } from 'src/app/Models/IFollow';
+import { environment } from 'src/environments/environment';
+import { FollowService } from 'src/app/Services/follow.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-following',
@@ -9,21 +10,21 @@ import { IUser } from 'src/app/Models/IUser';
   styleUrls: ['./following.component.css']
 })
 export class FollowingComponent implements OnInit {
-  @Input() vendorID: number | null = null;
-  vendor:IUser|null=null;
-  constructor(private UserService: UserService) {
+  apiUrl = environment.serverUrl;
+  @Output() deleted = new EventEmitter();
+  @Input() Following: IFollowVendor | null = null;
+  constructor(private FollowService: FollowService, private CookieService: CookieService) { }
 
-
-  }
   ngOnInit() {
-    this.UserService.getByID(this.vendor!.id).subscribe(
-      (vendor)=>{
-        this.vendor=vendor
-      console.log(this.vendor);
-      }
-    );
+    this.FollowService.GetWhoUserFollows(this.CookieService.get("Id"))
+    console.log("Child")
   }
-  unfolow() {
 
+  Unfollow() {
+    this.FollowService.Delete(this.Following?.vendorId!).subscribe({
+      next: (data) => this.deleted.emit()
+
+    })
+      ;
   }
 }

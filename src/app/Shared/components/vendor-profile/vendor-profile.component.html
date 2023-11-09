@@ -11,71 +11,44 @@
     <!-- Vendor Info -->
     <h5 class="fs-3">{{Vendor.name}}</h5>
     <div class="row gap-2 py-2 justify-content-center">
-      <span class="text-muted text-white">{{category?.name}}</span>
+      <span class="text-muted text-white">{{Category?.name}}</span>
       <ul class="list-inline mb-2">
         <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
           <i class="fas fa-star text-warning"></i>
         </li>
       </ul>
       <button class="btn btn-warning w-50 text-white "><i class="fas fa-plus text-white me-1 my-auto"></i>تابع</button>
-    </div>
+      <div class="counter row mt-2">
 
-    <div class="counter row mt-2">
-      <div class="d-flex flex-row gap-4 text-white Links">
-        <span class="">36,2K <a class="text-muted text-white" data-bs-toggle="modal"
-            data-bs-target="#exampleModal2">المتابعين</a> </span>
-        <span class="">35 <a href="" class="text-muted text-white " data-bs-toggle="modal"
-            data-bs-target="#exampleModal">المتابعون</a> </span>
-        <!-- <span class="">35 <a routerLink="/feed" class="text-muted text-white">المنشورات</a> </span> -->
-      </div>
-
-      <!-- /////////////////---Modal المتابعون---///////////////// -->
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog d-flex justify-content-center">
-          <div class="modal-content w-50">
-            <div class="modal-header">
-              <div class="d-flex flex-row gap-2 ">
-                <h1 class="modal-title fs-5">المتابعون</h1>
-                <i class="fas fa-users fa-2x"></i>
+        <span class="Links">36,2K
+          <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
+        </span>
+        <div class="modal fade" id="FollowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog d-flex justify-content-center">
+            <div class="modal-content w-50">
+              <div class="modal-header">
+                <div class="d-flex flex-row gap-2 ">
+                  <h1 class="modal-title fs-5">المتابعين</h1>
+                  <i class="fas fa-users fa-2x"></i>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <app-vendor-following-vendor></app-vendor-following-vendor>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- المتابعين -->
-      <!-- /////////////////---Modal---///////////////// -->
-      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog d-flex justify-content-center">
-          <div class="modal-content w-50">
-            <div class="modal-header">
-              <div class="d-flex flex-row gap-2 ">
-                <h1 class="modal-title fs-5">المتابعين</h1>
-                <i class="fas fa-users fa-2x"></i>
+              <div class="modal-body">
+                <div class="d-flex flex-column gap-3 w-50">
+                  <div *ngFor=" let Follower of Followers">
+                    <app-follower [Follower]="Follower"></app-follower>
+                  </div>
+                </div>
               </div>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <app-followers></app-followers>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
+              <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">خروج</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
 
 
@@ -178,7 +151,7 @@
     <section id="Reviews">
       <div class="py-3">
         <h2 class="text-primary">المراجعات</h2>
-        <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
+        <div *ngFor="let review of Reviews" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
           <hr class="m-0" />
         </div>

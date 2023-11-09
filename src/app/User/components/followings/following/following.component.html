@@ -1,15 +1,15 @@
 <div class=" card col-6 ">
     <div class="img">
         <img class="photo"
-            src="https://fastly.picsum.photos/id/885/200/200.jpg?hmac=RQ5YecoOv-yZMfoibCEw6EjqLgnpWvSrGEQmkcoAdaw"
+            src="{{apiUrl}}{{Following?.userId}}/ProfilePicture/{{Following?.picUrl}}"
             alt="">
     </div>
     <div class="vendor">
-        <a class="list col text-primary fs-4">{{vendor?.name}}</a>
+        <a class="list col text-primary fs-4">{{Following?.name}}</a>
     </div>
 </div>
 
 
 <div class="unfolow col-6 ">
-    <button type="button" class="btn btn-danger" (click)="unfolow()">إلغاء المتابعة</button>
+    <button type="button" class="btn btn-danger" (click)="Unfollow()">إلغاء المتابعة</button>
 </div>

@@ -1,7 +1,4 @@
-
-  <div class="img">
-      <img class="photo rounded-circle"
-          src="https://fastly.picsum.photos/id/885/200/200.jpg?hmac=RQ5YecoOv-yZMfoibCEw6EjqLgnpWvSrGEQmkcoAdaw"
-          alt="">
-      <a class="name text-primary">{{User?.name}}</a>
-
+<div class="">
+    <img class="photo rounded-circle" src="{{apiUrl}}{{Follower?.userId}}/ProfilePicture/{{Follower?.picUrl}}" alt="">
+    <a class="name text-primary">{{Follower?.name}}</a>
+</div>
