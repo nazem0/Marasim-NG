@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IService } from 'src/app/Models/IService';
 
 
 @Component({
@@ -8,23 +9,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-service.component.css']
 })
 export class EditServiceComponent {
+  @Input() service: IService | null = null;
   editServiceForm: FormGroup;
   formIsValid = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.editServiceForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      price: [null, [Validators.required]],
-      location: [''],
-      media: [null, [Validators.required]],
-      description: [''],
+      title: [this.service?.title],
+      price: [this.service?.price],
+      media: [null],
+      description: [this.service?.description],
     });
 
     this.editServiceForm.statusChanges.subscribe(() => {
       this.formIsValid = this.editServiceForm.valid;
     });
   }
-  
 
   submitEditedService() {
     if (this.formIsValid) {

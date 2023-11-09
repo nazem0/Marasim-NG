@@ -1,0 +1,53 @@
+<!-- Button trigger modal -->
+<button title="تعديل الخدمة" class="warning-btn" data-bs-toggle="modal" data-bs-target="#edit-service">تعديل
+  الخدمة</button>
+<!-- Modal -->
+<div class="modal fade" id="edit-service" tabindex="-1" aria-labelledby="edit-serviceLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-serviceLabel">أضافــة خدمـة</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container">
+        <h1 class="text-center mt-5 text-primary">تعديـل خدمـة</h1>
+        <div class="parent my-5 d-flex justify-content-center">
+          <div class="F DivForm w-50">
+            <form [formGroup]="editServiceForm" (ngSubmit)="submitEditedService()">
+              <div class="mb-3">
+                <label for="exampleInputtitle" class="form-label">أســم الخدمــة</label><span
+                  class="text-danger">*</span>
+                <input type="text" class="form-control" id="exampleInputtitle" formControlName="title"
+                  placeholder={{service?.title}}>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputprice" class="form-label">سعـر الخدمــة</label><span
+                  class="text-danger">*</span>
+                <input type="number" class="form-control" id="exampleInputprice" formControlName="price"
+                  placeholder={{service?.price}}>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputmedia" class="form-label">أرفاق وسائط ميديـا</label><span
+                  class="text-danger">*</span>
+                <input type="file" class="form-control" id="exampleInputmedia" formControlName="media">
+              </div>
+              <textarea class="form-control" rows="5" placeholder={{service?.description}}
+                formControlName="description"></textarea>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal-footer">
+        <div class="d-flex justify-content-center align-items-center">
+          <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
+            [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }" [disabled]="!formIsValid"
+            (click)="submitEditedService()">تأكيــد</button>
+        </div>
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+      </div>
+    </div>
+  </div>
+</div>

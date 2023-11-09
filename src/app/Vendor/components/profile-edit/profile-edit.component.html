@@ -1,93 +1,96 @@
-
 <div class="container p-3 w-50">
   <h1 class="text-center text-primary">تعديل البيانات</h1>
   <div class="row">
 
-    <div *ngIf="User">
+    <div *ngIf="User && Vendor">
       <div class="card mt-3">
         <div class="card-body">
-          <div>
-            <label for="inputEmail4" class="form-label py-1">الاسم</label>
-            <input type="email" class="form-control py-1" id="inputEmail4" [placeholder]="User.name" />
-          </div>
-          <div>
-            <label for="picture" class="pic-label  border-2 w-100 p-2">
-              تغيير الصورة
-            </label>
-            <input #UploadPic class="form-control" id="picture"  type="file" name="picture" placeholder="profile picture"
-              formControlName="Picture" />
-          </div>
+          <form [formGroup]="updateForm" (ngSubmit)="updateData()">
+            <!-- Name -->
+            <div class="my-3">
+              <label for="Name" class="form-label py-1">الاسم</label>
+              <input formControlName="Name" type="text" class="form-control py-1" id="Name"
+                [placeholder]="User.name" />
+            </div>
 
-          <div>
-            <label for="inputEmail4" class="form-label py-1">رقم الهاتف</label>
-            <input type="email" class="form-control py-1" id="inputEmail4" [placeholder]="User.phone" />
-          </div>
-          <div>
-            <label for="inputEmail4" class="form-label py-1">النبذة المختصرة</label>
-            <textarea  type="email" class="form-control py-1" id="inputEmail4" rows="3" [placeholder]="User.summary" style="direction: rtl;"></textarea>
-          </div>
-          <div> <label for="inputState" class="form-label">الفئة</label> <select id="inputState" class="form-select">
-            <option selected disabled>اختر الفئة</option>
-            <ng-container *ngFor="let cat of cats" >
-            <option >{{cat.name}}</option>
-          </ng-container>
-          </select>
-          <div class="col-12 mt-3">
-            <button type="submit" class="btn btn-primary w-100 py-1">
-              حفظ التغيرات
-            </button>
+            <!-- Picture -->
+            <div class="my-3">
+              <label for="picture" class="pic-label  border-2 w-100 p-2">
+                تغيير الصورة
+              </label>
+              <input #UploadPic class="form-control" id="Picture" type="file" name="picture"
+                placeholder="profile picture" formControlName="Picture" />
+            </div>
+
+            <!-- Phone number -->
+            <div class="my-3">
+              <label for="PhoneNumber" class="form-label py-1">رقم الهاتف</label>
+              <input formControlName="PhoneNumber" type="tel" class="form-control py-1" id="PhoneNumber"
+                [placeholder]="User.phoneNumber" />
+            </div>
+
+            <!-- Category -->
+            <div class="my-3">
+              <label for="CategoryId" class="form-label">الفئة</label>
+              <select formControlName="CategoryId" id="CategoryId" class="form-select">
+                <option selected disabled>اختر الفئة</option>
+                <option *ngFor="let Category of Categories" ngValue={{Category.id}}>
+                  {{Category.name}}</option>
+              </select>
+            </div>
+            <div class="col-12 mt-3">
+              <button type="submit" class="btn btn-primary w-100 py-1">
+                حفظ التغيرات
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <div>
+              <label for="update_email_input" class="form-label py-1">
+                تحديث الأيميل</label>
+              <input type="email" class="form-control py-1" id="update_email_input" [placeholder]="User.email" />
+            </div>
+            <div>
+              <label for="inputPassword4" class="form-label py-1">كلمة المرور
+              </label>
+              <input type="password" class="form-control py-1" id="inputPassword4" />
+            </div>
+
+
+            <div class="col-12 mt-3">
+              <button type="submit" class="btn btn-primary w-100">
+                حفظ التغيرات
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-         </div>
 
-       <div class="card mt-3">
-        <div class="card-body">
-          <div>
-            <label for="update_email_input" class="form-label py-1">
-              تحديث الأيميل</label>
-            <input type="email" class="form-control py-1" id="update_email_input" [placeholder]="User.email" />
-          </div>
-          <div>
-            <label for="inputPassword4" class="form-label py-1">كلمة المرور
-            </label>
-            <input type="password" class="form-control py-1" id="inputPassword4" />
-          </div>
+        <div class="card mt-3">
+          <div class="card-body">
+            <div>
+              <label for="update_password_input" class="form-label py-1">كلمة المرور الحالية
+              </label>
+              <input type="password" class="form-control py-1" id="update_password_input" />
+            </div>
+            <div>
+              <label for="update_password_input" class="form-label py-1">كلمة المرور الجديدة</label>
+              <input type="password" class="form-control py-1" id="update_password_input" />
+            </div>
+            <div>
+              <label for="update_password_input" class="form-label py-1">تأكيد كلمة المرور الجديدة</label>
+              <input type="password" class="form-control py-1" id="update_password_input" />
+            </div>
 
-
-          <div class="col-12 mt-3">
-            <button type="submit" class="btn btn-primary w-100">
-              حفظ التغيرات
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mt-3">
-        <div class="card-body">
-          <div>
-            <label for="update_password_input" class="form-label py-1">كلمة المرور الحالية
-            </label>
-            <input type="password" class="form-control py-1" id="update_password_input" />
-          </div>
-          <div>
-            <label for="update_password_input" class="form-label py-1">كلمة المرور الجديدة</label>
-            <input type="password" class="form-control py-1" id="update_password_input" />
-          </div>
-          <div>
-            <label for="update_password_input" class="form-label py-1">تأكيد كلمة المرور الجديدة</label>
-            <input type="password" class="form-control py-1" id="update_password_input" />
-          </div>
-
-          <div class="col-12 mt-3">
-            <button type="submit" class="btn btn-primary w-100">
-              حفظ التغيرات
-            </button>
+            <div class="col-12 mt-3">
+              <button type="submit" class="btn btn-primary w-100">
+                حفظ التغيرات
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-

@@ -1,9 +1,16 @@
 <!-- Button trigger modal -->
-<button title="إضافة تخفيض على الخدمة" type="button" class="primary-btn" data-bs-toggle="modal"
-    attr.data-bs-target="#Modal{{service!.id}}">
-    <!-- <i class="fa fa-percentage"></i> -->
-    أضف تخفيض
-</button>
+
+<div *ngIf="service?.promoCode == null; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><button title="إضافة تخفيض على الخدمة" type="button" class="primary-btn" data-bs-toggle="modal"
+        attr.data-bs-target="#Modal{{service!.id}}">
+        أضف تخفيض
+    </button></ng-template>
+<ng-template #elseBlock><button title="حذف التخفيض من الخدمة" type="button" class="text-secondary danger-btn">حذف التخفيض
+    </button></ng-template>
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="Modal{{service!.id}}" tabindex="-1" attr.aria-labelledby="Modal{{service!.id}}Label"
@@ -12,28 +19,28 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="Modal{{service!.id}}Label">إضافة عرض</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form  [formGroup]="offerForm" (ngSubmit)="submitOffer()">
+                <form [formGroup]="offerForm" (ngSubmit)="submitOffer()">
                     <div class="row row-cols-md-2 g-4 mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-tag"></i>
-                            <input class="form-control" type="text" id="cuponInput" name="cupon"
-                                placeholder="كود العرض" formControlName="Code">
-                              
+                            <input class="form-control" type="text" id="cuponInput" name="cupon" placeholder="كود العرض"
+                                formControlName="Code">
+
                         </div>
 
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-hashtag"></i>
                             <input class="form-control" type="number" id="limit" name="limit" min="1"
-                                placeholder="الحد الأقصى للأستخدامات"  formControlName="Limit">
+                                placeholder="الحد الأقصى للأستخدامات" formControlName="Limit">
                         </div>
-                        
+
                     </div>
 
                     <div class="row row-cols-md-2 gy-5 mb-5">
-                      
+
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-hourglass-start"></i>
                             <label for="StartDate">تاريخ البدأ</label>
@@ -42,20 +49,20 @@
 
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-hourglass-end"></i>
-                            <input class="form-control" type="datetime-local" id="expDate" name="expirationDate"
-                                placeholder="تاريخ الإنتهاء"  formControlName="ExpirationDate">
+                            <input class="form-control" type="date" min="{{today}}" id="expDate" name="expirationDate"
+                                placeholder="تاريخ الإنتهاء" formControlName="ExpirationDate">
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-3  mb-5">
                         <i class="fa-solid fa-hashtag"></i>
                         <input class="form-control" type="number" id="Discount" name="Discount" min="1"
-                            placeholder="الخصم"  formControlName="Discount">
+                            placeholder="الخصم" formControlName="Discount">
                     </div>
-                 
-                    
+
+
 
                     <div class="row row-cols-md-3 align-items-center justify-content-evenly gy-5">
-                      
+
 
                         <div class="d-flex align-items-center justify-content-center gap-3">
                             <label for="oldPrice">السعر القديم</label>
@@ -66,17 +73,48 @@
                         <div class="d-flex align-items-center justify-content-center gap-3">
                             <label for="newPrice">السعر الجديد</label>
                             <i class="fa-solid fa-money-bill-1"></i>
-                            <span id="newPrice"></span>
+                            <span id="newPrice"> </span>
                         </div>
 
                     </div>
                 </form>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
-                [disabled]="!formIsValid"
-                (click)="submitOffer()">تأكيــد</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+            <div class="modal-footer d-flex flex-column">
+                <div>
+                    <ul *ngIf="offerForm?.get('Code')?.invalid && offerForm?.get('Code')?.touched">
+                        <li><small class="text-danger">
+                                الكوبون 3-8 أحرف بدون مسافات، يبدأ بحرف على الأقل.
+
+                            </small>
+                        </li>
+                    </ul>
+                    <ul *ngIf="offerForm?.get('Limit')?.invalid && offerForm?.get('Limit')?.touched">
+                        <li><small class="text-danger">
+                                يجب تحديد عدد مرات استخدام الكوبون
+                            </small>
+                        </li>
+                    </ul>
+                    <ul *ngIf="offerForm?.get('Discount')?.invalid && offerForm?.get('Discount')?.touched">
+                        <li><small class="text-danger">
+                                يجب تحديد قيمة الخصم
+                            </small>
+                        </li>
+                    </ul>
+                    <ul *ngIf="offerForm?.get('ExpirationDate')?.invalid && offerForm?.get('ExpirationDate')?.touched">
+                        <li><small class="text-danger">
+                                يجب تحديد تاريخ انتهاء العرض
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                        [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+                        [disabled]="!formIsValid" (click)="submitOffer()">تأكيــد</button>
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                </div>
             </div>
         </div>
     </div>

@@ -1,24 +1,34 @@
-import { IFollowing } from 'src/app/Models/IFollowing';
+import { IFollowVendor, IFollowing } from 'src/app/Models/IFollow';
 import { UserService } from '../../../Services/User.service';
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { FollowService } from 'src/app/Services/follow.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-followings',
   templateUrl: './followings.component.html',
   styleUrls: ['./followings.component.css']
 })
-export class FollowingsComponent {
+export class FollowingsComponent implements OnInit {
+  Followings: IFollowVendor[] | null = null;
 
-  followings: IFollowing[] = [];
-  constructor(private UserService: UserService) {
-    this.UserService.getFollowing(1).subscribe(
-      (result) => {
-        this.followings = result
-      console.log(result);
-      }
-      )
+  constructor(private FollowService: FollowService, private CookieService: CookieService) { }
+
+  deleted() {
+    console.log("parent");
+    // location.reload();
+    this.FollowService.GetWhoUserFollows(this.CookieService.get("Id"))
+      .subscribe((result) => {
+        this.Followings = result;
+      })
   }
 
-
+  ngOnInit() {
+    this.FollowService.GetWhoUserFollows(this.CookieService.get("Id"))
+      .subscribe((result) => {
+        this.Followings = result;
+      })
+  }
+  
 
 }
 

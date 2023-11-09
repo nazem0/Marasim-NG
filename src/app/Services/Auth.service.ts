@@ -41,10 +41,10 @@ export class AuthService {
   }
   removeCookies() {
     
-    console.log("cookies removed")
+    console.log("cookies removed");
     this.CookieService.deleteAll();
-    location.reload();
-    this._isLoggedIn.next(false)
+    this.Router.navigateByUrl('/');
+    this._isLoggedIn.next(false);
   }
   logout(){
     console.log("Logout")

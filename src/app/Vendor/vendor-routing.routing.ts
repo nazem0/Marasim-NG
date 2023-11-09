@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
-import { EditServiceComponent } from './components/edit-service/edit-service.component';
+import { EditServiceComponent } from './components/vendor-services/action-buttons/edit-service/edit-service.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
