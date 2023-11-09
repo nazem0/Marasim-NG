@@ -23,8 +23,6 @@ export class FollowingComponent implements OnInit {
   Unfollow() {
     this.FollowService.Delete(this.Following?.vendorId!).subscribe({
       next: (data) => this.deleted.emit()
-
-    })
-      ;
+    });
   }
 }
