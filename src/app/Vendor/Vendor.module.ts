@@ -11,7 +11,7 @@ import { VendorServicesComponent } from './components/vendor-services/vendor-ser
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
-import { EditServiceComponent } from './components/edit-service/edit-service.component';
+import { EditServiceComponent } from './components/vendor-services/action-buttons/edit-service/edit-service.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
