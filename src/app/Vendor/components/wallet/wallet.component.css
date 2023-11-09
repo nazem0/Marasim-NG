@@ -7,7 +7,7 @@ section{
     padding: 0 !important;
 }
 /* ===== Transaction ===== */
-.bbbb{    
+.bbbb{
     margin-top: 50px;
 }
 .Log {
@@ -45,7 +45,7 @@ section{
     /* margin-left: 16px;
     margin-right: 16px; */
   }
-  
+
   .total-balance{
     padding: .5rem 1rem;
     border-radius: 26px;
@@ -67,7 +67,7 @@ section{
     border-radius: 10px;
     box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
   }
-  
+
   .img-cust {
     font-size: 2rem;
     width: 100px;
@@ -84,6 +84,10 @@ section{
     font-size: 14px;
     color: hsla(0, 4%, 46%, 0.822);
   }
+
+  .wallet-img{
+    width:550px;
+  }
   /* .line-under {
     position: absolute;
     left: 0;
@@ -93,7 +97,7 @@ section{
     border-radius: .5rem;
     z-index: -10px;
   } */
-  
+
 /* ================================ */
   /* Modal */
     .testimonial{
@@ -113,19 +117,19 @@ section{
             width: 100%;
         }
 }
-  
+
 @media screen and (max-width: 1023px) {
       .modal-content {
           width: 75% !important;
       }
 }
-  
+
 @media screen and (max-width: 567px) {
       .modal-content {
           width: 100% !important;
       }
 }
-    
+
 @media screen and (max-width:544px) {
     .img-cust {
         width: 50px;

@@ -17,9 +17,14 @@
             <input #UploadPic class="form-control" id="picture"  type="file" name="picture" placeholder="profile picture"
               formControlName="Picture" />
           </div>
+
           <div>
             <label for="inputEmail4" class="form-label py-1">رقم الهاتف</label>
             <input type="email" class="form-control py-1" id="inputEmail4" [placeholder]="User.phone" />
+          </div>
+          <div>
+            <label for="inputEmail4" class="form-label py-1">النبذة المختصرة</label>
+            <textarea  type="email" class="form-control py-1" id="inputEmail4" rows="3" [placeholder]="User.summary" style="direction: rtl;"></textarea>
           </div>
           <div> <label for="inputState" class="form-label">الفئة</label> <select id="inputState" class="form-select">
             <option selected disabled>اختر الفئة</option>
@@ -27,8 +32,6 @@
             <option >{{cat.name}}</option>
           </ng-container>
           </select>
-
-
           <div class="col-12 mt-3">
             <button type="submit" class="btn btn-primary w-100 py-1">
               حفظ التغيرات
@@ -36,8 +39,9 @@
           </div>
         </div>
       </div>
+         </div>
 
-      <div class="card mt-3">
+       <div class="card mt-3">
         <div class="card-body">
           <div>
             <label for="update_email_input" class="form-label py-1">
