@@ -5,11 +5,12 @@
         attr.data-bs-target="#Modal{{service!.id}}">
         أضف تخفيض
     </button></ng-template>
-<ng-template #elseBlock><button title="حذف التخفيض من الخدمة" type="button" class="danger-btn"
-        (click)="DeleteOffer()">حذف
+<ng-template #elseBlock><button title="حذف التخفيض من الخدمة" type="button" class="danger-btn" (click)="DeleteOffer()">
+        حذف
         التخفيض
+         <span class="text-bg-success rounded-2">{{service?.promoCode?.discount|currency:"ج.م."}}</span>
     </button>
-<p >{{service?.promoCode?.discount}}</p>
+    
 </ng-template>
 
 
@@ -99,7 +100,7 @@
                             <small *ngIf="offerForm?.get('Discount')?.hasError('required')" class="text-danger">
                                 يجب تحديد قيمة الخصم
                             </small>
-                            <small  *ngIf="offerForm?.get('Discount')?.hasError('max')" class="text-danger">
+                            <small *ngIf="offerForm?.get('Discount')?.hasError('max')" class="text-danger">
                                 لا يجب ان يتعدي قيمه الخصم القيمه الفعليه للخدمه
 
                             </small>
