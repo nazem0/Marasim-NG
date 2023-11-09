@@ -19,14 +19,14 @@ export class CreateOfferComponent {
   constructor( 
     private formBuilder: FormBuilder,
     private PromoCodeservice: PromoCodeservice) {
-      console.log(this.today);
+      console.log(this.service);
+      console.log(this.service?.price);
     this.data = new FormData();
     this.offerForm = this.formBuilder.group({
       Code: [null, [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z][a-zA-Z0-9]{2,7}$')]],
-      Discount: [null, [Validators.required]],
+      Discount: [null, [Validators.required, Validators.min(1),Validators.max(this.service?.price??1)]],
       Limit: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
-      // Count: [null, [Validators.required]],
-      //  StartDate: [null],
+      
       ExpirationDate: [null, [Validators.required]],
     });
 
@@ -54,9 +54,17 @@ export class CreateOfferComponent {
       ExpirationDate: this.offerForm.get('ExpirationDate')?.value,
     };
     console.log(this.data);
-    this.PromoCodeservice.AddPromocode(this.data).subscribe((response) =>
-      console.log(response)
+    this.PromoCodeservice.Add(this.data).subscribe((response) =>
+      console.log(response) 
+
     );
+
+  }
+  DeleteOffer(){
+    this.PromoCodeservice.Delete(this.service?.id!).subscribe({
+      next(value) {
+      },
+    }) 
   }
   calculateNewPrice(oldPrice: number, discount: number): number {
     return oldPrice - discount;

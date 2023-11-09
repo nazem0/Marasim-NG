@@ -5,10 +5,12 @@
         attr.data-bs-target="#Modal{{service!.id}}">
         أضف تخفيض
     </button></ng-template>
-<ng-template #elseBlock><button title="حذف التخفيض من الخدمة" type="button" class="text-secondary danger-btn">حذف التخفيض
-    </button></ng-template>
-
-
+<ng-template #elseBlock><button title="حذف التخفيض من الخدمة" type="button" class="danger-btn"
+        (click)="DeleteOffer()">حذف
+        التخفيض
+    </button>
+<p >{{service?.promoCode?.discount}}</p>
+</ng-template>
 
 
 
@@ -61,9 +63,7 @@
 
 
 
-                    <div class="row row-cols-md-3 align-items-center justify-content-evenly gy-5">
-
-
+                    <!-- <div class="row row-cols-md-3 align-items-center justify-content-evenly gy-5">
                         <div class="d-flex align-items-center justify-content-center gap-3">
                             <label for="oldPrice">السعر القديم</label>
                             <i class="fa-regular fa-money-bill-1"></i>
@@ -75,8 +75,7 @@
                             <i class="fa-solid fa-money-bill-1"></i>
                             <span id="newPrice"> </span>
                         </div>
-
-                    </div>
+                    </div> -->
                 </form>
 
             </div>
@@ -96,8 +95,13 @@
                         </li>
                     </ul>
                     <ul *ngIf="offerForm?.get('Discount')?.invalid && offerForm?.get('Discount')?.touched">
-                        <li><small class="text-danger">
+                        <li>
+                            <small *ngIf="offerForm?.get('Discount')?.hasError('required')" class="text-danger">
                                 يجب تحديد قيمة الخصم
+                            </small>
+                            <small  *ngIf="offerForm?.get('Discount')?.hasError('max')" class="text-danger">
+                                لا يجب ان يتعدي قيمه الخصم القيمه الفعليه للخدمه
+
                             </small>
                         </li>
                     </ul>
