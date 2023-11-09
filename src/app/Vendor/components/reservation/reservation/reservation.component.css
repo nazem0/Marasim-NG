@@ -1,16 +1,14 @@
 
-  .container{
+  /* .container{
   height: 50vh;
-  }
+  } */
   
   .tabs-box{
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      border-bottom: 2px solid rgb(229, 229, 229);
-  
-  
+      border-bottom: 2px solid rgb(229, 229, 229);  
   }
   .tabs-box .tab-btn{
       font-size: 1rem;
@@ -52,10 +50,10 @@
 
 
 img{
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          object-fit: cover;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
   }
 
 

@@ -13,14 +13,18 @@ export class CreateOfferComponent {
   offerForm: FormGroup;
   formIsValid = false;
   data: any;
-  constructor(
+  today = new Date().toISOString().split('T')[0];
+
+
+  constructor( 
     private formBuilder: FormBuilder,
     private PromoCodeservice: PromoCodeservice) {
+      console.log(this.today);
     this.data = new FormData();
     this.offerForm = this.formBuilder.group({
-      Code: [null, [Validators.required]],
+      Code: [null, [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z][a-zA-Z0-9]{2,7}$')]],
       Discount: [null, [Validators.required]],
-      Limit: [null, [Validators.required]],
+      Limit: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
       // Count: [null, [Validators.required]],
       //  StartDate: [null],
       ExpirationDate: [null, [Validators.required]],
@@ -33,7 +37,6 @@ export class CreateOfferComponent {
   getCurrentDateTime(): string {
     const currentDate = new Date();
     const formattedDateTime = currentDate.toLocaleString('en-US', {
-     
       hour: '2-digit',
       minute: '2-digit',
       year: 'numeric',
@@ -48,7 +51,6 @@ export class CreateOfferComponent {
       ServiceID: this.service?.id,
       Discount: this.offerForm.get('Discount')?.value,
       Limit: this.offerForm.get('Limit')?.value,
-      // StartDate: this.offerForm.get('StartDate')?.value,
       ExpirationDate: this.offerForm.get('ExpirationDate')?.value,
     };
     console.log(this.data);
@@ -56,6 +58,13 @@ export class CreateOfferComponent {
       console.log(response)
     );
   }
+  calculateNewPrice(oldPrice: number, discount: number): number {
+    return oldPrice - discount;
+  }
+  showNewPrice(oldPrice: number, discount: number) :any {
+    const newPrice = oldPrice - discount;
+  }
 
   @Input() service: IService | null = null;
+  
 }

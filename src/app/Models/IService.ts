@@ -1,3 +1,5 @@
+import { IPromoCode } from "./IPromoCode"
+
 export interface IService {
     id: number,
     vendorID: number,
@@ -5,6 +7,7 @@ export interface IService {
     description: string,
     price: number,
     serviceAttachments: IServiceAttachment[]
+    promoCode: IPromoCode
 }
 
 export interface IServiceAttachment {
