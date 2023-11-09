@@ -18,7 +18,7 @@
                         <a class="nav-link" routerLink="/vendors">الفئات</a>
                     </li>
 
-                      <ng-container *ngIf=" AuthService.isLoggedIn && isVendor"  >
+                      <!-- <ng-container *ngIf=" AuthService.isLoggedIn && isVendor"  >
 
 
                         <li class="nav-item dropdown">
@@ -34,7 +34,7 @@
 
 
 
-                        </ng-container>
+                        </ng-container> -->
 
 
 
@@ -63,6 +63,9 @@
                                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                                     <li><a class="dropdown-item" routerLink="view-profile" routerLinkActive="active">البيانات الشخصية</a></li>
                                     <li><a class="dropdown-item" routerLink="reservation" routerLinkActive="active">الحجوزات</a></li>
+                                    <li><a class="dropdown-item" routerLink="feed" routerLinkActive="active">المنشورات</a></li>
+                                    <li><a class="dropdown-item" routerLink="followings" routerLinkActive="active">المتابعون</a></li>
+
                                     <ng-container *ngIf="isVendor">
                                         <li>
                                             <a class="dropdown-item" routerLink="vendor" routerLinkActive="active">
