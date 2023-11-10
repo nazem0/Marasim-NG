@@ -16,7 +16,13 @@ export class ActionButtonsComponent {
   DeleteSrvice() {
     this.ServiceService.DeleteService(this.service?.id!)
       .subscribe({
-        next: (data) => this.refresh.emit()
+        next: (data) => {
+          console.log("Service Deleted");
+          this.refresh.emit();
+        },
+        error: (error) => {
+          console.log(error);
+        }
       })
   }
 }

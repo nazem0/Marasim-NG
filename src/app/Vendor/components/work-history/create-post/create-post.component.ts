@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from 'src/app/Services/Post.service';
 
@@ -9,6 +9,7 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent {
+  @Output() refresh = new EventEmitter();
   @ViewChild("UploadedPictures") UploadedPictures: ElementRef | null = null;
   postForm: FormGroup;
   formIsValid = false;
@@ -18,7 +19,7 @@ export class CreatePostComponent {
   constructor(private formBuilder: FormBuilder, private PostService: PostService) {
     this.data = new FormData();
     this.postForm = this.formBuilder.group({
-      Title: ['', [Validators.required, Validators.pattern(/^[\p{L} ]{5,30}$/u)]], 
+      Title: ['', [Validators.required, Validators.pattern(/^[\p{L} ]{5,30}$/u)]],
       Description: [''],
       Pictures: [null],
     });
@@ -37,7 +38,15 @@ export class CreatePostComponent {
         this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
       }
       this.PostService.Add(this.data)
-        .subscribe((response) => console.log(response));
+        .subscribe({
+          next: (data) => {
+            console.log("Post Added")
+            this.refresh.emit()
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        })
     }
   }
 }

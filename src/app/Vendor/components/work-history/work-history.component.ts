@@ -11,13 +11,14 @@ import { PostService } from 'src/app/Services/Post.service';
 export class WorkHistoryComponent implements OnInit {
   posts: IPost[] | null = null;
 
-  constructor(private PostService: PostService,private CookieService:CookieService) { }
+  constructor(private PostService: PostService, private CookieService: CookieService) { }
 
   ngOnInit() {
-    this.PostService.GetByVendorID(parseInt(this.CookieService.get("VendorId"))).subscribe(result => {
-      this.posts = result;
-      console.log(result);
-    })
+    this.PostService.GetByVendorID(parseInt(this.CookieService.get("VendorId")))
+      .subscribe(result => {
+        this.posts = result;
+        console.log(result);
+      })
   }
 
 }
