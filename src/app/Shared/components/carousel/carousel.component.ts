@@ -11,7 +11,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 })
 export class CarouselComponent implements AfterViewInit {
-  apiUrl = environment.apiUrl;
+  apiUrl = environment.serverUrl;
   @Input() @HostBinding('style.--slide-width') slideWidth = '520px';
   @Input() @HostBinding('style.--slide-height') slideHeight = '380px';
   @Input()

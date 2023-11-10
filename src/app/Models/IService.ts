@@ -13,12 +13,12 @@ export interface IService {
 
 export interface IServiceAttachment {
     id: number,
-    serviceID: number,
+    serviceId: number,
     attachmentUrl: string
 }
 
 export interface IServiceAttachmentCustom {
-    serviceID: number,
+    serviceId: number,
     attachmentUrl: string,
     userId: string,
     vendorId: number
