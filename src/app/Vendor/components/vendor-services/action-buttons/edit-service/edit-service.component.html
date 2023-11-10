@@ -15,24 +15,22 @@
           <div class="F DivForm w-50">
             <form [formGroup]="editServiceForm" (ngSubmit)="submitEditedService()">
               <div class="mb-3">
-                <label for="exampleInputtitle" class="form-label">أســم الخدمــة</label><span
-                  class="text-danger">*</span>
-                <input type="text" class="form-control" id="exampleInputtitle" formControlName="title"
+                <label for="Inputtitle" class="form-label">أســم الخدمــة</label>
+                <input type="text" class="form-control" id="Inputtitle" formControlName="Title"
                   placeholder={{service?.title}}>
               </div>
               <div class="mb-3">
-                <label for="exampleInputprice" class="form-label">سعـر الخدمــة</label><span
-                  class="text-danger">*</span>
-                <input type="number" class="form-control" id="exampleInputprice" formControlName="price"
+                <label for="Inputprice" class="form-label">سعـر الخدمــة</label>
+                <input type="number" class="form-control" id="Inputprice" formControlName="Price"
                   placeholder={{service?.price}}>
               </div>
-              <div class="mb-3">
-                <label for="exampleInputmedia" class="form-label">أرفاق وسائط ميديـا</label><span
-                  class="text-danger">*</span>
-                <input type="file" class="form-control" id="exampleInputmedia" formControlName="media">
-              </div>
-              <textarea class="form-control" rows="5" placeholder={{service?.description}}
-                formControlName="description"></textarea>
+              <!-- <div class="mb-3">
+                <label for="Inputmedia" class="form-label">أرفاق وسائط ميديـا</label>
+                <input type="file" class="form-control" id="Inputmedia" formControlName="Media">
+              </div> -->
+              <label for="Inputdescription" class="form-label">وصف الخدمــة</label>
+              <textarea class="form-control" rows="5" placeholder={{service?.description}} formControlName="Description"
+                id="Inputdescription"></textarea>
             </form>
           </div>
         </div>
@@ -43,10 +41,9 @@
         <div class="d-flex justify-content-center align-items-center">
           <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
             [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }" [disabled]="!formIsValid"
-            (click)="submitEditedService()">تأكيــد</button>
+            (click)="updateService()" data-bs-dismiss="modal">تأكيــد</button>
         </div>
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
       </div>
     </div>
   </div>

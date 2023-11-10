@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IService } from 'src/app/Models/IService';
 import { ServiceService } from 'src/app/Services/service.service';
 
@@ -9,17 +9,14 @@ import { ServiceService } from 'src/app/Services/service.service';
 })
 export class ActionButtonsComponent {
   @Input() service: IService | null = null;
+  @Output() refresh = new EventEmitter();
 
   constructor(private ServiceService: ServiceService) { }
 
   DeleteSrvice() {
     this.ServiceService.DeleteService(this.service?.id!)
-      .subscribe((result) => {
-        console.log(result);
+      .subscribe({
+        next: (data) => this.refresh.emit()
       })
-  }
-
-  EditService(){
-    
   }
 }

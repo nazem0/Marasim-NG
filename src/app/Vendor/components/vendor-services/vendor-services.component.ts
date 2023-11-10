@@ -14,19 +14,18 @@ export class VendorServicesComponent implements OnInit {
     Name: 'أحمد محمد خالد',
     Category: 'مصور فوتوغرافى'
   }
-  services: any[] = []
-  apiUrl=environment.serverUrl;
-  constructor(private ServiceService: ServiceService, private CookieService:CookieService) {
-    
+  services: IService[] = []
+  apiUrl = environment.serverUrl;
+  constructor(private ServiceService: ServiceService, private CookieService: CookieService) { }
+
+
+  ngOnInit() {
     this.ServiceService.GetServicesByVendorId(parseInt(this.CookieService.get("VendorId"))).subscribe(
       (services) => {
         console.log(services);
         this.services = services
       }
     )
-
-  }
-  ngOnInit() {
   }
 
 

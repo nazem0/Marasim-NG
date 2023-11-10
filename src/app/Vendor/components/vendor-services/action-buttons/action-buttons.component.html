@@ -1,7 +1,7 @@
 <div class="d-flex gap-2 justify-content-center flex-wrap">
     <app-create-offer [service]="service"></app-create-offer>
-    <app-edit-service [service]="service"></app-edit-service>
-    <button title="حذف الخدمة" class="danger-btn">
+    <app-edit-service (refresh)="this.refresh.emit()" [service]="service"></app-edit-service>
+    <button title="حذف الخدمة" class="danger-btn" (click)="DeleteSrvice()">
         <!-- <i class="fa-solid fa-trash"></i> -->
         حذف الخدمة
     </button>
