@@ -9,6 +9,8 @@ import { ReviewService } from 'src/app/Services/Review.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
 import { FollowService } from 'src/app/Services/Follow.service';
 import { environment } from 'src/environments/environment.development';
+import { IServiceAttachmentCustom } from 'src/app/Models/IService';
+import { AttachmentService } from 'src/app/Services/Attachment.service';
 
 @Component({
   selector: 'app-vendor-profile',
@@ -22,6 +24,7 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
   Category: ICategory | null = null;
   Reviews: IReview[] | null = null;
   Followers: IFollowUser[] | null = null;
+  Slides: IServiceAttachmentCustom[] = [];
 
 
 
@@ -30,7 +33,8 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
     private ReviewService: ReviewService,
     private ActivatedRoute: ActivatedRoute,
     private CategoryService: CategoryService,
-    private FollowService: FollowService) { }
+    private FollowService: FollowService,
+    private AttachmentService: AttachmentService) { }
 
   ngOnInit() {
     // get vendor Id from router
@@ -46,14 +50,18 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
     this.VendorService.GetVendorFullFull(this.VendorId!)
       .subscribe((result) => {
         this.Vendor = result;
-        console.log(result);
+        console.log("Vendor",result);
       })
     this.FollowService.GetWhoFollowsVendors(this.VendorId!)
       .subscribe((result) => {
         this.Followers = result;
       })
-  }
 
+      this.AttachmentService.GetByVendorId(this.VendorId!)
+      .subscribe((result) => {
+        this.Slides = result;
+      });
+  }
 
   scrollToTargetAdjusted(x: string) {
     var elementPosition = document.getElementById(x)!.getBoundingClientRect().top;
@@ -63,37 +71,5 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
       behavior: "smooth"
     });
   }
-
-
-
-
-  slides: Array<{ title: string, description: string, image: string }> = [
-    {
-      title: 'test',
-      description: 'test',
-      image: '../assets/img/hall.webp'
-    },
-    {
-      title: 'test',
-      description: 'test',
-      image: '../assets/img/hall.webp'
-    },
-    {
-      title: 'test',
-      description: 'test',
-      image: '../assets/img/hall.webp'
-    },
-    {
-      title: 'test',
-      description: 'test',
-      image: '../assets/img/hall.webp'
-    },
-    {
-      title: 'test',
-      description: 'test',
-      image: '../assets/img/hall.webp'
-    }
-  ];
-
 
 }

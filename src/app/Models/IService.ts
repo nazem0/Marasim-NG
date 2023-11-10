@@ -13,7 +13,7 @@ export interface IService {
 
 export interface IServiceAttachment {
     id: number,
-    serviceId: number,
+    serviceID: number,
     attachmentUrl: string
 }
 
