@@ -39,13 +39,16 @@ export class CreateServiceComponent {
       this.ServiceService.AddService(this.data)
         .subscribe({
           next: (data) => {
-            console.log("Service Added")
-            this.refresh.emit()
+            console.log("Service Added");
+            this.refresh.emit();
+            this.serviceForm.reset();
+            this.data = new FormData();
           },
           error: (error) => {
             console.log(error);
           }
         });
+
     }
   }
 }

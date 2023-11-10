@@ -49,13 +49,16 @@ export class EditServiceComponent {
       this.ServiceService.UpdateService(this.data, this.service?.id!)
         .subscribe({
           next: (data) => {
-            console.log("Service Updated")
-            this.refresh.emit()
+            console.log("Service Updated");
+            this.refresh.emit();
+            this.editServiceForm.reset();
+            this.data = new FormData();
           },
           error: (error) => {
             console.log(error);
           }
         })
+
     }
   }
 }

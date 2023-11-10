@@ -51,13 +51,16 @@ export class CreateOfferComponent {
       this.PromoCodeservice.Add(this.data)
         .subscribe({
           next: (data) => {
-            console.log("PromoCode Added")
+            console.log("PromoCode Added");
             this.refresh.emit();
+            this.offerForm.reset();
+            this.data = new FormData();
           },
           error: (error) => {
             console.log(error);
           }
         });
+
     }
   }
 
