@@ -29,10 +29,7 @@ export class VendorService {
         return this.HttpClient.get<FullVendorInfo>(`${environment.apiUrl}/Vendor/GetVendorFullFull/${VendorID}`)
     }
 
-    UpdateVendor(updateData: any): Observable<any> {
-        for (const value of updateData.values()) {
-            console.log(value);
-          }
+    UpdateVendor(updateData: any){
         return this.HttpClient.put(`${environment.apiUrl}/Vendor/Update`, updateData)
     }
 

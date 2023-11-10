@@ -55,7 +55,7 @@ export class ProfileEditComponent implements OnInit {
       .subscribe((result) => this.Categories = result);
 
     this.UserService.getByID(this.CookieService.get("Id"))
-      .subscribe((response) => this.User = response);
+      .subscribe((result) => this.User = result);
 
     this.VendorService.GetVendorByUserId(this.CookieService.get("Id"))
       .subscribe((result) => this.Vendor = result);
@@ -64,41 +64,38 @@ export class ProfileEditComponent implements OnInit {
 
   updateData() {
     if (this.updateForm.valid) {
-      if(this.updateForm.get('Name')?.value)
-      {
+      if (this.updateForm.get('Name')?.value) {
         this.data.set('Name', this.updateForm.get('Name')?.value);
       }
-      if(this.updateForm.get('PhoneNumber')?.value)
-      {
+      if (this.updateForm.get('PhoneNumber')?.value) {
         this.data.set('PhoneNumber', this.updateForm.get('PhoneNumber')?.value);
       }
 
-      if(this.updateForm.get('CategoryId')?.value)
-      {
+      if (this.updateForm.get('CategoryId')?.value) {
         this.data.set('CategoryId', this.updateForm.get('CategoryId')?.value);
       }
 
-      if(this.updateForm.get('Summary')?.value)
-      {
+      if (this.updateForm.get('Summary')?.value) {
         this.data.set('Summary', this.updateForm.get('Summary')?.value);
       }
 
-      if(this.UploadPic?.nativeElement.files[0])
-      {
+      if (this.UploadPic?.nativeElement.files[0]) {
         this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
       }
 
-      console.log(this.updateForm.value)
+      this.VendorService.UpdateVendor(this.data)
+        .subscribe({
+          next: (data) => {
+            console.log("Vendor Updated")
+            this.ngOnInit();
+            this.updateForm.reset();
+            this.data = new FormData();
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        });
 
-      this.VendorService.UpdateVendor(this.data).subscribe({
-        next: (response) => {
-          console.log(response)
-        },
-        error: (error) => {
-          // console.log(this.data)
-          console.log(error);
-        }
-      })
     }
   }
 

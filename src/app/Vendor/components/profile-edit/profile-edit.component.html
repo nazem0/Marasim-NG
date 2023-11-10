@@ -9,8 +9,7 @@
             <!-- Name -->
             <div class="my-3">
               <label for="Name" class="form-label py-1">الاسم</label>
-              <input formControlName="Name" type="text" class="form-control py-1" id="Name"
-                [placeholder]="User.name" />
+              <input formControlName="Name" type="text" class="form-control py-1" id="Name" [placeholder]="User.name" />
             </div>
 
             <!-- Picture -->
@@ -29,8 +28,9 @@
                 [placeholder]="User.phoneNumber" />
             </div>
             <div>
-              <label for="inputEmail4" class="form-label py-1">النبذة المختصرة</label>
-              <textarea  type="email" class="form-control py-1" id="inputEmail4" rows="3" [placeholder]="User.Summary" style="direction: rtl;"></textarea>
+              <label for="inputText" class="form-label py-1">النبذة المختصرة</label>
+              <textarea type="text" class="form-control py-1" id="inputText" rows="3" [placeholder]="Vendor.summary"
+              formControlName="Summary" style="direction: rtl;"></textarea>
             </div>
 
             <!-- Category -->
@@ -43,7 +43,7 @@
               </select>
             </div>
             <div class="col-12 mt-3">
-              <button type="submit" class="btn btn-primary w-100 py-1">
+              <button (click)="updateData()" type="submit" class="btn btn-primary w-100 py-1">
                 حفظ التغيرات
               </button>
             </div>
