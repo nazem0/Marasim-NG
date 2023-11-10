@@ -31,9 +31,9 @@ export class VDashboardComponent {
 
   menuBtnChange(): void {
     if (this.sidebarOpen) {
-      document.getElementById('btn')?.classList.replace('fa-solid fa-bars', 'fa-solid fa-xmark');
+      document.getElementById('btn')?.classList.replace('fa-bars', 'fa-xmark');
     } else {
-      document.getElementById('btn')?.classList.replace('fa-solid fa-xmark', 'fa-solid fa-bars');
+      document.getElementById('btn')?.classList.replace('fa-xmark', 'fa-bars');
     }
   }
 
