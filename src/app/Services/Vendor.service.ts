@@ -1,7 +1,7 @@
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IVendor } from '../Models/IVendor';
+import { IVendor, IVendorMidInfo } from '../Models/IVendor';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { FullVendorInfo } from '../Models/FullVendorInfo';
@@ -25,11 +25,15 @@ export class VendorService {
         return this.HttpClient.get<IVendor>(`${environment.apiUrl}/Vendor/GetVendorByUserId/${UserId}`)
     }
 
+    GetVendorsMid(): Observable<IVendorMidInfo[]> {
+        return this.HttpClient.get<IVendorMidInfo[]>(`${environment.apiUrl}/Vendor/GetVendorMidInfo`)
+    }
+
     GetVendorFullFull(VendorID: number): Observable<FullVendorInfo> {
         return this.HttpClient.get<FullVendorInfo>(`${environment.apiUrl}/Vendor/GetVendorFullFull/${VendorID}`)
     }
 
-    UpdateVendor(updateData: any){
+    UpdateVendor(updateData: any) {
         return this.HttpClient.put(`${environment.apiUrl}/Vendor/Update`, updateData)
     }
 

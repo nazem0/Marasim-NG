@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostBinding, Input } from '@angular/core';
+import { IServiceAttachmentCustom } from 'src/app/Models/IService';
+import { environment } from 'src/environments/environment';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
@@ -6,49 +8,14 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules'
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
-  
+
 })
 export class CarouselComponent implements AfterViewInit {
+  apiUrl = environment.apiUrl;
   @Input() @HostBinding('style.--slide-width') slideWidth = '520px';
   @Input() @HostBinding('style.--slide-height') slideHeight = '380px';
   @Input()
-  slides: Array<{ title: string, description: string, image: string }> = [
-    {
-      title: 'Guardians Of The Galaxy',
-      description: 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.',
-      image: 'https://carousel-slider.uiinitiative.com/images/guardians-of-the-galaxy.jpg'
-    },
-    {
-      title: 'Justice League',
-      description: 'Determined to ensure Superman\'s ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.',
-      image: 'https://carousel-slider.uiinitiative.com/images/justice-league.jpg'
-    },
-    {
-      title: 'Spider-Man: Far from Home',
-      description: 'Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever.',
-      image: 'https://carousel-slider.uiinitiative.com/images/spider-man.jpg'
-    },
-    {
-      title: 'The Suicide Squad',
-      description: 'Supervillains Harley Quinn, Bloodsport, Peacemaker and a collection of nutty cons at Belle Reve prison join the super-secret, super-shady Task Force X as they are dropped off at the remote, enemy-infused island of Corto Maltese.',
-      image: 'https://carousel-slider.uiinitiative.com/images/suicide-squad.jpg'
-    },
-    {
-      title: 'Thor: Ragnarok',
-      description: 'Imprisoned on the planet Sakaar, Thor must race against time to return to Asgard and stop Ragnarök, the destruction of his world, at the hands of the powerful and ruthless villain Hela.',
-      image: 'https://carousel-slider.uiinitiative.com/images/thor-ragnarok.jpg'
-    },
-    {
-      title: 'Doctor Strange',
-      description: 'America Chavez and a version of Stephen Strange are chased by a demon in the space between universes while searching for the Book of Vishanti',
-      image: 'https://carousel-slider.uiinitiative.com/images/dr-strange.jpg'
-    },
-    {
-      title: 'Eternals',
-      description: 'In 5000 BC, ten superpowered Eternals—Ajak, Sersi, Ikaris, Kingo, Sprite, Phastos, Makkari, Druig, Gilgamesh, and Thena—are sent by the Celestial Arishem to Earth on their starship, the Domo, to exterminate the invasive Deviants.',
-      image: 'https://carousel-slider.uiinitiative.com/images/eternals.jpg'
-    }
-  ];
+  slides: IServiceAttachmentCustom[] = [];
 
   ngAfterViewInit() {
     const swiper = new Swiper('.swiper', {
@@ -109,7 +76,7 @@ export class CarouselComponent implements AfterViewInit {
       effect: "carousel",
       grabCursor: true,
       loop: true,
-      centeredSlides:true,
+      centeredSlides: true,
       slidesPerView: "auto",
       // Because of rtl dir i had to replace the prev and next buttons :p
       // navigation: { nextEl: ".swiper-button-prev", prevEl: ".swiper-button-next" },

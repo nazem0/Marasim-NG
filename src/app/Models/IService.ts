@@ -16,3 +16,10 @@ export interface IServiceAttachment {
     serviceID: number,
     attachmentUrl: string
 }
+
+export interface IServiceAttachmentCustom {
+    serviceID: number,
+    attachmentUrl: string,
+    userId: string,
+    vendorId: number
+}

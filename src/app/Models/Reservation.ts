@@ -1,5 +1,5 @@
 import { IUser } from "./IUser";
-import { VendorMinInfo } from "./IVendor";
+import { IVendorMinInfo } from "./IVendor";
 
 export interface UserReservation {
   id: number;
@@ -11,7 +11,7 @@ export interface UserReservation {
   latitude: number;
   longitude: number;
   address: string;
-  vendor: VendorMinInfo;
+  vendor: IVendorMinInfo;
 }
 
 export interface VendorReservation {
@@ -32,5 +32,5 @@ export interface CheckoutReservation {
   address: string;
   price: number;
   serviceName: string;
-  vendor: VendorMinInfo;
+  vendor: IVendorMinInfo;
 }
