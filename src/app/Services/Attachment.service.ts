@@ -10,12 +10,12 @@ import { IServiceAttachment, IServiceAttachmentCustom } from '../Models/IService
 export class AttachmentService {
   constructor(private HttpClient: HttpClient) { }
 
-  GetAll(): Observable<IServiceAttachment[]> {
-    return this.HttpClient.get<IServiceAttachment[]>(`${environment.apiUrl}/ServiceAttachment/GetAllActive`)
-  }
+  // GetAll(): Observable<IServiceAttachment[]> {
+  //   return this.HttpClient.get<IServiceAttachment[]>(`${environment.apiUrl}/ServiceAttachment/GetAllActive`)
+  // }
 
-  GetByVendorId(VendorId: number): Observable<IServiceAttachment[]> {
-    return this.HttpClient.get<IServiceAttachment[]>(`${environment.apiUrl}/ServiceAttachment/GetByVendorId/${VendorId}`)
+  GetByVendorId(VendorId: number): Observable<IServiceAttachmentCustom[]> {
+    return this.HttpClient.get<IServiceAttachmentCustom[]>(`${environment.apiUrl}/ServiceAttachment/GetByVendorId/${VendorId}`)
   }
 
   GetAllCustom(): Observable<IServiceAttachmentCustom[]> {
