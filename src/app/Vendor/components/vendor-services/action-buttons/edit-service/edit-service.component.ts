@@ -30,18 +30,12 @@ export class EditServiceComponent {
     });
   }
 
-  submitEditedService() {
-    if (this.formIsValid) {
-
-
-    }
-  }
-
   updateService() {
     if (this.formIsValid) {
       if (this.editServiceForm.get('Title')?.value) {
         this.data.set('Title', this.editServiceForm.get('Title')?.value);
       }
+
       if (this.editServiceForm.get('Price')?.value) {
         this.data.set('Price', this.editServiceForm.get('Price')?.value);
       }
@@ -49,10 +43,15 @@ export class EditServiceComponent {
       if (this.editServiceForm.get('Description')?.value) {
         this.data.set('Description', this.editServiceForm.get('Description')?.value);
       }
+
       console.log(this.editServiceForm.value);
+
       this.ServiceService.UpdateService(this.data, this.service?.id!)
         .subscribe({
-          next: (data) => { this.refresh.emit() },
+          next: (data) => {
+            console.log("Service Updated")
+            this.refresh.emit()
+          },
           error: (error) => {
             console.log(error);
           }

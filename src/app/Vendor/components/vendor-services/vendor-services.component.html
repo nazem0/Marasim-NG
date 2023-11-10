@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 <div class="container">
   <h1 class="text-center my-5 text-primary">قائمة الخدمات</h1>
-  <app-create-service></app-create-service>
+  <app-create-service (refresh)="ngOnInit()"></app-create-service>
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
     <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
       <div class="col card text-center p-0 overflow-hidden" *ngFor="let service of services">

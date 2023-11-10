@@ -13,7 +13,7 @@
         <h1 class="text-center mt-5 text-primary">تعديـل خدمـة</h1>
         <div class="parent my-5 d-flex justify-content-center">
           <div class="F DivForm w-50">
-            <form [formGroup]="editServiceForm" (ngSubmit)="submitEditedService()">
+            <form [formGroup]="editServiceForm" (ngSubmit)="updateService()">
               <div class="mb-3">
                 <label for="Inputtitle" class="form-label">أســم الخدمــة</label>
                 <input type="text" class="form-control" id="Inputtitle" formControlName="Title"
