@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { IFollowUser, IFollowVendor, IFollowing } from 'src/app/Models/IFollow';
-import { FollowService } from 'src/app/Services/follow.service';
+import { FollowService } from 'src/app/Services/Follow.service';
 
 @Component({
   selector: 'app-followers',

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IFollowVendor } from 'src/app/Models/IFollow';
 import { environment } from 'src/environments/environment';
-import { FollowService } from 'src/app/Services/follow.service';
+import { FollowService } from 'src/app/Services/Follow.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
