@@ -1,43 +1,57 @@
 <div class="table-responsive">
   <table class="table table-bordered">
-      <thead class="text-center">
-          <tr>
-            <th>#</th>
+    <thead class="text-center">
+      <tr>
+        <th>#</th>
 
-              <th>اسم العميل</th>
-              <th>تاريخ الحجز</th>
-              <th>نوع الخدمه</th>
-              <th>تاريخ قبول الحجز</th>
-              <th *ngIf="activeTab == 'all'">الحالة</th>
-              <th> اجراء </th>
-          </tr>
+        <th>اسم العميل</th>
+        <th>تاريخ الحجز</th>
+        <th>العنوان</th>
+        <th *ngIf="activeTab == 'all'">الحالة</th>
+      </tr>
 
-      </thead>
-      <tbody class="text-center">
-        <tr *ngFor="let Reservation of Reservations , let i = index; ">
-          <td>{{i+1}}</td>
-          <td class="d-flex justify-content-between">
-            <a  class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.user)" data-bs-toggle="modal" data-bs-target="#customerModal">
-              <img [src]="Reservation.user.picUrl" alt="صورة العميل">
-              <span>{{ Reservation.user.name }}</span>
-            </a>
-          </td>
-          <td>{{ Reservation.dateTime }}</td>
-          <!-- <td>{{ Reservation.serviceType }}</td>
-          <td>{{ Reservation.acceptanceDate }}</td> -->
-          <td *ngIf="activeTab == 'all'">{{ Reservation.status }}</td>
-          <td>
-              <button class="btn btn-success acceptBtn">قبول</button>
-              <button class="btn btn-danger rejectBtn">رفض</button>
-          </td>
-        </tr>
-      </tbody>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let Reservation of Reservations , let i = index; ">
+        <td>{{i+1}}</td>
+        <td class="d-flex justify-content-between">
+          <a class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.user)"
+            data-bs-toggle="modal" data-bs-target="#customerModal">
+            <img src="{{apiUrl}}/{{Reservation.user.id}}/profilepicture/{{Reservation.user.picUrl}}" alt="صورة العميل"
+              class="img-vendor">
+            <span> {{ Reservation.user.name }}</span>
+          </a>
+        </td>
+        <td>{{ Reservation.dateTime | dateFormatArabic }}</td>
+        <td>{{ Reservation.address }}</td>
+        <!-- <td>{{ Reservation.acceptanceDate }}</td> -->
+        <!-- <td *ngIf="activeTab == 'all'">{{ Reservation.status }}</td> -->
+        <td *ngIf="activeTab == 'all'">
+          <ng-container [ngSwitch]="Reservation.status">
+            <span *ngSwitchCase="'p'"
+              [ngStyle]="{'color': 'black', 'background-color': '#FFFF00', 'border-radius': '7px'}">معلقة</span>
+            <span *ngSwitchCase="'a'"
+              [ngStyle]="{'color': 'white', 'background-color': '#008000', 'border-radius': '7px'}">تمت</span>
+            <span *ngSwitchCase="'r'"
+              [ngStyle]="{'color': 'white', 'background-color': '#FF0000', 'border-radius': '7px'}">تم رفضها</span>
+            <span *ngSwitchDefault>Other Status</span>
+          </ng-container>
+        </td>
+
+        <td>
+          <button class="btn btn-success acceptBtn" >قبول</button>
+          <button class="btn btn-danger rejectBtn">رفض</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
 
 
 <!-- modal -->
-<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -49,6 +63,8 @@
       <div class="modal-body">
         <div class="customer-info">
           <!-- Add the customer image here -->
+          <!-- <img src="{{apiUrl}}/{{Reserv}}/profilepicture/{{Reservation.user.picUrl}}" alt="صورة العميل" class="img-vendor"> -->
+
           <img [src]=" selectedCustomer?.picUrl" alt="صورة العميل" class="customer-image">
           <div class="customer-details">
             <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>

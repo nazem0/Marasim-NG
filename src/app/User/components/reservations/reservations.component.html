@@ -71,7 +71,7 @@
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">{{Reservation.address}}</td>
-              <td class="text-center text-pp">{{Reservation.dateTime}}</td>
+              <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic}}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
           </ng-container>

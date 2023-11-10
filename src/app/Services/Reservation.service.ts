@@ -28,4 +28,8 @@ export class ReservationService {
   CheckoutReservationById(Id:number){
     return this.HttpClient.get<CheckoutReservation>(`${environment.apiUrl}/Reservation/CheckoutReservationById/${Id}`)
   }
+
+  AcceptReservation(Data : any){
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/AcceptReservation`,Data)
+  }
 }

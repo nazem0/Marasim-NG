@@ -10,7 +10,8 @@ import { ReservationService } from 'src/app/Services/Reservation.service';
 })
 export class ReservationComponent implements OnInit {
 
-  @Output() activeTab: string = 'all';
+ 
+  activeTab: string = 'all';
   search: string = '';
   Reservations: VendorReservation[] = [];
   filteredReservations: VendorReservation[] = [];
@@ -35,5 +36,7 @@ export class ReservationComponent implements OnInit {
     })
   }
 }
+  
+
 
 
