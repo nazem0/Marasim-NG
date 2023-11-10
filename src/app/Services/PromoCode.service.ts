@@ -11,7 +11,7 @@ export class PromoCodeservice {
  
   Add(Promocode:any){
     console.log(Promocode);
-    return this.HttpClient.post(`${environment.apiUrl}/promocode/add`,Promocode)
+    return this.HttpClient.post(`${environment.apiUrl}/PromoCode/Add`,Promocode)
   }
  
   Delete(ServiceID:number){

@@ -1,10 +1,9 @@
 export interface IPromoCode {
-  id: number;
+  serviceId: number;
   code: string;
-  count: number;
   discount: number;
   limit: number;
-  serviceId: number;
+  count: number;
   startDate: Date;
   expirationDate: Date;
 }
