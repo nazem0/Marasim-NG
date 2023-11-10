@@ -22,34 +22,33 @@
       <table class="table  table-white text-primary text-center border ">
         <thead>
           <tr>
-            <th scope="col" class="col text-danger"> العميل</th>
-            <th scope="col" class="col text-danger">مقدم الخدمة</th>
-            <th scope="col" class="col text-danger">حساب العميل</th>
-            <th scope="col" class="col text-danger">العربون</th>
-            <th scope="col" class="col text-danger"></th>
+            <th scope="col" class="col text-primary"> العميل</th>
+            <th scope="col" class="col text-primary">مقدم الخدمة</th>
+            <th scope="col" class="col text-primary">حساب العميل</th>
+            <th scope="col" class="col text-primary">العربون</th>
+            <th scope="col" class="col text-primary">تاريخ الحجز</th>
+            <th scope="col" class="col text-primary">تاريخ الدفع</th>
+            <th scope="col" class="col text-primary">تأكيد الدفع</th>
 
           </tr>
         </thead>
-        
+
         <tbody>
           <tr *ngFor="let payment of Payments">
-            <td scope="row">{{payment.user.name}}</td>
-            <td>{{payment.vendor.name}}</td>
+            <td scope="row">{{payment.reservation.user.name}}</td>
+            <td>{{payment.reservation.vendor.name}}</td>
             <td>{{payment.instaPay}}</td>
-            <td>{{payment.servicePrice * 0.3}}</td>
+            <td>{{payment.reservation.price * 0.3}}</td>
+            <td>{{payment.reservation.dateTime | dateFormatArabic}}</td>
+            <td>{{payment.dateTime | dateFormatArabic}}</td>
             <td class="d-flex gap-2 justify-content-center">
-              <button type="button" class="btn btn-primary" (click)="Confirm()">تأكيد</button>
+              <button title="تأكيد الدفع" type="button" class="primary-btn" (click)="Confirm(payment.reservation.id)">
+                <i class="fa-solid fa-check"></i>
+              </button>
             </td>
           </tr>
         </tbody>
-
-
-
-        <!---------- TO BE DELETED ------------>
-
-
       </table>
-
     </div>
   </div>
 </main>

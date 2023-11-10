@@ -7,6 +7,7 @@
       <button class="tab-btn" [class.active]="activeTab === 'p'" (click)="setActiveTab('p')">المعلقـة</button>
       <button class="tab-btn" [class.active]="activeTab === 'a'" (click)="setActiveTab('a')">المقبولـة</button>
       <button class="tab-btn" [class.active]="activeTab === 'f'" (click)="setActiveTab('f')">المدفوعة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'c'" (click)="setActiveTab('c')">مؤكدة الدفع</button>
       <button class="tab-btn" [class.active]="activeTab === 'r'" (click)="setActiveTab('r')">المرفوضة</button>
 
       <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
@@ -27,10 +28,13 @@
             <button class="tab-btn" [class.active]="activeTab === 'p'" (click)="setActiveTab('p')">المعلقـة</button>
           </li>
           <li>
+            <button class="tab-btn" [class.active]="activeTab === 'a'" (click)="setActiveTab('a')">المقبولـة</button>
+          </li>
+          <li>
             <button class="tab-btn" [class.active]="activeTab === 'f'" (click)="setActiveTab('f')">المدفوعة</button>
           </li>
           <li>
-            <button class="tab-btn" [class.active]="activeTab === 'a'" (click)="setActiveTab('a')">المقبولـة</button>
+            <button class="tab-btn" [class.active]="activeTab === 'c'" (click)="setActiveTab('c')">مؤكدة الدفع</button>
           </li>
           <li>
             <button class="tab-btn" [class.active]="activeTab === 'r'" (click)="setActiveTab('r')">المرفوضة</button>
@@ -48,7 +52,6 @@
   </div>
   <div class="content-box">
     <div class="content" [class.active]="activeTab === 'p'">
-      <h2>المعلقـة</h2>
       <table class="table ">
         <thead>
           <tr>
@@ -78,7 +81,6 @@
       </table>
     </div>
     <div class="content" [class.active]="activeTab === 'a'">
-      <h2>المقبولـة</h2>
       <table class="table ">
         <thead>
           <tr>
@@ -114,7 +116,35 @@
     </div>
 
     <div class="content" [class.active]="activeTab === 'f'">
-      <h2>المقبولـة</h2>
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="text-center">معلومات البائع</th>
+            <th scope="col" class="text-center">المكان</th>
+            <th scope="col" class="text-center">تاريخ الحجز</th>
+            <th scope="col" class="text-center">المبلغ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td class="text-center">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                  class="img-vendor">
+                <span class="ms-2">{{Reservation.vendor.name}}</span>
+              </td>
+              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
+              <td class="text-center text-pp">{{Reservation.price}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content" [class.active]="activeTab === 'c'">
       <table class="table ">
         <thead>
           <tr>
@@ -144,7 +174,6 @@
     </div>
 
     <div class="content" [class.active]="activeTab === 'r'">
-      <h2>المرفوضة</h2>
       <table class="table ">
         <thead>
           <tr>
@@ -174,7 +203,6 @@
     </div>
 
     <div class="content fs-5" [class.active]="activeTab === 'السابقـة'">
-      <h2>السابقـة</h2>
       <table class="table">
         <thead>
           <tr>

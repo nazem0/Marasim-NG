@@ -1,4 +1,4 @@
-import { IUser } from "./IUser";
+import { IUser, UserMinInfo } from "./IUser";
 import { IVendorMinInfo } from "./IVendor";
 
 export interface UserReservation {
@@ -32,5 +32,19 @@ export interface CheckoutReservation {
   address: string;
   price: number;
   serviceName: string;
+  vendor: IVendorMinInfo;
+}
+
+export interface AdminReservation {
+  id: number;
+  serviceId: number;
+  price: number;
+  status: string;
+  isDeleted: boolean;
+  dateTime: string;
+  latitude: number;
+  longitude: number;
+  address: string;
+  user: UserMinInfo;
   vendor: IVendorMinInfo;
 }

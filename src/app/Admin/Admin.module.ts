@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
+import { SharedModule } from '../Shared/Shared.module';
 
 
 @NgModule({
@@ -30,11 +31,12 @@ import { EditAdminComponent } from './components/edit-admin/edit-admin.component
     HomeComponent,
     DashboardComponent,
     EditAdminComponent,
-   
   ],
   imports: [
     CommonModule,
-    AdminRoutingRoutes, NgChartsModule,
+    AdminRoutingRoutes,
+    NgChartsModule,
+    SharedModule
   ]
 })
 export class AdminModule { }
