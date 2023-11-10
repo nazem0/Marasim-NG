@@ -7,7 +7,7 @@ import { IReview } from 'src/app/Models/IReview';
 import { CategoryService } from 'src/app/Services/Category.service';
 import { ReviewService } from 'src/app/Services/Review.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
-import { FollowService } from 'src/app/Services/follow.service';
+import { FollowService } from 'src/app/Services/Follow.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
