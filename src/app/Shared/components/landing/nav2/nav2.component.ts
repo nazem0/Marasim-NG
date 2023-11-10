@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class Nav2Component {
 
+  go(){
+    document.getElementById('sec2')?.scrollIntoView();
+
+  }
+ home(){
+    document.getElementById('hero')?.scrollIntoView();
+
+  }
+  contact(){
+    document.getElementById('contact')?.scrollIntoView();
+  }
 }

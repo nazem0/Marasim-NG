@@ -11,14 +11,14 @@
         <div class="collapse navbar-collapse col-8 nav-items justify-content-end" id="navbarNav">
           <ul class="navbar-nav navbar-list align-items-center gap-3">
             <li class="navbar-item">
-              <a class="nav-link" routerLink="/">الرئيسية</a>
+              <a class="nav-link" (click)="home()">الرئيسية</a>
             </li>
             <li class="navbar-item">
-              <a class="nav-link" routerLink="/vendors">الخدمات</a>
+              <a class="nav-link" (click)="go()">الفئات</a>
             </li>
 
             <li class="navbar-item">
-              <a class="nav-link" routerLink="/contact">اتصل بنا</a>
+              <a class="nav-link" (click)="contact()">اتصل بنا</a>
             </li>
             <li class="text-white-50">|</li>
             <li class="navbar-item">

@@ -13,7 +13,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
 
   isLogged: boolean = this.AuthService.loggedIn;
-  constructor(private AuthService: AuthService) { }
+  constructor(private AuthService: AuthService) {}
   ngOnInit() {
     console.log(this.isLogged)
     this.isLogged = this.AuthService.loggedIn;
@@ -35,8 +35,15 @@ export class LandingComponent implements OnInit, AfterViewInit {
     this.isLogged = this.AuthService.loggedIn;
   }
 
+  go(){
+    document.getElementById('sec2')?.scrollIntoView();
 
+  }
 
+  go2(){
+    document.getElementById('map')?.scrollIntoView();
+
+  }
 
 
 }
