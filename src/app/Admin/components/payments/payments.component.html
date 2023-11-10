@@ -18,84 +18,38 @@
 
 
   <div class="d-flex flex-column justify-content-center">
-  <div class="table-responsive-md ">
-    <table class="table  table-white text-primary text-center border " >
-      <thead>
-        <tr>
-          <th scope="col" class="col text-danger"> العميل</th>
-          <th scope="col" class="col text-danger">مقدم الخدمة</th>
-          <th scope="col" class="col text-danger">حساب العميل</th>
-          <th scope="col" class="col text-danger">العربون</th>
-          <th scope="col" class="col text-danger"></th>
+    <div class="table-responsive-md ">
+      <table class="table  table-white text-primary text-center border ">
+        <thead>
+          <tr>
+            <th scope="col" class="col text-danger"> العميل</th>
+            <th scope="col" class="col text-danger">مقدم الخدمة</th>
+            <th scope="col" class="col text-danger">حساب العميل</th>
+            <th scope="col" class="col text-danger">العربون</th>
+            <th scope="col" class="col text-danger"></th>
 
-        </tr>
-      </thead>
-      <tbody>
-        <!-- *ngfor="let vendor of Vendors" -->
-        <tr>
-          <td scope="row">صهيب احمد محمد</td>
-          <td>محمد احمد محمد</td>
-          <td>SohaybAhmed@instapay.com</td>
-          <td>7000</td>
-          <td class="d-flex gap-2 justify-content-center">
-            <button type="button" class="btn btn-primary">تأكيد</button>
-            <button type="button" class="btn btn-danger">إلغاء</button>
-          </td>
-         </tr>
-         </tbody>
-
-
-                          <!---------- TO BE DELETED ------------>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let payment of Payments">
+            <td scope="row">{{payment.user.name}}</td>
+            <td>{{payment.vendor.name}}</td>
+            <td>{{payment.instaPay}}</td>
+            <td>{{payment.servicePrice * 0.3}}</td>
+            <td class="d-flex gap-2 justify-content-center">
+              <button type="button" class="btn btn-primary" (click)="Confirm()">تأكيد</button>
+            </td>
+          </tr>
+        </tbody>
 
 
 
-                          <tbody>
-                            <!-- *ngfor="let vendor of Vendors" -->
-                            <tr>
-                              <td scope="row">صهيب احمد محمد</td>
-                              <td>محمد احمد محمد</td>
-                              <td>SohaybAhmed@instapay.com</td>
-                              <td>7000</td>
-                              <td class="d-flex gap-2 justify-content-center">
-                                <button type="button" class="btn btn-primary">تأكيد</button>
-                                <button type="button" class="btn btn-danger">إلغاء</button>
-
-                              </td>
-                            </tr>
-                          </tbody>
+        <!---------- TO BE DELETED ------------>
 
 
+      </table>
 
-
-
-
-
-
-                          <tbody>
-                            <!-- *ngfor="let vendor of Vendors" -->
-                            <tr>
-                              <td scope="row">صهيب احمد محمد</td>
-                              <td>محمد احمد محمد</td>
-                              <td>SohaybAhmed@instapay.com</td>
-                              <td>7000</td>
-                              <td class="d-flex gap-2 justify-content-center">
-                                <button type="button" class="btn btn-primary">تأكيد</button>
-                                <button type="button" class="btn btn-danger">إلغاء</button>
-
-                              </td>
-                            </tr>
-                          </tbody>
-
-
-
-                            <!---------- TO BE DELETED ------------>
-
-
-    </table>
-
+    </div>
   </div>
-  </div>
-  </main>
-
-
-
+</main>
