@@ -34,9 +34,11 @@ export class AuthService {
     this.CookieService.set('Role',Role,4);
     this.CookieService.set('Name',Name,4)
     this.CookieService.set('Id',Id,4)
-    if(vendorId)
+    if(vendorId != undefined)
+    {
       this.CookieService.set("VendorId",vendorId,4)
-    console.log(vendorId);
+      console.log(vendorId);
+    }
     this._isLoggedIn.next(true)
   }
   removeCookies() {
