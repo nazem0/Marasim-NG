@@ -7,7 +7,7 @@
     <div class="d-flex">
         <input class="form-control" id="add-comment" type="text" placeholder="اضف تعليقا" formControlName="Text">
 
-        <button type="button" class="btn rounded-0 border-0" (click)="addComment()"
+        <button type="reset" class="btn rounded-0 border-0" (click)="addComment()"
             [ngClass]="{'primary-btn': formIsValid, 'invalid-button': !formIsValid }" [disabled]="!formIsValid"><i
                 class="fa-solid fa-comment"></i></button>
     </div>

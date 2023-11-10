@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { PostService } from 'src/app/Services/Post.service';
 @Component({
@@ -7,27 +7,41 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./add-comment.component.css']
 })
 export class AddCommentComponent {
-  @Input() postID!:number;
+  @Input() postID!: number;
+  @Output() refresh = new EventEmitter();
   commentForm: FormGroup;
   formIsValid = false;
   data: FormData;
 
-  constructor(private FormBuilder: FormBuilder, private PostService: PostService) { 
+  constructor(private FormBuilder: FormBuilder, private PostService: PostService) {
     this.data = new FormData();
     this.commentForm = this.FormBuilder.group({
       postID: this.postID,
-      Text: ['', [Validators.required]], 
+      Text: [null, [Validators.required]],
     });
 
     this.commentForm.statusChanges.subscribe(() => {
       this.formIsValid = this.commentForm.valid;
     });
   }
-  addComment() {if (this.commentForm.valid) {
-    this.data.append('Text', this.commentForm.get('Text')?.value);
-    this.data.append('PostId', this.postID.toString());
-    
-    this.PostService.AddComment(this.data)
-      .subscribe((response) => console.log(response));
+
+  addComment() {
+    if (this.formIsValid) {
+      this.data.append('Text', this.commentForm.get('Text')?.value);
+      this.data.append('PostId', this.postID.toString());
+
+      this.PostService.AddComment(this.data)
+        .subscribe({
+          next: (data) => {
+            console.log("Comment Added")
+            this.refresh.emit()
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        });
+    }
+    this.commentForm.reset();
+    this.data = new FormData();
   }
-}}
+}
