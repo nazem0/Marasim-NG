@@ -31,7 +31,7 @@ export class CheckoutComponent {
     });
   }
   ngOnInit() {
-    this.ReservationService.CheckoutReservationById(this.ReservationId).subscribe(
+    this.ReservationService.CheckoutById(this.ReservationId).subscribe(
       {
         next: (response) => this.Reservation = response
       }

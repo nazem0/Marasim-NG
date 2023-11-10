@@ -4,46 +4,44 @@
 
   <div class="tabs-box">
     <div class="coll-btn">
-        <button class="tab-btn" [class.active]="activeTab === 'p'"
-        (click)="setActiveTab('p')">المعلقـة</button>
-        <button class="tab-btn" [class.active]="activeTab === 'a'"
-          (click)="setActiveTab('a')">المقبولـة</button>
-        <button class="tab-btn" [class.active]="activeTab === 'r'"
-          (click)="setActiveTab('r')">المرفوضة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'p'" (click)="setActiveTab('p')">المعلقـة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'a'" (click)="setActiveTab('a')">المقبولـة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'f'" (click)="setActiveTab('f')">المدفوعة</button>
+      <button class="tab-btn" [class.active]="activeTab === 'r'" (click)="setActiveTab('r')">المرفوضة</button>
 
-        <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
-          (click)="setActiveTab('السابقـة')">السابقـة</button>
-        <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
+      <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
+        (click)="setActiveTab('السابقـة')">السابقـة</button>
+      <!-- <div class="line" [ngStyle]="lineStyles" #line></div> -->
     </div>
 
 
 
 
     <div class="contain-mob">
-    <div class="dropdown d-none">
-      <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{activeTab}}
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <button class="tab-btn" [class.active]="activeTab === 'p'"
-          (click)="setActiveTab('p')">المعلقـة</button>
-        </li>
-        <li>
-          <button class="tab-btn" [class.active]="activeTab === 'a'"
-          (click)="setActiveTab('a')">المقبولـة</button>
-        </li>
-        <li>
-          <button class="tab-btn" [class.active]="activeTab === 'r'"
-          (click)="setActiveTab('r')">المرفوضة</button>
-        </li>  
-        <li>
-          <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
-          (click)="setActiveTab('السابقـة')">السابقـة</button>
-        </li>
-      </ul>
+      <div class="dropdown d-none">
+        <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{activeTab}}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <button class="tab-btn" [class.active]="activeTab === 'p'" (click)="setActiveTab('p')">المعلقـة</button>
+          </li>
+          <li>
+            <button class="tab-btn" [class.active]="activeTab === 'f'" (click)="setActiveTab('f')">المدفوعة</button>
+          </li>
+          <li>
+            <button class="tab-btn" [class.active]="activeTab === 'a'" (click)="setActiveTab('a')">المقبولـة</button>
+          </li>
+          <li>
+            <button class="tab-btn" [class.active]="activeTab === 'r'" (click)="setActiveTab('r')">المرفوضة</button>
+          </li>
+          <li>
+            <button class="tab-btn" [class.active]="activeTab === 'السابقـة'"
+              (click)="setActiveTab('السابقـة')">السابقـة</button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 
 
 
@@ -67,7 +65,8 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" class="img-vendor">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                  class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">{{Reservation.address}}</td>
@@ -96,14 +95,16 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" class="img-vendor">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                  class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">{{Reservation.address}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center">
-                <button type="button" class="primary-btn"><a class="link-pay" routerLink="/checkout/{{Reservation.id}}">ادفع جزء من
+                <button type="button" class="primary-btn"><a class="link-pay"
+                    routerLink="/checkout/{{Reservation.id}}">ادفع جزء من
                     المبلغ</a></button>
               </td>
             </tr>
@@ -111,6 +112,37 @@
         </tbody>
       </table>
     </div>
+
+    <div class="content" [class.active]="activeTab === 'f'">
+      <h2>المقبولـة</h2>
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="text-center">معلومات البائع</th>
+            <th scope="col" class="text-center">المكان</th>
+            <th scope="col" class="text-center">تاريخ الحجز</th>
+            <th scope="col" class="text-center">المبلغ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td class="text-center">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                  class="img-vendor">
+                <span class="ms-2">{{Reservation.vendor.name}}</span>
+              </td>
+              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
+              <td class="text-center text-pp">{{Reservation.price}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
     <div class="content" [class.active]="activeTab === 'r'">
       <h2>المرفوضة</h2>
       <table class="table ">
@@ -128,7 +160,8 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" class="img-vendor">
+                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                  class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">{{Reservation.address}}</td>
@@ -141,7 +174,7 @@
     </div>
 
     <div class="content fs-5" [class.active]="activeTab === 'السابقـة'">
-      <h2>السابقـة</h2> 
+      <h2>السابقـة</h2>
       <table class="table">
         <thead>
           <tr>

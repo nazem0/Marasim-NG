@@ -72,7 +72,7 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
   
     if (this.requestServiceForm.valid) {
       this.setData();
-      this.ReservationService.addReservation(this.data).subscribe({
+      this.ReservationService.Add(this.data).subscribe({
         next: () => this.Toastr.success("تم حجز الخدمة"),
         error: (error) => {
           this.Toastr.error("برجاء التأكد من التاريخ والمحاولة مرة أخرى", "حدث خطأ");

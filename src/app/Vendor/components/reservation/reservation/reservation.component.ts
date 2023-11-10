@@ -28,7 +28,7 @@ export class ReservationComponent implements OnInit {
     this.filteredReservations = this.Reservations.filter(item => item.status == tab || tab == 'all');
   }
   getReservations(){
-    this.ReservationService.GetAllVendorReservations().subscribe({
+    this.ReservationService.GetAllForVendor().subscribe({
       next:(response)=>{
         this.Reservations=response
         console.log(this.Reservations);
