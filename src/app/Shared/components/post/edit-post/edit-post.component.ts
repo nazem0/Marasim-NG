@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { IPost } from 'src/app/Models/IPost';
 import { PostService } from 'src/app/Services/Post.service';
 
@@ -15,7 +16,7 @@ export class EditPostComponent {
   data: FormData;
   formIsValid = false;
 
-  constructor(private formBuilder: FormBuilder, private PostService: PostService) {
+  constructor(private formBuilder: FormBuilder, private PostService: PostService,private Toastr:ToastrService) {
     this.data = new FormData();
     this.editPostForm = this.formBuilder.group({
       Title: [this.post?.title, [Validators.minLength(5), Validators.maxLength(1000)]],
@@ -43,12 +44,13 @@ export class EditPostComponent {
       this.PostService.Update(this.data, this.post?.id!)
         .subscribe({
           next: (data) => {
-            console.log("Post Updated");
+            this.Toastr.success("تم التعديل بنجاح")
             this.refresh.emit();
             this.editPostForm.reset();
             this.data = new FormData();
           },
           error: (error) => {
+            this.Toastr.success("تم التعديل بنجاح")
             console.log(error);
           }
         })

@@ -8,6 +8,7 @@ import { OpenCageDataResponse } from 'src/app/Models/OpenCageDataResponse';
 import { RegisterationErrorResponse } from 'src/app/Models/RegisterationErrorResponse';
 import { Router } from '@angular/router';
 import { CategoryName } from 'src/app/Models/CategoryName';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-vendor-register',
   templateUrl: './vendor-register.component.html',
@@ -35,7 +36,8 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
     private RegisterService: RegisterService,
     private HttpClient: HttpClient,
     private Router: Router,
-    private CategoryService: CategoryService
+    private CategoryService: CategoryService,
+    private Toastr:ToastrService
   ) {
     this.data = new FormData();
     this.registerForm = this.builder.group({
@@ -108,11 +110,13 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
       this.setData();
       this.RegisterService.registerVendor(this.data).subscribe({
         next: (response) => {
+          this.Toastr.success("تم التسجيل بنجاح")
           console.log(response);
           this.data.forEach((v) => console.log(v));
           this.Router.navigate(["/login"]);
         },
         error: (error) => {
+          this.Toastr.error("حدث خطأ ، راجع بياناتك وحاول مرة أخرى")
           console.log("object");
           this.data.forEach((v) => console.log(v));
           console.log(error);

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     private ScrollReveal: ScrollRevealService,
     private Builder: FormBuilder,
     private AuthService: AuthService,
-    private CookieService:CookieService) {
+    private Toastr:ToastrService) {
     this.data = new FormData();
     this.LoginForm = this.Builder.group({
       Email: [null, [Validators.required, Validators.email]],
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.Router.navigate(["/"]);
       },
       error:()=>{
-        this.LoginError = "البريد او كلمة المرور غير صحيح"
+        this.Toastr.error("البريد او كلمة المرور غير صحيح");
       },
       complete:()=>x.unsubscribe()
     });

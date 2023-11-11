@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { PostService } from 'src/app/Services/Post.service';
 @Component({
   selector: 'app-add-comment',
@@ -13,7 +14,7 @@ export class AddCommentComponent {
   formIsValid = false;
   data: FormData;
 
-  constructor(private FormBuilder: FormBuilder, private PostService: PostService) {
+  constructor(private FormBuilder: FormBuilder, private PostService: PostService,private Toastr:ToastrService) {
     this.data = new FormData();
     this.commentForm = this.FormBuilder.group({
       postID: this.postID,
@@ -33,7 +34,8 @@ export class AddCommentComponent {
       this.PostService.AddComment(this.data)
         .subscribe({
           next: (data) => {
-            console.log("Comment Added")
+            // this.Toastr.success("تم إضافة التعليق")
+            console.log(data);
             this.refresh.emit()
           },
           error: (error) => {

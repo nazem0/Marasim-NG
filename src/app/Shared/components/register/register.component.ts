@@ -6,6 +6,7 @@ import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
 import { RegisterationErrorResponse } from 'src/app/Models/RegisterationErrorResponse';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   PhoneNumberRegEx = (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/);
   ErrorResponse: RegisterationErrorResponse | null = null;
 
-  constructor(private ScrollReveal: ScrollRevealService, private builder: FormBuilder, private RegisterService: RegisterService,private Router:Router) {
+  constructor(private ScrollReveal: ScrollRevealService, private builder: FormBuilder, private RegisterService: RegisterService,private Router:Router,private Toastr:ToastrService) {
     this.data = new FormData();
     this.registerForm = this.builder.group({
       Name: [null, [Validators.required, Validators.minLength(2)]],
@@ -60,10 +61,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
       this.RegisterService.registerUser(this.data).subscribe({
         next: (response) => {
+          this.Toastr.success("تم التسجيل بنجاح")
           console.log(response)
           this.Router.navigate(["/login"]);
         },
         error: (error) => {
+          this.Toastr.error("حدث خطأ ، حاول مرة أخرى")
           console.log(this.data)
           console.log(error);
         }
