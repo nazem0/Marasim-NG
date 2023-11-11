@@ -190,6 +190,4 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
   }
 }
 
-  // this.menu.classList.toggle("active");
-
 }
