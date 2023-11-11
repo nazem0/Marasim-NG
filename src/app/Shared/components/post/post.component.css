@@ -29,3 +29,9 @@
     top: 16px;
     left: 16px;
 }
+
+.topleftnext {
+    position: absolute;
+    top: 16px;
+    left: 64px;
+}

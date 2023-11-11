@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment.development';
 export class PostComponent {
   constructor(private CookieService: CookieService, private PostService: PostService) { }
   isVendor: boolean = this.CookieService.get('Role').includes('vendor');
-  @Output() delete = new EventEmitter();
+  @Output() refresh = new EventEmitter();
   @Input() post: IPost | null = null;
   apiUrl = environment.serverUrl;
 
@@ -21,7 +21,7 @@ export class PostComponent {
     .subscribe({
       next: (data) => {
         console.log("Post Deleted");
-        this.delete.emit();
+        this.refresh.emit();
       },
       error: (error) => {
         console.log(error);

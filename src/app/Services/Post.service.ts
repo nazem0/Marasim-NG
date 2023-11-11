@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IPostAttachment, IComment, IPost, IReaction } from '../Models/IPost';
+import { IComment, IPost, IReaction } from '../Models/IPost';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -14,8 +14,8 @@ export class PostService {
     return this.HttpClient.post(`${environment.apiUrl}/Post/Add`, Post)
   }
 
-  Update(Post: any, PostID: number) {
-    return this.HttpClient.post(`${environment.apiUrl}/Post/Update?PostID=${PostID}`, Post)
+  Update(Post: any, PostId: number) {
+    return this.HttpClient.put(`${environment.apiUrl}/Post/Update/${PostId}`, Post)
   }
 
   Delete(PostId: number) {
