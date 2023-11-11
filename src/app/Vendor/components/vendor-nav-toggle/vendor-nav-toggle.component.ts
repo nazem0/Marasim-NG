@@ -1,11 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-nav-toggle',
-  templateUrl: './nav-toggle.component.html',
-  styleUrls: ['./nav-toggle.component.css']
+  selector: 'app-vendor-nav-toggle',
+  templateUrl: './vendor-nav-toggle.component.html',
+  styleUrls: ['./vendor-nav-toggle.component.css']
 })
-export class NavToggleComponent {
+export class VendorNavToggleComponent {
   menu: HTMLElement | null = null;
   isDragging = false;
   offsetX = 0;
