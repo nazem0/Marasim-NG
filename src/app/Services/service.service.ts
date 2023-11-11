@@ -23,7 +23,7 @@ export class ServiceService {
     return this.HttpClient.post(`${environment.apiUrl}/service/add`, Service)
   }
   UpdateService(Service: any, ServiceId : number) {
-    return this.HttpClient.post(`${environment.apiUrl}/service/update/${ServiceId}`, Service)
+    return this.HttpClient.put(`${environment.apiUrl}/service/update/${ServiceId}`, Service)
   }
   DeleteService(Id: number) {
     return this.HttpClient.delete(`${environment.apiUrl}/service/delete/${Id}`);

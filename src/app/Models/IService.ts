@@ -17,7 +17,13 @@ export interface IServiceAttachment {
     attachmentUrl: string
 }
 
-export interface  IServiceMinInfo{
+export interface IServiceMinInfo {
     vendorId: number,
     title: string,
+}
+export interface IServiceAttachmentCustom {
+    serviceId: number,
+    attachmentUrl: string,
+    userId: string,
+    vendorId: number
 }

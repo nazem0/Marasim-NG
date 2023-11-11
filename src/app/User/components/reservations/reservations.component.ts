@@ -25,7 +25,7 @@ export class ReservationsComponent {
     this.getReservations();
   }
   getReservations(){
-    this.ReservationService.GetUserReservationsByStatus(this.activeTab).subscribe({
+    this.ReservationService.GetForUserByStatus(this.activeTab).subscribe({
       next:(response)=>{
         this.Reservations=response
         console.log(this.Reservations);

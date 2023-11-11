@@ -24,19 +24,24 @@ import { DateFormatArabicPipe } from './Pipes/DateFormatArabic.pipe';
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-     "titleClass":"text-white",
-     "messageClass":"text-white",
-     "positionClass": 'toast-bottom-right',
+      "titleClass": "text-white",
+      "messageClass": "text-white",
+      "positionClass": 'toast-bottom-right',
+      timeOut: 5000,
+      preventDuplicates: true,
+      progressBar: true,
+      closeButton: true,
+      enableHtml: true,
     })
   ],
   providers: [AuthGuard,
     // { provide: LOCALE_ID, useValue: "ar-EG" },
     {
-    provide:HTTP_INTERCEPTORS,
-    useClass:InterceptorService,
-    multi:true
-  }
-],
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,7 +38,7 @@ export class ReservationItemComponent implements OnInit {
     }
     console.log(reserveration.service.title);
     console.log(data,"s");
-    this.reservationService.AcceptReservation(data).subscribe({
+    this.reservationService.Accept(data).subscribe({
       next:(response)=>{
         console.log('Reservation accepted successfully:', response);
       },

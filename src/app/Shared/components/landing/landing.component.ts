@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { IServiceAttachmentCustom } from 'src/app/Models/IService';
 import { AuthService } from 'src/app/Services/Auth.service';
+import { AttachmentService } from 'src/app/Services/Attachment.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,16 +9,15 @@ import { AuthService } from 'src/app/Services/Auth.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit, AfterViewInit {
-
-
-
-
+  slides: IServiceAttachmentCustom[] = [];
 
   isLogged: boolean = this.AuthService.loggedIn;
-  constructor(private AuthService: AuthService) {}
+  constructor(private AuthService: AuthService, private AttachmentService: AttachmentService) { }
   ngOnInit() {
     console.log(this.isLogged)
     this.isLogged = this.AuthService.loggedIn;
+    this.AttachmentService.GetAllCustom().subscribe((result) => this.slides = result)
+
   }
   ngAfterViewInit(): void {
     const nav = document.querySelector('nav') as HTMLElement;
@@ -35,12 +36,12 @@ export class LandingComponent implements OnInit, AfterViewInit {
     this.isLogged = this.AuthService.loggedIn;
   }
 
-  go(){
+  go() {
     document.getElementById('sec2')?.scrollIntoView();
 
   }
 
-  go2(){
+  go2() {
     document.getElementById('map')?.scrollIntoView();
 
   }

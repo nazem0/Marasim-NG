@@ -4,9 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dateFormatArabic'
 })
 export class DateFormatArabicPipe implements PipeTransform {
-  transform(value: string): string {
+  regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?$/  ;
+    transform(value: string): string {
     // Check if the value is in the expected format
-    if (!value.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/)) {
+    if (!value.match(this.regex)) {
       return 'تاريخ غير صالح';
     }
 

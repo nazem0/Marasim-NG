@@ -1,0 +1,17 @@
+<button data-bs-toggle="modal" data-bs-target="#deleteConfirm" class="danger-btn topleft"><i class="fa-solid fa-trash"></i></button>
+
+<div class="modal fade" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">هل تريد حذف المنشور؟</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <i></i></button>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="submit" class="primary-btn" (click)="this.delete.emit()" data-bs-dismiss="modal">تأكيد</button>
+                <button type="reset" class="warning-btn" data-bs-dismiss="modal">إلغاء</button>
+            </div>
+        </div>
+    </div>
+  </div>

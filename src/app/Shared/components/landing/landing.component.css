@@ -149,7 +149,7 @@ video {
 .background-img {
   height: 40vh;
   background-attachment: fixed;
-  background-image: url(../../../../assets/img/landing-background2.jpg);
+  background-image: url(/assets/img/landing-background2.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -159,7 +159,7 @@ video {
 .background-img2 {
   height: 40vh;
   background-attachment: fixed;
-  background-image: url(../../../../assets/img/landing-background1.jpg);
+  background-image: url(/assets/img/landing-background1.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -174,7 +174,7 @@ video {
   height: 100%;
   width: 100%;
   padding: 30px 20px;
-  background-image: url(../../../../assets/img/1234.jpg);
+  background-image: url("/assets/img/1234.webp");
   height: 350px;
 
 }
@@ -186,7 +186,7 @@ video {
   height: 100%;
   width: 100%;
   padding: 30px 20px;
-  background-image: url(../../../../assets/img/123.jpg);
+  background-image: url(/assets/img/123.webp);
   height: 350px;
 }
 
@@ -198,7 +198,7 @@ video {
   width: 100%;
   padding: 30px 20px;
   height: 350px;
-  background-image: url(../../../../assets/img/12345.jpg);
+  background-image: url(/assets/img/12345.webp);
 }
 
 /* CARD TEXT STYLE */
@@ -240,25 +240,22 @@ video {
   height: 380px;
 }
 
-.contact-img{
+.contact-img {
   width: 400px;
 }
-.contact-btn{
+
+.contact-btn {
   width: 300px;
   height: 60px;
 }
-.map-img{
-  width:500px;
+
+.map-img {
+  width: 500px;
 }
-.map-container{
+
+.map-container {
   display: flex;
   flex-direction: column;
 
 
-}
-
-.map-photo{
-  display: flex;
-  justify-content: space-between;
-align-items: center;
 }

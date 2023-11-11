@@ -10,26 +10,29 @@ import { UserReservation } from '../Models/Reservation';
 export class ReservationService {
 
   constructor(private HttpClient: HttpClient) { }
-  addReservation(Data: any) {
+  Add(Data: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Reservation/Add`, Data)
   }
-  GetAllUserReservations(){
+  GetAllForUser(){
     return this.HttpClient.get<UserReservation[]>(`${environment.apiUrl}/Reservation/GetAllByUserId`)
   }
-  GetUserReservationsByStatus(Status:string){
+  GetForUserByStatus(Status:string){
     return this.HttpClient.get<UserReservation[]>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus/${Status}`)
   }
-  GetVendorReservationsByStatus(Status:string){
+  GetForVendorByStatus(Status:string){
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/${Status}`)
   }
-  GetAllVendorReservations(){
+  GetAllForVendor(){
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
   }
-  CheckoutReservationById(Id:number){
+  CheckoutById(Id:number){
     return this.HttpClient.get<CheckoutReservation>(`${environment.apiUrl}/Reservation/CheckoutReservationById/${Id}`)
   }
 
-  AcceptReservation(Data : any){
-    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Accept`,Data)
+  Accept(Data : any){
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/AcceptReservation`,Data)
+  }
+  Confirm(ReservationId:number){
+    return this.HttpClient.get(`${environment.apiUrl}/Reservation/Confirm/${ReservationId}`)
   }
 }
