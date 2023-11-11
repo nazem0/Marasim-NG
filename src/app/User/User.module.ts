@@ -73,7 +73,8 @@ import { FilterdComponent } from './components/filterd/filterd.component';
     ContactComponent,
     HomeComponent,
     ReservationsComponent,
-
+    AddReviewComponent,
+    FilterdComponent
 
   ]
 })
