@@ -1,3 +1,4 @@
+import { ReviewService } from 'src/app/Services/Review.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UserReservation } from 'src/app/Models/Reservation';
 import { ReservationService } from './../../../Services/Reservation.service';
@@ -13,11 +14,12 @@ import { ToastrService } from 'ngx-toastr';
 export class ReservationsComponent {
   activeTab: string = 'p';
   apiUrl=environment.serverUrl;
-  Reservations:UserReservation[]|null = null;
+  Reservations:UserReservation[]=[];
   constructor(
     private ReservationService:ReservationService,
     private CookieService:CookieService,
-    private Toastr:ToastrService
+    private Toastr:ToastrService,
+    private ReviewService:ReviewService
     ){}
   ngOnInit(){
     this.getReservations();
@@ -44,9 +46,13 @@ export class ReservationsComponent {
           this.Toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
           console.log(error);
         }
-    })
-    ;
+    });
   }
-
-  
+  HasReviews(ReservationId : number){
+    this.ReviewService.HasReviews(ReservationId).subscribe({
+      next:(response)=>{
+        return response;
+      }
+    })
+  }
 }

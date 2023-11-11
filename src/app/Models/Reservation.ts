@@ -1,6 +1,7 @@
 import { IUser, UserMinInfo } from "./IUser";
 import { IServiceMinInfo } from "./IService";
 import { IVendorMinInfo } from "./IVendor";
+import { ReviewViewModel } from "./IReview";
 
 export interface UserReservation {
   id: number;
@@ -13,6 +14,7 @@ export interface UserReservation {
   longitude: number;
   address: string;
   vendor: IVendorMinInfo;
+  review:ReviewViewModel
 }
 
 export interface VendorReservation {

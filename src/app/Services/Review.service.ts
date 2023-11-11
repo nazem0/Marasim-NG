@@ -19,7 +19,7 @@ export class ReviewService {
   }
 
   Add(Review: any){
-    return this.HttpClient.post(`${environment.apiUrl}/Review/AddReview`, Review)
+    return this.HttpClient.post(`${environment.apiUrl}/Review/Add`, Review)
   }
 
   Update(Review: any, ReviewId: number){
@@ -30,6 +30,9 @@ export class ReviewService {
     return this.HttpClient.delete(`${environment.apiUrl}/Review/Delete/${ReviewId}`)
   }
 
+  HasReviews(ReviewId:number){
+    return this.HttpClient.get(`${environment.apiUrl}/Review/HasReviews/${ReviewId}`)
+  }
 }
 
 

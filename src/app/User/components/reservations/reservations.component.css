@@ -74,16 +74,7 @@
     background-color: #7360ff;
     transition: all .3s ease-in-out;
 }
-.img-vendor{
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        object-fit: cover;
-}
-.text-pp{
-    padding-top: 11px;
 
-}
 
 
 /*  */
@@ -182,4 +173,19 @@
     flex: 100%;
     max-width: 80%;
   }
+}
+
+.img-vendor{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.text-pp{
+padding-top: 11px;
+
+}
+
+.yellow{
+  color: #ffc700;
 }

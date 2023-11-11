@@ -73,8 +73,6 @@ import { AddReviewComponent } from './components/reservations/add-review/add-rev
     HomeComponent,
     ReservationsComponent,
     AddReviewComponent,
-
-
   ]
 })
 export class UserModule { }
