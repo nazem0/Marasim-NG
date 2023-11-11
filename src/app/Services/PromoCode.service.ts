@@ -14,7 +14,7 @@ export class PromoCodeservice {
     return this.HttpClient.post(`${environment.apiUrl}/PromoCode/Add`,Promocode)
   }
  
-  Delete(ServiceID:number){
-    return this.HttpClient.delete(`${environment.apiUrl}/promocode/delete/${ServiceID}`);
+  Delete(ServiceId:number){
+    return this.HttpClient.delete(`${environment.apiUrl}/promocode/delete/${ServiceId}`);
   }
 }

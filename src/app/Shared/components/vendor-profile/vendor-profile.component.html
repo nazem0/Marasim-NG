@@ -176,7 +176,7 @@
                   <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
                     <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
                       <img
-                        src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{pic.serviceID}}-{{VendorId}}/{{pic.attachmentUrl}}"
+                        src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{VendorId}}/{{pic.attachmentUrl}}"
                         class="d-block w-100 carousel-pic" alt="...">
                     </div>
                   </div>

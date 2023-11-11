@@ -54,7 +54,7 @@ export class ProfileEditComponent implements OnInit {
     this.CategoryService.GetAll()
       .subscribe((result) => this.Categories = result);
 
-    this.UserService.getByID(this.CookieService.get("Id"))
+    this.UserService.getById(this.CookieService.get("Id"))
       .subscribe((result) => this.User = result);
 
     this.VendorService.GetVendorByUserId(this.CookieService.get("Id"))

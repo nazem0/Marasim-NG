@@ -15,7 +15,7 @@ export class ViewUserProfileComponent {
   constructor(private UserService:UserService, private CookieService:CookieService){}
   ngOnInit(){
     console.log(this.CookieService.get("Id"))
-    this.UserService.getByID(this.CookieService.get("Id")).subscribe((response)=>{
+    this.UserService.getById(this.CookieService.get("Id")).subscribe((response)=>{
       this.User = response
     });
   }

@@ -3,7 +3,7 @@ import { IPromoCode } from "./IPromoCode"
 export interface IService {
     id: number,
     userId: string,
-    vendorID: number,
+    vendorId: number,
     title: string,
     description: string,
     price: number,
@@ -13,7 +13,7 @@ export interface IService {
 
 export interface IServiceAttachment {
     id: number,
-    serviceID: number,
+    serviceId: number,
     attachmentUrl: string
 }
 

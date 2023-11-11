@@ -26,34 +26,34 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorID(VendorID: number): Observable<IPost[]> {
-    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/GetByVendorID/${VendorID}`)
+  GetByVendorId(VendorId: number): Observable<IPost[]> {
+    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/GetByVendorId/${VendorId}`)
   }
 
   //Reacts Requests
 
-  GetReacts(postID: number): Observable<IReaction[]> {
-    return this.HttpClient.get<IReaction[]>(`${environment.apiUrl}/React/GetReactsByPostID/${postID}`)
+  GetReacts(postId: number): Observable<IReaction[]> {
+    return this.HttpClient.get<IReaction[]>(`${environment.apiUrl}/React/GetReactsByPostId/${postId}`)
   }
 
-  IsLiked(postID: number): Observable<boolean>{
-    return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postID}`)
+  IsLiked(postId: number): Observable<boolean>{
+    return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postId}`)
   }
 
   AddReact(React:any){
     return this.HttpClient.post(`${environment.apiUrl}/React/Add`, React)
   }
 
-  DeleteReact(postID:number){
-    return this.HttpClient.delete(`${environment.apiUrl}/React/Delete/${postID}`)
+  DeleteReact(postId:number){
+    return this.HttpClient.delete(`${environment.apiUrl}/React/Delete/${postId}`)
   }
 
 
   //Comments Requests
 
 
-  GetCommentsByPostId(postID: number): Observable<IComment[]> {
-    return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostID/${postID}`)
+  GetCommentsByPostId(postId: number): Observable<IComment[]> {
+    return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${postId}`)
   }
 
   AddComment(Comment: any){
