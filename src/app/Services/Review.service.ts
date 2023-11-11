@@ -14,20 +14,20 @@ export class ReviewService {
     return this.HttpClient.get<IReview[]>(`${environment.apiUrl}/Review/Get`)
   }
 
-  GetByVendorID(VendorID: number): Observable<IReview[]> {
-    return this.HttpClient.get<IReview[]>(`${environment.apiUrl}/Review/GetByVendorID?VendorID=${VendorID}`)
+  GetByVendorId(VendorId: number): Observable<IReview[]> {
+    return this.HttpClient.get<IReview[]>(`${environment.apiUrl}/Review/GetByVendorId/${VendorId}`)
   }
 
   Add(Review: any){
     return this.HttpClient.post(`${environment.apiUrl}/Review/AddReview`, Review)
   }
 
-  Update(Review: any, ReviewID: number){
-    return this.HttpClient.post(`${environment.apiUrl}/Review/Update?ReviewID=${ReviewID}`, Review)
+  Update(Review: any, ReviewId: number){
+    return this.HttpClient.put(`${environment.apiUrl}/Review/Update/${ReviewId}`, Review)
   }
 
-  Delete(ReviewID: number){
-    return this.HttpClient.delete(`${environment.apiUrl}/Review/Delete?ReviewID=${ReviewID}`)
+  Delete(ReviewId: number){
+    return this.HttpClient.delete(`${environment.apiUrl}/Review/Delete/${ReviewId}`)
   }
 
 }

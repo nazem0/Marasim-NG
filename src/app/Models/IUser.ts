@@ -5,7 +5,7 @@ export interface IUser {
     email: string,
     picUrl:string,
     gender: string,
-    nationalID: string
+    nationalId: string
 }
 
 export interface UserMinInfo{

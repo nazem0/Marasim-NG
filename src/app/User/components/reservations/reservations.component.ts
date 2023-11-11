@@ -3,6 +3,7 @@ import { UserReservation } from 'src/app/Models/Reservation';
 import { ReservationService } from './../../../Services/Reservation.service';
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pending',
@@ -15,7 +16,8 @@ export class ReservationsComponent {
   Reservations:UserReservation[]|null = null;
   constructor(
     private ReservationService:ReservationService,
-    private CookieService:CookieService
+    private CookieService:CookieService,
+    private Toastr:ToastrService
     ){}
   ngOnInit(){
     this.getReservations();
@@ -32,4 +34,19 @@ export class ReservationsComponent {
       }
     })
   }
+  markAsDone(Id:number){
+    this.ReservationService.Done({
+      Id:Id,
+      UserId:this.CookieService.get("Id")
+    }).subscribe({
+      next: () => this.Toastr.success(),
+        error: (error) => {
+          this.Toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
+          console.log(error);
+        }
+    })
+    ;
+  }
+
+  
 }

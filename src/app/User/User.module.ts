@@ -31,6 +31,7 @@ import { HomeComponent } from '../Shared/components/home/home.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     HomeComponent,
     ReservationsComponent,
+    AddReviewComponent,
 
 
   ]

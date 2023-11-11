@@ -39,4 +39,7 @@ export class ReservationService {
   Confirm(ReservationId:number){
     return this.HttpClient.get(`${environment.apiUrl}/Reservation/Confirm/${ReservationId}`)
   }
+  Done(Data:any){
+    return this.HttpClient.put(`${environment.apiUrl}/Reservation/Done`,Data)
+  }
 }

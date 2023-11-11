@@ -6,5 +6,5 @@ export interface IRegisterUserViewModel {
     ConfirmPassword: string,
     Picture: File,
     Gender: boolean,
-    NationalID: string
+    NationalId: string
 }
