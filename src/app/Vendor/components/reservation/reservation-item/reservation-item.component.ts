@@ -1,10 +1,12 @@
 import { ReservationComponent } from './../reservation/reservation.component';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IUser } from 'src/app/Models/IUser';
 import { IServiceMinInfo } from 'src/app/Models/IService';
 import { VendorReservation } from 'src/app/Models/Reservation';
 import { environment } from 'src/environments/environment.development';
 import { ReservationService } from 'src/app/Services/Reservation.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-reservation-item',
@@ -12,50 +14,53 @@ import { ReservationService } from 'src/app/Services/Reservation.service';
   styleUrls: ['./reservation-item.component.css'],
 })
 export class ReservationItemComponent implements OnInit {
+  @Output() refresh = new EventEmitter();
   @Input() Reservations: VendorReservation[] = [];
   @Input() activeTab: string = 'all';
   @Input() selectedVendor: IServiceMinInfo | null = null;
   selectedCustomer: IUser | null = null;
   apiUrl = environment.serverUrl;
-  constructor(private reservationService: ReservationService) {}
+  constructor(private reservationService: ReservationService,private toastr: ToastrService,) {}
 
   ngOnInit() {}
 
   openCustomerModal(User: IUser) {
     this.selectedCustomer = User;
   }
-
-  acceptReservation(reserveration: VendorReservation) {
+  
+  acceptReservation(reservation: VendorReservation) {
     const data = {
-      id: reserveration.id,
-      vendorId: reserveration.service.vendorID,
+      id: reservation.id,
+      vendorId: reservation.service.vendorId,
     };
-    console.log(reserveration.service.title);
-    console.log(data);
     this.reservationService.Accept(data).subscribe({
-      next: (response) => {
-        console.log('Reservation accepted successfully:', response);
+      next: () => {
+        this.toastr.success('تم قبول الخدمة ');
+        this.refresh.emit();
       },
       error: (error) => {
+        this.toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
         console.log('Error accepting reservation:', error);
       },
     });
   }
-
+  
   rejectReservation(reserveration: VendorReservation) {
     const data = {
       id: reserveration.id,
-      vendorId: reserveration.service.vendorID,
+      vendorId: reserveration.service.vendorId,
     };
-    console.log(reserveration.service.title);
-    console.log(data);
     this.reservationService.Reject(data).subscribe({
-      next: (response) => {
-        console.log('Reservation accepted successfully:', response);
+      next: () => {
+        this.toastr.error('تم رفض الخدمة');
+        this.refresh.emit();
       },
       error: (error) => {
-        console.log('Error accepting reservation:', error);
+        this.toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
+        console.log('Error Reject reservation:', error);
       },
     });
   }
+
+  
 }

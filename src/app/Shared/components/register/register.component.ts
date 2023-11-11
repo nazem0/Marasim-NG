@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       Password: [null, [Validators.required,Validators.pattern(this.PasswordRegEx)]],
       ConfirmPassword: [null, [Validators.required]],
       PhoneNumber: [null, [Validators.required, Validators.minLength(11),Validators.pattern(this.PhoneNumberRegEx)]],
-      NationalID: [null, [Validators.required, Validators.minLength(11)]],
+      NationalId: [null, [Validators.required, Validators.minLength(11)]],
       Gender: [null, [Validators.required]],
       Picture: [null, [Validators.required]]
     })
@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       this.data.set('Password', this.registerForm.get('Password')?.value);
       this.data.set('ConfirmPassword', this.registerForm.get('ConfirmPassword')?.value);
       this.data.set('PhoneNumber', this.registerForm.get('PhoneNumber')?.value);
-      this.data.set('NationalID', this.registerForm.get('NationalID')?.value);
+      this.data.set('NationalId', this.registerForm.get('NationalId')?.value);
       this.data.set('Gender', this.registerForm.get('Gender')?.value);
       this.data.set('Picture', this.UploadPic?.nativeElement.files[0]);
       this.RegisterService.registerUser(this.data).subscribe({
