@@ -51,7 +51,7 @@ import { EditPostComponent } from './components/post/edit-post/edit-post.compone
     FormsModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatFormFieldModule,    
+    MatFormFieldModule,
     MatRippleModule,
     PasswordStrengthMeterModule.forRoot(DEFAULT_PSM_OPTIONS)
 
@@ -85,6 +85,7 @@ import { EditPostComponent } from './components/post/edit-post/edit-post.compone
     VendorFollowingVendorComponent,
     DeleteModalComponent,
     EditPostComponent,
+
 
   ],
   providers:[
