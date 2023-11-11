@@ -6,8 +6,11 @@
 
         <th>اسم العميل</th>
         <th>تاريخ الحجز</th>
+        <th>الخدمة</th>
         <th>العنوان</th>
         <th *ngIf="activeTab == 'all'">الحالة</th>
+        <th *ngIf="activeTab != 'a' && activeTab != 'r'">إجراء</th>
+
       </tr>
 
     </thead>
@@ -23,6 +26,7 @@
           </a>
         </td>
         <td>{{ Reservation.dateTime | dateFormatArabic }}</td>
+        <td>{{ Reservation.service.title }}</td>
         <td>{{ Reservation.address }}</td>
         <!-- <td>{{ Reservation.acceptanceDate }}</td> -->
         <!-- <td *ngIf="activeTab == 'all'">{{ Reservation.status }}</td> -->
@@ -38,8 +42,8 @@
           </ng-container>
         </td>
 
-        <td>
-          <button class="btn btn-success acceptBtn" >قبول</button>
+        <td >
+          <button class="btn btn-success acceptBtn" (click)="acceptReservation(Reservation)" >قبول</button>
           <button class="btn btn-danger rejectBtn">رفض</button>
         </td>
       </tr>
@@ -63,9 +67,7 @@
       <div class="modal-body">
         <div class="customer-info">
           <!-- Add the customer image here -->
-          <!-- <img src="{{apiUrl}}/{{Reserv}}/profilepicture/{{Reservation.user.picUrl}}" alt="صورة العميل" class="img-vendor"> -->
-
-          <img [src]=" selectedCustomer?.picUrl" alt="صورة العميل" class="customer-image">
+          <img src="{{apiUrl}}/{{selectedCustomer?.id}}/profilepicture/{{selectedCustomer?.picUrl}}" alt="صورة العميل" class="customer-image">
           <div class="customer-details">
             <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
             <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.phoneNumber }}</p>

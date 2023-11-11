@@ -1,5 +1,7 @@
 import { IUser } from "./IUser";
 import { VendorMinInfo } from "./IVendor";
+import { IServiceMinInfo } from "./IService";
+
 
 export interface UserReservation {
   id: number;
@@ -24,7 +26,8 @@ export interface VendorReservation {
   latitude: number;
   longitude: number;
   address: string;
-  user: IUser
+  user: IUser;
+  service: IServiceMinInfo ;
 }
 
 export interface CheckoutReservation {

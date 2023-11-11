@@ -27,13 +27,18 @@ export class ReservationComponent implements OnInit {
     this.activeTab = tab;
     this.filteredReservations = this.Reservations.filter(item => item.status == tab || tab == 'all');
   }
-  getReservations(){
+ 
+  getReservations() {
     this.ReservationService.GetAllVendorReservations().subscribe({
-      next:(response)=>{
-        this.Reservations=response
+      next: (response) => {
+        this.Reservations = response;
         console.log(this.Reservations);
+        this.filterReservations(this.activeTab); // Ensure filtering happens after data is fetched
+      },
+      error: (error) => {
+        console.error('Error fetching reservations:', error);
       }
-    })
+    });
   }
 }
   

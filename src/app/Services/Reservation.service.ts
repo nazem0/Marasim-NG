@@ -30,6 +30,6 @@ export class ReservationService {
   }
 
   AcceptReservation(Data : any){
-    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/AcceptReservation`,Data)
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Accept`,Data)
   }
 }
