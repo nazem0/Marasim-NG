@@ -12,8 +12,7 @@ export class AttachmentsComponent {
 
   @Input() postID!: number;
   @Input() postTitle!: string;
-  @Input() vendorID!: string;
+  @Input() vendorId!: number;
+  @Input() vendorUserId!: string;
   @Input() postAttachments!: IPostAttachment[];
-  
-
 }
