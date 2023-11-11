@@ -45,6 +45,7 @@ export class AuthService {
     
     console.log("cookies removed");
     this.CookieService.deleteAll();
+    location.reload();
     this.Router.navigateByUrl('/');
     this._isLoggedIn.next(false);
   }
