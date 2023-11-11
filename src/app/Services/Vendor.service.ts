@@ -17,8 +17,8 @@ export class VendorService {
     GetAll() {
         return this.HttpClient.get(`${environment.apiUrl}/Vendor/GetAll`)
     }
-    GetByVendorId(VendorID: number): Observable<IVendor> {
-        return this.HttpClient.get<IVendor>(`${environment.apiUrl}/Vendor/GetVendorByID/${VendorID}`)
+    GetByVendorId(VendorId: number): Observable<IVendor> {
+        return this.HttpClient.get<IVendor>(`${environment.apiUrl}/Vendor/GetVendorById/${VendorId}`)
     }
 
     GetVendorByUserId(UserId: string): Observable<IVendor> {
@@ -29,8 +29,8 @@ export class VendorService {
         return this.HttpClient.get<IVendorMidInfo[]>(`${environment.apiUrl}/Vendor/GetVendorMidInfo`)
     }
 
-    GetVendorFullFull(VendorID: number): Observable<FullVendorInfo> {
-        return this.HttpClient.get<FullVendorInfo>(`${environment.apiUrl}/Vendor/GetVendorFullFull/${VendorID}`)
+    GetVendorFullFull(VendorId: number): Observable<FullVendorInfo> {
+        return this.HttpClient.get<FullVendorInfo>(`${environment.apiUrl}/Vendor/GetVendorFullFull/${VendorId}`)
     }
 
     UpdateVendor(updateData: any) {

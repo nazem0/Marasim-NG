@@ -10,35 +10,49 @@ import { ReservationService } from 'src/app/Services/Reservation.service';
 })
 export class ReservationComponent implements OnInit {
 
- 
-  activeTab: string = 'all';
+  activeTab: string = 'p';
+  // activeTab: string = 'all';
   search: string = '';
   Reservations: VendorReservation[] = [];
-  filteredReservations: VendorReservation[] = [];
+  // filteredReservations: VendorReservation[] = [];
 
   constructor(private ReservationService:ReservationService) { }
 
   ngOnInit() {
-    this.filterReservations(this.activeTab);
     this.getReservations();
   }
 
   filterReservations(tab: string) {
     this.activeTab = tab;
-    this.filteredReservations = this.Reservations.filter(item => item.status == tab || tab == 'all');
+    this.getReservations();
+
+    // this.filteredReservations = this.Reservations.filter(item => item.status == tab || tab == 'all');
   }
+  // getReservations(){
+  //   this.ReservationService.GetAllForVendor().subscribe({
+  //     next:(response)=>{
+  //       this.Reservations=response
+  //       console.log(this.Reservations);
+  //       this.filterReservations(this.activeTab); 
+  //     },
+  //     error: (error) => {
+  //       console.error('Error fetching reservations:', error);
+  //     }
+  //   });
+  // }
+
   getReservations(){
-    this.ReservationService.GetAllForVendor().subscribe({
+    this.ReservationService.GetForVendorByStatus(this.activeTab).subscribe({
       next:(response)=>{
         this.Reservations=response
         console.log(this.Reservations);
-        this.filterReservations(this.activeTab); // Ensure filtering happens after data is fetched
       },
       error: (error) => {
         console.error('Error fetching reservations:', error);
       }
     });
   }
+
 }
   
 

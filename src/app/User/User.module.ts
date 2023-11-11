@@ -31,6 +31,7 @@ import { HomeComponent } from '../Shared/components/home/home.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 import { FilterdComponent } from './components/filterd/filterd.component';
 
 
@@ -72,7 +73,6 @@ import { FilterdComponent } from './components/filterd/filterd.component';
     ContactComponent,
     HomeComponent,
     ReservationsComponent,
-    FilterdComponent,
 
 
   ]

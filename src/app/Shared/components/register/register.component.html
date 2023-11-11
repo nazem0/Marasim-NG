@@ -72,13 +72,13 @@
                 <i class="fa-solid fa-id-card fs-3"></i>
               </label>
               <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text" name="national_id"
-                placeholder="الرقم القومي" formControlName="NationalID">
+                placeholder="الرقم القومي" formControlName="NationalId">
             </div>
             <small *ngIf="registerForm?.get('PhoneNumber')?.invalid && registerForm?.get('PhoneNumber')?.touched"
               class="text-danger">
               يجب إدخال رقم الهاتف وبشكل صحيح
             </small>
-            <small *ngIf="registerForm?.get('NationalID')?.invalid && registerForm?.get('NationalID')?.touched"
+            <small *ngIf="registerForm?.get('NationalId')?.invalid && registerForm?.get('NationalId')?.touched"
               class="text-danger">
               يجب عليك إدخال رقمك القومي
             </small>

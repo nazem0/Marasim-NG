@@ -1,8 +1,9 @@
 <!-- Button trigger modal -->
 <div class="d-flex justify-content-center">
-<button title="أضف سابقة أعمال" type="button" class=" primary-btn w-50 py-3 mb-3 shadow " data-bs-toggle="modal" data-bs-target="#create-post">
-    <i class="fa fa-add"></i> اضافة منشور
-</button>
+    <button title="أضف سابقة أعمال" type="button" class=" primary-btn w-50 py-3 mb-3 shadow " data-bs-toggle="modal"
+        data-bs-target="#create-post">
+        <i class="fa fa-add"></i> اضافة منشور
+    </button>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="create-post" tabindex="-1" aria-labelledby="create-postLabel" aria-hidden="true">
@@ -15,17 +16,19 @@
             <div class="modal-body">
                 <form [formGroup]="postForm" (ngSubmit)="submitPost()">
                     <div class="mb-3">
-                      <label for="" class="form-label">العنوان</label>
-                      <input type="text" id="title" class="form-control" formControlName="Title" aria-describedby="helpId">
-                      <div *ngIf="postForm?.get('Title')?.invalid && postForm?.get('Title')?.touched" >
-                        <small class="text-danger">
-                            العنوان يجب أن يحتوي  على 3-30 حرفًا
-                        </small>
+                        <label for="" class="form-label">العنوان</label>
+                        <input type="text" id="title" class="form-control" formControlName="Title"
+                            aria-describedby="helpId">
+                        <div *ngIf="postForm?.get('Title')?.invalid && postForm?.get('Title')?.touched">
+                            <small class="text-danger">
+                                العنوان يجب أن يحتوي على 3-30 حرفًا
+                            </small>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">الوصف</label>
-                        <textarea id="description" class="form-control" formControlName="Description" rows="5"></textarea>
+                        <textarea id="description" class="form-control" formControlName="Description"
+                            rows="5"></textarea>
 
                     </div>
                     <div class="mb-3">
@@ -42,10 +45,9 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="submitPost()"
-                [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
-            [disabled]="!formIsValid"
-                >إضافة</button>
+                <button type="button" class="btn btn-primary" (click)="submitPost()" data-bs-dismiss="modal"
+                    [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+                    [disabled]="!formIsValid">إضافة</button>
 
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
             </div>

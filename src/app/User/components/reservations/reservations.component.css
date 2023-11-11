@@ -84,53 +84,6 @@
     padding-top: 11px;
 
 }
-/* star rating */
-.rate {
-    height: 46px;
-    padding: 0 10px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
-/*  */
-table.table td.text-center input[type="text"] , .commit{
-    /* width: 100%; */
-    border: none;
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    transition: border 0.3s ease-in-out;
-    margin: 8px 0 13px 0;
-    WIDTH: 250px;
-}
 
 
 /*  */
@@ -216,17 +169,6 @@ table.table td.text-center input[type="text"] , .commit{
     }
 }
 
-@media screen and (max-width: 1023px) {
-    .modal-content {
-        width: 75% !important;
-    }
-}
-
-@media screen and (max-width: 567px) {
-    .modal-content {
-        width: 100% !important;
-    }
-}
 
 /* @media screen and (max-width: 767) {
   .link-pay{

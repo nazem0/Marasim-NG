@@ -38,6 +38,7 @@ import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
 import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 import { TruncatePipe } from '../Pipes/Truncate.pipe';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { EditPostComponent } from './components/post/edit-post/edit-post.component';
 
 @NgModule({
   imports: [
@@ -83,6 +84,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     FollowerComponent,
     VendorFollowingVendorComponent,
     DeleteModalComponent,
+    EditPostComponent,
 
 
   ],
