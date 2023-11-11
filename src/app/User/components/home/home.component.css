@@ -84,7 +84,7 @@
   height: 100%;
   width: 100%;
   padding: 30px 20px;
-  background-image: url(../../../../assets/img/1234.jpg);
+  background-image: url(/assets/img/1234.webp);
   height: 350px;
 
 }
@@ -96,7 +96,7 @@
   height: 100%;
   width: 100%;
   padding: 30px 20px;
-  background-image: url(../../../../assets/img/123.jpg);
+  background-image: url(/assets/img/123.webp);
   height: 350px;
 }
 
@@ -108,7 +108,7 @@
   width: 100%;
   padding: 30px 20px;
   height: 350px;
-  background-image: url(../../../../assets/img/12345.jpg);
+  background-image: url(/assets/img/12345.webp);
 }
 
 /* CARD TEXT STYLE */
