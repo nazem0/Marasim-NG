@@ -85,7 +85,7 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
   register() {
     this.registerForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value);
     this.registerForm.get("Longitude")?.patchValue(this.Longitude?.nativeElement.value);
-  
+
     if (this.PacInput && this.PacInput.nativeElement.value !== "" && this.PacInput.nativeElement.value !== null) {
       this.updateFormAndSubmit(this.PacInput.nativeElement.value);
     } else {
@@ -101,11 +101,11 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
         });
     }
   }
-  
+
   updateFormAndSubmit(address: string) {
     this.registerForm.get("Address")?.patchValue(address);
     console.log(address);
-  
+
     if (this.registerForm.valid) {
       this.setData();
       this.RegisterService.registerVendor(this.data).subscribe({
@@ -124,7 +124,7 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
       });
     }
   }
-  
+
 
 
 
@@ -161,10 +161,37 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
   removeMapScripts() {
     const childNodes = this.head.childNodes;
     const numberOfNodesToRemove = Math.min(14, childNodes.length); // Ensure we don't go beyond the number of child nodes.
-  
+
     for (let i = 0; i < numberOfNodesToRemove; i++) {
       this.head.removeChild(childNodes[childNodes.length - 1]); // Remove the last child node.
     }
   }
-  
+
+  status: string = "التالي";
+
+  swap(): void {
+    const p1 = document.getElementById('page1');
+    const p2 = document.getElementById('page2');
+    const nxt = document.getElementById('next');
+    const prev = document.getElementById('perv');
+
+    if (p2 && p2.style.display === "none") {
+        if (p1) p1.style.display = "none";
+        if (p2) p2.style.display = "block";
+        this.status = "السابق";
+    } else {
+        if (p1) p1.style.display = "block";
+        if (p2) p2.style.display = "none";
+        this.status = "التالي";
+    }
+
+    if (nxt && nxt.style.display === "none") {
+      if (prev) prev.style.display = "none";
+      if (nxt) nxt.style.display = "block";
+  } else {
+      if (prev) prev.style.display = "block";
+      if (nxt) nxt.style.display = "none";
+  }
+}
+
 }

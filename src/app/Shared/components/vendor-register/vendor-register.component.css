@@ -109,19 +109,19 @@ input:focus {
     font-size: 15px;
     font-weight: 300;
   }
-  
+
   #infowindow-content .title {
     font-weight: bold;
   }
-  
+
   #infowindow-content {
     display: none;
   }
-  
+
   #map #infowindow-content {
     display: inline;
   }
-  
+
   .pac-card {
     background-color: #fff;
     border: 0;
@@ -134,32 +134,32 @@ input:focus {
     font-family: Roboto;
     padding: 0;
   }
-  
+
   #pac-container {
     padding-bottom: 12px;
     margin-right: 12px;
   }
-  
+
   .pac-controls {
     display: inline-block;
     padding: 5px 11px;
   }
-  
+
   .pac-controls label {
     font-family: Roboto;
     font-size: 13px;
     font-weight: 300;
   }
-  
+
   #pac-input {
     background-color: #fff;
     text-overflow: ellipsis;
   }
-  
+
   #pac-input:focus {
     border-color: #4d90fe;
   }
-  
+
   #title {
     color: #fff;
     background-color: #4d90fe;
@@ -167,8 +167,21 @@ input:focus {
     font-weight: 500;
     padding: 6px 12px;
   }
-  
+
   #target {
     width: 345px;
   }
-  
+
+
+/* ============ */
+.icon-next
+{
+  width: 23px;
+  height: 22px;
+  position: relative;
+  top: 1px;
+  color: aqua;
+}
+
+
+/*  */

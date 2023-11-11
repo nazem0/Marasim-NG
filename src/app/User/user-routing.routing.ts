@@ -20,7 +20,6 @@ import { FeedComponent } from './components/feed/feed.component';
 import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
-
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
@@ -28,6 +27,7 @@ import { VendorRegisterationComponent } from '../Shared/components/vendor-regist
 import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
+import { FilterdComponent } from './components/filterd/filterd.component';
 
 
 
@@ -58,6 +58,8 @@ const routes: Routes = [
       { path: "reservation", component: ReservationsComponent },
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
+      { path: "filterd", component: FilterdComponent },
+      
     ],
   },
   { path: 'register', component: RegisterComponent },

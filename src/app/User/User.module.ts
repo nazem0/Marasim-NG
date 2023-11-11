@@ -32,6 +32,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
+import { FilterdComponent } from './components/filterd/filterd.component';
 
 
 @NgModule({
@@ -73,6 +74,8 @@ import { AddReviewComponent } from './components/reservations/add-review/add-rev
     HomeComponent,
     ReservationsComponent,
     AddReviewComponent,
+    FilterdComponent
+
   ]
 })
 export class UserModule { }
