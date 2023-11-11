@@ -32,19 +32,20 @@ export class PostService {
 
   //Reacts Requests
 
-  GetReacts(postId: number): Observable<IReaction[]> {
+  GetReactsByPostId(postId: number): Observable<IReaction[]> {
     return this.HttpClient.get<IReaction[]>(`${environment.apiUrl}/React/GetReactsByPostId/${postId}`)
   }
 
-  IsLiked(postId: number): Observable<boolean>{
+  IsLiked(postId: number): Observable<boolean> {
     return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postId}`)
   }
 
-  AddReact(React:any){
-    return this.HttpClient.post(`${environment.apiUrl}/React/Add`, React)
+  AddReact(PostId: number) {
+    const data = { PostId: PostId };
+    return this.HttpClient.post(`${environment.apiUrl}/React/Add/`, PostId)
   }
 
-  DeleteReact(postId:number){
+  DeleteReact(postId: number) {
     return this.HttpClient.delete(`${environment.apiUrl}/React/Delete/${postId}`)
   }
 
@@ -56,7 +57,7 @@ export class PostService {
     return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${postId}`)
   }
 
-  AddComment(Comment: any){
+  AddComment(Comment: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Comment/Add`, Comment)
   }
 }

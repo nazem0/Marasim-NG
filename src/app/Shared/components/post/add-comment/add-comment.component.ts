@@ -8,7 +8,7 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./add-comment.component.css']
 })
 export class AddCommentComponent {
-  @Input() postID!: number;
+  @Input() postId!: number;
   @Output() refresh = new EventEmitter();
   commentForm: FormGroup;
   formIsValid = false;
@@ -17,7 +17,7 @@ export class AddCommentComponent {
   constructor(private FormBuilder: FormBuilder, private PostService: PostService,private Toastr:ToastrService) {
     this.data = new FormData();
     this.commentForm = this.FormBuilder.group({
-      postID: this.postID,
+      postId: this.postId,
       Text: [null, [Validators.required]],
     });
 
@@ -29,7 +29,7 @@ export class AddCommentComponent {
   addComment() {
     if (this.formIsValid) {
       this.data.append('Text', this.commentForm.get('Text')?.value);
-      this.data.append('PostId', this.postID.toString());
+      this.data.append('postId', this.postId.toString());
 
       this.PostService.AddComment(this.data)
         .subscribe({

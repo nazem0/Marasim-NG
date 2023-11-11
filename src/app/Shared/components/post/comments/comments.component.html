@@ -1,16 +1,16 @@
-    <div class="comments accordion accordion-flush" id="p_comm{{postID}}">
+    <div class="comments accordion accordion-flush" id="p_comm{{postId}}">
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    attr.data-bs-target="#p_comm_collapse{{postID}}" aria-expanded="false"
-                    attr.aria-controls="p_comm_collapse{{postID}}">
+                    attr.data-bs-target="#p_comm_collapse{{postId}}" aria-expanded="false"
+                    attr.aria-controls="p_comm_collapse{{postId}}">
                     <span class="text-center">
                         <i class="fa-regular fa-comments"></i> {{comments.length}}
                     </span>
                 </button>
             </h2>
-            <div id="p_comm_collapse{{postID}}" class="accordion-collapse collapse"
-                attr.data-bs-parent="#p_comm{{postID}}">
+            <div id="p_comm_collapse{{postId}}" class="accordion-collapse collapse"
+                attr.data-bs-parent="#p_comm{{postId}}">
                 <div class="accordion-body">
                     <ng-container *ngFor="let comment of comments">
                         <app-comment [comment]="comment"></app-comment>
@@ -18,5 +18,5 @@
                 </div>
             </div>
         </div>
-        <app-add-comment (refresh)="ngOnInit()" [postID]="postID"></app-add-comment>
+        <app-add-comment (refresh)="ngOnInit()" [postId]="postId"></app-add-comment>
     </div>

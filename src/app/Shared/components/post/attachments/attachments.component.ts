@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class AttachmentsComponent {
   apiUrl=environment.serverUrl;
 
-  @Input() postID!: number;
+  @Input() postId!: number;
   @Input() postTitle!: string;
   @Input() vendorId!: number;
   @Input() vendorUserId!: string;

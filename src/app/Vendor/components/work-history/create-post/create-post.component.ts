@@ -40,8 +40,10 @@ export class CreatePostComponent {
       this.PostService.Add(this.data)
         .subscribe({
           next: (data) => {
-            console.log("Post Added")
-            this.refresh.emit()
+            console.log("Post Added");
+            this.refresh.emit();
+            this.postForm.reset();
+            this.data = new FormData();
           },
           error: (error) => {
             console.log(error);

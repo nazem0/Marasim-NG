@@ -8,13 +8,13 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent {
-  @Input() postID!:number;
+  @Input() postId!:number;
   comments: IComment[]=[]
   
   constructor(private post:PostService) {
   }
 
   ngOnInit(){
-    this.post.GetCommentsByPostId(this.postID).subscribe((result)=>this.comments=result)
+    this.post.GetCommentsByPostId(this.postId).subscribe((result)=>this.comments=result)
   }
 }

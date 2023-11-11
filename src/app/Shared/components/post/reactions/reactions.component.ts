@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { IReaction } from 'src/app/Models/IPost';
 import { PostService } from 'src/app/Services/Post.service';
 
@@ -8,14 +9,52 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./reactions.component.css']
 })
 export class ReactionsComponent {
+  currentUserId: string = '';
   isLiked: boolean | undefined;
-  @Input() postID!: number;
-  reactions: IReaction[] = []
-  constructor(private PostService: PostService) {
-
+  @Input() postId!: number;
+  Reactions!: IReaction[];
+  constructor(private PostService: PostService, private CookieService: CookieService) {
   }
   ngOnInit() {
-    this.PostService.IsLiked(this.postID).subscribe((result) => this.isLiked = result)
-    this.PostService.GetReacts(this.postID).subscribe((result) => this.reactions = result)
+    this.currentUserId = this.CookieService.get("Id");
+    console.log(this.currentUserId);
+    this.GetLikes();
+    this.PostService.IsLiked(this.postId)
+      .subscribe((result) => {
+        this.isLiked = result;
+        console.log(this.isLiked);
+      })
+  }
+
+  GetLikes() {
+    this.PostService.GetReactsByPostId(this.postId).subscribe((result) => this.Reactions = result);
+  }
+
+  Like() {
+    this.PostService.AddReact(this.postId)
+      .subscribe({
+        next: (data) => {
+          console.log("Liked");
+          this.GetLikes();
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+    this.isLiked = true;
+  }
+
+  DisLike() {
+    this.PostService.DeleteReact(this.postId)
+      .subscribe({
+        next: (data) => {
+          console.log("Dislikde");
+          this.GetLikes();
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+    this.isLiked = false;
   }
 }

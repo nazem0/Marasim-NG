@@ -20,14 +20,14 @@
     <p class="post-description">{{post.description}}</p>
   </div>
   <!-- Carousel : Attachments -->
-  <app-attachments [postAttachments]="post.postAttachments" [postID]="post.id" [vendorId]="post.vendorId" [vendorUserId]="post.vendorUserId"
+  <app-attachments [postAttachments]="post.postAttachments" [postId]="post.id" [vendorId]="post.vendorId" [vendorUserId]="post.vendorUserId"
     [postTitle]="post.title"></app-attachments>
   <!-- End Carousel -->
   <!-- Modal : Reactions -->
-  <app-reactions [postID]="post.id"></app-reactions>
+  <app-reactions [postId]="post.id"></app-reactions>
   <!-- End Modal -->
   <!-- Accordion : Comments -->
-  <app-comments [postID]="post.id"></app-comments>
+  <app-comments [postId]="post.id"></app-comments>
   <!-- End Accordion -->
 
   <!-- Add Comment -->
