@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { IServiceAttachmentCustom } from 'src/app/Models/IService';
 import { AuthService } from 'src/app/Services/Auth.service';
 import { AttachmentService } from 'src/app/Services/Attachment.service';
@@ -46,6 +46,20 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   }
 
+  divPosition: string = 'fixed';
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    const section = document.querySelector('.section-box') as HTMLElement;
+    const divBox = document.querySelector('.div-box') as HTMLElement;
+
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop <= 0) {
+      this.divPosition = 'static'; // Switch to normal position
+    } else {
+      this.divPosition = 'fixed'; // Stick to the bottom
+    }
+  }
 }
 

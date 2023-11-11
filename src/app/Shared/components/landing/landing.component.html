@@ -85,11 +85,13 @@
 <!-- <div class="bbb ">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#23c0c9" fill-opacity="0.4" d="M0,32L1440,192L1440,0L0,0Z"></path></svg>
 </div> -->
-<div class="sec-2 container d-flex py-5  justify-content-center flex-column" id="sec2">
+
+<div class="sec2-backgroungd h-100">
+<div class="sec-2 container d-flex py-5  justify-content-center flex-column h-100"  id="sec2">
   <h2 class="text-primary ms-3">فئات مقدمي الخدمة</h2>
   <div class="mt-5">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="cardd  col-lg-4 col-md-4 col-sm-12">
         <div class="custom-card content-left  text-white  d-flex flex-column justify-content-between">
 
           <h2>مصور فوتوغرافي</h2>
@@ -99,7 +101,7 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="cardd col-lg-4 col-md-4 col-sm-12">
         <div class="custom-card content-center text-white d-flex flex-column justify-content-between">
 
           <h2>خبير تجميل</h2>
@@ -108,7 +110,7 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="cardd col-lg-4 col-md-4 col-sm-12">
         <div class="custom-card content-right text-white d-flex flex-column justify-content-between">
 
           <h2>منظم حفلات</h2>
@@ -123,11 +125,18 @@
   </div>
 
 </div>
+</div>
+<section class="section-box h-100">
+  <div class="div-box">
+    <p>This is the content of the div.</p>
+  </div>
+</section>
+
 
 <div class="background-img2">
 </div>
 <div class="py-5">
-  <h2 class="text-primary ms-3 mb-5">مقدمو الخدمة الأكثر طلباً</h2>
+  <h2 class="text-primary ms-3 mb-5 h-100">مقدمو الخدمة الأكثر طلباً</h2>
   <div>
     <app-carousel [slides]="slides" [slideWidth]="'450px'"></app-carousel>
   </div>
