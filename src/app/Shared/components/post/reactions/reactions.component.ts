@@ -9,11 +9,13 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./reactions.component.css']
 })
 export class ReactionsComponent {
+  data: FormData;
   currentUserId: string = '';
   isLiked: boolean | undefined;
   @Input() postId!: number;
   Reactions!: IReaction[];
   constructor(private PostService: PostService, private CookieService: CookieService) {
+    this.data = new FormData();
   }
   ngOnInit() {
     this.currentUserId = this.CookieService.get("Id");
@@ -31,6 +33,8 @@ export class ReactionsComponent {
   }
 
   Like() {
+    this.data.set('PostId', this.postId.toString());
+
     this.PostService.AddReact(this.postId)
       .subscribe({
         next: (data) => {

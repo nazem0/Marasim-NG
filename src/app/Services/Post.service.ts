@@ -40,8 +40,7 @@ export class PostService {
     return this.HttpClient.get<boolean>(`${environment.apiUrl}/React/GetIsLiked/${postId}`)
   }
 
-  AddReact(PostId: number) {
-    const data = { PostId: PostId };
+  AddReact(PostId: any) {
     return this.HttpClient.post(`${environment.apiUrl}/React/Add/`, PostId)
   }
 
