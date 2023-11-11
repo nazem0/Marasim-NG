@@ -18,7 +18,7 @@ export interface IServiceAttachment {
 }
 
 export interface IServiceMinInfo {
-    vendorId: number,
+    vendorID: number,
     title: string,
 }
 export interface IServiceAttachmentCustom {

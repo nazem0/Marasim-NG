@@ -28,8 +28,6 @@
         <td>{{ Reservation.dateTime | dateFormatArabic }}</td>
         <td>{{ Reservation.service.title }}</td>
         <td>{{ Reservation.address }}</td>
-        <!-- <td>{{ Reservation.acceptanceDate }}</td> -->
-        <!-- <td *ngIf="activeTab == 'all'">{{ Reservation.status }}</td> -->
         <td *ngIf="activeTab == 'all'">
           <ng-container [ngSwitch]="Reservation.status">
             <span *ngSwitchCase="'p'"
@@ -39,12 +37,19 @@
             <span *ngSwitchCase="'r'"
               [ngStyle]="{'color': 'white', 'background-color': '#FF0000', 'border-radius': '7px'}">تم رفضها</span>
             <span *ngSwitchDefault>Other Status</span>
+            <span *ngSwitchDefault>Other Status</span>
+            <span *ngSwitchDefault>Other Status</span>
           </ng-container>
         </td>
 
-        <td >
-          <button class="btn btn-success acceptBtn" (click)="acceptReservation(Reservation)" >قبول</button>
-          <button class="btn btn-danger rejectBtn">رفض</button>
+        <td *ngIf="activeTab != 'a' && activeTab != 'r'" >
+          <ng-container *ngIf="Reservation.status === 'p' else noButtons" >
+          <button  class="btn btn-success acceptBtn" (click)="acceptReservation(Reservation)" >قبول</button>
+          <button  class="btn btn-danger rejectBtn" (click)="rejectReservation(Reservation)">رفض</button>
+        </ng-container>
+        <ng-template #noButtons>
+          <span><hr style="color: green; font-size: smaller;"></span>
+        </ng-template>
         </td>
       </tr>
     </tbody>

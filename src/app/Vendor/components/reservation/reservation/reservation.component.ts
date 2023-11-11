@@ -32,7 +32,7 @@ export class ReservationComponent implements OnInit {
       next:(response)=>{
         this.Reservations=response
         console.log(this.Reservations);
-        this.filterReservations(this.activeTab); // Ensure filtering happens after data is fetched
+        this.filterReservations(this.activeTab); 
       },
       error: (error) => {
         console.error('Error fetching reservations:', error);

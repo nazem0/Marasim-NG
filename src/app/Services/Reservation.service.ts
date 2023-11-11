@@ -30,7 +30,11 @@ export class ReservationService {
   }
 
   Accept(Data : any){
-    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/AcceptReservation`,Data)
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Accept`,Data)
+  }
+
+  Reject(Data : any){
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Reject`,Data)
   }
   Confirm(ReservationId:number){
     return this.HttpClient.get(`${environment.apiUrl}/Reservation/Confirm/${ReservationId}`)
