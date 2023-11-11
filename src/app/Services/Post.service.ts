@@ -18,8 +18,8 @@ export class PostService {
     return this.HttpClient.post(`${environment.apiUrl}/Post/Update?PostID=${PostID}`, Post)
   }
 
-  Delete(PostID: number) {
-    return this.HttpClient.delete(`${environment.apiUrl}/Post/Delete?PostID=${PostID}`)
+  Delete(PostId: number) {
+    return this.HttpClient.delete(`${environment.apiUrl}/Post/Delete/${PostId}`)
   }
 
   Get(): Observable<IPost[]> {

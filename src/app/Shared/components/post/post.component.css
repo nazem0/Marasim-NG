@@ -1,26 +1,31 @@
-.post{
+.post {
     height: 100%;
     display: block;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-    max-width:40rem;
+    max-width: 40rem;
     margin: 0 auto;
-    border-radius : 10px;
+    border-radius: 10px;
 }
-.post-body{
+
+.post-body {
     padding: 1rem 1.25rem;
 
 }
 
-.vendorPic{
-
+.vendorPic {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-
 }
 
-.post-body{
+.post-body {
     white-space: pre-wrap;
     word-break: break-word;
 
-  }
+}
+
+.topleft {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}

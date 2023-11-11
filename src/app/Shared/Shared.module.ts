@@ -37,6 +37,7 @@ import { VendorFollowingVendorComponent } from './components/vendor-following-ve
 import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
 import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 import { TruncatePipe } from '../Pipes/Truncate.pipe';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ import { TruncatePipe } from '../Pipes/Truncate.pipe';
     FollowersComponent,
     FollowerComponent,
     VendorFollowingVendorComponent,
+    DeleteModalComponent,
 
   ],
   providers:[
@@ -104,7 +106,8 @@ import { TruncatePipe } from '../Pipes/Truncate.pipe';
     FollowerComponent,
     VendorFollowingVendorComponent,
     DateFormatArabicPipe,
-    TruncatePipe
+    TruncatePipe,
+    DeleteModalComponent
   ],
 
 })

@@ -1,5 +1,5 @@
 <div class="post overflow-hidden" *ngIf="post">
-  <div class="post-body">
+  <div class="post-body position-relative">
 
     <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
 
@@ -10,7 +10,7 @@
         <span class="text-muted">{{post.dateTime}}</span>
       </div>
 
-
+      <app-delete-modal *ngIf="isVendor" class="topleft" (delete)="deletePost()"></app-delete-modal>
     </div>
 
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -31,3 +31,4 @@
 
   <!-- Add Comment -->
 </div>
+
