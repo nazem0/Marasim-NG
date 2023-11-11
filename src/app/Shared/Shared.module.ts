@@ -50,7 +50,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     FormsModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatFormFieldModule,    
+    MatFormFieldModule,
     MatRippleModule,
     PasswordStrengthMeterModule.forRoot(DEFAULT_PSM_OPTIONS)
 
@@ -83,6 +83,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     FollowerComponent,
     VendorFollowingVendorComponent,
     DeleteModalComponent,
+
 
   ],
   providers:[
