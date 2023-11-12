@@ -1,4 +1,7 @@
 import { Component,Output } from '@angular/core';
+import { StatsService } from 'src/app/Services/Stats.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-completed-orders-chart',
@@ -7,22 +10,33 @@ import { Component,Output } from '@angular/core';
 })
 export class CompletedOrdersChartComponent {
   @Output() activeTab: string = 'tap1';
+  barChartData: any = {};
 
-  barChartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    datasets: [
-      {
-        data: [89, 34, 43, 54, 28, 74, 93],
-        label: 'الحجوزات التي تمت',
-        backgroundColor: '#088f95'
+  constructor( private statsService :StatsService ,private CookieService: CookieService,
+    ) { }
+  loadTotalOrderData() {
+    this.statsService.GetTotalOrder().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.barChartData = {
+          labels: Object.keys(data),
+          datasets: [
+            {
+              data: Object.values(data),
+              label: 'الحجوزات التي تمت',
+              backgroundColor: '#088f95'
+            }
+          ]
+        };
+      },
+      error: (error: any) => {
+        console.error('Error fetching total order stats', error);
       }
-    ]
+    });
   }
-
-
-  constructor() { }
-
   ngOnInit(): void {
+    this.loadTotalOrderData();
   }
+
 
 }
