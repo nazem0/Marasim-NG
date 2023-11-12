@@ -38,3 +38,11 @@ export interface IPostAttachment {
   postId: number,
   attachmentUrl: string,
 }
+
+export interface PostList{
+  count: number;
+  data: IPost[];
+  lastPage: number;
+  pageIndex: number;
+  pageSize: number;
+}

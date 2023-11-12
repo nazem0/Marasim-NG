@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DateFormatArabicPipe } from './Pipes/DateFormatArabic.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DateFormatArabicPipe } from './Pipes/DateFormatArabic.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxPaginationModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

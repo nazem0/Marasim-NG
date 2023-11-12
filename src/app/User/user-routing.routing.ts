@@ -35,11 +35,10 @@ import { FilterdComponent } from './components/filterd/filterd.component';
 const routes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
-      { path: '', component: HomeComponent },
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
-      { path: 'invitation', component: InvitationComponent },
+      { path: 'invitation/:id', component: InvitationComponent},
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
@@ -58,8 +57,8 @@ const routes: Routes = [
       { path: "reservation", component: ReservationsComponent },
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
-      { path: "filterd", component: FilterdComponent },
-      
+      { path: "filterd", component: FilterdComponent },{ path: "", component: LandingComponent },
+
     ],
   },
   { path: 'register', component: RegisterComponent },
@@ -67,7 +66,6 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: "contact", component: ContactComponent },
-  { path: "landing", component: LandingComponent },
 
 
 

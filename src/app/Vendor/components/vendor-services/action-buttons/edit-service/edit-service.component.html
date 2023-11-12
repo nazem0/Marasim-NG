@@ -1,46 +1,78 @@
 <!-- Button trigger modal -->
-<button title="تعديل الخدمة" class="warning-btn" data-bs-toggle="modal" data-bs-target="#edit-service">تعديل
+<button title="تعديل الخدمة" class="warning-btn" data-bs-toggle="modal"
+attr.data-bs-target="#editService{{service?.id}}">تعديل
   الخدمة</button>
 <!-- Modal -->
-<div class="modal fade" id="edit-service" tabindex="-1" aria-labelledby="edit-serviceLabel" aria-hidden="true">
+<div class="modal fade" id="editService{{service?.id}}" tabindex="-1"
+  attr.aria-labelledby="editService{{service?.id}}Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="edit-serviceLabel">أضافــة خدمـة</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="editService{{service?.id}}Label">أضافــة خدمـة</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
       </div>
       <div class="container">
-        <h1 class="text-center mt-5 text-primary">تعديـل خدمـة</h1>
+        <h1 class="text-center mt-3 text-primary">تعديـل خدمـة</h1>
         <div class="parent my-5 d-flex justify-content-center">
           <div class="F DivForm w-50">
             <form [formGroup]="editServiceForm" (ngSubmit)="updateService()">
               <div class="mb-3">
                 <label for="Inputtitle" class="form-label">أســم الخدمــة</label>
-                <input type="text" class="form-control" id="Inputtitle" formControlName="Title"
+                <input type="text" class="form-control" id="Inputtitle"
+                  formControlName="Title"
                   placeholder={{service?.title}}>
               </div>
               <div class="mb-3">
                 <label for="Inputprice" class="form-label">سعـر الخدمــة</label>
-                <input type="number" class="form-control" id="Inputprice" formControlName="Price"
+                <input type="number" class="form-control" id="Inputprice"
+                  formControlName="Price"
                   placeholder={{service?.price}}>
               </div>
+
               <!-- <div class="mb-3">
                 <label for="Inputmedia" class="form-label">أرفاق وسائط ميديـا</label>
                 <input type="file" class="form-control" id="Inputmedia" formControlName="Media">
               </div> -->
               <label for="Inputdescription" class="form-label">وصف الخدمــة</label>
-              <textarea class="form-control" rows="5" placeholder={{service?.description}} formControlName="Description"
+              <textarea class="form-control" rows="5"
+                placeholder={{service?.description}}
+                formControlName="Description"
                 id="Inputdescription"></textarea>
+
+
+                <!-- <div *ngFor="let pic of service?.serviceAttachments">
+                  <img
+                    src="{{apiUrl}}{{service?.userId}}/serviceAttachment/{{pic?.serviceId}}-{{service?.vendorId}}/{{pic.attachmentUrl}}"
+                    class="d-block" alt="...">
+                </div> -->
+
+                  <!-- <div class="parent-edit-pic">
+                    <div class="card" style="width: 100%;" *ngFor="let pic of service?.serviceAttachments">
+                      <img
+                                src="{{apiUrl}}{{service?.userId}}/serviceAttachment/{{service?.id}}-{{service?.vendorId}}/{{pic.attachmentUrl}}"
+                                class="card-img-top" alt="...">
+                    </div>
+                  </div> -->
             </form>
           </div>
         </div>
       </div>
 
 
+      <div class="parent-edit-pic">
+        <div class="card" style="width: 100%;" *ngFor="let pic of service?.serviceAttachments">
+          <img
+                    src="{{apiUrl}}{{service?.userId}}/serviceAttachment/{{service?.id}}-{{service?.vendorId}}/{{pic.attachmentUrl}}"
+                    class="card-img-top" alt="...">
+        </div>
+      </div>
+
       <div class="modal-footer">
         <div class="d-flex justify-content-center align-items-center">
           <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
-            [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }" [disabled]="!formIsValid"
+            [ngClass]="{ 'btn-primary': formIsValid, 'invalid-button': !formIsValid }"
+            [disabled]="!formIsValid"
             (click)="updateService()" data-bs-dismiss="modal">تأكيــد</button>
         </div>
         <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
@@ -48,3 +80,30 @@
     </div>
   </div>
 </div>
+
+<!--
+<div class="parent-edit-pics">
+  <button title="تعديل الصور" class="warning-btn" data-bs-toggle="modal" data-bs-target="#edit-pic">تعديل الصور</button>
+  <div class="modal fade" id="edit-pic" tabindex="-1" aria-labelledby="edit-picLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="edit-picLabel">تعديل الصور</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="container">
+
+        </div>
+
+        <div class="modal-footer">
+          <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="mx-auto btn btn-primary my-4  btn-v-form"
+              data-bs-dismiss="modal">تأكيــد</button>
+          </div>
+          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->

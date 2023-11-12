@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { IReview } from 'src/app/Models/IReview';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-review',
@@ -6,5 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent {
-  @Input() Review!: any;
+  apiUrl=environment.serverUrl;
+  @Input() Review!: IReview;
 }

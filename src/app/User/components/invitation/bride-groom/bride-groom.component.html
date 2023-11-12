@@ -2,55 +2,52 @@
   <div>
     <div
       class="cover-container position-relative rounded_eye border border-5 border-primary p-2 shadow mb-lg-0 mb-md-0 mb-5">
-      <img class="cover" src="../assets/img/photo_session.webp" alt="" />
+      <img class="cover" src="{{apiUrl}}{{invitation.userId}}/invitation/{{invitation.posterUrl}}" alt="" />
       <img id="flower_1" class="position-absolute" src="../assets/img/flowers-1.png" alt="" />
       <img id="flower_2" class="position-absolute" src="../assets/img/flowers-2.png" alt="" />
     </div>
   </div>
   <div>
     <!-- to be sequentially shown -->
-    <div id="bride_groom" class="d-flex gap-3 flex-wrap mb-5">
-      <div class="ms-auto bride_groom_container groom_container shadow">
-        <img src="../assets/img/groom.png" alt="" />
+    <div id="bride_groom" class="d-flex gap-3 flex-wrap mb-3">
+      <div class="ms-auto bride_groom_container groom_container shadow-sm">
+        <img src="{{apiUrl}}{{invitation.userId}}/invitation/{{invitation.groomPicUrl}}" alt="" />
       </div>
 
-      <div class="me-auto bride_groom_container bride_container shadow">
-        <img src="../assets/img/bride.png" alt="" />
+      <div class="me-auto bride_groom_container bride_container shadow-sm">
+        <img  src="{{apiUrl}}{{invitation.userId}}/invitation/{{invitation.bridePicUrl}}" alt="" />
       </div>
     </div>
 
     <div class="row row-cols-2">
       <div class="text-end">
-        <h4>سيد عبدالحميد</h4>
-        <p>هذا النص نص تجريبي يحتوي على مجموعة كلمات بشكل مؤقت</p>
+        <h4>{{invitation.groomName}}</h4>
       </div>
       <div class="text-start">
-        <h4>ماجدة عز الدين</h4>
-        <p>هذا النص نص تجريبي يحتوي على مجموعة كلمات بشكل مؤقت</p>
+        <h4>{{invitation.brideName}}</h4>
       </div>
     </div>
-    <div class="text-justify">
+    <div class="text-center">
       يسرنا أن ندعوكم لحضور مراسم زفاف السيد
       <span class="text-primary">
-        سيد
+        {{invitation.groomName}}
       </span>
       والانسة
       <span class="text-primary">
-        ماجدة
-      </span> يوم الأحد
-      الموافق
-      <span class="text-primary">
-        بطاطس شهر لانشون
+        {{invitation.brideName}}
       </span>
-      بقاعة
+      بتاريخ
       <span class="text-primary">
-        شاورما
+        {{invitation.date | dateFormatArabic}}
       </span>
-      بحي
+      في
       <span class="text-primary">
-        الموزريلا
-      </span>.
-      نتشرف بحضوركم ومشاركتكم فرحتنا بهذه المناسبة السعيدة، ونتمنى أن تتقبلوا دعوتنا بكل سرور.
+        {{invitation.location}}
+      </span>
+      .
+      <p>
+        نتشرف بحضوركم ومشاركتكم فرحتنا بهذه المناسبة السعيدة، ونتمنى أن تتقبلوا دعوتنا بكل سرور.
+      </p>
     </div>
   </div>
 </div>

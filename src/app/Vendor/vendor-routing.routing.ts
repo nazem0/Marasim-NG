@@ -25,7 +25,7 @@ const vendorRoutes: Routes = [
             { path: 'create-offer', component: CreateOfferComponent },
             { path: 'reviews', component: VendorReviewsComponent },
             { path: 'services', component: VendorServicesComponent },
-            { path: 'work-history', component: WorkHistoryComponent },
+            { path: 'work-history/:page', component: WorkHistoryComponent },
             { path: 'reservation', component: ReservationComponent },
             { path: 'edit-service', component: EditServiceComponent },
             { path: 'vendorform', component: VendorFormComponent },

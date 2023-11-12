@@ -4,16 +4,12 @@
   position: relative;
   height: 100%;
 }
-.sec2-backgroungd{
-  background-image: url(../../../../assets/svg/white-concrete-wall.jpg);
-  background-repeat: repeat-x;
-  background-size: contain;
-}
+
 .cardd:hover{
-transform: scale(105%);
+transform: scale(103%);
 transition: ease-in-out;
 transition: all 0.5s;
-/* transition-delay: 0.5s; */
+transition-delay: 20ms;
 }
 .upper {
   display: flex;
@@ -25,6 +21,10 @@ transition: all 0.5s;
   background-color: rgba(0, 0, 0, 0.6);
   align-items: center;
 }
+.sec-2{
+
+}
+
 
 video {
   width: 100%;
@@ -202,7 +202,11 @@ video {
   height: 350px;
 
 }
+/* .content-left:hover a{
 
+border-color: #23C0C9;
+
+} */
 .content-center {
   background-color: rgb(102, 166, 164);
   background-size: cover;
@@ -249,11 +253,12 @@ video {
   padding-bottom: 5px;
   border-bottom-style: solid;
   border-bottom-width: 4px;
-  border-color: red;
+  border-color: #23C0C9;
   width: 100px;
 
 
 }
+
 
 .photo {
   width: 200px;

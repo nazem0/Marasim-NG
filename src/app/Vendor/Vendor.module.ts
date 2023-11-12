@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -37,7 +38,7 @@ import { VendorNavToggleComponent } from './components/vendor-nav-toggle/vendor-
     SharedModule,
     NgChartsModule,
     ReactiveFormsModule,
-    ReactiveFormsModule,
+    NgxPaginationModule,
     ],
   exports: [
     FollowersComponent,

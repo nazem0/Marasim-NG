@@ -1,5 +1,7 @@
+import { Invitation } from 'src/app/Models/Invitation';
 import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-cover',
@@ -8,9 +10,9 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class CoverComponent implements AfterViewInit {
   @ViewChild("Invitation") Invitaion!:ElementRef;
-
+  @Input() invitation! :Invitation;
+  apiUrl=environment.serverUrl;
   constructor(private Scroller:ViewportScroller) { }
-
   ngOnInit() {
   }
 

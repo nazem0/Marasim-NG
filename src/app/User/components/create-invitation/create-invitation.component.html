@@ -1,28 +1,66 @@
 <div class="container my-2">
-    <h1 class="text-center mb-5 text-primary">إنشاء دعوة</h1>
-    <form action="" class="w-50 mx-auto">
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="GroomName" id="GroomName" placeholder="">
-            <label for="GroomName">أسم العريس</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="BrideName" id="BrideName" placeholder="">
-            <label for="BrideName">أسم العروسة</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="date"
-            class="form-control" name="WeddingDate" id="WeddingDate" placeholder="">
+  <h1 class="text-center mb-5 text-primary">إنشاء دعوة</h1>
+  <form class="w-50 mx-auto" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="GroomName" placeholder="">
+          <label for="GroomName">أسم العريس</label>
+          <div *ngIf="form.get('GroomName')?.invalid && form.get('GroomName')?.touched" class="text-danger">
+              اسم العريس مطلوب
+          </div>
+          <div *ngIf="form.get('GroomName')?.hasError('maxlength') && form.get('GroomName')?.touched" class="text-danger">
+              اسم العريس لا يمكن أن يكون أطول من 150 حرفًا
+          </div>
+      </div>
+      <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="BrideName" placeholder="">
+          <label for="BrideName">أسم العروسة</label>
+          <div *ngIf="form.get('BrideName')?.invalid && form.get('BrideName')?.touched" class="text-danger">
+              اسم العروسة مطلوب
+          </div>
+          <div *ngIf="form.get('BrideName')?.hasError('maxlength') && form.get('BrideName')?.touched" class="text-danger">
+              اسم العروسة لا يمكن أن يكون أطول من 150 حرفًا
+          </div>
+      </div>
+      <div class="form-floating mb-3">
+          <input #GroomPic type="file" class="form-control" formControlName="GroomPic" accept="image/*">
+          <label for="GroomPic">صورة العريس</label>
+          <div *ngIf="form.get('GroomPic')?.invalid && form.get('GroomPic')?.touched" class="text-danger">
+              صورة العريس مطلوبة
+          </div>
+      </div>
+      <div class="form-floating mb-3">
+          <input #BridePic type="file" class="form-control" formControlName="BridePic" accept="image/*">
+          <label for="BridePic">صورة العروسة</label>
+          <div *ngIf="form.get('BridePic')?.invalid && form.get('BridePic')?.touched" class="text-danger">
+              صورة العروسة مطلوبة
+          </div>
+      </div>
+      <div class="form-floating mb-3">
+          <input type="datetime-local" class="form-control" formControlName="WeddingDate" placeholder="">
           <label for="WeddingDate">تاريخ الزفاف</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="file"
-            class="form-control" name="formId1" id="CoverPicture" placeholder="">
-          <label for="CoverPicture">صورة غلاف</label>
-        </div>
-        <div class="mb-3">
-            <button class="primary-btn rounded-2 w-100">Done</button>
-        </div>
-    </form>
+          <div *ngIf="form.get('WeddingDate')?.invalid && form.get('WeddingDate')?.touched" class="text-danger">
+              تاريخ الزفاف مطلوب
+          </div>
+      </div>
+      <div class="form-floating mb-3">
+          <input #Poster type="file" class="form-control" formControlName="Poster" accept="image/*">
+          <label for="Poster">صورة غلاف</label>
+          <div *ngIf="form.get('Poster')?.invalid && form.get('Poster')?.touched" class="text-danger">
+              صورة الغلاف مطلوبة
+          </div>
+      </div>
+      <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="Location" placeholder="">
+          <label for="Location">اسم المكان</label>
+          <div *ngIf="form.get('Location')?.invalid && form.get('Location')?.touched" class="text-danger">
+              اسم المكان مطلوبة
+          </div>
+          <div *ngIf="form.get('Location')?.hasError('maxlength') && form.get('Location')?.touched" class="text-danger">
+              اسم المكان لا يمكن أن تكون أطول من 150 حرف
+          </div>
+      </div>
+      <div class="mb-3">
+          <button type="submit" class="primary-btn rounded-2 w-100" [disabled]="!form.valid">إنشاء</button>
+      </div>
+  </form>
 </div>

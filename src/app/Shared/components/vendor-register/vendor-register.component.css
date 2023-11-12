@@ -184,4 +184,18 @@ input:focus {
 }
 
 
-/*  */
+/* animation fo form */
+.page-1 , .page-2 {
+  animation: moving 1s ease;
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

@@ -1,76 +1,81 @@
 <ng-container *ngIf="service">
     <!-- Button trigger modal -->
-<button title="احجز" type="button" class="primary-btn" data-bs-toggle="modal" attr.data-bs-target="#reserve{{service.id}}">
-    <i class="fa fa-cart-shopping"></i>
-</button>
+    <ng-container *ngIf="AuthService.isLoggedIn| async;else NotLoggedIn">
+        <button title="احجز" type="button" class="primary-btn" data-bs-toggle="modal"
+            attr.data-bs-target="#reserve{{service.id}}">احجز الآن</button>
+    </ng-container>
+    <ng-template #NotLoggedIn>
+        <button title="سجل" type="button" class="primary-btn" routerLink="/register">سجل الآن</button>
+    </ng-template>
 
-<!-- Modal -->
-<div class="modal fade" id="reserve{{service.id}}" tabindex="-1" attr.aria-labelledby="reserve{{service.id}}Label"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="reserve{{service.id}}Label">حجز خدمة</h1>
-                <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="requestServiceForm" (ngSubmit)="request()">
-                    <div class="g-4 mb-4">
-                        <div class="d-flex align-items-center gap-3">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <input class="form-control" type="datetime-local" min="today" id="date" name="date"
-                                formControlName="date" placeholder="تاريخ الحجز" formControlName="DateTime">
-                        </div>
-                        <h5 class="text-danger my-2"
-                            *ngIf="requestServiceForm.controls['DateTime'].hasError('required') && requestServiceForm.controls['DateTime'].touched">
-                            ادخل
-                            تاريخ الحجز</h5>
-                        <div class="d-flex align-items-center gap-3">
-                            <i class="fa-solid fa-tag"></i>
-                            <input class="form-control" type="text" id="cuponInput" name="cupon"
-                                formControlName="PromoCode" placeholder="كود العرض">
-                        </div>
-                        <div class="row row-cols-2">
+
+    <!-- Modal -->
+    <div class="modal fade" id="reserve{{service.id}}" tabindex="-1" attr.aria-labelledby="reserve{{service.id}}Label"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="reserve{{service.id}}Label">حجز خدمة</h1>
+                    <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="requestServiceForm" (ngSubmit)="request()">
+                        <div class="g-4 mb-4">
                             <div class="d-flex align-items-center gap-3">
-                                <label for="lat">خطوط الطول</label>
-                                <input #Latitude id="lat" type="text" class="border-0 border-bottom border-2 w-100 p-2"
-                                    formControlName="Latitude">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <input class="form-control" type="datetime-local" min="today" id="date" name="date"
+                                    formControlName="date" placeholder="تاريخ الحجز" formControlName="DateTime">
                             </div>
+                            <h5 class="text-danger my-2"
+                                *ngIf="requestServiceForm.controls['DateTime'].hasError('required') && requestServiceForm.controls['DateTime'].touched">
+                                ادخل
+                                تاريخ الحجز</h5>
                             <div class="d-flex align-items-center gap-3">
-                                <label for="lng">دوائر العرض</label>
-                                <input #Longitude id="lng" type="text" class="border-0 border-bottom border-2 w-100 p-2"
-                                    formControlName="Longitude">
+                                <i class="fa-solid fa-tag"></i>
+                                <input class="form-control" type="text" id="cuponInput" name="cupon"
+                                    formControlName="PromoCode" placeholder="كود العرض">
                             </div>
-                        </div>
-                        <div class="d-flex">
-                            <input id="pac-input" class="controls border-0 border-bottom border-2 w-100 p-2" type="text"
-                                placeholder="حدد المكان" #PacInput/>
-                            <button title="حدد موقعي" type="button" id="gps-button"
-                                class="custom-map-control-button primary-btn rounded-1"><i
-                                    class='fa-solid fa-location-dot'></i></button>
-    
-                        </div>
-                        <small *ngIf="
+                            <div class="row row-cols-2">
+                                <div class="d-flex align-items-center gap-3">
+                                    <label for="lat">خطوط الطول</label>
+                                    <input #Latitude id="lat" type="text"
+                                        class="border-0 border-bottom border-2 w-100 p-2" formControlName="Latitude">
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <label for="lng">دوائر العرض</label>
+                                    <input #Longitude id="lng" type="text"
+                                        class="border-0 border-bottom border-2 w-100 p-2" formControlName="Longitude">
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <input id="pac-input" class="controls border-0 border-bottom border-2 w-100 p-2"
+                                    type="text" placeholder="حدد المكان" #PacInput />
+                                <button title="حدد موقعي" type="button" id="gps-button"
+                                    class="custom-map-control-button primary-btn rounded-1"><i
+                                        class='fa-solid fa-location-dot'></i></button>
+
+                            </div>
+                            <small *ngIf="
                         requestServiceForm?.get('Latitude')?.value == '' &&
                         requestServiceForm?.get('Longitude')?.value == ''
                         " class="text-danger">
-                            يجب تحديد عنوانك
-                        </small>
-                        <!-- Map -->
-                        <!-- Button trigger modal -->
-                        <div class="main-container">
-                            <div id="map">
-    
+                                يجب تحديد عنوانك
+                            </small>
+                            <!-- Map -->
+                            <!-- Button trigger modal -->
+                            <div class="main-container">
+                                <div id="map">
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="danger-btn" data-bs-dismiss="modal">الغاء</button>
-                        <button type="submit" class="primary-btn" data-bs-dismiss="modal">تأكيد</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="reset" class="danger-btn" data-bs-dismiss="modal">الغاء</button>
+                            <button type="submit" class="primary-btn" data-bs-dismiss="modal">تأكيد</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </ng-container>

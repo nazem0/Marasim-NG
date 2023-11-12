@@ -302,3 +302,15 @@ body {
 .pac-container {
     z-index: 2000 !important;
 }
+.pagination .ngx-pagination .current {
+    background: var(--primary-color);
+}
+
+.pagination .ngx-pagination .current span span{
+    color: var(--primary-background-color);
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}
