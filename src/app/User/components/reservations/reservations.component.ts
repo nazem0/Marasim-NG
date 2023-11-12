@@ -13,44 +13,47 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ReservationsComponent {
   activeTab: string = 'p';
-  apiUrl=environment.serverUrl;
-  Reservations:UserReservation[]=[];
+  apiUrl = environment.serverUrl;
+  Reservations: UserReservation[] = [];
   constructor(
-    private ReservationService:ReservationService,
-    private CookieService:CookieService,
-    private Toastr:ToastrService,
-    private ReviewService:ReviewService
-    ){}
-  ngOnInit(){
+    private ReservationService: ReservationService,
+    private CookieService: CookieService,
+    private Toastr: ToastrService,
+    private ReviewService: ReviewService
+  ) { }
+  ngOnInit() {
     this.getReservations();
   }
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.getReservations();
   }
-  getReservations(){
+  getReservations() {
     this.ReservationService.GetForUserByStatus(this.activeTab).subscribe({
-      next:(response)=>{
-        this.Reservations=response
+      next: (response) => {
+        this.Reservations = response
         console.log(this.Reservations);
       }
     })
   }
-  markAsDone(Id:number){
+  markAsDone(Id: number) {
     this.ReservationService.Done({
-      Id:Id,
-      UserId:this.CookieService.get("Id")
+      Id: Id,
+      UserId: this.CookieService.get("Id")
     }).subscribe({
-      next: () => this.Toastr.success(),
-        error: (error) => {
-          this.Toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
-          console.log(error);
-        }
+      next: () => {
+        this.Toastr.success("تم");
+        this.getReservations();
+      },
+      error: (error) => {
+        this.Toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
+        console.log(error);
+      }
     });
   }
-  HasReviews(ReservationId : number){
+  HasReviews(ReservationId: number) {
     this.ReviewService.HasReviews(ReservationId).subscribe({
-      next:(response)=>{
+      next: (response) => {
         return response;
       }
     })

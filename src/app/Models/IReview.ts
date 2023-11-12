@@ -1,25 +1,24 @@
 import { IService } from './IService';
-import { IUser } from './IUser';
+import { UserMinInfo } from './IUser';
 
 export interface IReview {
-  id: number;
-  userId: string;
-  serviceId: number;
-  rate: number;
-  message: string;
-  dateTime: Date;
-  User: IUser;
-  Service: IService;
+  id: number,
+  serviceId: number,
+  serviceTitle: string,
+  rate: number,
+  message: string,
+  dateTime: string,
+  user: UserMinInfo,
 }
 
 export interface AddReview {
-  serviceId: number;
-  rate: number;
-  message: string;
+  serviceId: number,
+  rate: number,
+  message: string,
 }
 
 export interface ReviewViewModel {
-  dateTime: string;
-  message: string;
-  rate: number;
+  dateTime: string,
+  message: string,
+  rate: number,
 }

@@ -1,4 +1,3 @@
-
 <!-- **************** MAIN CONTENT START **************** -->
 <main class="container">
     <h1 class="text-center my-5 text-primary">المراجعــات</h1>
@@ -15,9 +14,8 @@
                 <div class="bg-primary p-4 rounded text-center text-white">
                     <h6 class="fw-normal">جميع المراجعات</h6>
                     <div class="d-flex align-items-center justify-content-center">
-                        <h2 class="text-white">{{num_of_reviews}}</h2>
+                        <h2 class="text-white">{{reviews?.length}}</h2>
                     </div>
-                    <p class="text-white"> هذا النص هو مثال لنص</p>
                 </div>
             </div>
 
@@ -26,16 +24,16 @@
                 <div class="bg-primary p-4 rounded text-center">
                     <h6 class="text-white">معدل التقيم</h6>
                     <div class="align-items-center justify-content-center">
-                        <h2 class="text-white">٤,٠</h2>
+                        <h2 class="text-white">Average rev</h2>
                         <div>
-                            <i class="fa-solid fa-star text-warning"></i>
-                            <i class="fa-solid fa-star text-warning"></i>
-                            <i class="fa-solid fa-star text-warning"></i>
-                            <i class="fa-solid fa-star text-warning"></i>
-                            <i class="fa-solid fa-star text-white"></i>
+                            <span *ngFor="let _ of [].constructor(reviews?.length)">
+                                <i class="fa fa-star text-warning"></i>
+                            </span>
+                            <span *ngFor="let _ of [].constructor(5-reviews!.length)">
+                                <i class="fa fa-star text-secondary"></i>
+                            </span>
                         </div>
                     </div>
-                    <p class=" text-white"> هذا النص هو مثال لنص</p>
                 </div>
             </div>
 
@@ -44,7 +42,7 @@
         <!-- Review box END -->
 
         <!-- Reviews START -->
-        <div *ngFor="let review of REVIEWS" class="vstack gap-4 mt-5">
+        <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
             <!-- Review item -->
             <app-review [Review]="review"></app-review>
             <hr class="m-0">
