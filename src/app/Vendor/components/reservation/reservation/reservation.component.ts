@@ -16,7 +16,6 @@ export class ReservationComponent implements OnInit {
   constructor(private ReservationService:ReservationService) { }
 
   ngOnInit() {
-    this.getReservations();
   }
   filterReservations(tab: string) {
     this.activeTab = tab;
