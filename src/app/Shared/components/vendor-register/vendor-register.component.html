@@ -10,180 +10,182 @@
                         </p>
                     </div>
 
+                    <div class="content-pages">
 
-                    <div class="page-1" id="page1">
+                      <div class="page-1" id="page1">
 
-                          <div class=" d-flex align-items-center gap-3">
-                              <label for="full_name">
-                                  <i class="fa-solid fa-user fs-3"></i>
-                              </label>
-                              <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
-                                  name="full_name" placeholder="الأسم" formControlName="Name">
-                          </div>
-                          <small *ngIf="registerForm?.get('Name')?.invalid && registerForm?.get('Name')?.touched"
-                              class="text-danger">
-                              لم تقم بإدخال اسمك بالكامل بشكل صحيح
-                          </small>
-                          <div class=" d-flex align-items-center gap-3">
-                              <label for="email">
-                                  <i class="fa-solid fa-envelope fs-3"></i>
-                              </label>
-                              <input id="email" class="border-0 border-bottom border-2 w-100 p-2" type="email" name="email"
-                                  placeholder="البريد الألكتروني" formControlName="Email">
-                          </div>
-                          <small *ngIf="registerForm?.get('Email')?.invalid && registerForm?.get('Email')?.touched"
-                              class="text-danger">
-                              لم تقم بإدخال بريدك الألكتروني بشكل صحيح
-                          </small>
-                          <div class=" d-flex align-items-center gap-3">
-                              <label for="password">
-                                  <i class="fa-solid fa-key fs-3"></i>
-                              </label>
-                              <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
-                                  name="password" placeholder="كلمة السر" formControlName="Password">
-                              <password-strength-meter [password]="this.registerForm.get('Password')?.value"
-                                  class="w-50 mt-5 "></password-strength-meter>
-                          </div>
-                          <small *ngIf="registerForm?.get('Password')?.invalid && registerForm?.get('Password')?.touched"
-                              class="text-danger">
-                              يجب ان تكون كلمة السر مكونة من 8 احرف وتحتوي على ارقام ورموز
-                          </small>
-                          <div class=" d-flex align-items-center gap-3">
-                              <label for="password">
-                                  <i class="fa-solid fa-key fs-3"></i>
-                              </label>
-                              <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
-                                  name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
-                          </div>
-                          <small
-                              *ngIf="registerForm?.get('ConfirmPassword')?.value != registerForm?.get('Password')?.value && registerForm?.get('ConfirmPassword')?.touched"
-                              class="text-danger">
-                              يجب ان يطابق هذا الحقل ما قمت بكتابته في كلمة السر
-                          </small>
-                          <div class="row row-cols-1 row-cols-lg-2">
-                              <div class=" d-flex align-items-center gap-3">
-                                  <label for="phone">
-                                      <i class="fa-solid fa-phone-flip fs-3"></i>
-                                  </label>
-                                  <input id="phone" class="border-0 border-bottom border-2 w-100 p-2" type="tel" name="phone"
-                                      placeholder="رقم الهاتف" formControlName="PhoneNumber">
-                              </div>
-                              <div class=" d-flex align-items-center gap-3">
-                                  <label for="national_id">
-                                      <i class="fa-solid fa-id-card fs-3"></i>
-                                  </label>
-                                  <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
-                                      name="national_id" placeholder="الرقم القومي" formControlName="NationalID">
-                              </div>
-                              <small
-                                  *ngIf="registerForm?.get('PhoneNumber')?.invalid && registerForm?.get('PhoneNumber')?.touched"
-                                  class="text-danger">
-                                  يجب إدخال رقم الهاتف وبشكل صحيح
-                              </small>
-                              <small
-                                  *ngIf="registerForm?.get('NationalID')?.invalid && registerForm?.get('NationalID')?.touched"
-                                  class="text-danger">
-                                  يجب عليك إدخال رقمك القومي
-                              </small>
-                          </div>
-                          <div class="row row-cols-1 row-cols-lg-2">
-
-                              <div class=" d-flex align-items-center gap-3">
-                                  <label for="male" class="d-flex align-items-center gap-4">
-                                      <i class="fa fa-male fs-3"></i>
-                                      <span>ذكر</span>
-                                  </label>
-                                  <input class="form-check-input" title="male" type="radio" name="Gender" id="male" value=true
-                                      formControlName="Gender">
-                                  <label for="female" class="d-flex align-items-center gap-4">
-                                      <i class="fa-solid fa-person-dress fs-3"></i>
-                                      <span>أُنثى</span>
-                                  </label>
-                                  <input class="form-check-input" title="female" type="radio" name="Gender" id="female"
-                                      value=false formControlName="Gender">
-                              </div>
-                              <div class="file-upload d-flex align-items-center gap-3">
-                                  <i class="fa-solid fa-camera fs-3 me-2"></i>
-                                  <label for="picture" class="pic-label border-bottom border-2 w-100 p-2">
-                                      <span>أضف صورتك</span>
-                                  </label>
-                                  <input #UploadPic id="picture" class="d-none" type="file" name="picture"
-                                      placeholder="profile picture" formControlName="Picture" accept="image/*">
-                              </div>
-                              <small *ngIf="registerForm?.get('Gender')?.invalid && registerForm?.get('Gender')?.touched"
-                                  class="text-danger">
-                                  يجب اختيار النوع
-                              </small>
-                              <small *ngIf="registerForm?.get('Picture')?.invalid && registerForm?.get('Picture')?.touched"
-                                  class="text-danger">
-                                  يجب اضافة صورة شخصية
-                              </small>
-                          </div>
-
-                    </div>
-
-                    <div class="page-2 " style="display: none;" id="page2">
-                          <div>
-                            <select class="form-select border-0 border-bottom border-2 rounded-0" title="الفئة" name="الفئة"
-                                id="category" formControlName="CategoryId">
-                                <option [value]="null" disabled>اختر فئة الخدمة المُقدمة</option>
-                                <ng-container *ngFor="let category of Categories">
-                                    <option [value]="category.id">{{category.name}}</option>
-                                </ng-container>
-                            </select>
-                            <small
-                                *ngIf="registerForm?.get('CategoryId')?.invalid && registerForm?.get('CategoryId')?.touched"
+                            <div class=" d-flex align-items-center gap-3">
+                                <label for="full_name">
+                                    <i class="fa-solid fa-user fs-3"></i>
+                                </label>
+                                <input id="full_name" class="border-0 border-bottom border-2 w-100 p-2" type="text"
+                                    name="full_name" placeholder="الأسم" formControlName="Name">
+                            </div>
+                            <small *ngIf="registerForm?.get('Name')?.invalid && registerForm?.get('Name')?.touched"
                                 class="text-danger">
-                                لم تقم بإختيار فئة الخدمة المُقدمة
+                                لم تقم بإدخال اسمك بالكامل بشكل صحيح
                             </small>
-                        </div>
-                        <div class=" d-flex gap-3">
-                            <label for="summary">
-                                <i class="fa-solid fa-pen-to-square fs-3"></i>
-                            </label>
-                            <textarea class="border-0 border-bottom border-2 w-100 p-2" name="Summary" id="summary"
-                                cols="30" rows="4" formControlName="Summary" placeholder="أكتب نبذة عن نفسك"></textarea>
-                        </div>
-                        <small *ngIf="registerForm?.get('Summary')?.invalid && registerForm?.get('Summary')?.touched"
-                            class="text-danger">
-                            لم تقم بإدخال نبذة مختصرة تحتوي على 20 حرف على الأقل
-                        </small>
-
-                        <span class="ms-auto">{{PicName}}</span>
-                        <div class="row row-cols-2">
-                            <div class="d-flex align-items-center gap-3">
-                                <label for="lat">خطوط الطول</label>
-                                <input #Latitude id="lat" type="text" class="border-0 border-bottom border-2 w-100 p-2"
-                                    formControlName="Latitude">
+                            <div class=" d-flex align-items-center gap-3">
+                                <label for="email">
+                                    <i class="fa-solid fa-envelope fs-3"></i>
+                                </label>
+                                <input id="email" class="border-0 border-bottom border-2 w-100 p-2" type="email" name="email"
+                                    placeholder="البريد الألكتروني" formControlName="Email">
                             </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <label for="lng">دوائر العرض</label>
-                                <input #Longitude id="lng" type="text" class="border-0 border-bottom border-2 w-100 p-2"
-                                    formControlName="Longitude">
+                            <small *ngIf="registerForm?.get('Email')?.invalid && registerForm?.get('Email')?.touched"
+                                class="text-danger">
+                                لم تقم بإدخال بريدك الألكتروني بشكل صحيح
+                            </small>
+                            <div class=" d-flex align-items-center gap-3">
+                                <label for="password">
+                                    <i class="fa-solid fa-key fs-3"></i>
+                                </label>
+                                <input id="password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
+                                    name="password" placeholder="كلمة السر" formControlName="Password">
+                                <password-strength-meter [password]="this.registerForm.get('Password')?.value"
+                                    class="w-50 mt-5 "></password-strength-meter>
                             </div>
-                        </div>
-                          <div class="d-flex">
-                            <input id="pac-input" class="controls border-0 border-bottom border-2 w-100 p-2" type="text"
-                                placeholder="ابحث عن عنوانك" #PacInput />
-                            <button title="حدد موقعي" type="button" id="gps-button"
-                                class="custom-map-control-button primary-btn rounded-1"><i
-                                    class='fa-solid fa-location-dot'></i></button>
-
-                        </div>
-                        <small *ngIf="
-                        registerForm?.get('Latitude')?.value == '' &&
-                        registerForm?.get('Longitude')?.value == ''
-                        " class="text-danger">
-                            يجب تحديد عنوانك
-                        </small>
-                        <!-- Map -->
-                        <!-- Button trigger modal -->
-                        <div class="main-container">
-                            <div id="map">
-
+                            <small *ngIf="registerForm?.get('Password')?.invalid && registerForm?.get('Password')?.touched"
+                                class="text-danger">
+                                يجب ان تكون كلمة السر مكونة من 8 احرف وتحتوي على ارقام ورموز
+                            </small>
+                            <div class=" d-flex align-items-center gap-3">
+                                <label for="password">
+                                    <i class="fa-solid fa-key fs-3"></i>
+                                </label>
+                                <input id="confirm-password" class="border-0 border-bottom border-2 w-100 p-2" type="password"
+                                    name="ConfirmPassword" placeholder="تأكيد كلمة السر" formControlName="ConfirmPassword">
                             </div>
-                        </div>
+                            <small
+                                *ngIf="registerForm?.get('ConfirmPassword')?.value != registerForm?.get('Password')?.value && registerForm?.get('ConfirmPassword')?.touched"
+                                class="text-danger">
+                                يجب ان يطابق هذا الحقل ما قمت بكتابته في كلمة السر
+                            </small>
+                            <div class="row row-cols-1 row-cols-lg-2">
+                                <div class=" d-flex align-items-center gap-3">
+                                    <label for="phone">
+                                        <i class="fa-solid fa-phone-flip fs-3"></i>
+                                    </label>
+                                    <input id="phone" class="border-0 border-bottom border-2 w-100 p-2" type="tel" name="phone"
+                                        placeholder="رقم الهاتف" formControlName="PhoneNumber">
+                                </div>
+                                <div class=" d-flex align-items-center gap-3">
+                                    <label for="national_id">
+                                        <i class="fa-solid fa-id-card fs-3"></i>
+                                    </label>
+                                    <input id="national_id" class="border-0 border-bottom border-2 w-100 p-2" type="text"
+                                        name="national_id" placeholder="الرقم القومي" formControlName="NationalID">
+                                </div>
+                                <small
+                                    *ngIf="registerForm?.get('PhoneNumber')?.invalid && registerForm?.get('PhoneNumber')?.touched"
+                                    class="text-danger">
+                                    يجب إدخال رقم الهاتف وبشكل صحيح
+                                </small>
+                                <small
+                                    *ngIf="registerForm?.get('NationalID')?.invalid && registerForm?.get('NationalID')?.touched"
+                                    class="text-danger">
+                                    يجب عليك إدخال رقمك القومي
+                                </small>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-2">
 
+                                <div class=" d-flex align-items-center gap-3">
+                                    <label for="male" class="d-flex align-items-center gap-4">
+                                        <i class="fa fa-male fs-3"></i>
+                                        <span>ذكر</span>
+                                    </label>
+                                    <input class="form-check-input" title="male" type="radio" name="Gender" id="male" value=true
+                                        formControlName="Gender">
+                                    <label for="female" class="d-flex align-items-center gap-4">
+                                        <i class="fa-solid fa-person-dress fs-3"></i>
+                                        <span>أُنثى</span>
+                                    </label>
+                                    <input class="form-check-input" title="female" type="radio" name="Gender" id="female"
+                                        value=false formControlName="Gender">
+                                </div>
+                                <div class="file-upload d-flex align-items-center gap-3">
+                                    <i class="fa-solid fa-camera fs-3 me-2"></i>
+                                    <label for="picture" class="pic-label border-bottom border-2 w-100 p-2">
+                                        <span>أضف صورتك</span>
+                                    </label>
+                                    <input #UploadPic id="picture" class="d-none" type="file" name="picture"
+                                        placeholder="profile picture" formControlName="Picture" accept="image/*">
+                                </div>
+                                <small *ngIf="registerForm?.get('Gender')?.invalid && registerForm?.get('Gender')?.touched"
+                                    class="text-danger">
+                                    يجب اختيار النوع
+                                </small>
+                                <small *ngIf="registerForm?.get('Picture')?.invalid && registerForm?.get('Picture')?.touched"
+                                    class="text-danger">
+                                    يجب اضافة صورة شخصية
+                                </small>
+                            </div>
+
+                      </div>
+
+                      <div class="page-2 " style="display: none;" id="page2">
+                            <div>
+                              <select class="form-select border-0 border-bottom border-2 rounded-0" title="الفئة" name="الفئة"
+                                  id="category" formControlName="CategoryId">
+                                  <option [value]="null" disabled>اختر فئة الخدمة المُقدمة</option>
+                                  <ng-container *ngFor="let category of Categories">
+                                      <option [value]="category.id">{{category.name}}</option>
+                                  </ng-container>
+                              </select>
+                              <small
+                                  *ngIf="registerForm?.get('CategoryId')?.invalid && registerForm?.get('CategoryId')?.touched"
+                                  class="text-danger">
+                                  لم تقم بإختيار فئة الخدمة المُقدمة
+                              </small>
+                          </div>
+                          <div class=" d-flex gap-3">
+                              <label for="summary">
+                                  <i class="fa-solid fa-pen-to-square fs-3"></i>
+                              </label>
+                              <textarea class="border-0 border-bottom border-2 w-100 p-2" name="Summary" id="summary"
+                                  cols="30" rows="4" formControlName="Summary" placeholder="أكتب نبذة عن نفسك"></textarea>
+                          </div>
+                          <small *ngIf="registerForm?.get('Summary')?.invalid && registerForm?.get('Summary')?.touched"
+                              class="text-danger">
+                              لم تقم بإدخال نبذة مختصرة تحتوي على 20 حرف على الأقل
+                          </small>
+
+                          <span class="ms-auto">{{PicName}}</span>
+                          <div class="row row-cols-2">
+                              <div class="d-flex align-items-center gap-3">
+                                  <label for="lat">خطوط الطول</label>
+                                  <input #Latitude id="lat" type="text" class="border-0 border-bottom border-2 w-100 p-2"
+                                      formControlName="Latitude">
+                              </div>
+                              <div class="d-flex align-items-center gap-3">
+                                  <label for="lng">دوائر العرض</label>
+                                  <input #Longitude id="lng" type="text" class="border-0 border-bottom border-2 w-100 p-2"
+                                      formControlName="Longitude">
+                              </div>
+                          </div>
+                            <div class="d-flex">
+                              <input id="pac-input" class="controls border-0 border-bottom border-2 w-100 p-2" type="text"
+                                  placeholder="ابحث عن عنوانك" #PacInput />
+                              <button title="حدد موقعي" type="button" id="gps-button"
+                                  class="custom-map-control-button primary-btn rounded-1"><i
+                                      class='fa-solid fa-location-dot'></i></button>
+
+                          </div>
+                          <small *ngIf="
+                          registerForm?.get('Latitude')?.value == '' &&
+                          registerForm?.get('Longitude')?.value == ''
+                          " class="text-danger">
+                              يجب تحديد عنوانك
+                          </small>
+                          <!-- Map -->
+                          <!-- Button trigger modal -->
+                          <div class="main-container">
+                              <div id="map">
+
+                              </div>
+                          </div>
+
+                      </div>
                     </div>
 
                     <!-- End Map -->
