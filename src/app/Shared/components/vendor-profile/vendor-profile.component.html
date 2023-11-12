@@ -17,13 +17,14 @@
           <i class="fas fa-star text-warning"></i>
         </li>
       </ul>
-
-      <button *ngIf="!isFollowing; else unfollow" class="warning-btn w-50 text-white " (click)="Follow()"><i
-          class="fas fa-plus me-1 my-auto"></i>تابع</button>
-      <ng-template #unfollow>
-        <button class="warning-btn w-50 text-white " (click)="Unfollow()"><i
-            class="fas fa-check me-1 my-auto"></i>متابع</button>
-      </ng-template>
+      <div *ngIf="AuthService.isLoggedIn| async">
+        <button *ngIf="!isFollowing; else unfollow" class="warning-btn w-50 text-white " (click)="Follow()"><i
+            class="fas fa-plus me-1 my-auto"></i>تابع</button>
+        <ng-template #unfollow>
+          <button class="warning-btn w-50 text-white " (click)="Unfollow()"><i
+              class="fas fa-check me-1 my-auto"></i>متابع</button>
+        </ng-template>
+      </div>
       <span *ngIf="followers" class="Links">{{followers!.length}}
         <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
       </span>
@@ -117,7 +118,7 @@
         <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
           الخدمات
         </button>
-        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Map')">
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('VendorMap')">
           الموقع
         </button>
       </div>
@@ -170,21 +171,16 @@
     <section id="Services">
       <div class="py-3">
         <h2 class="text-primary">الخدمات المتاحة</h2>
-        <section class="container-fluid d-flex flex-column justify-content-center align-items-center">
-          <div
-            class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-            <div class="col card text-center pt-3" *ngFor="let service of vendor?.services">
-              <!-- <img class="card-img-top mx-auto rounded" *ngFor="let item of service.serviceAttachments" src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{service.id}}-{{service.title}}/{{item.attachmentUrl}}" /> -->
-
-
-
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+          <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
+            <div class="col card text-center p-0 overflow-hidden" *ngFor="let service of vendor?.services">
               <div [attr.id]="'carousel-'+service.id" class="carousel slide">
                 <div class="carousel-inner">
                   <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
                     <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
                       <img
                         src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendorId}}/{{pic.attachmentUrl}}"
-                        class="d-block w-100 carousel-pic" alt="...">
+                        class="d-block w-100 carousel-pic ServiceImg" alt="...">
                     </div>
                   </div>
                 </div>
@@ -199,18 +195,15 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
-
-
-
-
               <div class="card-body">
                 <h3 class="card-title">{{service.title}}</h3>
                 <p class="card-text">{{service.description}}</p>
-                <app-request-service [service]="service"></app-request-service>
               </div>
+              <app-request-service [service]="service"></app-request-service>
+              <br>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </section>
     <!-- End Services -->

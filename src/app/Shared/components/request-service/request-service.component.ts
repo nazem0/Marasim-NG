@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { ReservationService } from './../../../Services/Reservation.service';
+import { ReservationService } from 'src/app/Services/Reservation.service';
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
 import { ToastrService } from 'ngx-toastr';
 import { OpenCageDataResponse } from 'src/app/Models/OpenCageDataResponse';
+import { AuthService } from 'src/app/Services/Auth.service';
 
 @Component({
   selector: 'app-request-service',
@@ -29,7 +30,8 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
     private ReservationService: ReservationService,
     private CookieService: CookieService,
     private Toastr: ToastrService,
-    private HttpClient: HttpClient) {
+    private HttpClient: HttpClient,
+    public AuthService: AuthService) {
     this.data = new FormData()
     this.requestServiceForm = this.builder.group({
       PromoCode: [null],
@@ -49,7 +51,7 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
   request() {
     this.requestServiceForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value);
     this.requestServiceForm.get("Longitude")?.patchValue(this.Longitude?.nativeElement.value);
-  
+
     if (this.PacInput && this.PacInput.nativeElement.value !== "" && this.PacInput.nativeElement.value !== null) {
       this.updateFormAndSubmit(this.PacInput.nativeElement.value);
     } else {
@@ -65,11 +67,11 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
         });
     }
   }
-  
+
   updateFormAndSubmit(address: string) {
     this.requestServiceForm.get("Address")?.patchValue(address);
     console.log(address);
-  
+
     if (this.requestServiceForm.valid) {
       this.setData();
       this.ReservationService.Add(this.data).subscribe({
@@ -80,10 +82,10 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
         }
       });
     }
-  
+
     console.log(this.requestServiceForm.value);
   }
-  
+
   setData() {
     this.data.set('Address', this.requestServiceForm.get('Address')?.value);
     this.data.set("UserId", this.CookieService.get("Id"));
@@ -93,7 +95,7 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
     this.data.set('Latitude', this.requestServiceForm.get('Latitude')?.value);
     this.data.set('Longitude', this.requestServiceForm.get('Longitude')?.value);
   }
-  
+
   addMapScripts() {
     this.script.src = 'assets/js/mapsJavaScriptAPI.js';
     this.mapInit.src = 'assets/js/mapInit.js';
