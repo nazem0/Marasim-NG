@@ -17,13 +17,14 @@
           <i class="fas fa-star text-warning"></i>
         </li>
       </ul>
-
-      <button *ngIf="!isFollowing; else unfollow" class="warning-btn w-50 text-white " (click)="Follow()"><i
-          class="fas fa-plus me-1 my-auto"></i>تابع</button>
-      <ng-template #unfollow>
-        <button class="warning-btn w-50 text-white " (click)="Unfollow()"><i
-            class="fas fa-check me-1 my-auto"></i>متابع</button>
-      </ng-template>
+      <div *ngIf="AuthService.isLoggedIn| async">
+        <button *ngIf="!isFollowing; else unfollow" class="warning-btn w-50 text-white " (click)="Follow()"><i
+            class="fas fa-plus me-1 my-auto"></i>تابع</button>
+        <ng-template #unfollow>
+          <button class="warning-btn w-50 text-white " (click)="Unfollow()"><i
+              class="fas fa-check me-1 my-auto"></i>متابع</button>
+        </ng-template>
+      </div>
       <span *ngIf="followers" class="Links">{{followers!.length}}
         <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
       </span>
