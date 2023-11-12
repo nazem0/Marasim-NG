@@ -24,4 +24,7 @@ export class FollowService {
     return this.HttpClient.delete(`${environment.apiUrl}/Follow/Remove/${VendorId}`)
   }
   
+  IsFollowing(VendorId: number): Observable<boolean> {
+    return this.HttpClient.get<boolean>(`${environment.apiUrl}/Follow/IsUserFollowingVendor/${VendorId}`)
+  }
 }

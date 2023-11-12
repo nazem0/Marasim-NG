@@ -1,3 +1,4 @@
+import { IFollowUser } from "./IFollow";
 import { IPost } from "./IPost";
 import { IService } from "./IService";
 
@@ -16,6 +17,6 @@ export interface FullVendorInfo {
   userId: string;
   posts: IPost[];
   services: IService[];
-  followers: any[];
+  followers: IFollowUser[];
 }
 

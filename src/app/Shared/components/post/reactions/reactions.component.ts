@@ -11,41 +11,56 @@ import { PostService } from 'src/app/Services/Post.service';
 export class ReactionsComponent {
   data: FormData;
   currentUserId: string = '';
-  isLiked: boolean | undefined;
+  isLiked: boolean = false;
   @Input() postId!: number;
   Reactions!: IReaction[];
+
   constructor(private PostService: PostService, private CookieService: CookieService) {
     this.data = new FormData();
   }
+
   ngOnInit() {
     this.currentUserId = this.CookieService.get("Id");
-    console.log(this.currentUserId);
     this.GetLikes();
-    this.PostService.IsLiked(this.postId)
-      .subscribe((result) => {
-        this.isLiked = result;
-        console.log(this.isLiked);
-      })
   }
 
   GetLikes() {
-    this.PostService.GetReactsByPostId(this.postId).subscribe((result) => this.Reactions = result);
-  }
-
-  Like() {
-    this.data.set('PostId', this.postId.toString());
-
-    this.PostService.AddReact(this.postId)
+    this.PostService.GetReactsByPostId(this.postId)
       .subscribe({
         next: (data) => {
-          console.log("Liked");
-          this.GetLikes();
+          this.Reactions = data;
+          this.PostService.IsLiked(this.postId)
+            .subscribe((result) => {
+              if (result == false) {
+                this.isLiked = false
+              }
+              else {
+                this.isLiked = true
+              }
+            })
         },
         error: (error) => {
           console.log(error);
         }
       })
-    this.isLiked = true;
+  }
+
+  Like() {
+    this.data.set('PostId', this.postId.toString());
+
+    this.PostService.AddReact(this.data)
+      .subscribe({
+        next: (data) => {
+          console.log("Liked");
+          this.GetLikes();
+          this.isLiked = true;
+          this.data = new FormData();
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
   }
 
   DisLike() {
@@ -54,11 +69,12 @@ export class ReactionsComponent {
         next: (data) => {
           console.log("Dislikde");
           this.GetLikes();
+          this.isLiked = false;
         },
         error: (error) => {
           console.log(error);
         }
       })
-    this.isLiked = false;
   }
+
 }

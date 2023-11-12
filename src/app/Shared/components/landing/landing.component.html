@@ -36,21 +36,22 @@
 
   <div class="map-photo row row-cols-1 row-cols-md-2 justify-content-center align-items-center ">
     <div>
-      <h4 class="text-muted mt-3 mb-3 ">اول واكبر موقع لتنظيم الافراح والمناسبات في مصر</h4>
+      <h4 class="text-primary mt-3 mb-3 fs-4 ">اول موقع لتنظيم الافراح والمناسبات في مصر</h4>
+      <img src="/assets/svg/underline.png" alt="">
       <div class="d-flex flex-row gap-2  align-items-center">
-        <i class="fa-solid fa-angles-left"></i>
+        <img style="width: 30px;" src="/assets/gif/row.gif" >
         <p class="mt-3 fs-5">بسيط وسهل الاستخدام</p>
       </div>
       <div class="d-flex flex-row gap-2  align-items-center">
-        <i class="fa-solid fa-angles-left"></i>
+        <img style="width: 30px;" src="/assets/gif/row.gif" >
         <p class="mt-3 fs-5">متعدد الفئات والخدمات</p>
       </div>
       <div class="d-flex flex-row gap-2  align-items-center">
-        <i class="fa-solid fa-angles-left"></i>
+        <img style="width: 30px;" src="/assets/gif/row.gif" >
         <p class="mt-3 fs-5">سهولة في عملية الدفع</p>
       </div>
       <div class="d-flex flex-row gap-2  align-items-center">
-        <i class="fa-solid fa-angles-left"></i>
+        <img style="width: 30px;" src="/assets/gif/row.gif" >
         <p class="mt-3 fs-5">توفير الوقت والجهد</p>
       </div>
     </div>
@@ -59,15 +60,19 @@
 
 </div>
 
-<div class="sec-1 container d-flex pt-5  justify-content-center flex-column" id="sec1">
-  <h2 class="text-primary text-center fs-1">ما الذي علي فعله ؟</h2>
+<div class="sec-1 container d-flex   justify-content-center flex-column" id="sec1">
+  <h2 class="text-primary text-center fs-1 mt-5 ">ما الذي علي فعله ؟</h2>
+  <div class="mx-auto"><img src="/assets/svg/underline2.png" style="width:500px;" alt=""></div>
 
   <div class="info d-flex gap-5 justify-content-center py-5 mt-3">
     <a class="info-bundle"> <img class="info-icon" src="/assets/gif/user.gif">
       <p class="info-text fs-5 pt-4 ">قم بالتسجيل بالموقع</p>
     </a>
     <a class="info-bundle"><img class="info-icon" src="/assets/gif/choose.gif">
-      <p class="info-text fs-5 pt-4">اختر من مقدمي الخدمة ما يناسبك</p>
+      <p class="info-text fs-5 pt-4">اختر من مقدمي الخدمة من يناسبك </p>
+    </a>
+    <a class="info-bundle"><img class="info-icon" src="/assets/gif/serv.gif">
+      <p class="info-text fs-5 pt-4">اختر الخدمة المناسبة </p>
     </a>
     <a class="info-bundle"><img class="info-icon" src="/assets/gif/pay.gif">
       <p class="info-text fs-5 pt-4">ادفع عربوناً </p>
@@ -89,6 +94,7 @@
 <div class="sec2-backgroungd h-100">
 <div class="sec-2 container d-flex py-5  justify-content-center flex-column h-100"  id="sec2">
   <h2 class="text-primary ms-3">فئات مقدمي الخدمة</h2>
+  <img style="width: 350px;" class="mt-2" src="/assets/svg/underline.png" alt="">
   <div class="mt-5">
     <div class="row">
       <div class="cardd  col-lg-4 col-md-4 col-sm-12">
@@ -97,7 +103,7 @@
           <h2>مصور فوتوغرافي</h2>
 
 
-          <a href="#">اكتشف الان</a>
+          <a  href="#">اكتشف الان</a>
         </div>
       </div>
 
@@ -119,9 +125,13 @@
         </div>
       </div>
     </div>
-    <div class=" d-flex justify-content-end"> <a
-        class="justify-content-end  text-primary fs-5 mt-5 text-decoration-none " routerLink="/vendors">اكتشف المزيد</a>
+    <div class="d-flex flex-row justify-content-end">
+      <div class="circle-cont d-flex flex-column justify-content-center align-items-center mt-3">
+        <img src="../../../../assets/svg/circle.png" style="width:210px" alt="">
+        <a class="justify-content-end  text-primary  position-absolute  text-decoration-none " routerLink="/vendors">اكتشف المزيد</a>
+      </div>
     </div>
+
   </div>
 
 </div>
@@ -131,7 +141,9 @@
 <div class="background-img2">
 </div>
 <div class="py-5">
-  <h2 class="text-primary ms-3 mb-5 h-100">مقدمو الخدمة الأكثر طلباً</h2>
+  <h2 class="text-primary ms-3 mb-2 h-100">مقدمو الخدمة الأكثر طلباً</h2>
+  <img style="width: 400px;" class="" src="/assets/svg/underline.png" alt="">
+
   <div>
     <app-carousel [slides]="slides" [slideWidth]="'450px'"></app-carousel>
   </div>
