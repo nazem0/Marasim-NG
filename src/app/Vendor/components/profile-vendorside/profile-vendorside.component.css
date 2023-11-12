@@ -1,36 +1,94 @@
-.headerBanner {
-    top: 30px;
-    right: 30px;
-}
-
 .button-shared {
-    color: #fff;
-    background-color: var(--primary-color);
-    cursor: pointer;
-    box-shadow: 0 5px 12px #0003;
+  color: #fff;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 5px 12px #0003;
 }
 
 .button-shared:hover {
-    color: #fff;
-    background-color: #088f95
+  color: #fff;
+  background-color: #088f95
+}
+
+.Links a {
+  text-decoration: none;
 }
 
 .fav-button {
-    top: 3px;
-    left: 3px;
+  top: 3px;
+  left: 3px;
 }
 
 .arabic-text {
-    text-align: justify;
+  text-align: justify;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+}
+
+.button__shared {
+  color: #fff;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.button__shared:hover {
+  color: #fff;
+  background-color: #088f95
+}
+
+.filter-stick {
+  top: 4rem;
+}
+
+.avatar {
+  width: 180px;
+  aspect-ratio: 1;
+
+
+}
+
+.banner {
+  background-image: linear-gradient(var(--primary-color), white);
+}
+
+.nav-btn {
+  border-radius: 0 !important;
+}
+
+
+.nav-btn:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid #088f95;
+  background-color: #f0f9fa;
 }
 
 
 
-/* ========== */
-/* @media screen and (max-width: 992px) {
-  .side-bar {
-      display: none;
-  }
-  .main-bar{}
-} */
-/* ========== */
+
+.nav-btns {
+  border-bottom: .5px solid rgba(0, 0, 0, 0.418);
+
+}
+
+hr {
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.header {
+  background-image: linear-gradient(to bottom, rgb(198, 223, 223), white);
+}
+
+.VendorMap {
+  width: 700px;
+}
+
+.ServiceImg {
+  max-height: 200px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
