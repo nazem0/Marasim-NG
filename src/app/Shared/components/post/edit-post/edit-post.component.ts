@@ -50,7 +50,7 @@ export class EditPostComponent {
             this.data = new FormData();
           },
           error: (error) => {
-            this.Toastr.success("تم التعديل بنجاح")
+            this.Toastr.error("فشل التعديل, حاول مرة آخرى")
             console.log(error);
           }
         })
