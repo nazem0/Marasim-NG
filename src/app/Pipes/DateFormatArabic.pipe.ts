@@ -28,7 +28,7 @@ export class DateFormatArabicPipe implements PipeTransform {
     // Format the date in Arabic
     const day = +dateComponents[2];
     const month = +dateComponents[1] - 1; // Subtract 1 to match array indexing
-    const year = dateComponents[0].slice(-2);
+    const year = dateComponents[0];
 
     let hours = +timeComponents[0];
     const minutes = +timeComponents[1];
