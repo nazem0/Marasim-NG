@@ -1,7 +1,10 @@
-<app-cover></app-cover>
+<div *ngIf="invitation">
+  <app-cover [invitation]="invitation"></app-cover>
 <section id="bride_groom_section">
   <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center gap-5">
-    <app-bride-groom></app-bride-groom>
+    <app-bride-groom [invitation]="invitation"></app-bride-groom>
     <app-counter></app-counter>
   </div>
 </section>
+
+</div>

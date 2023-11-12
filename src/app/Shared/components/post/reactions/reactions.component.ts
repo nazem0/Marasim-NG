@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { IReaction } from 'src/app/Models/IPost';
+import { AuthService } from 'src/app/Services/Auth.service';
 import { PostService } from 'src/app/Services/Post.service';
 
 @Component({
@@ -15,14 +16,15 @@ export class ReactionsComponent {
   @Input() postId!: number;
   Reactions!: IReaction[];
 
-  constructor(private PostService: PostService, private CookieService: CookieService) {
+  constructor
+    (private PostService: PostService,
+      private CookieService: CookieService,
+      public AuthService: AuthService) {
     this.data = new FormData();
   }
 
   ngOnInit() {
     this.currentUserId = this.CookieService.get("Id");
-    console.log(this.currentUserId);
-    console.log(this.postId);
     this.GetLikes();
   }
 

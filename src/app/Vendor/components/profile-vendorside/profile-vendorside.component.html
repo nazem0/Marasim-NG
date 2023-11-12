@@ -1,56 +1,161 @@
-<!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
+<meta name="referrer" content="no-referrer" />
 
-    <div class="container">
+<div class="position-relative container justify-content-center align-items-center">
+    <!-- Main Component -->
+    <div class="p-0">
         <!-- Pictures Preview -->
         <section>
-            <app-carousel ></app-carousel>
+            <app-carousel [slides]="slides"></app-carousel>
         </section>
         <!-- End Pictures Preview -->
-        <hr>
-        <!-- Routing Buttons -->
-        <section class="sticky-top bg-white container-fluid z-1">
-            <div class="row d-flex gap-5 p-3">
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('AboutUs')">معلومات
-                    عنا</button>
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('WorkHistory')">الاعمال
-                    السابقة</button>
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('Reviews')">المراجعات</button>
-                <button class="col btn button-shared" (click)="scrollToTargetAdjusted('test2')">احجز</button>
+
+        <div class="nav-btns position-sticky bg-white z-2">
+            <div class="d-flex flex-wrap justify-content-center">
+                <button class="nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
+                    معلومات عنا
+                </button>
+                <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Posts')">
+                    المنشورات
+                </button>
+                <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
+                    المراجعات
+                </button>
+                <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
+                    الخدمات
+                </button>
+                <button class="nav-btn btn" (click)="scrollToTargetAdjusted('VendorMap')">
+                    الموقع
+                </button>
+            </div>
+            <hr>
+        </div>
+
+
+        <!-- About -->
+        <section id="AboutUs">
+            <div class="py-3">
+                <h2 class="text-primary">معلومات عنا</h2>
+                <div>
+                    <p class="arabic-text">{{vendor?.summary}}</p>
+                </div>
             </div>
         </section>
-        <!-- End Routing Buttons -->
-        <hr>
+        <!-- End About -->
+
+
+
         <!-- Work History -->
-        <section id="WorkHistory">
-            <div class="p-3">
-                <h2>الاعمال السابقة</h2>
+        <section id="Posts">
+            <div class="py-3">
+                <h2 class="text-primary">المنشورات</h2>
                 <div>
-                    <div *ngFor="let post of posts" class="my-4">
+                    <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
                         <app-post [post]="post"></app-post>
                     </div>
                 </div>
-                <button class="btn button-shared text-white">اعرض المزيد</button>
+                <button class="primary-btn">اعرض المزيد</button>
             </div>
         </section>
         <!-- End Work History -->
-        <!-- Test -->
+
+
+
+        <!-- Reviews -->
         <section id="Reviews">
-            <div class="p-3">
-                <h2>المراجعات</h2>
-                <div>
-                    <p class="arabic-text"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص من
-                        مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص
-                        من
-                        مولد النص العربى.هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                        النص
-                        من
-                        مولد النص العربى.
-                    </p>
+            <div class="py-3">
+                <h2 class="text-primary">المراجعات</h2>
+                <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
+                    <app-review [Review]="review"></app-review>
+                    <hr class="m-0" />
                 </div>
-                <button class="btn button-shared text-white">إقراء المزيد</button>
             </div>
         </section>
-    </div>
+        <!-- End Reviews -->
 
+        <!-- Services -->
+        <section id="Services">
+            <div class="py-3">
+                <h2 class="text-primary">الخدمات المتاحة</h2>
+                <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+                    <div
+                        class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
+                        <div class="col card text-center p-0 overflow-hidden" *ngFor="let service of vendor?.services">
+                            <div [attr.id]="'carousel-'+service.id" class="carousel slide">
+                                <div class="carousel-inner">
+                                    <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
+                                        <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+                                            <img src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendorId}}/{{pic.attachmentUrl}}"
+                                                class="d-block w-100 carousel-pic ServiceImg" alt="...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    [attr.data-bs-target]="'#carousel-'+service.id" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">{{service.title}}</h3>
+                                <p class="card-text">{{service.description}}</p>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Services -->
+
+
+        <!-- Map -->
+        <ng-container *ngIf="vendor">
+            <section id="VendorMap">
+                <div class="py-3">
+                    <h2 class="text-primary py-3">موقعنا</h2>
+                    <div class="ms-5"> <img class="map" title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
+            vendor.latitude
+            }},{{
+              vendor.longitude
+            }}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{
+              vendor.latitude
+            }},{{
+              vendor.longitude
+            }}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en" />
+                    </div>
+                </div>
+            </section>
+        </ng-container>
+        <!-- End Map -->
+    </div>
+    <!-- End Main Component -->
+
+    <!------------------------------------------------->
+    <!------------------------------------------------->
+    <!------------------------------------------------->
+
+    <!-- Side Component -->
+    <!-- <div class="col-lg-4 col-md-12 flex-column">
+        <section class="container-fluid position-sticky filter-stick">
+            <div class="overflow-hidden w-100 position-relative">
+                <button class="fav-button btn position-absolute"><i class="fa-regular fa-heart"></i></button>
+                <img class="object-fit-cover h-100 w-100 rounded-top-2" [src]="currentUserVendor?.photo" alt="">
+            </div>
+            <div class="p-4 bg-primary rounded-bottom-2 shadow justify-content-center">
+                <p class="display-6 fs-2 text-white text-center">{{currentUserVendor?.name}}</p>
+                <p class="display-3 fs-4 text-white text-center">{{currentVendor?.summary}}</p>
+                <ul class="list-inline mb-2 ng">
+                    <li *ngFor="let item of [].constructor(5)" class="list-inline-item me-0">
+                        <i class="fas fa-star text-warning"></i>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div> -->
+    <!-- Side Component -->
+</div>

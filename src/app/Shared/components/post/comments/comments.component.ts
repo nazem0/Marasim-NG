@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IComment } from 'src/app/Models/IPost';
+import { AuthService } from 'src/app/Services/Auth.service';
 import { PostService } from 'src/app/Services/Post.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CommentsComponent {
   @Input() postId!:number;
   comments: IComment[]=[]
   
-  constructor(private post:PostService) {
+  constructor(private post:PostService, public AuthService: AuthService) {
   }
 
   ngOnInit(){
