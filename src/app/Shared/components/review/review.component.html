@@ -1,24 +1,29 @@
 <!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 
 <div class="d-flex flex-row align-items-center">
-    <div class=>
-      <div class="row justify-content-center pe-3">
-        <img class="review-img rounded-circle" [src]='Review.User.PicURL' alt="avatar">
-      </div>
-
+    <div class="row justify-content-center pe-3">
+        <img class="review-img rounded-circle" src="{{apiUrl}}{{Review.user.id}}/ProfilePicture/{{Review.user.picUrl}}"
+            alt="avatar">
     </div>
 
-    <div class="review justify-content-center  ">
+    <div class="review d-flex flex-column justify-content-center align-content-between ">
         <div class="d-flex justify-content-between">
-            <h5 class="customer-name m-0 ">{{Review.User.Name}}</h5>
-            <span>{{Review.Date}}</span>
+            <h5 class="customer-name m-0 ">{{Review.user.name}}</h5>
+            <span>{{Review.dateTime | dateFormatArabic}}</span>
         </div>
-        <ul class="list-inline m-0">
-            <li *ngFor="let item of [].constructor(Review.Rate)" class="list-inline-item me-0">
-                <i class="fas fa-star text-warning"></i>
-            </li>
-        </ul>
-        <span><span class=" fw-light">تقيم على: </span>{{Review.Service}}</span>
-        <p>{{Review.Description}}</p>
+        <div>
+            <span *ngFor="let _ of [].constructor(Review!.rate)">
+                <i class="fa fa-star text-warning"></i>
+            </span>
+            <span *ngFor="let _ of [].constructor(5-Review!.rate)">
+                <i class="fa fa-star text-secondary"></i>
+            </span>
+        </div>
+        <div>
+            <span><span class=" fw-light">تقيم على: </span>{{Review.serviceTitle}}</span>
+        </div>
+        <div>
+            <p>{{Review.message}}</p>
+        </div>
     </div>
 </div>

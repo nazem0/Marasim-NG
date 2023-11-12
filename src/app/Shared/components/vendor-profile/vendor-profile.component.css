@@ -10,7 +10,7 @@
   background-color: #088f95
 }
 
-.Links a{
+.Links a {
   text-decoration: none;
 }
 
@@ -43,46 +43,52 @@
   top: 4rem;
 }
 
-.avatar{
+.avatar {
   width: 180px;
-aspect-ratio: 1;
+  aspect-ratio: 1;
 
 
 }
 
-.banner{
+.banner {
   background-image: linear-gradient(var(--primary-color), white);
 }
-.nav-btn{
-border-radius: 0 !important;
+
+.nav-btn {
+  border-radius: 0 !important;
 }
 
 
-.nav-btn:hover
-{
-color: var(--primary-color);
-  border-bottom:2px solid #088f95;
+.nav-btn:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid #088f95;
   background-color: #f0f9fa;
 }
 
 
 
 
-.nav-btns{
+.nav-btns {
   border-bottom: .5px solid rgba(0, 0, 0, 0.418);
 
 }
 
-hr{
+hr {
   margin: 0 !important;
   padding: 0 !important;
 
 }
 
-.header{
-  background-image: linear-gradient(to bottom ,rgb(198, 223, 223),white);
+.header {
+  background-image: linear-gradient(to bottom, rgb(198, 223, 223), white);
 }
 
-.VendorMap{
+.VendorMap {
   width: 700px;
+}
+
+.ServiceImg {
+  max-height: 200px;
+  aspect-ratio: 1;
+  object-fit: cover;
 }

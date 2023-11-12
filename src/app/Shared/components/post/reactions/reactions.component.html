@@ -1,16 +1,17 @@
 <!-- Button trigger modal -->
 <div class="d-flex flex-column mt-3" *ngIf="Reactions">
-    <button *ngIf="isLiked; else elseBlock" (click)="DisLike()"
-        class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
-        <i class="fa-solid fa-thumbs-up fs-3"></i>
-    </button>
-    <ng-template #elseBlock>
-        <button (click)="Like()"
+    <div *ngIf="AuthService.isLoggedIn| async">
+        <button *ngIf="isLiked; else elseBlock" (click)="DisLike()"
             class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
-            <i class="fa-regular fa-thumbs-up fs-3 text-dark"></i>
+            <i class="fa-solid fa-thumbs-up fs-3"></i>
         </button>
-    </ng-template>
-
+        <ng-template #elseBlock>
+            <button (click)="Like()"
+                class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
+                <i class="fa-regular fa-thumbs-up fs-3 text-dark"></i>
+            </button>
+        </ng-template>
+    </div>
     <button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
         attr.data-bs-target="#p_comm{{postId}}">
         <span><i class="fa-regular fa-thumbs-up"></i> {{Reactions.length}}</span>

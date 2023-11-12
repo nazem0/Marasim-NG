@@ -17,7 +17,8 @@ export class LandingComponent implements OnInit, AfterViewInit {
     console.log(this.isLogged)
     this.isLogged = this.AuthService.loggedIn;
     this.AttachmentService.GetAllCustom().subscribe((result) => this.slides = result)
-
+    document.getElementById('navv')?.remove();
+    document.getElementById('foot')?.remove();
   }
   ngAfterViewInit(): void {
     const nav = document.querySelector('nav') as HTMLElement;
@@ -31,6 +32,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
       }
     } as EventListenerOrEventListenerObject);
   }
+
+
+
   logout() {
     this.AuthService.loggedIn = !this.AuthService.loggedIn;
     this.isLogged = this.AuthService.loggedIn;

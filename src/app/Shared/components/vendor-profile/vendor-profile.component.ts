@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment.development';
 import { IServiceAttachmentCustom } from 'src/app/Models/IService';
 import { AttachmentService } from 'src/app/Services/Attachment.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'src/app/Services/Auth.service';
 
 @Component({
   selector: 'app-vendor-profile',
@@ -39,7 +40,8 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
     private CategoryService: CategoryService,
     private FollowService: FollowService,
     private AttachmentService: AttachmentService,
-    private CookieService: CookieService) {
+    private CookieService: CookieService,
+    public AuthService: AuthService) {
     this.data = new FormData();
   }
 
@@ -65,6 +67,17 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (data) => {
           this.vendor = data;
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
+    this.ReviewService.GetByVendorId(this.vendorId!)
+      .subscribe({
+        next: (data) => {
+          this.reviews = data;
           console.log(data);
         },
         error: (error) => {

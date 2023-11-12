@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
 import { ServiceService } from 'src/app/Services/service.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { ServiceService } from 'src/app/Services/service.service';
   styleUrls: ['./edit-service.component.css']
 })
 export class EditServiceComponent {
+  apiUrl = environment.serverUrl;
   @Input() service: IService | null = null;
   @Output() refresh = new EventEmitter();
   editServiceForm: FormGroup;
