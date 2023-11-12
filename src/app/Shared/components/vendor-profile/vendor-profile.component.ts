@@ -72,6 +72,17 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
         }
       })
 
+    this.ReviewService.GetByVendorId(this.vendorId!)
+      .subscribe({
+        next: (data) => {
+          this.reviews = data;
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
     this.AttachmentService.GetByVendorId(this.vendorId!)
       .subscribe((result) => {
         this.slides = result;

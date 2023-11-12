@@ -231,7 +231,7 @@
               <td class="text-center text-pp">{{Reservation.address}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center" *ngIf="!Reservation.review;else review">
-                <app-add-review [Reservation]="Reservation" ></app-add-review>
+                <app-add-review (refresh)="getReservations()" [Reservation]="Reservation" ></app-add-review>
               </td>
               <ng-template #review>
                 <td class="text-center">
