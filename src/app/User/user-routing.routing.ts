@@ -39,7 +39,7 @@ const routes: Routes = [
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
-      { path: 'invitation', component: InvitationComponent },
+      { path: 'invitation/:id', component: InvitationComponent},
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
