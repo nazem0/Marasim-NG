@@ -30,6 +30,7 @@
           <h3 class="card-title">{{service.title}}</h3>
           <p>{{service.description}}</p>
           <p>{{service.price | currency:"ج. م. "}}</p>
+          <!-- new price -->
         </div>
         <app-action-buttons (refresh)="ngOnInit()" [service]="service"></app-action-buttons>
         <br>
