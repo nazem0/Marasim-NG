@@ -21,18 +21,11 @@ transition-delay: 20ms;
   background-color: rgba(0, 0, 0, 0.6);
   align-items: center;
 }
-
-.circle-cont{
-  /* background-image: url('../../../../assets/svg/circle.png');
-  background-size: contain;
-  background-repeat: no-repeat ;
-  height: 60px;
- width: 200px;
- height: 100px; */
-
-
+.sec-2{
 
 }
+
+
 video {
   width: 100%;
   height: 100vh;
