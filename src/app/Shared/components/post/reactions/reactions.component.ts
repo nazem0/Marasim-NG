@@ -21,8 +21,6 @@ export class ReactionsComponent {
 
   ngOnInit() {
     this.currentUserId = this.CookieService.get("Id");
-    console.log(this.currentUserId);
-    console.log(this.postId);
     this.GetLikes();
   }
 

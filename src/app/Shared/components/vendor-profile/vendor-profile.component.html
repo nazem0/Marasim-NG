@@ -1,28 +1,35 @@
 <meta name="referrer" content="no-referrer" />
 
-<div class="header d-flex flex-column p-4 align-items-center justify-content-center" *ngIf="Vendor">
+<div class="header d-flex flex-column p-4 align-items-center justify-content-center" *ngIf="vendor">
   <div class="img-container ">
-    <img class="rounded-circle avatar shadow" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}"
+    <img class="rounded-circle avatar shadow" src="{{apiUrl}}/{{vendor.userId}}/profilepicture/{{vendor.picUrl}}"
       alt="avatar" />
   </div>
 
   <div class="vendor-info mt-3 text-center">
 
     <!-- Vendor Info -->
-    <h5 class="fs-3">{{Vendor.name}}</h5>
+    <h5 class="fs-3">{{vendor.name}}</h5>
     <div class="row gap-2 py-2 justify-content-center">
-      <span class="text-muted text-white">{{Category?.name}}</span>
+      <span class="text-muted text-white">{{category?.name}}</span>
       <ul class="list-inline mb-2">
         <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
           <i class="fas fa-star text-warning"></i>
         </li>
       </ul>
-      <button class="btn btn-warning w-50 text-white "><i class="fas fa-plus text-white me-1 my-auto"></i>تابع</button>
+
+      <button *ngIf="!isFollowing; else unfollow" class="warning-btn w-50 text-white " (click)="Follow()"><i
+          class="fas fa-plus me-1 my-auto"></i>تابع</button>
+      <ng-template #unfollow>
+        <button class="warning-btn w-50 text-white " (click)="Unfollow()"><i
+            class="fas fa-check me-1 my-auto"></i>متابع</button>
+      </ng-template>
+      <span *ngIf="followers" class="Links">{{followers!.length}}
+        <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
+      </span>
       <div class="counter row mt-2">
 
-        <span class="Links">36,2K
-          <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
-        </span>
+
         <div class="modal fade" id="FollowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog d-flex justify-content-center">
             <div class="modal-content w-50">
@@ -35,7 +42,7 @@
               </div>
               <div class="modal-body">
                 <div class="d-flex flex-column gap-3 w-50">
-                  <div *ngFor=" let Follower of Followers">
+                  <div *ngFor=" let Follower of followers">
                     <app-follower [Follower]="Follower"></app-follower>
                   </div>
                 </div>
@@ -59,7 +66,7 @@
   <div class="p-0">
     <!-- Pictures Preview -->
     <section>
-      <app-carousel [slides]="Slides"></app-carousel>
+      <app-carousel [slides]="slides"></app-carousel>
     </section>
     <!-- End Pictures Preview -->
 
@@ -123,7 +130,7 @@
       <div class="py-3">
         <h2 class="text-primary">معلومات عنا</h2>
         <div>
-          <p class="arabic-text">{{Vendor?.summary}}</p>
+          <p class="arabic-text">{{vendor?.summary}}</p>
         </div>
       </div>
     </section>
@@ -136,7 +143,7 @@
       <div class="py-3">
         <h2 class="text-primary">المنشورات</h2>
         <div>
-          <div *ngFor="let post of Vendor?.posts| slice:0:2" class="my-4">
+          <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
             <app-post [post]="post"></app-post>
           </div>
         </div>
@@ -151,7 +158,7 @@
     <section id="Reviews">
       <div class="py-3">
         <h2 class="text-primary">المراجعات</h2>
-        <div *ngFor="let review of Reviews" class="vstack gap-4 mt-5">
+        <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
           <hr class="m-0" />
         </div>
@@ -166,7 +173,7 @@
         <section class="container-fluid d-flex flex-column justify-content-center align-items-center">
           <div
             class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-            <div class="col card text-center pt-3" *ngFor="let service of Vendor?.services">
+            <div class="col card text-center pt-3" *ngFor="let service of vendor?.services">
               <!-- <img class="card-img-top mx-auto rounded" *ngFor="let item of service.serviceAttachments" src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{service.id}}-{{service.title}}/{{item.attachmentUrl}}" /> -->
 
 
@@ -176,7 +183,7 @@
                   <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
                     <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
                       <img
-                        src="{{apiUrl}}{{Vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{VendorId}}/{{pic.attachmentUrl}}"
+                        src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendorId}}/{{pic.attachmentUrl}}"
                         class="d-block w-100 carousel-pic" alt="...">
                     </div>
                   </div>
@@ -210,18 +217,18 @@
 
 
     <!-- Map -->
-    <ng-container *ngIf="Vendor">
+    <ng-container *ngIf="vendor">
       <section id="VendorMap">
         <div class="py-3">
           <h2 class="text-primary py-3">موقعنا</h2>
           <div class="ms-5"> <img class="map" title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
-            Vendor.latitude
+            vendor.latitude
             }},{{
-              Vendor.longitude
+              vendor.longitude
             }}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{
-              Vendor.latitude
+              vendor.latitude
             }},{{
-              Vendor.longitude
+              vendor.longitude
             }}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en" />
           </div>
         </div>
