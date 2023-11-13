@@ -1,6 +1,7 @@
 import { IPost } from 'src/app/Models/IPost';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FollowService } from 'src/app/Services/Follow.service';
+import { IFollowPosts } from 'src/app/Models/IFollow';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FollowService } from 'src/app/Services/Follow.service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, AfterViewInit {
-  posts: IPost[] | null = null;
+  followPosts: IFollowPosts[] | null = null;
   @ViewChild("filterContainer") filterContainer!: ElementRef;
   @ViewChild("caret") caret!: ElementRef;
 
@@ -22,7 +23,7 @@ export class FeedComponent implements OnInit, AfterViewInit {
     this.FollowService.GetPostsByFollow()
       .subscribe({
         next: (data) => {
-          this.posts = data;
+          this.followPosts = data;
           console.log(data);
         },
         error: (error) => {

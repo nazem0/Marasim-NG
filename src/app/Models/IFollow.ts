@@ -1,3 +1,6 @@
+import { IPost } from "./IPost"
+import { IVendorMidInfo } from "./IVendor"
+
 export interface IFollowing {
     id: number,
     userId: number,
@@ -18,4 +21,9 @@ export interface IFollowUser {
     name: string,
     userId: string,
     picUrl: string
+}
+
+export interface IFollowPosts {
+    vendor: IVendorMidInfo
+    posts: IPost[]
 }
