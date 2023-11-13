@@ -39,7 +39,7 @@
 
 
 <section *ngFor="let Category of Categories let i = index" class="container">
-  <div class="col-sm-12 cover-img d-flex flex-column rounded-4">
+  <div *ngIf="Category.vendors.length > 0" class="col-sm-12 cover-img d-flex flex-column rounded-4">
     <h1 class="text-primary mt-2">{{Category.name}}</h1>
     <div>
       <div class="gradient mb-3"><p class="text-white mb-5 ms-1 ">اختر ما يناسبك من {{Category.name}} المتعددة لدينا</p></div>
