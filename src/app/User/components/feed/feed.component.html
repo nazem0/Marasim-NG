@@ -8,10 +8,8 @@
     </div>
 
     <div class="container">
-        <div *ngFor="let follow of followPosts">
-            <div *ngFor="let post of follow.posts" class="my-4">
-                <app-post [post]="post"></app-post>
-            </div>
+        <div *ngFor="let post of posts" class="my-4">
+            <app-post [post]="post"></app-post>
         </div>
     </div>
 

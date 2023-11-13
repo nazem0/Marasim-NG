@@ -1,7 +1,6 @@
 import { IPost } from 'src/app/Models/IPost';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FollowService } from 'src/app/Services/Follow.service';
-import { IFollowPosts } from 'src/app/Models/IFollow';
 
 
 @Component({
@@ -10,7 +9,7 @@ import { IFollowPosts } from 'src/app/Models/IFollow';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, AfterViewInit {
-  followPosts: IFollowPosts[] | null = null;
+  posts: IPost[] | null = null;
   @ViewChild("filterContainer") filterContainer!: ElementRef;
   @ViewChild("caret") caret!: ElementRef;
 
@@ -20,16 +19,17 @@ export class FeedComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.FollowService.GetPostsByFollow()
-      .subscribe({
-        next: (data) => {
-          this.followPosts = data;
-          console.log(data);
-        },
-        error: (error) => {
-          console.log(error);
-        }
-      })
+    // switch the apis from follow to post new pagination 
+    // this.FollowService.GetPostsByFollow()
+    //   .subscribe({
+    //     next: (data) => {
+    //       this.posts = data;
+    //       console.log(data);
+    //     },
+    //     error: (error) => {
+    //       console.log(error);
+    //     }
+    //   })
   }
 
   showFilter() {

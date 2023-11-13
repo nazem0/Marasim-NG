@@ -22,8 +22,3 @@ export interface IFollowUser {
     userId: string,
     picUrl: string
 }
-
-export interface IFollowPosts {
-    vendor: IVendorMidInfo
-    posts: IPost[]
-}
