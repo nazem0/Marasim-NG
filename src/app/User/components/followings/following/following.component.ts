@@ -11,18 +11,18 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class FollowingComponent implements OnInit {
   apiUrl = environment.serverUrl;
-  @Output() deleted = new EventEmitter();
+  @Output() refresh = new EventEmitter();
   @Input() Following: IFollowVendor | null = null;
   constructor(private FollowService: FollowService, private CookieService: CookieService) { }
 
   ngOnInit() {
-    this.FollowService.GetWhoUserFollows(this.CookieService.get("Id"))
+    this.FollowService.GetWhoUserFollows()
     console.log("Child")
   }
 
   Unfollow() {
     this.FollowService.Delete(this.Following?.vendorId!).subscribe({
-      next: (data) => this.deleted.emit()
+      next: (data) => this.refresh.emit()
     });
   }
 }
