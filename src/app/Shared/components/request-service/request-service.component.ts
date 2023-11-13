@@ -1,14 +1,14 @@
 import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from 'src/app/Services/Reservation.service';
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Services/Auth.service';
 import { City } from 'src/app/Models/City';
-import { GovernorateService } from 'src/app/Services/Governorate.service';
 import { CityService } from 'src/app/Services/city.service';
 import { Governorate } from 'src/app/Models/governorate';
+import { GovernorateService } from 'src/app/Services/governorate.service';
 
 @Component({
   selector: 'app-request-service',
