@@ -1,6 +1,6 @@
 import { IPost } from 'src/app/Models/IPost';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { PostService } from 'src/app/Services/Post.service';
+import { FollowService } from 'src/app/Services/Follow.service';
 
 
 @Component({
@@ -8,21 +8,27 @@ import { PostService } from 'src/app/Services/Post.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit,AfterViewInit {
+export class FeedComponent implements OnInit, AfterViewInit {
   posts: IPost[] | null = null;
   @ViewChild("filterContainer") filterContainer!: ElementRef;
   @ViewChild("caret") caret!: ElementRef;
 
-  constructor(private postService: PostService) { }
+  constructor(private FollowService: FollowService) { }
   ngAfterViewInit(): void {
     console.log(this.filterContainer.nativeElement);
   }
 
-  ngOnInit(): void {
-    this.postService.Get().subscribe((result: IPost[]) => {
-      this.posts = result;
-      console.log(this.posts);
-    });
+  ngOnInit() {
+    this.FollowService.GetPostsByFollow()
+      .subscribe({
+        next: (data) => {
+          this.posts = data;
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
   }
 
   showFilter() {

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { IFollowUser, IFollowVendor } from '../Models/IFollow';
+import { IPost } from '../Models/IPost';
 
 @Injectable({ providedIn: 'root' })
 export class FollowService {
@@ -12,8 +13,12 @@ export class FollowService {
     return this.HttpClient.get<IFollowUser[]>(`${environment.apiUrl}/Follow/GetFollowersVendor/${VendorId}`)
   }
 
-  GetWhoUserFollows(UserId : string): Observable<IFollowVendor[]> {
-    return this.HttpClient.get<IFollowVendor[]>(`${environment.apiUrl}/Follow/GetFollowingForUser/${UserId}`)
+  GetWhoUserFollows(): Observable<IFollowVendor[]> {
+    return this.HttpClient.get<IFollowVendor[]>(`${environment.apiUrl}/Follow/GetFollowingForUser/`)
+  }
+
+  GetPostsByFollow(): Observable<IPost[]>{
+    return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Follow/GetPostsByFollow/`)
   }
 
   Add(Follow: any) {
