@@ -12,17 +12,15 @@ export class FollowingsComponent implements OnInit {
 
   constructor(private FollowService: FollowService, private CookieService: CookieService) { }
 
-  deleted() {
-    console.log("parent");
-    // location.reload();
-    this.FollowService.GetWhoUserFollows(this.CookieService.get("Id"))
+  refresh() {
+    this.FollowService.GetWhoUserFollows()
       .subscribe((result) => {
         this.Followings = result;
       })
   }
 
   ngOnInit() {
-    this.FollowService.GetWhoUserFollows(this.CookieService.get("Id"))
+    this.FollowService.GetWhoUserFollows()
       .subscribe((result) => {
         this.Followings = result;
       })

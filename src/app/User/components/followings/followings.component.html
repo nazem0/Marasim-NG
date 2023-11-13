@@ -12,7 +12,7 @@
     <div class="container text-center  mt-4">
       <ng-container *ngIf="Followings">
         <div *ngFor=" let Following of Followings" class="row">
-          <app-following (deleted)="deleted()" [Following]="Following"></app-following>
+          <app-following (refresh)="refresh()" [Following]="Following"></app-following>
         </div>
       </ng-container>
     </div>
