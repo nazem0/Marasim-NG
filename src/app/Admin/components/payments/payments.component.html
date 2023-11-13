@@ -1,7 +1,11 @@
 <main class="container">
   <h1 class="text-center text-primary mt-5">عمليات الدفع</h1>
-
-  <div class="container searching mb-5 mt-5 ">
+  <div class="d-flex gap-2 flex-wrap justify-content-center mt-3">
+    <button class="primary-btn" (click)="GetConfirmed()">إظهر حالات الدفع السابقة</button>
+    <button class="primary-btn" (click)="GetUnconfirmed()">إظهر حالات الدفع المعلقة</button>
+    <button class="primary-btn" (click)="GetAll()">إظهر جميع حالات الدفع</button>
+  </div>
+  <div class="container searching mb-5 mt-3 ">
     <div class="search-bar">
       <div class="input-group">
         <span class="input-group-text"><i class="fa-solid fa-search"></i>
@@ -42,9 +46,14 @@
             <td>{{payment.reservation.dateTime | dateFormatArabic}}</td>
             <td>{{payment.dateTime | dateFormatArabic}}</td>
             <td class="d-flex gap-2 justify-content-center">
-              <button title="تأكيد الدفع" type="button" class="primary-btn" (click)="Confirm(payment.reservation.id)">
+              <button title="تأكيد الدفع" *ngIf="payment.reservation.status=='f';else unconfirm" type="button" class="primary-btn" (click)="Confirm(payment.reservation.id)">
                 <i class="fa-solid fa-check"></i>
               </button>
+              <ng-template #unconfirm title="تأكيد الدفع" type="button" class="danger-btn" (click)="Confirm(payment.reservation.id)">
+                <button title="تأكيد الدفع" type="button" class="danger-btn" (click)="Confirm(payment.reservation.id)">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </ng-template>
             </td>
           </tr>
         </tbody>

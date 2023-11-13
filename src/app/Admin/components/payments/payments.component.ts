@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payments.component.css']
 })
 export class PaymentsComponent implements OnInit{
+
+  filter : string = "f";
   constructor(
     private PaymentService:PaymentService,
     private ReservationService:ReservationService,
@@ -17,15 +19,7 @@ export class PaymentsComponent implements OnInit{
     ){}
   Payments : Payment[] =[];
   ngOnInit(): void {
-    this.PaymentService.Get().subscribe(
-      {
-        next:(response)=>{
-          this.Payments=response
-          console.log(response);
-        },
-        error:(error)=>console.log(error)
-      }
-    )
+    this.GetAll();
   }
   Confirm(ReservationId:number){
     this.ReservationService.Confirm(ReservationId).subscribe({
@@ -36,5 +30,41 @@ export class PaymentsComponent implements OnInit{
         }
     })
   }
+  GetAll(){
+    this.PaymentService.Get().subscribe(
+      {
+        next:(response)=>{
+          this.Payments=response
+          console.log(response);
+        },
+        error:(error)=>console.log(error)
+      }
+    )
+  }
 
+  GetUnconfirmed(){
+      this.PaymentService.GetUnconfirmed().subscribe(
+        {
+          next:(response)=>{
+            this.Payments=response
+            console.log(response);
+          },
+          error:(error)=>console.log(error)
+        }
+      )
+    
+  }
+
+  GetConfirmed(){
+    this.PaymentService.GetConfirmed().subscribe(
+      {
+        next:(response)=>{
+          this.Payments=response
+          console.log(response);
+        },
+        error:(error)=>console.log(error)
+      }
+    )
+  
+}
 }
