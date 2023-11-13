@@ -1,5 +1,5 @@
 import { PaymentService } from './../../../Services/Payment.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/Services/Reservation.service';
 import { Component } from '@angular/core';
 import { CheckoutReservation } from 'src/app/Models/Reservation';
@@ -23,6 +23,7 @@ export class CheckoutComponent {
     private ActivatedRoute: ActivatedRoute,
     private PaymentService:PaymentService,
     private Toastr: ToastrService,
+    private Router : Router
   ) {
     this.data = new FormData();
     this.checkoutForm = new FormGroup({
@@ -45,7 +46,10 @@ export class CheckoutComponent {
       console.log(this.checkoutForm.value);
       this.PaymentService.Add(this.data).subscribe(
         {
-          next: () => this.Toastr.success("سيتم تأكيد الدفع في غضون دقائق","عملية دفع ناجحة"),
+          next: () => {
+            this.Toastr.success("سيتم تأكيد الدفع في غضون دقائق","عملية دفع ناجحة")
+            this.Router.navigate(['/reservation'])
+          },
           error: (error) => {
             this.Toastr.error("برجاءالمحاولة مرة أخرى", "حدث خطأ");
             console.log(error);

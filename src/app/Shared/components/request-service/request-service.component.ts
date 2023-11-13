@@ -9,6 +9,7 @@ import { City } from 'src/app/Models/City';
 import { CityService } from 'src/app/Services/city.service';
 import { Governorate } from 'src/app/Models/governorate';
 import { GovernorateService } from 'src/app/Services/governorate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-service',
@@ -32,7 +33,8 @@ export class RequestServiceComponent implements AfterViewInit  {
     private Toastr: ToastrService,
     public AuthService: AuthService,
     private CityService:CityService,
-    private GovernorateService:GovernorateService
+    private GovernorateService:GovernorateService,
+    private Router: Router
     ) {
     this.GovernorateService.get().subscribe((resp)=>this.govs = resp);
     this.data = new FormData()
@@ -54,7 +56,10 @@ export class RequestServiceComponent implements AfterViewInit  {
     if (this.requestServiceForm.valid) {
       this.setData();
       this.ReservationService.Add(this.data).subscribe({
-        next: () => this.Toastr.success("تم حجز الخدمة"),
+        next: () => {
+          this.Toastr.success("تم حجز الخدمة")
+          this.Router.navigate(["/reservation"])
+        },
         error: (error) => {
           this.Toastr.error("برجاء التأكد من التاريخ والمحاولة مرة أخرى", "حدث خطأ");
           console.log(error);

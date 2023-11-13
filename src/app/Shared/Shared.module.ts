@@ -48,7 +48,6 @@ import { Home2Component } from '../User/components/home/home.component';
     RouterModule,
     GoogleMapsModule,
     HttpClientModule,
-    HttpClientJsonpModule,
     FormsModule,
     MatPaginatorModule,
     MatButtonModule,
