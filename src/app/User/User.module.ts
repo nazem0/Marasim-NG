@@ -33,6 +33,7 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 import { FilterdComponent } from './components/filterd/filterd.component';
+import { Home2Component } from './components/home/home.component';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { FilterdComponent } from './components/filterd/filterd.component';
     CommonModule,
     UserRoutes,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [],
   declarations: [
@@ -74,8 +75,8 @@ import { FilterdComponent } from './components/filterd/filterd.component';
     HomeComponent,
     ReservationsComponent,
     AddReviewComponent,
-    FilterdComponent
-
+    FilterdComponent,
+    Home2Component
   ]
 })
 export class UserModule { }
