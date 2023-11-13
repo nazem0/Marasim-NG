@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         let LoginResponse = response as LoginResponse;
         console.log(LoginResponse);
         this.AuthService.addCookies(LoginResponse.token,LoginResponse.profilePicture,LoginResponse.role,LoginResponse.name,LoginResponse.id,LoginResponse.vendorId);
-        this.Router.navigate(["/"]);
+        this.Router.navigate(["/home"]);
       },
       error:()=>{
         this.Toastr.error("البريد او كلمة المرور غير صحيح");
