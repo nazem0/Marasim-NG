@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './vendor-register.component.html',
   styleUrls: ['./vendor-register.component.css'],
 })
-export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDestroy {
+export class VendorRegisterationComponent implements OnInit, AfterViewInit {
   @ViewChild('Latitude') Latitude: ElementRef | null = null;
   @ViewChild('Longitude') Longitude: ElementRef | null = null;
   @ViewChild('UploadPic') UploadPic: ElementRef | null = null;
@@ -78,9 +78,6 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
     this.UploadPic?.nativeElement.addEventListener('change', (e: any) => {
       this.PicName = e.target?.files[0].name;
     });
-  }
-  ngOnDestroy(): void {
-    this.removeMapScripts();
   }
   register() {
     this.registerForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value);
@@ -157,14 +154,6 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit, OnDe
     this.mapInit.src = 'assets/js/mapInit.js';
     this.mapInit.type = 'text/javascript';
     this.head?.append(this.script, this.mapInit);
-  }
-  removeMapScripts() {
-    const childNodes = this.head.childNodes;
-    const numberOfNodesToRemove = Math.min(14, childNodes.length); // Ensure we don't go beyond the number of child nodes.
-
-    for (let i = 0; i < numberOfNodesToRemove; i++) {
-      this.head.removeChild(childNodes[childNodes.length - 1]); // Remove the last child node.
-    }
   }
 
   status: string = "التالي";
