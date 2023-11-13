@@ -1,12 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from 'src/app/Services/Reservation.service';
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
 import { ToastrService } from 'ngx-toastr';
-import { OpenCageDataResponse } from 'src/app/Models/OpenCageDataResponse';
 import { AuthService } from 'src/app/Services/Auth.service';
+import { City } from 'src/app/Models/City';
+import { GovernorateService } from 'src/app/Services/Governorate.service';
+import { CityService } from 'src/app/Services/city.service';
+import { Governorate } from 'src/app/Models/governorate';
 
 @Component({
   selector: 'app-request-service',
@@ -15,63 +17,40 @@ import { AuthService } from 'src/app/Services/Auth.service';
 
   ]
 })
-export class RequestServiceComponent implements OnInit, OnDestroy {
-  @ViewChild('PacInput') PacInput: ElementRef | null = null;
-  @ViewChild('Latitude') Latitude: ElementRef | null = null;
-  @ViewChild('Longitude') Longitude: ElementRef | null = null;
+export class RequestServiceComponent implements AfterViewInit  {
   @Input() service: IService | null = null;
+  @ViewChild("gov") gov: ElementRef | null = null;
   requestServiceForm: FormGroup;
+  today = new Date().toISOString().split('T')[0];
   data: FormData;
-  head: HTMLHeadElement = document.querySelector('head')!;
-  script = document.createElement('script');
-  mapInit = document.createElement('script');
+  cities: City[] = [];
+  govs:Governorate[] = [];
   constructor(
     private builder: FormBuilder,
     private ReservationService: ReservationService,
     private CookieService: CookieService,
     private Toastr: ToastrService,
-    private HttpClient: HttpClient,
-    public AuthService: AuthService) {
+    public AuthService: AuthService,
+    private CityService:CityService,
+    private GovernorateService:GovernorateService
+    ) {
+    this.GovernorateService.get().subscribe((resp)=>this.govs = resp);
     this.data = new FormData()
     this.requestServiceForm = this.builder.group({
-      PromoCode: [null],
+      PromoCode: [null,[Validators.maxLength(10)]],
       DateTime: [null, [Validators.required]],
-      Latitude: [null],
-      Longitude: [null],
-      Address: [""],
+      CityId: [null,[Validators.required]],
+      GovId: [null,[Validators.required]],
+      District: [null,[Validators.required,Validators.maxLength(100)]],
+      Street:[null,[Validators.maxLength(100)]]
     })
   }
-  ngOnInit(): void {
-    this.addMapScripts();
+  ngAfterViewInit(): void {
+    this.gov?.nativeElement.addEventListener('change', (e: any) => {
+      this.CityService.getByGovId(this.gov?.nativeElement.value).subscribe((resp)=>this.cities=resp)
+    });
   }
-  ngOnDestroy(): void {
-    this.removeMapScripts()
-  }
-
   request() {
-    this.requestServiceForm.get("Latitude")?.patchValue(this.Latitude?.nativeElement.value);
-    this.requestServiceForm.get("Longitude")?.patchValue(this.Longitude?.nativeElement.value);
-
-    if (this.PacInput && this.PacInput.nativeElement.value !== "" && this.PacInput.nativeElement.value !== null) {
-      this.updateFormAndSubmit(this.PacInput.nativeElement.value);
-    } else {
-      this.decodeLatLng(this.Latitude?.nativeElement.value, this.Longitude?.nativeElement.value)
-        .subscribe((response) => {
-          let formattedResponse = response as OpenCageDataResponse;
-          let formattedAddress = formattedResponse.results[0].formatted;
-          if (formattedAddress.includes("unnamed road")) {
-            this.updateFormAndSubmit(formattedAddress.replace("unnamed road", formattedResponse.results[0].components.state));
-          } else {
-            this.updateFormAndSubmit(formattedAddress);
-          }
-        });
-    }
-  }
-
-  updateFormAndSubmit(address: string) {
-    this.requestServiceForm.get("Address")?.patchValue(address);
-    console.log(address);
-
     if (this.requestServiceForm.valid) {
       this.setData();
       this.ReservationService.Add(this.data).subscribe({
@@ -82,9 +61,8 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
         }
       });
     }
-
-    console.log(this.requestServiceForm.value);
   }
+
 
   setData() {
     this.data.set('Address', this.requestServiceForm.get('Address')?.value);
@@ -92,28 +70,10 @@ export class RequestServiceComponent implements OnInit, OnDestroy {
     this.data.set("ServiceId", this.service!.id.toString())
     this.data.set("PromoCode", this.requestServiceForm.get("PromoCode")?.value)
     this.data.set("DateTime", this.requestServiceForm.get("DateTime")?.value)
-    this.data.set('Latitude', this.requestServiceForm.get('Latitude')?.value);
-    this.data.set('Longitude', this.requestServiceForm.get('Longitude')?.value);
+    this.data.set('CityId', this.requestServiceForm.get('CityId')?.value);
+    this.data.set('GovId', this.requestServiceForm.get('GovId')?.value);
+    this.data.set('District', this.requestServiceForm.get('District')?.value);
+    this.data.set('Street', this.requestServiceForm.get('Street')?.value);
   }
 
-  addMapScripts() {
-    this.script.src = 'assets/js/mapsJavaScriptAPI.js';
-    this.mapInit.src = 'assets/js/mapInit.js';
-    this.mapInit.type = 'text/javascript';
-    this.head?.append(this.script, this.mapInit);
-  }
-  removeMapScripts() {
-    const childNodes = this.head.childNodes;
-    const numberOfNodesToRemove = Math.min(14, childNodes.length); // Ensure we don't go beyond the number of child nodes.
-
-    for (let i = 0; i < numberOfNodesToRemove; i++) {
-      this.head.removeChild(childNodes[childNodes.length - 1]); // Remove the last child node.
-    }
-  }
-  decodeLatLng(lat: number, lng: number) {
-    const apiKey = '03c48dae07364cabb7f121d8c1519492';
-    return this.HttpClient.get(
-      `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}&language=native`
-    );
-  }
 }
