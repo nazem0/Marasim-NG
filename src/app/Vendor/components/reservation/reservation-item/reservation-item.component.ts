@@ -14,20 +14,33 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./reservation-item.component.css'],
 })
 export class ReservationItemComponent implements OnInit {
-  @Output() refresh = new EventEmitter();
   @Input() Reservations: VendorReservation[] = [];
-  @Input() activeTab: string = 'all';
-  @Input() selectedVendor: IServiceMinInfo | null = null;
+  @Input() activeTab: string = 'p';
+  selectedVendor: IServiceMinInfo | null = null;
   selectedCustomer: IUser | null = null;
   apiUrl = environment.serverUrl;
-  constructor(private reservationService: ReservationService,private toastr: ToastrService,) {}
+  constructor(private reservationService: ReservationService,private toastr: ToastrService,private ReservationService:ReservationService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getReservations();
+  }
 
   openCustomerModal(User: IUser) {
     this.selectedCustomer = User;
   }
   
+  getReservations(){
+    this.ReservationService.GetForVendorByStatus(this.activeTab).subscribe({
+      next:(response)=>{
+        this.Reservations=response
+        console.log(this.Reservations);
+      },
+      error: (error) => {
+        console.error('Error fetching reservations:', error);
+      }
+    });
+  }
+
   acceptReservation(reservation: VendorReservation) {
     const data = {
       id: reservation.id,
@@ -36,7 +49,7 @@ export class ReservationItemComponent implements OnInit {
     this.reservationService.Accept(data).subscribe({
       next: () => {
         this.toastr.success('تم قبول الخدمة ');
-        this.refresh.emit();
+        this.getReservations();
       },
       error: (error) => {
         this.toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
@@ -52,8 +65,8 @@ export class ReservationItemComponent implements OnInit {
     };
     this.reservationService.Reject(data).subscribe({
       next: () => {
-        this.toastr.error('تم رفض الخدمة');
-        this.refresh.emit();
+        this.toastr.success('تم رفض الخدمة');
+        this.getReservations();
       },
       error: (error) => {
         this.toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");

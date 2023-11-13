@@ -13,7 +13,7 @@ attr.data-bs-target="#editService{{service?.id}}">تعديل
           aria-label="Close"></button>
       </div>
       <div class="container">
-        <h1 class="text-center mt-5 text-primary">تعديـل خدمـة</h1>
+        <h1 class="text-center mt-3 text-primary">تعديـل خدمـة</h1>
         <div class="parent my-5 d-flex justify-content-center">
           <div class="F DivForm w-50">
             <form [formGroup]="editServiceForm" (ngSubmit)="updateService()">
@@ -46,19 +46,27 @@ attr.data-bs-target="#editService{{service?.id}}">تعديل
                     src="{{apiUrl}}{{service?.userId}}/serviceAttachment/{{pic?.serviceId}}-{{service?.vendorId}}/{{pic.attachmentUrl}}"
                     class="d-block" alt="...">
                 </div> -->
+
+                  <!-- <div class="parent-edit-pic">
+                    <div class="card" style="width: 100%;" *ngFor="let pic of service?.serviceAttachments">
+                      <img
+                                src="{{apiUrl}}{{service?.userId}}/serviceAttachment/{{service?.id}}-{{service?.vendorId}}/{{pic.attachmentUrl}}"
+                                class="card-img-top" alt="...">
+                    </div>
+                  </div> -->
             </form>
           </div>
         </div>
       </div>
 
 
-      <!-- <div class="parent-edit-pic">
+      <div class="parent-edit-pic">
         <div class="card" style="width: 100%;" *ngFor="let pic of service?.serviceAttachments">
           <img
                     src="{{apiUrl}}{{service?.userId}}/serviceAttachment/{{service?.id}}-{{service?.vendorId}}/{{pic.attachmentUrl}}"
                     class="card-img-top" alt="...">
         </div>
-      </div> -->
+      </div>
 
       <div class="modal-footer">
         <div class="d-flex justify-content-center align-items-center">
