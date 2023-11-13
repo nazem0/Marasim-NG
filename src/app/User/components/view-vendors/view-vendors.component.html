@@ -38,23 +38,26 @@
 <!-- Cards -->
 
 
-<section *ngFor="let Category of Categories let i = index" class="container">
+<div *ngFor="let Category of Categories let i = index" class="container">
   <div *ngIf="Category.vendors.length > 0" class="col-sm-12 cover-img d-flex flex-column rounded-4">
     <h1 class="text-primary mt-2">{{Category.name}}</h1>
     <div>
-      <div class="gradient mb-3"><p class="text-white mb-5 ms-1 ">اختر ما يناسبك من {{Category.name}} المتعددة لدينا</p></div>
+      <div class="gradient mb-3">
+        <p class="text-white mb-5 ms-1 ">اختر ما يناسبك من {{Category.name}} المتعددة لدينا</p>
+      </div>
     </div>
 
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
       <div
         class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
         <div class="col card text-center p-0 m-0" *ngFor="let Vendor of Category.vendors">
-          <img class="card-img-top rounded p-0 m-0" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}"> <!-- get vendor photo from user -->
+          <img class="card-img-top rounded p-0 m-0" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}">
+          <!-- get vendor photo from user -->
           <div class="card-body">
             <h5 class="card-title">{{Vendor.name}}</h5>
             <p class="card-text"> {{Vendor.summary}}</p>
             <p>{{Vendor.address}}</p>
-            <button class ="primary-btn" [routerLink]="[Vendor.id]">المزيد من التفاصيل</button>
+            <button class="primary-btn" [routerLink]="[Vendor.id]">المزيد من التفاصيل</button>
           </div>
         </div>
       </div>
