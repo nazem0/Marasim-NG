@@ -10,7 +10,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="create-postLabel">إضافة سابقة أعمال</h1>
+                <h1 class="modal-title fs-5" id="create-postLabel">إضافة منشور</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -21,7 +21,7 @@
                             aria-describedby="helpId">
                         <div *ngIf="postForm?.get('Title')?.invalid && postForm?.get('Title')?.touched">
                             <small class="text-danger">
-                                العنوان يجب أن يحتوي على 3-30 حرفًا
+                                العنوان يجب أن يحتوي على ٥-٣٠ حرفًا
                             </small>
                         </div>
                     </div>
@@ -29,6 +29,11 @@
                         <label for="" class="form-label">الوصف</label>
                         <textarea id="description" class="form-control" formControlName="Description"
                             rows="5"></textarea>
+                        <div *ngIf="postForm?.get('Description')?.invalid && postForm?.get('Description')?.touched">
+                            <small class="text-danger">
+                                العنوان يجب أن يحتوي على ١٠-١٠٠٠ حرفًا
+                            </small>
+                        </div>
 
                     </div>
                     <div class="mb-3">
