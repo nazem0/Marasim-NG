@@ -26,12 +26,12 @@
         </td>
         <td>{{ Reservation.dateTime | dateFormatArabic }}</td>
         <td>{{ Reservation.service.title }}</td>
-        <td>{{ Reservation.address }}</td>
-   
-        <td *ngIf="activeTab == 'p'" >
-          <button  class="btn btn-success acceptBtn" (click)="acceptReservation(Reservation)" >قبول</button>
-          <button  class="btn btn-danger rejectBtn" (click)="rejectReservation(Reservation)">رفض</button>
-       
+        <td>{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+
+        <td *ngIf="activeTab == 'p'">
+          <button class="btn btn-success acceptBtn" (click)="acceptReservation(Reservation)">قبول</button>
+          <button class="btn btn-danger rejectBtn" (click)="rejectReservation(Reservation)">رفض</button>
+
         </td>
       </tr>
     </tbody>
@@ -54,7 +54,8 @@
       <div class="modal-body">
         <div class="customer-info">
           <!-- Add the customer image here -->
-          <img src="{{apiUrl}}/{{selectedCustomer?.id}}/profilepicture/{{selectedCustomer?.picUrl}}" alt="صورة العميل" class="customer-image">
+          <img src="{{apiUrl}}/{{selectedCustomer?.id}}/profilepicture/{{selectedCustomer?.picUrl}}" alt="صورة العميل"
+            class="customer-image">
           <div class="customer-details">
             <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
             <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.phoneNumber }}</p>

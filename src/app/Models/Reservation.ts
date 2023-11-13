@@ -7,33 +7,38 @@ export interface UserReservation {
   id: number;
   serviceId: number;
   price: number;
-  status: string;
+  status: string; // Assuming 'char' is mapped to a string
   isDeleted: boolean;
   dateTime: string;
-  latitude: number;
-  longitude: number;
-  address: string;
+  street?: string;
+  city: string;
+  gov: string;
+  district: string;
   vendor: IVendorMinInfo;
-  review:ReviewViewModel
+  review?:ReviewViewModel
 }
 
 export interface VendorReservation {
   id: number;
   serviceId: number;
   price: number;
-  status: string;
+  status: string; // Assuming 'char' is mapped to a string
   isDeleted: boolean;
   dateTime: string;
-  latitude: number;
-  longitude: number;
-  address: string;
+  street?: string;
+  city: string;
+  gov: string;
+  district: string;
   user: IUser;
   service: IServiceMinInfo ;
 }
 
 export interface CheckoutReservation {
-  dateTime: Date;
-  address: string;
+  dateTime: string;
+  street: string;
+  city: string;
+  gov: string;
+  district: string;
   price: number;
   serviceName: string;
   vendor: IVendorMinInfo;
@@ -46,9 +51,10 @@ export interface AdminReservation {
   status: string;
   isDeleted: boolean;
   dateTime: string;
-  latitude: number;
-  longitude: number;
-  address: string;
+  street: string;
+  city: string;
+  gov: string;
+  district: string;
   user: UserMinInfo;
   vendor: IVendorMinInfo;
 }

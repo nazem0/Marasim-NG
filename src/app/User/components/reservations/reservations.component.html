@@ -68,8 +68,8 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.address}}</td>
-              <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic}}</td>
+              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">{{Reservation.dateTime| dateFormatArabic}}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
           </ng-container>
@@ -97,7 +97,7 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center">
@@ -131,7 +131,7 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -162,7 +162,7 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center text-pp">
@@ -197,7 +197,7 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -228,19 +228,26 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.address}}</td>
+              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center" *ngIf="!Reservation.review;else review">
                 <app-add-review (refresh)="getReservations()" [Reservation]="Reservation" ></app-add-review>
               </td>
               <ng-template #review>
                 <td class="text-center">
-                  <span *ngFor="let _ of [].constructor(Reservation.review.rate)">
+                  <span *ngFor="let _ of [].constructor(Reservation.review?.rate)">
                     <i class="fa fa-star yellow"></i>
                   </span>
-                  <span *ngFor="let _ of [].constructor(5-Reservation.review.rate)">
-                    <i class="fa fa-star text-secondary"></i>
-                  </span>
+                  <ng-container *ngIf="Reservation.review">
+                    <span *ngFor="let _ of [].constructor(5-Reservation.review.rate)">
+                      <i class="fa fa-star text-secondary"></i>
+                    </span>
+                  </ng-container>
+                  <ng-template #nostars>
+                    <span *ngFor="let _ of [].constructor(5)">
+                      <i class="fa fa-star text-secondary"></i>
+                    </span>
+                  </ng-template>
                 </td>
               </ng-template>
             </tr>
