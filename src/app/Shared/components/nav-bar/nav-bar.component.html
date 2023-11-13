@@ -3,6 +3,20 @@
         <div class="row w-100">
             <div class="nav-logo col-2 d-flex flex-column justify-content-center">
                 <a class="navbar-brand" routerLink="">مـــــراســـم</a>
+                <li class="navbar-item">
+                    <a class="nav-link" routerLink="home" routerLinkActive="active">الرئيسية</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="nav-link" routerLink="vendors" routerLinkActive="active">الفئات</a>
+                </li>
+
+                
+                
+                
+                
+                <li class="navbar-item">
+                    <a class="nav-link" routerLink="contact" routerLinkActive="active">اتصل بنا</a>
+                </li>
             </div>
             <button class="navbar-toggler col-2 btn btn-primary" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -11,37 +25,24 @@
             </button>
             <div class="collapse navbar-collapse col-8 nav-items justify-content-end" id="navbarNav">
                 <ul class="navbar-nav navbar-list align-items-center gap-3">
-                    <li class="navbar-item">
-                        <a class="nav-link" routerLink="/">الرئيسية</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a class="nav-link" routerLink="/vendors">الفئات</a>
-                    </li>
-
-                      <!-- <ng-container *ngIf=" AuthService.isLoggedIn && isVendor"  >
+                    
+                    <!-- <ng-container *ngIf=" AuthService.isLoggedIn && isVendor"  >
 
 
-                        <li class="nav-item dropdown">
-                          <a class=" navd nav-link dropdown-toggle  " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">خيارات</a>
-                          <div class="dbg dropdown-menu ">
-                            <a  class="dropdown-item " routerLink="vendor/work-history" >المنشورات</a>
-                            <a class="dropdown-item " routerLink="vendor/services" >قائمة الخدمات</a>
-                            <a  class="dropdown-item "routerLink="vendor/reviews" >المراجعات</a>
-                            <a  class="dropdown-item " routerLink="vendor/reservation">جدول الحجوزات</a>
-                            <a  class="dropdown-item " routerLink="vendor/wallet" >المحفظة</a>
-                          </div>
-                        </li>
+                      <li class="nav-item dropdown">
+                        <a class=" navd nav-link dropdown-toggle  " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">خيارات</a>
+                        <div class="dbg dropdown-menu ">
+                          <a  class="dropdown-item " routerLink="vendor/work-history" >المنشورات</a>
+                          <a class="dropdown-item " routerLink="vendor/services" >قائمة الخدمات</a>
+                          <a  class="dropdown-item "routerLink="vendor/reviews" >المراجعات</a>
+                          <a  class="dropdown-item " routerLink="vendor/reservation">جدول الحجوزات</a>
+                          <a  class="dropdown-item " routerLink="vendor/wallet" >المحفظة</a>
+                        </div>
+                      </li>
 
 
 
-                        </ng-container> -->
-
-
-
-
-                    <li class="navbar-item">
-                        <a class="nav-link" routerLink="/contact">اتصل بنا</a>
-                    </li>
+                      </ng-container> -->
 
 
                     <ng-template #NotLoggedIn>
