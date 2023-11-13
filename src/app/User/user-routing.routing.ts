@@ -33,6 +33,8 @@ import { FilterdComponent } from './components/filterd/filterd.component';
 
 
 const routes: Routes = [
+  { path: "", component: LandingComponent,pathMatch:"full" },
+
   {
     path: '', component: LayoutComponent, children: [
       { path: 'check-list', component: UserCheckListComponent },
@@ -57,7 +59,7 @@ const routes: Routes = [
       { path: "reservation", component: ReservationsComponent },
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
-      { path: "filterd", component: FilterdComponent },{ path: "", component: LandingComponent },
+      { path: "filterd", component: FilterdComponent },
 
     ],
   },
