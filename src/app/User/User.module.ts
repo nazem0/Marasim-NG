@@ -33,7 +33,6 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 import { FilterdComponent } from './components/filterd/filterd.component';
-import { Home2Component } from './components/home/home.component';
 
 
 @NgModule({
@@ -76,7 +75,6 @@ import { Home2Component } from './components/home/home.component';
     ReservationsComponent,
     AddReviewComponent,
     FilterdComponent,
-    Home2Component
   ]
 })
 export class UserModule { }

@@ -39,6 +39,7 @@ import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 import { TruncatePipe } from '../Pipes/Truncate.pipe';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { EditPostComponent } from './components/post/edit-post/edit-post.component';
+import { Home2Component } from '../User/components/home/home.component';
 
 @NgModule({
   imports: [
@@ -85,7 +86,7 @@ import { EditPostComponent } from './components/post/edit-post/edit-post.compone
     VendorFollowingVendorComponent,
     DeleteModalComponent,
     EditPostComponent,
-
+    Home2Component,
 
   ],
   providers:[
