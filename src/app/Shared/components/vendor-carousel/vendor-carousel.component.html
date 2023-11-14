@@ -10,7 +10,7 @@
                             src="{{apiUrl}}{{slide.userId}}/ProfilePicture/{{slide.picUrl}}">
                         <div class="slide-content text-white text-center">
                             <h2>{{slide.name}}</h2>
-                            <p class="text-white">{{slide.summary}}</p>
+                            <p class="text-white">{{slide.summary |truncate: 20}}</p>
                         </div>
                     </div>
                 </div>
