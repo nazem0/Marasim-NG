@@ -26,9 +26,14 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorId(VendorId: number,PageIndex:number,PageSize:number): Observable<PostList> {
+  GetByVendorId(VendorId: number, PageIndex: number, PageSize: number): Observable<PostList> {
     return this.HttpClient.get<PostList>(`${environment.apiUrl}/Post/GetByVendorId/${VendorId}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
+
+  GetByPostsByFollow(PageIndex: number, PageSize: number): Observable<PostList> {
+    return this.HttpClient.get<PostList>(`${environment.apiUrl}/Post/GetByPostsByFollow??PageSize=${PageSize}&PageIndex=${PageIndex}`)
+  }
+
 
   //Reacts Requests
 

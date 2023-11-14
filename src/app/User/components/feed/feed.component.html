@@ -6,11 +6,14 @@
     <div #filterContainer class="filter-container">
         <app-filter></app-filter>
     </div>
-
-    <div class="container">
-        <div *ngFor="let post of posts" class="my-4">
+    <div *ngIf="posts" class="container">
+        <div *ngFor="let post of posts.data | paginate: config" class="my-4">
             <app-post [post]="post"></app-post>
         </div>
+        <div *ngIf="posts?.data?.length! > 0" class="text-center">
+            <pagination-controls *ngIf="posts?.count! > posts?.pageSize!" class="pagination" [responsive]="true"
+                previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+                [id]="config.id!"></pagination-controls>
+        </div>
     </div>
-
 </div>

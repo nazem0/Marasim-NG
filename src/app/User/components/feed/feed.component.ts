@@ -1,6 +1,9 @@
-import { IPost } from 'src/app/Models/IPost';
+import { PostList } from 'src/app/Models/IPost';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FollowService } from 'src/app/Services/Follow.service';
+import { PostService } from 'src/app/Services/Post.service';
+import { PaginationInstance } from 'ngx-pagination';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -9,27 +12,50 @@ import { FollowService } from 'src/app/Services/Follow.service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, AfterViewInit {
-  posts: IPost[] | null = null;
+  posts: PostList | null = null;
+  p: number | undefined = undefined;
+  public config: PaginationInstance = {
+    id: 'paginationConfig',
+    itemsPerPage: 2,
+    currentPage: 1,
+  };
   @ViewChild("filterContainer") filterContainer!: ElementRef;
   @ViewChild("caret") caret!: ElementRef;
 
-  constructor(private FollowService: FollowService) { }
+  constructor(
+    private PostService: PostService,
+    private ActivatedRoute: ActivatedRoute,
+    private CookieService: CookieService,
+    private Router: Router
+  ) { }
+
   ngAfterViewInit(): void {
     console.log(this.filterContainer.nativeElement);
+    
   }
 
   ngOnInit() {
-    // switch the apis from follow to post new pagination 
-    // this.FollowService.GetPostsByFollow()
-    //   .subscribe({
-    //     next: (data) => {
-    //       this.posts = data;
-    //       console.log(data);
-    //     },
-    //     error: (error) => {
-    //       console.log(error);
-    //     }
-    //   })
+    this.ActivatedRoute.paramMap.subscribe({
+      next: (params) => {
+        this.config.currentPage = parseInt(params.get('page')!);
+        this.getData();
+      },
+    });
+  }
+
+  getData() {
+    this.PostService.GetByPostsByFollow(this.config.currentPage, this.config.itemsPerPage)
+    .subscribe((result) => {
+      this.posts = result;
+      this.config.currentPage = result.pageIndex;
+      this.config.totalItems = result.count;
+      this.config.itemsPerPage = result.pageSize;
+    });
+  }
+
+  pageChange(newPage: number) {
+    this.Router.navigate(['../',newPage],{relativeTo:this.ActivatedRoute})
+    this.getData();
   }
 
   showFilter() {
