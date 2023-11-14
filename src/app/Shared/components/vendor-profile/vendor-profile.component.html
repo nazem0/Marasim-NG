@@ -9,9 +9,9 @@
   <div class="vendor-info mt-3 text-center">
 
     <!-- Vendor Info -->
-    <h5 class="fs-3">{{vendor.name}}</h5>
-    <div class="row gap-2 py-2 justify-content-center">
-      <span class="text-muted text-white">{{category?.name}}</span>
+    <span class="fs-3">{{vendor.name}}</span>
+    <div class="row gap-2 py-1 justify-content-center">
+      <span *ngIf="category" class="text-muted text-white">{{category.name}}</span>
       <div *ngIf="avgRate">
         <span *ngFor="let _ of [].constructor(avgRate)"><i class="fa fa-star text-warning"></i></span>
         <span *ngFor="let _ of [].constructor(5-avgRate)"><i class="fa fa-star text-secondary"></i></span>
@@ -28,8 +28,6 @@
         <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
       </span>
       <div class="counter row mt-2">
-
-
         <div class="modal fade" id="FollowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog d-flex justify-content-center">
             <div class="modal-content w-50">
@@ -71,38 +69,6 @@
     <!-- End Pictures Preview -->
 
     <!-- Routing Buttons -->
-    <!-- <section class="position-sticky filter-stick bg-white container-fluid z-2 py-1">
-      <div class="row row-cols-3 row-cols-lg-5 align-content-center justify-content-center g-2 p-3">
-        <div>
-          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('AboutUs')">
-            معلومات عنا
-          </button>
-        </div>
-        <div>
-          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('WorkHistory')">
-            الاعمال السابقة
-          </button>
-        </div>
-        <div>
-          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Reviews')">
-            المراجعات
-          </button>
-        </div>
-        <div>
-          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Services')">
-            الخدمات
-          </button>
-        </div>
-        <div>
-          <button class="primary-btn w-100" (click)="scrollToTargetAdjusted('Map')">
-            الموقع
-          </button>
-        </div>
-      </div>
-    </section> -->
-    <!-- End Routing Buttons -->
-
-
     <div class="nav-btns position-sticky bg-white z-2">
       <div class="d-flex flex-wrap justify-content-center">
         <button class="nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
@@ -123,7 +89,7 @@
       </div>
       <hr>
     </div>
-
+   <!-- End Routing Buttons -->
 
     <!-- About -->
     <section id="AboutUs">
@@ -142,10 +108,8 @@
     <section id="WorkHistory">
       <div class="py-3">
         <h2 class="text-primary">المنشورات</h2>
-        <div>
-          <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
-            <app-post [post]="post"></app-post>
-          </div>
+        <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
+          <app-post [post]="post"></app-post>
         </div>
         <button class="primary-btn">اعرض المزيد</button>
       </div>
@@ -158,10 +122,10 @@
     <section id="Reviews">
       <div class="py-3">
         <h2 class="text-primary">المراجعات</h2>
-        <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
+        <div *ngFor="let review of reviews | slice:0:2" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
-          <hr class="m-0" />
         </div>
+        <button class="primary-btn">اعرض المزيد</button>
       </div>
     </section>
     <!-- End Reviews -->
