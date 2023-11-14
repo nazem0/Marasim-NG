@@ -44,7 +44,7 @@ const routes: Routes = [
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'feed', component: FeedComponent },
+      { path: 'feed/:page', component: FeedComponent },
       { path: 'vendors/:id', component: VendorProfileComponent },
       { path: 'followings', component: FollowingsComponent },
       { path: 'checkout/:id', component: CheckoutComponent },

@@ -37,7 +37,7 @@ export class DateFormatArabicPipe implements PipeTransform {
     hours = hours % 12;
     hours = hours ? hours : 12; // 0 should be displayed as 12
 
-    const formattedDate = `${day}/${arabicMonths[month]}/${year}, ${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+    const formattedDate = `${day.toLocaleString('ar-EG')}/${arabicMonths[month]}/${parseInt(year).toLocaleString('ar-EG')}, ${hours.toLocaleString('ar-EG')}:${minutes.toLocaleString('ar-EG').toString().padStart(2, '٠')} ${ampm}`;
     
     return formattedDate;
   }
