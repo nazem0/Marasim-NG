@@ -18,7 +18,7 @@ import { ProfileVendorsideComponent } from './components/profile-vendorside/prof
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { StatNavComponent } from './components/statistic/stat-nav.component';
-import { TotalEarningsChartComponent } from './components/statistic/total-earnings-chart/total-earnings-chart.component';
+import {TotalSalesChartComponent } from './components/statistic/total-sales-chart/total-sales-chart.component';
 import { TotalServicesChartComponent } from './components/statistic/total-services-chart/total-services-chart.component';
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
@@ -56,7 +56,7 @@ import { VendorNavToggleComponent } from './components/vendor-nav-toggle/vendor-
     ProfileVendorsideComponent,
     ActionButtonsComponent,
     StatNavComponent,
-    TotalEarningsChartComponent,
+    TotalSalesChartComponent,
     TotalServicesChartComponent,
     CompletedOrdersChartComponent,
     ProfileEditComponent,

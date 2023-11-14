@@ -1,9 +1,4 @@
 
-/* .nav-tabs .nav-link.active {
-  background-color: #23c0c9 !important;
-} */
-
-
 .img-fluid  {
   width: 20px;
   height: 20px;
@@ -18,3 +13,16 @@
 .nav-item:hover {
   transform: scale(1.05);
 }
+.container {
+  max-width: 100%; 
+}
+
+.chart-container {
+  max-width: 100%; 
+  overflow-x: auto; 
+}
+
+.chart-wrapper {
+  width: 100%; 
+}
+

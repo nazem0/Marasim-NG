@@ -8,7 +8,13 @@ import { environment } from 'src/environments/environment.development';
 export class StatsService {
 
   constructor(private HttpClient: HttpClient) { }
-  GetTotalOrder(){
+  getCompletedOrdersStats(){
     return this.HttpClient.get(`${environment.apiUrl}/Reservation/GetTotalOrder`)
   }
+
+
+  getTotalSalesStats(){
+    return this.HttpClient.get(`${environment.apiUrl}/Reservation/GetTotalSales`)
+  }
+
 }

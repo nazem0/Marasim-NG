@@ -1,6 +1,13 @@
 <div class="container">
   <h1 class="text-center my-5 text-primary">الاحصائيات</h1>
   <div class="d-flex flex-column">
+
+    <!-- <div class="form-floating"> -->
+      <!-- <select class="form-select py-0" id="YearSelection" [(ngModel)]="selectedYear" (change)="onYearChange()">
+        <option disabled hidden value="">اختر من بين الفئات</option>
+        <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+      </select> -->
+    <!-- </div> -->
     <ul class="nav nav-tabs justify-content-center" role="tablist">
       <!-- <li class="nav-item" role="presentation" (click)="selectTab('tab1')" [class.active]="selectedTab === 'tab1'">
         <a class="nav-link">
@@ -21,11 +28,10 @@
         </a>
       </li>
     </ul>
-
-    <div class="mx-auto py-5">
-      <!-- <app-total-services-chart *ngIf="selectedTab == 'tab1'"></app-total-services-chart> -->
-      <app-total-earnings-chart *ngIf="selectedTab == 'tab1'"></app-total-earnings-chart>
-      <app-completed-orders-chart *ngIf="selectedTab == 'tab2'"></app-completed-orders-chart>
-    </div>
+      <div class="mx-auto py-5">
+        <!-- <app-total-services-chart *ngIf="selectedTab == 'tab1'"></app-total-services-chart> -->
+        <app-total-sales-chart *ngIf="selectedTab == 'tab1'"></app-total-sales-chart>
+        <app-completed-orders-chart *ngIf="selectedTab == 'tab2'"></app-completed-orders-chart>
+      </div>
   </div>
 </div>
