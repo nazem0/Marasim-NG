@@ -2,14 +2,15 @@
     <div class="container">
         <div class="mb-3">
             <!-- Temp Text -->
-            <h1 class="display-4">
-                هذا النص العربي هو مثال.
+            <h1 class="fs-3 text-center text-primary">
+                مقدمي الخدمات المناسبين لك
             </h1>
-            <p class="display-6">
-                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.
+            <p class="fs-5">
+                اختر أفضل مقدمي الخدمات الذين يناسبون احتياجاتك بالضبط عبر الفئات التي تريدها،
+                 وسنقوم بتجميعهم في حزمة مخصصة لك تلبي متطلباتك بالكامل.
             </p>
         </div>
-        <div>
+        <form [formGroup]="form">
             <div id="package_components"
                 class="package_components row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 justify-content-center mb-3">
                 <div class="d-flex justify-content-center align-items-stretch">
@@ -21,7 +22,7 @@
                                 </label>
                             </div>
                         </div>
-                        <input class="form-check-input" name="package_components[]" type="checkbox" value="photographer"
+                        <input class="form-check-input" name="categories[]" formControlName="Categories" type="checkbox" value="photographer"
                             id="photographer_checkbox">
                         <svg viewBox="0 0 35.6 35.6">
                             <circle r="17.8" cy="17.8" cx="17.8" class="background"></circle>
@@ -40,7 +41,7 @@
                                 </label>
                             </div>
                         </div>
-                        <input class="form-check-input" name="package_components[]" type="checkbox" value="hairdresser"
+                        <input class="form-check-input" name="categories[]" formControlName="Categories" type="checkbox" value="hairdresser"
                             id="hairdresser_checkbox">
                         <svg viewBox="0 0 35.6 35.6">
                             <circle r="17.8" cy="17.8" cx="17.8" class="background"></circle>
@@ -59,7 +60,7 @@
                                 </label>
                             </div>
                         </div>
-                        <input class="form-check-input" name="package_components[]" type="checkbox" value="restaurant"
+                        <input class="form-check-input" name="categories[]" formControlName="Categories" type="checkbox" value="restaurant"
                             id="restaurant_checkbox">
                         <svg viewBox="0 0 35.6 35.6">
                             <circle r="17.8" cy="17.8" cx="17.8" class="background"></circle>
@@ -78,7 +79,7 @@
                                 </label>
                             </div>
                         </div>
-                        <input class="form-check-input" name="package_components[]" type="checkbox" value="hall"
+                        <input class="form-check-input" name="categories[]" formControlName="Categories" type="checkbox" value="hall"
                             id="hall_checkbox">
                         <svg viewBox="0 0 35.6 35.6">
                             <circle r="17.8" cy="17.8" cx="17.8" class="background"></circle>
@@ -97,7 +98,7 @@
                                 </label>
                             </div>
                         </div>
-                        <input class="form-check-input" name="package_components[]" type="checkbox" value="club"
+                        <input class="form-check-input" name="categories[]" formControlName="Categories" type="checkbox" value="club"
                             id="club_checkbox">
                         <svg viewBox="0 0 35.6 35.6">
                             <circle r="17.8" cy="17.8" cx="17.8" class="background"></circle>
@@ -111,9 +112,13 @@
             <div class="row row-cols-2">
                 <div class="mb-3">
                     <label for="budget_input" class="form-label fs-4">المـــيـــزانــيــة</label>
-                    <div>
-                        <input id="budget_input_value" class="form-control" placeholder="10000">
-                    </div>
+                        <input id="budget_input_value" class="form-control" placeholder="10000" [value]="budget"
+                        [ngModel]="budget"
+                        (ngModelChange)="budget = $event"
+                        formControlName="Budget"
+                        >
+                        <input class="PB-range-slider" type="range" name="Budget" id="budget_input"
+                    min="10000" max="100000" step="1000" formControlName="Budget" [(ngModel)]="budget">
                 </div>
                 <div class="g-4 mb-4">
                     <div class="d-flex align-items-center gap-3">
@@ -148,11 +153,10 @@
                         اختر مدينتك
                     </div>
                 </div>
-                <input class="w-75 mx-auto mb-4 PB-range-slider" type="range" name="budget_input" id="budget_input"
-                    min="10000" max="100000" step="1000">
+                
             </div>
             <!-- Change This Button Name -->
             <a href="./generated.html" class="btn btn-outline-primary w-100">Generate <sub>To be replaced</sub></a>
-        </div>
+        </form>
     </div>
 </section>
