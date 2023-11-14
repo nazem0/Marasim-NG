@@ -1,6 +1,5 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { StatsService } from 'src/app/Services/Stats.service';
-
 
 @Component({
   selector: 'app-completed-orders-chart',
@@ -8,40 +7,11 @@ import { StatsService } from 'src/app/Services/Stats.service';
   styleUrls: ['./completed-orders-chart.component.css']
 })
 export class CompletedOrdersChartComponent {
-  @Output() activeTab: string = 'tap1';
   barChartData: any = {};
-  barChartOptions: any = {}
-
+  barChartOptions: any = {};
 
   constructor(private statsService: StatsService) { }
-  // loadTotalOrderData() {
-  //   this.statsService.getCompletedOrdersStats().subscribe({
-  //     next: (data: any) => {
-  //       console.log(data);
-  //       this.barChartData = {
-  //         labels: Object.keys(data),
-  //         datasets: [
-  //           {
-  //             data: Object.values(data),
-  //             label: 'الحجوزات التي تمت في 2023',
-  //             backgroundColor: 'rgba(8, 143, 149, 0.5)',
-  //             display: true,
-  //             fontColor: '#333',
-  //             borderWidth: 1,
-  //             fontSize: 14,  // Adjust the font size as needed
-  //             barPercentage: 0.8
 
-
-  //           }
-  //         ]
-  //       };
-
-  //     },
-  //     error: (error: any) => {
-  //       console.error('Error fetching total order stats', error);
-  //     }
-  //   });
-  // }
   loadTotalOrderData() {
     this.statsService.getCompletedOrdersStats().subscribe({
       next: (data: any) => {
@@ -51,7 +21,7 @@ export class CompletedOrdersChartComponent {
           datasets: [
             {
               data: Object.values(data),
-              label: 'الحجوزات التي تمت في 2023',
+              label: 'الحجوزات المكتملة',
               backgroundColor: this.createGradient(), 
               borderColor: 'rgba(8, 143, 149, 1)',
               borderWidth: 1,
@@ -61,13 +31,78 @@ export class CompletedOrdersChartComponent {
             }
           ]
         };
-  
+
       },
       error: (error: any) => {
         console.error('Error fetching total order stats', error);
       }
     });
   }
+
+  ngOnInit(): void {this.loadTotalOrderData();}
+  chartOptions: any = {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'الشهور',
+          font: {
+            size: 30 
+          }
+        },
+        ticks: {
+          font: {
+            size: 18 
+          }
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: ' الحجوزات ',
+          font: {
+            size: 30
+          }
+        },
+        ticks: {
+          font: {
+            size: 18 
+          },
+          stepSize: 1 
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 20 
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context: any) {
+            var label = context.dataset.label || '';
+
+            if (label) {
+              label += ': ';
+            }
+            label += context.parsed.y;
+
+            return label;
+          }
+        },
+        displayColors: false,
+        title: function () {
+          return ''; 
+        },
+        bodyFont: {
+          size: 18 
+        }
+      }
+    }
+  };
   createGradient() {
     const ctx = document.createElement('canvas').getContext('2d');
     const gradient = ctx!.createLinearGradient(0, 0, 0, 300);
@@ -75,7 +110,7 @@ export class CompletedOrdersChartComponent {
     gradient.addColorStop(1, 'rgba(8, 143, 149, 0)');
     return gradient;
   }
-  ngOnInit(): void {
-    this.loadTotalOrderData();
+
+    
   }
-}
+

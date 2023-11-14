@@ -1,3 +1,4 @@
+// total-sales-chart.component.ts
 import { Component } from '@angular/core';
 import { StatsService } from 'src/app/Services/Stats.service';
 
@@ -9,7 +10,70 @@ import { StatsService } from 'src/app/Services/Stats.service';
 export class TotalSalesChartComponent {
   constructor(private statsService: StatsService) { }
   salesLinetData: any = {};
-  
+
+  chartOptions: any = {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'الشهور',
+          font: {
+            size: 30 
+          }
+        },
+        ticks: {
+          font: {
+            size: 18 
+          }
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'المبيعات',
+          font: {
+            size: 30
+          }
+        },
+        ticks: {
+          font: {
+            size: 18 
+          }
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 20 
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context: any) {
+            var label = context.dataset.label || '';
+
+            if (label) {
+              label += ': ';
+            }
+            label += context.parsed.y;
+
+            return label;
+          }
+        },
+        displayColors: false,
+        title: function () {
+          return ''; 
+        },
+        bodyFont: {
+          size: 18 
+        }
+      }
+    }
+  };
+
   loadTotalSalesData() {
     this.statsService.getTotalSalesStats().subscribe({
       next: (data: any) => {
@@ -19,15 +83,15 @@ export class TotalSalesChartComponent {
           datasets: [
             {
               data: Object.values(data),
-            label: 'الأرباح سنة 2023',
-            fill: true,
-            backgroundColor: 'rgba(8, 143, 149, 0.5)',
-            borderColor: 'rgba(8, 143, 149, 1)', 
-            borderWidth: 2, 
-            pointStyle: 'circle',
-            pointRadius: 5, 
-            pointBackgroundColor: 'rgba(8, 143, 149, 1)',
-            tension: 0.4
+              label: 'اجمالي المبيعات',
+              fill: true,
+              backgroundColor: 'rgba(8, 143, 149, 0.5)',
+              borderColor: 'rgba(8, 143, 149, 1)',
+              borderWidth: 2,
+              pointStyle: 'circle',
+              pointRadius: 5,
+              pointBackgroundColor: 'rgba(8, 143, 149, 1)',
+              tension: 0.4
             }
           ]
         };
@@ -41,5 +105,4 @@ export class TotalSalesChartComponent {
   ngOnInit(): void {
     this.loadTotalSalesData();
   }
-
 }
