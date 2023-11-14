@@ -19,12 +19,15 @@ export class TotalSalesChartComponent {
           datasets: [
             {
               data: Object.values(data),
-              
-              label: ' الارباح سنة 2023',
-               fill: true,
-               backgroundColor: '#088f95',
-               borderColor: 'black',
-               tension: 0.5
+            label: 'الأرباح سنة 2023',
+            fill: true,
+            backgroundColor: 'rgba(8, 143, 149, 0.5)',
+            borderColor: 'rgba(8, 143, 149, 1)', 
+            borderWidth: 2, 
+            pointStyle: 'circle',
+            pointRadius: 5, 
+            pointBackgroundColor: 'rgba(8, 143, 149, 1)',
+            tension: 0.4
             }
           ]
         };
@@ -34,8 +37,6 @@ export class TotalSalesChartComponent {
       }
     });
   }
-
-
 
   ngOnInit(): void {
     this.loadTotalSalesData();

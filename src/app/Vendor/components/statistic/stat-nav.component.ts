@@ -16,7 +16,6 @@ export class StatNavComponent implements OnInit {
   }
   // loadStatsData() {
   //   if (this.selectedTab === 'tab1') {
-  //     this.
   //       } else if (this.selectedTab === 'tab2') {
   //     this.completedOrdersChartComponent.loadChartData();
   //   }
