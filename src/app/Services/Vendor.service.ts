@@ -13,7 +13,6 @@ export class VendorService {
     constructor(private HttpClient: HttpClient) {
     }
 
-
     GetAll() {
         return this.HttpClient.get(`${environment.apiUrl}/Vendor/GetAll`)
     }
@@ -25,8 +24,8 @@ export class VendorService {
         return this.HttpClient.get<IVendor>(`${environment.apiUrl}/Vendor/GetVendorByUserId/${UserId}`)
     }
 
-    GetVendorsMid(): Observable<IVendorMidInfo[]> {
-        return this.HttpClient.get<IVendorMidInfo[]>(`${environment.apiUrl}/Vendor/GetVendorMidInfo`)
+    GetVendorsMidInfo(): Observable<IVendorMidInfo[]> {
+        return this.HttpClient.get<IVendorMidInfo[]>(`${environment.apiUrl}/Vendor/GetVendorsMidInfo`)
     }
 
     GetVendorFullFull(VendorId: number): Observable<FullVendorInfo> {
@@ -36,14 +35,4 @@ export class VendorService {
     UpdateVendor(updateData: any) {
         return this.HttpClient.put(`${environment.apiUrl}/Vendor/Update`, updateData)
     }
-
-
-
-    // // What is this doing here??? services??? Move to Service.service.ts
-    // getServices(ID: Number): Observable<IService[]> {
-    //     return this.HttpClient.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${ID}`)
-    // }
-    // getServicesByVendorId(Id:number){
-    //     return this.HttpClient.get<IService[]>(`${environment.apiUrl}/service/GetByVendorId/${Id}`)
-    // }
 }

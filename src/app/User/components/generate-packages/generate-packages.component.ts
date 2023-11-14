@@ -16,6 +16,7 @@ export class GeneratePackagesComponent implements AfterViewInit {
   data: FormData;
   cities: City[] = [];
   govs: Governorate[] = [];
+  budget : number = 0;
   constructor(
     private fb: FormBuilder,
     private GovernorateService: GovernorateService,
@@ -26,7 +27,7 @@ export class GeneratePackagesComponent implements AfterViewInit {
     this.form = this.fb.group({
       Budget: [null, [Validators.required]],
       Categories: [null, [Validators.required]],
-      GovernorateId: [null],
+      GovId: [null],
       CityId: [null],
       Rate: [null]
     })

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./wallet.component.css']
 })
 export class WalletComponent implements OnInit {
-
+  balance: number = 22
   pageSize = 2;
   currentPage = 0;
   pageSizeOptions: number[] = [3, 5, 10, 25];
@@ -45,14 +45,14 @@ export class WalletComponent implements OnInit {
       customerName: "علي احمد علي",
       serviceName: "مصور فوتوغرافى",
       date: "22-09-2023",
-      totalAmount: "2000 L.E",
+      totalAmount: 2000,
       imageSrc: "../../../../assets/img/vendor/p-1.jpg"
     },
     {
       customerName: "مصطفى ابراهيم محمد",
       serviceName: "مصور فوتوغرافى",
       date: "22-09-2023",
-      totalAmount: "2000 L.E",
+      totalAmount: 2000,
       imageSrc: "../../../../assets/img/vendor/p-1.jpg"
     },
     {
