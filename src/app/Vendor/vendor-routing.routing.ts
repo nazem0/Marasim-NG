@@ -23,7 +23,7 @@ const vendorRoutes: Routes = [
             { path: '', component: VhomeComponent },
             { path: 'profile', component: ProfileVendorsideComponent },
             { path: 'create-offer', component: CreateOfferComponent },
-            { path: 'reviews', component: VendorReviewsComponent },
+            { path: 'reviews/:page', component: VendorReviewsComponent },
             { path: 'services', component: VendorServicesComponent },
             { path: 'work-history/:page', component: WorkHistoryComponent },
             { path: 'reservation', component: ReservationComponent },
