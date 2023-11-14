@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { IReview } from 'src/app/Models/IReview';
+import { PaginationInstance } from 'ngx-pagination';
+import { ReviewList } from 'src/app/Models/IReview';
 import { ReviewService } from 'src/app/Services/Review.service';
 
 @Component({
@@ -9,16 +11,53 @@ import { ReviewService } from 'src/app/Services/Review.service';
   styleUrls: ['./vendor-reviews.component.css']
 })
 export class VendorReviewsComponent implements OnInit {
-  reviews: IReview[] | null = null;
+  avgRate: number | null = null;
+  reviews: ReviewList | null = null;
+  p: number | undefined = undefined;
+  public config: PaginationInstance = {
+    id: 'paginationConfig',
+    itemsPerPage: 3,
+    currentPage: 1,
+  };
 
-  constructor(private ReviewService: ReviewService, private CookieService: CookieService) { }
+  constructor(
+    private ReviewService: ReviewService,
+    private CookieService: CookieService,
+    private ActivatedRoute: ActivatedRoute,
+    private Router: Router
+  ) { }
+
 
   ngOnInit() {
-    this.ReviewService.GetByVendorId(parseInt(this.CookieService.get("VendorId")))
+    this.ActivatedRoute.paramMap.subscribe({
+      next: (params) => {
+        this.config.currentPage = parseInt(params.get('page')!);
+        this.getData();
+      },
+    });
+  }
+
+  getData() {
+    const vendorId = parseInt(this.CookieService.get('VendorId'));
+
+    this.ReviewService.GetAverageRate(vendorId)
+      .subscribe({
+        next: (response) => {
+          this.avgRate = response;
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
+    this.ReviewService.GetPagedReviewsByVendorId(vendorId, this.config.currentPage, this.config.itemsPerPage)
       .subscribe({
         next: (response) => {
           console.log(response)
           this.reviews = response;
+          this.config.currentPage = response.pageIndex;
+          this.config.totalItems = response.count;
+          this.config.itemsPerPage = response.pageSize;
         },
         error: (error) => {
           console.log(error);
@@ -26,27 +65,9 @@ export class VendorReviewsComponent implements OnInit {
       });
   }
 
-
-
-  // Interface needed
-  // Each Review has (      User       - Date - Rate - Service - Description )
-  //                    ( Name - Pic )                 
-
-  // reviews: IReview[] = [
-  //   {
-  //     User: { Name: 'عبد السميع اللميع', PicURL: 'https://booking.webestica.com/assets/images/avatar/04.jpg' },
-  //     Date: new Date("2023-10-06").toLocaleDateString(),
-  //     Rate: 4,
-  //     Service: 'تصوير افراح',
-  //     Description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'
-  //   },
-  //   {
-  //     User: { Name: 'اللميع', PicURL: 'https://booking.webestica.com/assets/images/avatar/04.jpg' },
-  //     Date: new Date("2023-10-07").toLocaleString(),
-  //     Rate: 2,
-  //     Service: 'تصوير ',
-  //     Description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'
-  //   },
-  // ];
+  pageChange(newPage: number) {
+    this.Router.navigate(['../', newPage], { relativeTo: this.ActivatedRoute })
+    this.getData();
+  }
 
 }

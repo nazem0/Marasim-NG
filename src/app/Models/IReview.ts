@@ -22,3 +22,11 @@ export interface ReviewViewModel {
   message: string,
   rate: number,
 }
+
+export interface ReviewList{
+  count: number;
+  data: IReview[];
+  lastPage: number;
+  pageIndex: number;
+  pageSize: number;
+}

@@ -68,7 +68,9 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">
+                {{Reservation.street! | nullToSpace}},{{Reservation.district! |
+                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime| dateFormatArabic}}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -97,7 +99,9 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">
+                {{Reservation.street! | nullToSpace}},{{Reservation.district! |
+                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center">
@@ -131,7 +135,9 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">
+                {{Reservation.street! | nullToSpace}},{{Reservation.district! |
+                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -150,7 +156,7 @@
             <th scope="col" class="text-center">تاريخ الحجز</th>
             <th scope="col" class="text-center">المبلغ</th>
             <th scope="col" class="text-center">تمت</th>
-            
+
           </tr>
         </thead>
         <tbody>
@@ -162,7 +168,9 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">
+                {{Reservation.street! | nullToSpace}},{{Reservation.district! |
+                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center text-pp">
@@ -197,7 +205,9 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">
+                {{Reservation.street! | nullToSpace}},{{Reservation.district! |
+                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -228,10 +238,13 @@
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
-              <td class="text-center text-pp">{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
+              <td class="text-center text-pp">
+                {{Reservation.street! | nullToSpace}},{{Reservation.district! |
+                nullToSpace}},{{Reservation.city}},{{Reservation.gov}}
+              </td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center" *ngIf="!Reservation.review;else review">
-                <app-add-review (refresh)="getReservations()" [Reservation]="Reservation" ></app-add-review>
+                <app-add-review (refresh)="getReservations()" [Reservation]="Reservation"></app-add-review>
               </td>
               <ng-template #review>
                 <td class="text-center">
