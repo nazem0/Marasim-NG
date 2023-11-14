@@ -4,11 +4,13 @@
 <ng-template #thenBlock><button title="إضافة تخفيض على الخدمة" type="button" class="primary-btn w-100" data-bs-toggle="modal"
         attr.data-bs-target="#Modal{{service!.id}}">
         أضف تخفيض
-    </button></ng-template>
-<ng-template #elseBlock><button title="حذف التخفيض من الخدمة" type="button" class="danger-btn" (click)="DeleteOffer()">
+    </button>
+  </ng-template>
+<ng-template #elseBlock>
+ <p class="text-danger">{{service?.promoCode?.discount|currency:"ج.م."}}-</p>
+  <button title="حذف التخفيض من الخدمة" type="button" class="danger-btn" (click)="DeleteOffer()">
         حذف
         التخفيض
-        <span class="text-bg-success rounded-2">{{service?.promoCode?.discount|currency:"ج.م."}}</span>
     </button>
 
 </ng-template>

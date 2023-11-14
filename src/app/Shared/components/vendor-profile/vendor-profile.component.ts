@@ -21,6 +21,7 @@ import { AuthService } from 'src/app/Services/Auth.service';
 })
 export class VendorProfileComponent implements OnInit, AfterViewInit {
   apiUrl = environment.serverUrl;
+  avgRate: number | null = null;
   data: FormData;
   currentUserId: string = '';
   isFollowing: boolean = false;
@@ -49,25 +50,20 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
     // get vendor Id from router
     this.vendorId = parseInt(this.ActivatedRoute.snapshot.paramMap.get("id")!);
     this.currentUserId = this.CookieService.get("Id");
-
-    console.log(this.vendorId)
-    console.log(this.currentUserId)
-
   }
 
   ngAfterViewInit(): void {
     this.GetFollowers();
-
-    this.CategoryService.GetByVendorId(this.vendorId!)
-      .subscribe((result) => {
-        this.category = result;
-      })
 
     this.VendorService.GetVendorFullFull(this.vendorId!)
       .subscribe({
         next: (data) => {
           this.vendor = data;
           console.log(data);
+          this.CategoryService.GetById(this.vendor?.categoryId!)
+            .subscribe((result) => {
+              this.category = result;
+            })
         },
         error: (error) => {
           console.log(error);
@@ -78,7 +74,16 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (data) => {
           this.reviews = data;
-          console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
+    this.ReviewService.GetAverageRate(this.vendorId!)
+      .subscribe({
+        next: (response) => {
+          this.avgRate = response;
         },
         error: (error) => {
           console.log(error);
@@ -106,17 +111,14 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (data) => {
           this.followers = data;
-          console.log(data);
           this.FollowService.IsFollowing(this.vendorId!)
             .subscribe((result) => {
-              console.log(result)
               if (result == false) {
                 this.isFollowing = false
               }
               else {
                 this.isFollowing = true
               }
-              console.log(this.isFollowing)
             })
         },
         error: (error) => {

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from './Guards/user.guard';
+import { AuthGuard } from './Guards/vendor.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './Services/interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

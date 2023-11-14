@@ -43,38 +43,38 @@
 
                         <div class="g-4 mb-4">
                             <div class="d-flex align-items-center gap-3">
-                              <i class="fa-solid fa-city"></i>
-                              <select class="form-control" type="text" id="govInput" name="gov" formControlName="GovId"
-                                      placeholder="محافظتك" #gov>
-                                <option selected [value]="null">اختر محافظتك</option>
-                                <ng-container *ngFor="let gov of govs">
-                                  <option [value]="gov.id">{{gov.nameAr}}</option>
-                                </ng-container>
-                              </select>
+                                <i class="fa-solid fa-city"></i>
+                                <select class="form-control" type="text" id="govInput" name="gov"
+                                    formControlName="GovId" placeholder="محافظتك" #gov>
+                                    <option selected [value]="null">اختر محافظتك</option>
+                                    <ng-container *ngFor="let gov of govs">
+                                        <option [value]="gov.id">{{gov.nameAr}}</option>
+                                    </ng-container>
+                                </select>
                             </div>
                             <div class="text-danger my-2"
-                                 *ngIf="requestServiceForm.controls['GovId'].hasError('required') && requestServiceForm.controls['GovId'].touched">
-                              اختر محافظتك
+                                *ngIf="requestServiceForm.controls['GovId'].hasError('required') && requestServiceForm.controls['GovId'].touched">
+                                اختر محافظتك
                             </div>
-                          </div>
-                          
-                          <div class="g-4 mb-4" *ngIf="requestServiceForm.controls['GovId'].value !== null">
+                        </div>
+
+                        <div class="g-4 mb-4" *ngIf="requestServiceForm.controls['GovId'].value !== null">
                             <div class="d-flex align-items-center gap-3">
-                              <i class="fa-solid fa-building-circle-arrow-right"></i>
-                              <select class="form-control" type="text" id="cityInput" name="city"
-                                      formControlName="CityId" placeholder="مدينتك" #gov>
-                                <option selected [value]="null">اختر مدينتك</option>
-                                <ng-container *ngFor="let city of cities">
-                                  <option [value]="city.id">{{city.nameAr}}</option>
-                                </ng-container>
-                              </select>
+                                <i class="fa-solid fa-building-circle-arrow-right"></i>
+                                <select class="form-control" type="text" id="cityInput" name="city"
+                                    formControlName="CityId" placeholder="مدينتك" #gov>
+                                    <option selected [value]="null">اختر مدينتك</option>
+                                    <ng-container *ngFor="let city of cities">
+                                        <option [value]="city.id">{{city.nameAr}}</option>
+                                    </ng-container>
+                                </select>
                             </div>
                             <div class="text-danger my-2"
-                                 *ngIf="requestServiceForm.controls['CityId'].hasError('required') && requestServiceForm.controls['CityId'].touched">
-                              اختر مدينتك
+                                *ngIf="requestServiceForm.controls['CityId'].hasError('required') && requestServiceForm.controls['CityId'].touched">
+                                اختر مدينتك
                             </div>
-                          </div>
-                          
+                        </div>
+
 
                         <div class="g-4 mb-4">
                             <div class="d-flex align-items-center gap-3">
@@ -101,8 +101,8 @@
                                 الحد الأقصى لأسم الشارع هو 100 حرف</div>
                         </div>
                         <div>
-                            <button type="submit" class="btn primary-btn w-100" attr.data-bs-dismiss="reserve{{service.id}}"
-                            [disabled]="!requestServiceForm.valid">
+                            <button type="submit" class="btn primary-btn w-100" data-bs-dismiss="modal"
+                                [disabled]="!requestServiceForm.valid">
                                 طلب الخدمة
                             </button>
                         </div>

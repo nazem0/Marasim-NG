@@ -11,7 +11,13 @@ export class PaymentService {
 
   constructor(private HttpClient:HttpClient) { }
   Get():Observable<Payment[]>{
-    return this.HttpClient.get<Payment[]>(`${environment.apiUrl}/Payment/Get`)
+    return this.HttpClient.get<Payment[]>(`${environment.apiUrl}/Payment/Get/`)
+  }
+  GetUnconfirmed():Observable<Payment[]>{
+    return this.HttpClient.get<Payment[]>(`${environment.apiUrl}/Payment/GetUnconfirmed/`)
+  }
+  GetConfirmed():Observable<Payment[]>{
+    return this.HttpClient.get<Payment[]>(`${environment.apiUrl}/Payment/GetConfirmed/`)
   }
   Add(Data:any){
     return this.HttpClient.post(`${environment.apiUrl}/Payment/Add/`,Data)

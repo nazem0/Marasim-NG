@@ -3,7 +3,6 @@
     <h1 class="text-center my-5 text-primary">المراجعــات</h1>
 
     <!-- Page content START -->
-    <!-- Page main content START -->
     <br>
     <div class="p-xxl-4">
 
@@ -12,9 +11,9 @@
             <!-- Growth -->
             <div class="col-md-6 col-lg-4">
                 <div class="bg-primary p-4 rounded text-center text-white">
-                    <h6 class="fw-normal">جميع المراجعات</h6>
+                    <h5 class="fw-normal">جميع المراجعات</h5>
                     <div class="d-flex align-items-center justify-content-center">
-                        <h2 class="text-white">{{reviews?.length}}</h2>
+                        <h3 class="text-white">{{reviews?.count?.toLocaleString('ar-EG')}}</h3>
                     </div>
                 </div>
             </div>
@@ -22,17 +21,16 @@
             <!-- Average rating -->
             <div class="col-md-6 col-lg-4">
                 <div class="bg-primary p-4 rounded text-center">
-                    <h6 class="text-white">معدل التقيم</h6>
+                    <h5 class="text-white">معدل التقيم</h5>
                     <div class="align-items-center justify-content-center">
-                        <h2 class="text-white">Average rev</h2>
-                        <div>
-                            <span *ngFor="let _ of [].constructor(reviews?.length)">
+                        <h3 *ngIf="avgRate">
+                            <span *ngFor="let _ of [].constructor(avgRate)">
                                 <i class="fa fa-star text-warning"></i>
                             </span>
-                            <span *ngFor="let _ of [].constructor(5-reviews!.length)">
+                            <span *ngFor="let _ of [].constructor(5-avgRate)">
                                 <i class="fa fa-star text-secondary"></i>
                             </span>
-                        </div>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -42,40 +40,18 @@
         <!-- Review box END -->
 
         <!-- Reviews START -->
-        <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
-            <!-- Review item -->
-            <app-review [Review]="review"></app-review>
-            <hr class="m-0">
-
+        <div *ngIf="reviews">
+            <div *ngFor="let review of reviews.data | paginate: config" class="vstack gap-4 mt-5">
+                <!-- Review item -->
+                <app-review [Review]="review"></app-review>
+            </div>
+            <div class="text-center">
+                <pagination-controls class="pagination" [responsive]="true" previousLabel="السابق" nextLabel="التالي"
+                    (pageChange)="pageChange($event)" [id]="config.id!"></pagination-controls>
+            </div>
         </div>
         <br>
-        <br>
-
-        <!-- Pagination START -->
-        <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-            <!-- Content -->
-            <p class="mb-sm-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-            <!-- Pagination -->
-            <nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-                <ul class="pagination pagination-sm pagination-primary-soft mb-0">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="" tabindex="-1">السابق</a>
-                    </li>
-                    <li class="page-item"><a class="page-link link-dark" href="">١</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link link-dark" href="">٢</a>
-                    </li>
-                    <li class="page-item disabled"><a class="page-link" href="">..</a></li>
-                    <li class="page-item "><a class="page-link link-dark" href="">١٥</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link link-dark" href="">التالى</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <!-- Pagination END -->
         <!-- Reviews END -->
     </div>
-    <!-- Page main content END -->
+    <!-- Page content END -->
 </main>
