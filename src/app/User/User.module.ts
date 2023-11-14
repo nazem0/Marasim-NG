@@ -30,7 +30,7 @@ import { ContactComponent } from '../Shared/components/contact/contact.component
 import { HomeComponent } from '../Shared/components/home/home.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 import { FilterdComponent } from './components/filterd/filterd.component';
 
@@ -41,6 +41,7 @@ import { FilterdComponent } from './components/filterd/filterd.component';
     CommonModule,
     UserRoutes,
     SharedModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   exports: [],
