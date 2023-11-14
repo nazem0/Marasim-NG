@@ -156,7 +156,7 @@ video {
 
 }
 
-.background-img {
+/* .background-img {
   height: 20vh;
   background-attachment: fixed;
   background-image: url(/assets/img/landing-background2.webp);
@@ -164,9 +164,9 @@ video {
   background-repeat: no-repeat;
   background-position: center;
 
-}
+} */
 
-.background-img2 {
+/* .background-img2 {
   height: 20vh;
   background-attachment: fixed;
   background-image: url(/assets/img/landing-background1.webp);
@@ -174,7 +174,7 @@ video {
   background-repeat: no-repeat;
   background-position: center;
 
-}
+} */
 .section-box {
   width: 100%;
   height: 200px;
