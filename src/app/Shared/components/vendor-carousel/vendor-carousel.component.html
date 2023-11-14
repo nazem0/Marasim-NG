@@ -1,0 +1,23 @@
+<div id="carousel" class="position-relative">
+    <!-- Carousel slider -->
+    <div class="swiper swiper-carousel">
+        <div class="swiper-wrapper">
+            <ng-container *ngFor="let slide of slides;let i = index">
+                <div class="swiper-slide">
+                    <!-- elements with  "swiper-carousel-animate-opacity" class will have animated opacity -->
+                    <div class="swiper-carousel-animate-opacity">
+                        <img
+                            src="{{apiUrl}}{{slide.userId}}/ProfilePicture/{{slide.picUrl}}">
+                        <div class="slide-content text-white text-center">
+                            <h2>{{slide.name}}</h2>
+                            <p class="text-white">{{slide.summary}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+    <div class="swiper-pagination"></div>
+</div>

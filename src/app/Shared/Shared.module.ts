@@ -42,6 +42,7 @@ import { EditPostComponent } from './components/post/edit-post/edit-post.compone
 import { Home2Component } from '../User/components/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
+import { VendorCarouselComponent } from './components/vendor-carousel/vendor-carousel.component';
 
 @NgModule({
   imports: [
@@ -89,6 +90,7 @@ import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
     DeleteModalComponent,
     EditPostComponent,
     Home2Component,
+    VendorCarouselComponent,
 
   ],
   providers: [

@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
-import { IServiceAttachmentCustom } from 'src/app/Models/IService';
 import { AuthService } from 'src/app/Services/Auth.service';
-import { AttachmentService } from 'src/app/Services/Attachment.service';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
+import { VendorService } from 'src/app/Services/Vendor.service';
+import { IVendorMidInfo } from 'src/app/Models/IVendor';
 
 @Component({
   selector: 'app-landing',
@@ -10,14 +10,17 @@ import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit, AfterViewInit {
-  slides: IServiceAttachmentCustom[] = [];
+  slides: IVendorMidInfo[] = [];
 
   isLogged: boolean = this.AuthService.loggedIn;
-  constructor(private AuthService: AuthService, private AttachmentService: AttachmentService, private ScrollReveal : ScrollRevealService) { }
+  constructor(
+    private AuthService: AuthService,
+    private VendorService: VendorService,
+    private ScrollReveal : ScrollRevealService) { }
   ngOnInit() {
     console.log(this.isLogged)
     this.isLogged = this.AuthService.loggedIn;
-    this.AttachmentService.GetAllCustom().subscribe((result) => this.slides = result)
+    this.VendorService.GetVendorsMidInfo().subscribe((result) => this.slides = result)
 
     const sr = this.ScrollReveal.getScrollReveal();
     sr.reveal('.map-img', { origin: 'left', duration: 2000, distance: '500px' })
@@ -65,16 +68,20 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   divPosition: string = 'fixed';
 
+
+  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME 
+  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME 
+  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     const section = document.querySelector('.section-box') as HTMLElement;
-    const sectionTop = section.getBoundingClientRect().top;
+    // const sectionTop = section.getBoundingClientRect().top;
 
-    if (sectionTop <= 0) {
-      this.divPosition = 'static'; // Switch to normal position
-    } else {
-      this.divPosition = 'fixed'; // Stick to the bottom
-    }
+    // if (sectionTop <= 0) {
+    //   this.divPosition = 'static'; // Switch to normal position
+    // } else {
+    //   this.divPosition = 'fixed'; // Stick to the bottom
+    // }
   }
 }
 
