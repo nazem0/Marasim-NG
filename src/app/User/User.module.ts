@@ -33,6 +33,7 @@ import { ViewVendorsComponent } from './components/view-vendors/view-vendors.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 import { FilterdComponent } from './components/filterd/filterd.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { FilterdComponent } from './components/filterd/filterd.component';
     UserRoutes,
     SharedModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   exports: [],
   declarations: [

@@ -15,7 +15,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { RegisterComponent } from './components/register/register.component';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
@@ -40,6 +40,7 @@ import { TruncatePipe } from '../Pipes/Truncate.pipe';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { EditPostComponent } from './components/post/edit-post/edit-post.component';
 import { Home2Component } from '../User/components/home/home.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -53,8 +54,8 @@ import { Home2Component } from '../User/components/home/home.component';
     MatButtonModule,
     MatFormFieldModule,
     MatRippleModule,
+    NgxPaginationModule,
     PasswordStrengthMeterModule.forRoot(DEFAULT_PSM_OPTIONS)
-
   ],
   declarations: [
     TruncatePipe,
@@ -88,9 +89,9 @@ import { Home2Component } from '../User/components/home/home.component';
     Home2Component,
 
   ],
-  providers:[
+  providers: [
   ],
-  exports:[
+  exports: [
     CloudBannerComponent,
     PostComponent,
     AttachmentsComponent,
