@@ -17,11 +17,9 @@ export class LoginComponent implements OnInit {
   data: FormData;
   LoginError : string |  null = null;
   constructor(
-    private Router : Router,
     private ScrollReveal: ScrollRevealService,
     private Builder: FormBuilder,
-    private AuthService: AuthService,
-    private Toastr:ToastrService) {
+    private AuthService: AuthService) {
     this.data = new FormData();
     this.LoginForm = this.Builder.group({
       Email: [null, [Validators.required, Validators.email]],
@@ -38,24 +36,8 @@ export class LoginComponent implements OnInit {
     this.data.set('Email', this.LoginForm.get('Email')?.value);
     this.data.set('Password', this.LoginForm.get('Password')?.value);
     this.data.set('RememberMe', this.LoginForm.get('RememberMe')?.value);
-    if(this.LoginForm.get('RememberMe')?.value){
-
-    }
-    let x : Subscription=this.AuthService.login(this.data).subscribe({
-      next:(response)=>{
-        console.log(response);
-        let LoginResponse = response as LoginResponse;
-        console.log(LoginResponse);
-        this.AuthService.addCookies(LoginResponse.token,LoginResponse.profilePicture,LoginResponse.role,LoginResponse.name,LoginResponse.id,LoginResponse.vendorId);
-        this.Router.navigate(["/home"]);
-      },
-      error:()=>{
-        this.Toastr.error("البريد او كلمة المرور غير صحيح");
-      },
-      complete:()=>x.unsubscribe()
-    });
     
-
+    this.AuthService.login(this.data);
   }
 }
 
