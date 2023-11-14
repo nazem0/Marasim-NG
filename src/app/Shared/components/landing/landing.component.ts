@@ -37,16 +37,16 @@ export class LandingComponent implements OnInit, AfterViewInit {
     // sr.reveal('.cd3', { origin: 'left', duration: 2200, distance: '500px' })
   }
   ngAfterViewInit(): void {
-    // const nav = document.querySelector('nav') as HTMLElement;
-    // window.addEventListener('scroll', function () {
-    //   if (window.scrollY > window.innerHeight - 100) {
-    //     nav.classList.add('bg-dark', 'shadow', "fixed-top");
-    //     nav.classList.remove("position-absolute", "top-0")
-    //   } else {
-    //     nav.classList.remove('bg-dark', 'shadow', "fixed-top");
-    //     nav.classList.add("position-absolute", "top-0")
-    //   }
-    // } as EventListenerOrEventListenerObject);
+    const nav = document.querySelector('nav') as HTMLElement;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > window.innerHeight - 100) {
+        nav.classList.add('bg-dark', 'shadow', "fixed-top");
+        nav.classList.remove("position-absolute", "top-0")
+      } else {
+        nav.classList.remove('bg-dark', 'shadow', "fixed-top");
+        nav.classList.add("position-absolute", "top-0")
+      }
+    } as EventListenerOrEventListenerObject);
   }
 
 
@@ -69,9 +69,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
   divPosition: string = 'fixed';
 
 
-  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME 
-  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME 
-  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME 
+  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME
+  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME
+  // HELP ME // HELP ME // HELP ME // HELP ME // HELP ME
   // @HostListener('window:scroll', ['$event'])
   // onScroll() {
   //   const section = document.querySelector('.section-box') as HTMLElement;
