@@ -3,7 +3,6 @@
     <h1 class="text-center my-5 text-primary">المراجعــات</h1>
 
     <!-- Page content START -->
-    <!-- Page main content START -->
     <br>
     <div class="p-xxl-4">
 
@@ -12,9 +11,9 @@
             <!-- Growth -->
             <div class="col-md-6 col-lg-4">
                 <div class="bg-primary p-4 rounded text-center text-white">
-                    <h6 class="fw-normal">جميع المراجعات</h6>
+                    <h5 class="fw-normal">جميع المراجعات</h5>
                     <div class="d-flex align-items-center justify-content-center">
-                        <h2 class="text-white">{{reviews?.data?.length}}</h2>
+                        <h3 class="text-white">{{reviews?.count?.toLocaleString('ar-EG')}}</h3>
                     </div>
                 </div>
             </div>
@@ -22,17 +21,16 @@
             <!-- Average rating -->
             <div class="col-md-6 col-lg-4">
                 <div class="bg-primary p-4 rounded text-center">
-                    <h6 class="text-white">معدل التقيم</h6>
+                    <h5 class="text-white">معدل التقيم</h5>
                     <div class="align-items-center justify-content-center">
-                        <h2 class="text-white">Average rev</h2>
-                        <div>
-                            <span *ngFor="let _ of [].constructor(reviews?.data?.length)">
+                        <h3 *ngIf="avgRate">
+                            <span *ngFor="let _ of [].constructor(avgRate)">
                                 <i class="fa fa-star text-warning"></i>
                             </span>
-                            <span *ngFor="let _ of [].constructor(5-reviews!.data.length)">
+                            <span *ngFor="let _ of [].constructor(5-avgRate)">
                                 <i class="fa fa-star text-secondary"></i>
                             </span>
-                        </div>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -55,5 +53,5 @@
         <br>
         <!-- Reviews END -->
     </div>
-    <!-- Page main content END -->
+    <!-- Page content END -->
 </main>

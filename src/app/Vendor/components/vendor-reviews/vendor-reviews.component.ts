@@ -11,6 +11,7 @@ import { ReviewService } from 'src/app/Services/Review.service';
   styleUrls: ['./vendor-reviews.component.css']
 })
 export class VendorReviewsComponent implements OnInit {
+  avgRate: number | null = null;
   reviews: ReviewList | null = null;
   p: number | undefined = undefined;
   public config: PaginationInstance = {
@@ -38,6 +39,17 @@ export class VendorReviewsComponent implements OnInit {
 
   getData() {
     const vendorId = parseInt(this.CookieService.get('VendorId'));
+
+    this.ReviewService.GetAverageRate(vendorId)
+      .subscribe({
+        next: (response) => {
+          this.avgRate = response;
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
     this.ReviewService.GetPagedReviewsByVendorId(vendorId, this.config.currentPage, this.config.itemsPerPage)
       .subscribe({
         next: (response) => {
@@ -54,7 +66,7 @@ export class VendorReviewsComponent implements OnInit {
   }
 
   pageChange(newPage: number) {
-    this.Router.navigate(['../',newPage],{relativeTo:this.ActivatedRoute})
+    this.Router.navigate(['../', newPage], { relativeTo: this.ActivatedRoute })
     this.getData();
   }
 

@@ -12,11 +12,10 @@
     <h5 class="fs-3">{{vendor.name}}</h5>
     <div class="row gap-2 py-2 justify-content-center">
       <span class="text-muted text-white">{{category?.name}}</span>
-      <ul class="list-inline mb-2">
-        <li *ngFor="let item of [].constructor(4)" class="list-inline-item me-0">
-          <i class="fas fa-star text-warning"></i>
-        </li>
-      </ul>
+      <div *ngIf="avgRate">
+        <span *ngFor="let _ of [].constructor(avgRate)"><i class="fa fa-star text-warning"></i></span>
+        <span *ngFor="let _ of [].constructor(5-avgRate)"><i class="fa fa-star text-secondary"></i></span>
+      </div>
       <div *ngIf="AuthService.isLoggedIn| async">
         <button *ngIf="!isFollowing; else unfollow" class="warning-btn w-50 text-white " (click)="Follow()"><i
             class="fas fa-plus me-1 my-auto"></i>تابع</button>
@@ -25,7 +24,7 @@
               class="fas fa-check me-1 my-auto"></i>متابع</button>
         </ng-template>
       </div>
-      <span *ngIf="followers" class="Links">{{followers!.length}}
+      <span *ngIf="followers" class="Links">{{followers!.length.toLocaleString('ar-EG')}}
         <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
       </span>
       <div class="counter row mt-2">

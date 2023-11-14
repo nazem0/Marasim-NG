@@ -22,6 +22,10 @@ export class ReviewService {
     return this.HttpClient.get<ReviewList>(`${environment.apiUrl}/Review/GetPagedReviewsByVendorId/${VendorId}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
 
+  GetAverageRate(VendorId: number): Observable<number> {
+    return this.HttpClient.get<number>(`${environment.apiUrl}/Review/GetAverageRate/${VendorId}`)
+  }
+
   Add(Review: any){
     return this.HttpClient.post(`${environment.apiUrl}/Review/Add`, Review)
   }

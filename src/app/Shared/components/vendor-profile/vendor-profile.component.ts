@@ -21,6 +21,7 @@ import { AuthService } from 'src/app/Services/Auth.service';
 })
 export class VendorProfileComponent implements OnInit, AfterViewInit {
   apiUrl = environment.serverUrl;
+  avgRate: number | null = null;
   data: FormData;
   currentUserId: string = '';
   isFollowing: boolean = false;
@@ -79,6 +80,16 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
         next: (data) => {
           this.reviews = data;
           console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
+      this.ReviewService.GetAverageRate(this.vendorId!)
+      .subscribe({
+        next: (response) => {
+          this.avgRate = response;
         },
         error: (error) => {
           console.log(error);
