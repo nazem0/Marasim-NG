@@ -41,6 +41,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
 import { EditPostComponent } from './components/post/edit-post/edit-post.component';
 import { Home2Component } from '../User/components/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
 
 @NgModule({
   imports: [
@@ -60,6 +61,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     TruncatePipe,
     DateFormatArabicPipe,
+    NullToSpacePipe,
     CloudBannerComponent,
     PostComponent,
     AttachmentsComponent,
@@ -111,6 +113,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VendorFollowingVendorComponent,
     DateFormatArabicPipe,
     TruncatePipe,
+    NullToSpacePipe,
     DeleteModalComponent
   ],
 
