@@ -54,6 +54,7 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       GovernorateId: [null, [Validators.required]],
       District: [null, [Validators.required]],
       CategoryId: [null, [Validators.required]],
+      ExternalUrl:[null,[Validators.maxLength(2085)]]
     });
   }
 
@@ -120,6 +121,7 @@ export class VendorRegisterationComponent implements OnInit, AfterViewInit {
       this.data.set('CityId', this.registerForm.get('CityId')?.value);
       this.data.set('GovernorateId', this.registerForm.get('GovernorateId')?.value);
       this.data.set('District', this.registerForm.get('District')?.value);
+      this.data.set('ExternalUrl',this.registerForm.get("ExternalUrl")?.value)
     }
 
   status: string = "التالي";

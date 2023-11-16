@@ -90,7 +90,7 @@
                                     يجب عليك إدخال رقمك القومي
                                 </small>
                             </div>
-                            <div class="row row-cols-1 row-cols-lg-2">
+                            <div class="row row-cols-1 row-cols-lg-2 py-2">
 
                                 <div class=" d-flex align-items-center gap-3">
                                     <label for="male" class="d-flex align-items-center gap-4">
@@ -107,7 +107,7 @@
                                         id="female" value=false formControlName="Gender">
                                 </div>
                                 <div class="file-upload d-flex align-items-center gap-3">
-                                    <i class="fa-solid fa-camera me-2"></i>
+                                    <i class="fa-solid fa-face-smile me-2"></i>
                                     <label for="picture" class="pic-label border-bottom border-2 w-100 p-2">
                                         <span>أضف صورتك</span>
                                     </label>
@@ -134,8 +134,8 @@
                             <div class="g-4">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-city"></i>
-                                    <select class="border-0 border-bottom border-2 w-100 p-2" type="text" id="govInput" name="gov"
-                                        formControlName="GovernorateId" placeholder="محافظتك" #gov>
+                                    <select class="border-0 border-bottom border-2 w-100 p-2" type="text" id="govInput"
+                                        name="gov" formControlName="GovernorateId" placeholder="محافظتك" #gov>
                                         <option selected [value]="null">اختر محافظتك</option>
                                         <ng-container *ngFor="let gov of govs">
                                             <option [value]="gov.id">{{gov.nameAr}}</option>
@@ -147,12 +147,12 @@
                                     اختر محافظتك
                                 </div>
                             </div>
-    
+
                             <div class="g-4" *ngIf="registerForm.controls['GovernorateId'].value !== null">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-building-circle-arrow-right"></i>
-                                    <select class="border-0 border-bottom border-2 w-100 p-2" type="text" id="cityInput" name="city"
-                                        formControlName="CityId" placeholder="مدينتك" #gov>
+                                    <select class="border-0 border-bottom border-2 w-100 p-2" type="text" id="cityInput"
+                                        name="city" formControlName="CityId" placeholder="مدينتك" #gov>
                                         <option selected [value]="null">اختر مدينتك</option>
                                         <ng-container *ngFor="let city of cities">
                                             <option [value]="city.id">{{city.nameAr}}</option>
@@ -164,13 +164,14 @@
                                     اختر مدينتك
                                 </div>
                             </div>
-    
-    
+
+
                             <div class="g-4">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-street-view"></i>
-                                    <input class="border-0 border-bottom border-2 w-100 p-2" type="text" id="districtInput" name="district"
-                                        formControlName="District" placeholder="اسم منطقتك">
+                                    <input class="border-0 border-bottom border-2 w-100 p-2" type="text"
+                                        id="districtInput" name="district" formControlName="District"
+                                        placeholder="اسم منطقتك">
                                 </div>
                                 <div class="text-danger my-2"
                                     *ngIf="registerForm.controls['District'].hasError('required') && registerForm.controls['District'].touched">
@@ -179,20 +180,28 @@
                                     *ngIf="registerForm.controls['District'].hasError('maxLength') && registerForm.controls['District'].touched">
                                     الحد الأقصى لاسم المنطقة هو 100 حرف</div>
                             </div>
-    
+
                             <div class="g-4">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-road "></i>
-                                    <input class="border-0 border-bottom border-2 w-100 p-2" type="text" id="streetInput" name="street"
-                                        formControlName="Street" placeholder="اسم شارعك - اختياري">
+                                    <input class="border-0 border-bottom border-2 w-100 p-2" type="text"
+                                        id="streetInput" name="street" formControlName="Street"
+                                        placeholder="اسم شارعك - اختياري">
                                 </div>
                                 <div class="text-danger my-2"
                                     *ngIf="registerForm.controls['Street'].hasError('maxLength') && registerForm.controls['Street'].touched">
                                     الحد الأقصى لأسم الشارع هو 100 حرف</div>
                             </div>
+                            
+                            <div class="d-flex align-items-center gap-3">
+                                <label for="external-url">
+                                    <i class="fa fa-camera"></i>
+                                </label>
+                                <input class="border-0 border-bottom border-2 w-100 p-2" type="url" formControlName="ExternalUrl" placeholder="معرض أعمال - أختياري - www.instagram/xyz">
+                            </div>
                             <div>
-                                <select class="border-0 border-bottom border-2 w-100 p-2" title="الفئة"
-                                    name="الفئة" id="category" formControlName="CategoryId">
+                                <select class="border-0 border-bottom border-2 w-100 p-2" title="الفئة" name="الفئة"
+                                    id="category" formControlName="CategoryId">
                                     <option [value]="null" disabled>اختر فئة الخدمة المُقدمة</option>
                                     <ng-container *ngFor="let category of Categories">
                                         <option [value]="category.id">{{category.name}}</option>
@@ -204,7 +213,7 @@
                                     لم تقم بإختيار فئة الخدمة المُقدمة
                                 </small>
                             </div>
-                            <div class="">
+                            <div>
                                 <textarea class="border-0 border-bottom border-2 w-100 p-2" name="Summary" id="summary"
                                     cols="30" rows="4" formControlName="Summary"
                                     placeholder="أكتب نبذة عن نفسك"></textarea>
@@ -214,7 +223,6 @@
                                 class="text-danger">
                                 لم تقم بإدخال نبذة مختصرة تحتوي على 20 حرف على الأقل
                             </small>
-
                         </div>
                     </div>
                     <div class="button-form d-flex justify-content-between">
@@ -225,9 +233,9 @@
                         <a class="link-next text-decoration-none text-primary d-flex justify-content-center align-items-center gap-1"
                             (click)="swap()">
 
-                            <i class="fa fa-arrow-right"  id="perv" style="display: none;"></i>
+                            <i class="fa fa-arrow-right" id="perv" style="display: none;"></i>
                             {{status}}
-                            <i class="fa fa-arrow-left"  id="next"></i>
+                            <i class="fa fa-arrow-left" id="next"></i>
                         </a>
                     </div>
 
