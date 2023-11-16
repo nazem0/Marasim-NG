@@ -5,7 +5,7 @@
         <div class="col-md-6 d-flex justify-content-center align-items-center flex-column  bbbb">
             <div class="total-balance flex-column w-50 d-flex align-items-center my-4">
                 <p class=" total">الرصيد الإجمالي</p>
-                <h1>{{balance.toLocaleString('ar-EG')}}</h1>
+                <!-- <h1>{{balance.toLocaleString('ar-EG')}}</h1> -->
             </div>
             <!-- <button class="btn btn-outline-primary btn-receive">أستــلام</button> -->
             <button type="button" class="btn btn-outline-primary btn-receive" data-bs-toggle="modal"
@@ -57,38 +57,22 @@
                                                 </div>
                                             </div> -->
 
-                                <div class="contain my-4" *ngFor="let item of pageSlice">
+                                <div class="contain my-4" *ngFor="let item of payments?.data">
                                     <div class="cust-info d-flex align-items-center">
-                                        <img [src]="item.imageSrc" class="img-cust">
+                                        <img [src]="this.UserService.GetProfilePicUrl(item.user.id,item.user.picUrl)" class="img-cust">
                                         <div class="d-flex flex-column justify-content-between">
                                             <div>
-                                                <h5 class="cust__name m-0">{{ item.customerName }}</h5>
-                                                <span class="service__name">{{ item.serviceName }}</span>
+                                                <h5 class="cust__name m-0">{{ item.user.name }}</h5>
+                                                <span class="service__name">{{ item.serviceTitle }}</span>
                                             </div>
-                                            <span class="date__payment mt-1">{{ item.date }}</span>
+                                            <span class="date__payment mt-1">{{ item.dateTime | dateFormatArabic
+                                                }}</span>
                                         </div>
                                     </div>
                                     <div>
-                                        <span class="total-amount">{{ item.totalAmount.toLocaleString('ar-EG') }}</span>
+                                        <!-- <span class="total-amount">{{ item.totalAmount.toLocaleString('ar-EG') }}</span> -->
                                     </div>
                                 </div>
-
-
-                                <!-- <div class="pag"> -->
-                                    <!-- === -->
-                                    <!-- <mat-paginator [length]="this.cardItems.length" [pageSize]="pageSize"
-                                        [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
-                                    </mat-paginator>
-
-                                    <div *ngIf="pageEvent">
-                                        <h5>Page Change Event Properties</h5>
-                                        <div>List length: {{pageEvent.length}}</div>
-                                        <div>Page size: {{pageEvent.pageSize}}</div>
-                                        <div>Page index: {{pageEvent.pageIndex}}</div>
-                                    </div>
-
-                                </div> -->
-                                <!-- <app-paginator></app-paginator> -->
                             </div>
                         </div>
                     </div>
