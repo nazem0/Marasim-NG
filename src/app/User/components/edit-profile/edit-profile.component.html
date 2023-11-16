@@ -1,78 +1,92 @@
+<div class="container p-3">
+  <h1 class="text-center text-primary">تعديل البيانات</h1>
+  <div class="row">
 
-  <div class="container p-3">
-    <h1 class="text-center text-primary">تعديل البيانات</h1>
-    <div class="row">
+    <div *ngIf="User">
+      <form [formGroup]="basicInfoForm" (ngSubmit)="basicInfoFormSubmit()" class="card mt-3">
+        <div class="card-body">
+          <div>
+            <label for="full-name" class="form-label py-1">الاسم</label>
+            <input type="text" class="form-control py-1" id="full-name" [placeholder]="User.name"
+              formControlName="Name" />
+            <ul *ngIf="basicInfoForm.get('Name')?.invalid && basicInfoForm.get('Name')?.touched">
+              <li *ngIf="basicInfoForm.get('Name')?.hasError('minlength')" class="text-danger">الحد الأدنى لعدد الحروف
+                هو 3</li>
+              <li *ngIf="basicInfoForm.get('Name')?.hasError('maxlength')" class="text-danger">الحد الأقصى لعدد الحروف
+                هو 50</li>
+            </ul>
+          </div>
+          <div>
+            <label for="phone-number" class="form-label py-1">رقم الهاتف</label>
+            <input type="text" class="form-control py-1" id="phone-number" [placeholder]="User.phoneNumber"
+              formControlName="PhoneNumber">
+              <div *ngIf="basicInfoForm.get('PhoneNumber')?.hasError('pattern') && basicInfoForm.get('PhoneNumber')?.touched">
+                <span class="text-danger">يرجى كتابة رقم الهاتف مطابقا لأحد الاشكال الأتية</span>
+                <ul>
+                  <li>+201100233249</li>
+                  <li>201100233249</li>
+                  <li>01100233249</li>
+                  <li>1100233249</li>
+                </ul>
 
-      <div *ngIf="User">
-        <div class="card mt-3">
-          <div class="card-body">
-            <div>
-              <label for="inputEmail4" class="form-label py-1">الاسم</label>
-              <input type="email" class="form-control py-1" id="inputEmail4" [placeholder]="User.name" />
-            </div>
-            <div>
-              <label for="picture" class="pic-label  border-2 w-100 p-2">
-                تغيير الصورة
-              </label>
-              <input #UploadPic class="form-control" id="picture"  type="file" name="picture" placeholder="profile picture"
-                formControlName="Picture" />
-            </div>
-
-
-            <div class="col-12 mt-3">
-              <button type="submit" class="btn btn-primary w-100 py-1">
-                حفظ التغيرات
-              </button>
-            </div>
+              </div>
+          </div>
+          <div>
+            <label for="picture" class="pic-label  border-2 w-100 p-2">تغيير الصورة</label>
+            <input #UploadPic class="form-control" id="picture" type="file" name="picture" placeholder="profile picture"
+              formControlName="Picture" />
+          </div>
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary w-100 py-1">حفظ التغيرات</button>
           </div>
         </div>
+      </form>
 
-        <div class="card mt-3">
-          <div class="card-body">
-            <div>
-              <label for="update_email_input" class="form-label py-1">
-                تحديث الأيميل</label>
-              <input type="email" class="form-control py-1" id="update_email_input" [placeholder]="User.email" />
-            </div>
-            <div>
-              <label for="inputPassword4" class="form-label py-1">كلمة المرور
-              </label>
-              <input type="password" class="form-control py-1" id="inputPassword4" />
-            </div>
 
-            <div class="col-12 mt-3">
-              <button type="submit" class="btn btn-primary w-100">
-                حفظ التغيرات
-              </button>
-            </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div>
+            <label for="update_email_input" class="form-label py-1">
+              تحديث الأيميل</label>
+            <input type="email" class="form-control py-1" id="update_email_input" [placeholder]="User.email" />
+          </div>
+          <div>
+            <label for="inputPassword4" class="form-label py-1">كلمة المرور
+            </label>
+            <input type="password" class="form-control py-1" id="inputPassword4" />
+          </div>
+
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary w-100">
+              حفظ التغيرات
+            </button>
           </div>
         </div>
+      </div>
 
-        <div class="card mt-3">
-          <div class="card-body">
-            <div>
-              <label for="update_password_input" class="form-label py-1">كلمة المرور الحالية
-              </label>
-              <input type="password" class="form-control py-1" id="update_password_input" />
-            </div>
-            <div>
-              <label for="update_password_input" class="form-label py-1">كلمة المرور الجديدة</label>
-              <input type="password" class="form-control py-1" id="update_password_input" />
-            </div>
-            <div>
-              <label for="update_password_input" class="form-label py-1">تأكيد كلمة المرور الجديدة</label>
-              <input type="password" class="form-control py-1" id="update_password_input" />
-            </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div>
+            <label for="update_password_input" class="form-label py-1">كلمة المرور الحالية
+            </label>
+            <input type="password" class="form-control py-1" id="update_password_input" />
+          </div>
+          <div>
+            <label for="update_password_input" class="form-label py-1">كلمة المرور الجديدة</label>
+            <input type="password" class="form-control py-1" id="update_password_input" />
+          </div>
+          <div>
+            <label for="update_password_input" class="form-label py-1">تأكيد كلمة المرور الجديدة</label>
+            <input type="password" class="form-control py-1" id="update_password_input" />
+          </div>
 
-            <div class="col-12 mt-3">
-              <button type="submit" class="btn btn-primary w-100">
-                حفظ التغيرات
-              </button>
-            </div>
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary w-100">
+              حفظ التغيرات
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
+</div>
