@@ -131,10 +131,10 @@
                         </div>
 
                         <div class="page-2 " style="display: none;" id="page2">
-                            <div class="g-4 mb-4">
+                            <div class="g-4">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-city"></i>
-                                    <select class="form-control" type="text" id="govInput" name="gov"
+                                    <select class="border-0 border-bottom border-2 w-100 p-2" type="text" id="govInput" name="gov"
                                         formControlName="GovernorateId" placeholder="محافظتك" #gov>
                                         <option selected [value]="null">اختر محافظتك</option>
                                         <ng-container *ngFor="let gov of govs">
@@ -148,10 +148,10 @@
                                 </div>
                             </div>
     
-                            <div class="g-4 mb-4" *ngIf="registerForm.controls['GovernorateId'].value !== null">
+                            <div class="g-4" *ngIf="registerForm.controls['GovernorateId'].value !== null">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-building-circle-arrow-right"></i>
-                                    <select class="form-control" type="text" id="cityInput" name="city"
+                                    <select class="border-0 border-bottom border-2 w-100 p-2" type="text" id="cityInput" name="city"
                                         formControlName="CityId" placeholder="مدينتك" #gov>
                                         <option selected [value]="null">اختر مدينتك</option>
                                         <ng-container *ngFor="let city of cities">
@@ -166,10 +166,10 @@
                             </div>
     
     
-                            <div class="g-4 mb-4">
+                            <div class="g-4">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-street-view"></i>
-                                    <input class="form-control" type="text" id="districtInput" name="district"
+                                    <input class="border-0 border-bottom border-2 w-100 p-2" type="text" id="districtInput" name="district"
                                         formControlName="District" placeholder="اسم منطقتك">
                                 </div>
                                 <div class="text-danger my-2"
@@ -180,18 +180,18 @@
                                     الحد الأقصى لاسم المنطقة هو 100 حرف</div>
                             </div>
     
-                            <div class="g-4 mb-4">
+                            <div class="g-4">
                                 <div class="d-flex align-items-center gap-3">
                                     <i class="fa-solid fa-road "></i>
-                                    <input class="form-control" type="text" id="streetInput" name="street"
-                                        formControlName="Street" placeholder="اسم شارعك">
+                                    <input class="border-0 border-bottom border-2 w-100 p-2" type="text" id="streetInput" name="street"
+                                        formControlName="Street" placeholder="اسم شارعك - اختياري">
                                 </div>
                                 <div class="text-danger my-2"
                                     *ngIf="registerForm.controls['Street'].hasError('maxLength') && registerForm.controls['Street'].touched">
                                     الحد الأقصى لأسم الشارع هو 100 حرف</div>
                             </div>
                             <div>
-                                <select class="form-select border-0 border-bottom border-2 rounded-0" title="الفئة"
+                                <select class="border-0 border-bottom border-2 w-100 p-2" title="الفئة"
                                     name="الفئة" id="category" formControlName="CategoryId">
                                     <option [value]="null" disabled>اختر فئة الخدمة المُقدمة</option>
                                     <ng-container *ngFor="let category of Categories">
@@ -225,21 +225,9 @@
                         <a class="link-next text-decoration-none text-primary d-flex justify-content-center align-items-center gap-1"
                             (click)="swap()">
 
-                            <svg id="perv" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                class="w-6 h-6 icon-next" style="display: none;" stroke="#0dcaf0" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2">
-                                <path
-                                    d="M15.17 6a30.23 30.23 0 0 1 5.62 5.406c.14.174.21.384.21.594m-5.83 6a30.232 30.232 0 0 0 5.62-5.406A.949.949 0 0 0 21 12m0 0H3">
-                                </path>
-                            </svg>
+                            <i class="fa fa-arrow-right"  id="perv" style="display: none;"></i>
                             {{status}}
-                            <svg id="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                class="icon-next" stroke="#0dcaf0" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2">
-                                <path
-                                    d="M8.83 6a30.23 30.23 0 0 0-5.62 5.406A.949.949 0 0 0 3 12m5.83 6a30.233 30.233 0 0 1-5.62-5.406A.949.949 0 0 1 3 12m0 0h18">
-                                </path>
-                            </svg>
+                            <i class="fa fa-arrow-left"  id="next"></i>
                         </a>
                     </div>
 
