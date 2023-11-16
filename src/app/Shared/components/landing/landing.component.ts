@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Services/Auth.service';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { VendorService } from 'src/app/Services/Vendor.service';
@@ -16,11 +16,19 @@ export class LandingComponent implements OnInit, AfterViewInit {
   constructor(
     private AuthService: AuthService,
     private VendorService: VendorService,
-    private ScrollReveal : ScrollRevealService) { }
+    private ScrollReveal: ScrollRevealService) { }
   ngOnInit() {
     console.log(this.isLogged)
     this.isLogged = this.AuthService.loggedIn;
-    this.VendorService.GetVendorsMidInfo().subscribe((result) => this.slides = result)
+    this.VendorService.GetIntOfVendors()
+      .subscribe({
+        next: (result) => {
+          this.slides = result
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
 
     // const sr = this.ScrollReveal.getScrollReveal();
     // sr.reveal('.map-img', { origin: 'left', duration: 2000, distance: '500px' })
