@@ -25,11 +25,6 @@ import { LoginComponent } from './components/login/login.component';
 import { VendorRegisterationComponent } from './components/vendor-register/vendor-register.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
-import { PaginatorComponent } from './components/paginator/paginator.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatRippleModule } from '@angular/material/core';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FollowersComponent } from '../Vendor/components/followers/followers.component';
 import { FollowerComponent } from '../Vendor/components/followers/follower/follower.component';
@@ -52,10 +47,6 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     GoogleMapsModule,
     HttpClientModule,
     FormsModule,
-    MatPaginatorModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatRippleModule,
     NgxPaginationModule,
     PasswordStrengthMeterModule.forRoot(DEFAULT_PSM_OPTIONS)
   ],
@@ -83,7 +74,6 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     LandingComponent,
     Nav2Component,
     FooterComponent,
-    PaginatorComponent,
     FollowersComponent,
     FollowerComponent,
     VendorFollowingVendorComponent,
@@ -108,8 +98,6 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     CarouselComponent,
     InputSelectComponent,
     FooterComponent,
-    PaginatorComponent,
-    MatPaginatorModule,
     FollowersComponent,
     FollowerComponent,
     VendorFollowingVendorComponent,
