@@ -30,4 +30,8 @@ export class UserService {
   // getFollowing(Id:number){
   //   return this.http.get<any>(`http://localhost:3000/follows?userId=${Id}`)
   // }
+
+  GetProfilePicUrl(UserId:string,PicUrl:string){
+    return `${environment.serverUrl}/${UserId}/ProfilePicture/${PicUrl}`
+  }
 }
