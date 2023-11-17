@@ -24,7 +24,7 @@ export class AddReviewComponent {
     this.data = new FormData();
     this.form = this.builder.group({
       rate: [null, [Validators.required]],
-      message: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(1000)]]
+      message: [null, [Validators.maxLength(1000)]]
     })
   }
   addReview() {

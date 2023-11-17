@@ -1,6 +1,10 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/Services/User.service';
 import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
-import { HttpClient } from '@angular/common/http';
+import { VendorPayment } from 'src/app/Models/Payment';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
+import { PaymentService } from 'src/app/Services/Payment.service';
+import { PaginationInstance } from 'ngx-pagination';
 
 @Component({
   selector: 'app-wallet',
@@ -8,136 +12,51 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./wallet.component.css']
 })
 export class WalletComponent implements OnInit {
-  balance: number = 22
-  pageSize = 2;
-  currentPage = 0;
-  pageSizeOptions: number[] = [3, 5, 10, 25];
+  payments: PaginationViewModel<VendorPayment> | null = null;
+  balance: number | null = null;
+  page = 1;
+  itemsPerPage = 3;
+  public config: PaginationInstance = {
+    id: 'paginationConfig',
+    itemsPerPage: this.itemsPerPage,
+    currentPage: this.page,
+  };
 
-  // MatPaginator Inputs
-  length = 100;
-
-  // MatPaginator Output
-  pageEvent: PageEvent = new PageEvent;
-
-  datasource: any;
-  // handlePageEvent(pageEvent: PageEvent) {
-  //   console.log('handlePageEvent', pageEvent);
-  //   this.currentPage = pageEvent.pageIndex;
-  // }
-
-  onPageEvent = ($event: any) => {
-    this.getData($event.pageIndex, $event.pageSize);
-  }
-
-  getData = (pg: number, lmt: number) => {
-    // return this.allProjects(pg, lmt).subscribe(res => {
-    //   this.tableData = res;
-    // });
-    this.pageSlice = this.allProjects(pg, lmt);
-  }
-
-  allProjects = (page: number, limit: number) => {
-    return this.cardItems.slice(this.currentPage, this.currentPage + this.pageSize);
-  }
-
-  cardItems = [
-    {
-      customerName: "علي احمد علي",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: 2000,
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "مصطفى ابراهيم محمد",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: 2000,
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "محمد ناظم محروس",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: "2000 L.E",
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "صهيب احمد محمد",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: "2000 L.E",
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "محمود شلالى",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: "2000 L.E",
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "محمود نادى",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: "2000 L.E",
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "سامر سمير",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: "2000 L.E",
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-    {
-      customerName: "احمد ابراهيم",
-      serviceName: "مصور فوتوغرافى",
-      date: "22-09-2023",
-      totalAmount: "2000 L.E",
-      imageSrc: "../../../../assets/img/vendor/p-1.jpg"
-    },
-  ];
-
-  public pageSlice = this.cardItems.slice(this.currentPage, this.currentPage + this.pageSize);
-
-
-  constructor(private http: HttpClient) { }
+  constructor(
+    private paymentService: PaymentService,
+    public UserService: UserService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    // this.http.get('assets/data.json').subscribe((data: any) => {
-    //   this.cardItems = data;
-    //   this.pageSlice = this.cardItems.slice(0, this.pageSize);
-    // });
+    this.activatedRoute.paramMap.subscribe(params => {
+      let pageIndex = params.get("page");
+      if (pageIndex) {
+        this.page = parseInt(pageIndex);
+        this.getData();
+      }
+    });
 
-    this.pageSlice = this.cardItems.slice(0, this.pageSize);
-    
+    this.paymentService.GetVendorBalance().subscribe({
+      next: resp => this.balance = resp,
+      error: error => console.log(error)
+    });
   }
 
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
+  pageChange(newPage: number) {
+    this.router.navigate(['../', newPage], { relativeTo: this.activatedRoute });
   }
 
-  onepageChange(event: PageEvent) {
-    // const startIndex = event.pageIndex * event.pageSize;
-    // let endIndex = startIndex + event.pageSize;
-
-    // if (startIndex < this.cardItems.length) {
-    //   this.pageSlice = this.cardItems.slice(startIndex, endIndex);
-    // }
-
-    // this.pageSlice = this.cardItems.slice(startIndex, endIndex);
-
-
-  const startIndex = event.pageIndex * event.pageSize;
-  const endIndex = startIndex + event.pageSize;
-  
-  if (startIndex < this.cardItems.length) {
-    this.pageSlice = this.cardItems.slice(startIndex, endIndex);
+  getData() {
+    this.paymentService.GetVendorPayments(this.page, this.itemsPerPage).subscribe({
+      next: result => {
+        this.payments = result;
+        this.config.currentPage = result.pageIndex;
+        this.config.totalItems = result.count;
+        this.config.itemsPerPage = result.pageSize;
+      },
+      error: error => console.log(error)
+    });
   }
-
-  }
-
 }

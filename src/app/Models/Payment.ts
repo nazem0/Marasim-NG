@@ -7,3 +7,11 @@ export interface Payment {
     dateTime:string,
     reservation: AdminReservation
 }
+
+export interface VendorPayment{
+    userId: string;
+    serviceTitle: string;
+    price: number;
+    dateTime: string;
+    user: UserMinInfo;
+}

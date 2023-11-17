@@ -33,7 +33,8 @@ const vendorRoutes: Routes = [
             { path: 'stats', component: StatNavComponent },
             { path: 'card', component: VendorCardComponent },
             { path: 'edit', component: ProfileEditComponent },
-            { path: 'wallet', component: WalletComponent },
+            // { path: 'wallet', component: WalletComponent },
+            { path: 'wallet/:page', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
             { path :'vendor-profile',  component : VendorProfileComponent},
         ]
