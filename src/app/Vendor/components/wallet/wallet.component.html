@@ -1,19 +1,16 @@
-<!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
-
-<div class="section ">
-    <div class="hero-wallet d-flex justify-content-center align-items-center  container">
-        <div class="col-md-6 d-flex justify-content-center align-items-center flex-column  bbbb">
-            <div class="total-balance flex-column w-50 d-flex align-items-center my-4">
-                <p class=" total">الرصيد الإجمالي</p>
-                <h1>{{balance?.toLocaleString('ar-EG')}}</h1>
-            </div>
-            <!-- <button class="btn btn-outline-primary btn-receive">أستــلام</button> -->
+<div class="section">
+    <div class="total-balance flex-column w-50 d-flex align-items-center mx-auto my-4">
+        <p class="total">الرصيد الإجمالي</p>
+        <h1>{{balance?.toLocaleString('ar-EG')}}</h1>
+    </div>
+    <div class="hero-wallet d-flex justify-content-center align-items-center container">
+        <div class="col-md-6 d-flex justify-content-center align-items-center flex-column bbbb">
             <button type="button" class="btn btn-outline-primary btn-receive" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop2">
                 أستــلام
             </button>
-            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
-                tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel2" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content w-50 m-auto">
                         <div class="modal-header">
@@ -23,7 +20,6 @@
                         <div class="modal-body d-flex flex-colmun justify-content-center align-items-center">
                             <div class="col2" style="max-width: 100%;">
                                 <div class="testimonial">
-                                    <!-- here -->
                                     <div class="text-center">
                                         <button type="button" class="btn btn-primary">تـأكيد</button>
                                     </div>
@@ -39,35 +35,25 @@
                         <div class="Last-Transaction">
                             <h2 class="skills__subtitle title mt-3">التحويلات الاخيرة</h2>
                             <div class="cards">
-
-                                <!-- <div class="contain my-4">
-                                                <div class="cust-info d-flex align-items-center">
-                                                    <img src="../../../../assets/img/vendor/p-1.jpg" class='img-cust'>
-
-                                                    <div class="d-flex flex-column justify-content-between">
-                                                        <div>
-                                                            <h5 class="cust__name m-0">علي احمد علي</h5>
-                                                            <span class="service__name ">مصور فوتوغرافى</span>
-                                                        </div>
-                                                        <span class="date__payment mt-1">22-09-2023</span>
-                                                    </div>
-                                                </div>
+                                <div *ngIf="payments" class="position-relative">
+                                    <div class="contain my-2" *ngFor="let item of payments.data | paginate:config">
+                                        <div class="cust-info d-flex align-items-center">
+                                            <img [src]="this.UserService.GetProfilePicUrl(item.user.id,item.user.picUrl)"
+                                                class="img-cust">
+                                            <div class="d-flex flex-column justify-content-between">
                                                 <div>
-                                                    <span class="total-amount">2000 L.E</span>
+                                                    <h5 class="cust__name m-0">{{ item.user.name }}</h5>
+                                                    <span class="service__name">{{ item.serviceTitle }}</span>
                                                 </div>
-                                            </div> -->
-
-                                <div class="contain my-4" *ngFor="let item of payments?.data">
-                                    <div class="cust-info d-flex align-items-center">
-                                        <img [src]="this.UserService.GetProfilePicUrl(item.user.id,item.user.picUrl)" class="img-cust">
-                                        <div class="d-flex flex-column justify-content-between">
-                                            <div>
-                                                <h5 class="cust__name m-0">{{ item.user.name }}</h5>
-                                                <span class="service__name">{{ item.serviceTitle }}</span>
+                                                <div class="date__payment mt-1">{{ item.dateTime | dateFormatArabic }}</div>
+                                                <div>{{item.price.toLocaleString('ar-EG')}} جنيه مصري</div>
                                             </div>
-                                            <div class="date__payment mt-1">{{ item.dateTime | dateFormatArabic }}</div>
-                                            <div>{{item.price.toLocaleString('ar-EG')}} جنيه مصري</div>
                                         </div>
+                                    </div>
+                                    <div class="text-center position-relative bottom-0" *ngIf="payments.data.length>0">
+                                        <pagination-controls class="pagination" [responsive]="true"
+                                            previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+                                            [id]="config.id!"></pagination-controls>
                                     </div>
                                 </div>
                             </div>
