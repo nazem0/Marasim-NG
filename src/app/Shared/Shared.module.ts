@@ -44,7 +44,6 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    GoogleMapsModule,
     HttpClientModule,
     FormsModule,
     NgxPaginationModule,
@@ -104,7 +103,7 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     DateFormatArabicPipe,
     TruncatePipe,
     NullToSpacePipe,
-    DeleteModalComponent
+    DeleteModalComponent,
   ],
 
 })
