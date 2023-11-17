@@ -26,4 +26,7 @@ export class PaymentService {
   GetVendorPayments(PageIndex = 1): Observable<PaginationViewModel<VendorPayment>> {
     return this.HttpClient.get<PaginationViewModel<VendorPayment>>(`${environment.apiUrl}/payment/GetVendorsPayments/${PageIndex}`)
   }
+  GetVendorBalance(): Observable<number> {
+    return this.HttpClient.get<number>(`${environment.apiUrl}/Payment/GetVendorBalance`)
+  }
 }

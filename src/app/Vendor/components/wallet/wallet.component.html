@@ -5,7 +5,7 @@
         <div class="col-md-6 d-flex justify-content-center align-items-center flex-column  bbbb">
             <div class="total-balance flex-column w-50 d-flex align-items-center my-4">
                 <p class=" total">الرصيد الإجمالي</p>
-                <!-- <h1>{{balance.toLocaleString('ar-EG')}}</h1> -->
+                <h1>{{balance?.toLocaleString('ar-EG')}}</h1>
             </div>
             <!-- <button class="btn btn-outline-primary btn-receive">أستــلام</button> -->
             <button type="button" class="btn btn-outline-primary btn-receive" data-bs-toggle="modal"
@@ -65,12 +65,9 @@
                                                 <h5 class="cust__name m-0">{{ item.user.name }}</h5>
                                                 <span class="service__name">{{ item.serviceTitle }}</span>
                                             </div>
-                                            <span class="date__payment mt-1">{{ item.dateTime | dateFormatArabic
-                                                }}</span>
+                                            <div class="date__payment mt-1">{{ item.dateTime | dateFormatArabic }}</div>
+                                            <div>{{item.price.toLocaleString('ar-EG')}} جنيه مصري</div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <!-- <span class="total-amount">{{ item.totalAmount.toLocaleString('ar-EG') }}</span> -->
                                     </div>
                                 </div>
                             </div>
