@@ -19,7 +19,7 @@ export class CreatePostComponent {
   constructor(private formBuilder: FormBuilder, private PostService: PostService) {
     this.data = new FormData();
     this.postForm = this.formBuilder.group({
-      Title: ['', [Validators.required, Validators.pattern(/^[\p{L} ]{5,30}$/u)]],
+      Title: ['', [Validators.required,Validators.maxLength(100)]],
       Description: ['',[Validators.required,Validators.minLength(10), Validators.maxLength(1000)]],
       Pictures: [null, [Validators.required]],
     });
