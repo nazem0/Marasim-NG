@@ -58,3 +58,11 @@ export interface AdminReservation {
   user: UserMinInfo;
   vendor: IVendorMinInfo;
 }
+
+export interface VendorReservationList{
+  count: number;
+  data: VendorReservation[];
+  lastPage: number;
+  pageIndex: number;
+  pageSize: number;
+}

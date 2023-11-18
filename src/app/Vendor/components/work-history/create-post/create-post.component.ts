@@ -32,8 +32,8 @@ export class CreatePostComponent {
 
   submitPost() {
     if (this.postForm.valid) {
-      this.data.append('Title', this.postForm.get('Title')?.value);
-      this.data.append('Description', this.postForm.get('Description')?.value);
+      this.data.set('Title', this.postForm.get('Title')?.value);
+      this.data.set('Description', this.postForm.get('Description')?.value);
       for (var i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
         this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
       }

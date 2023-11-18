@@ -1,8 +1,10 @@
-import { VendorReservation, CheckoutReservation } from './../Models/Reservation';
+import { VendorReservation, CheckoutReservation,VendorReservationList } from './../Models/Reservation';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { UserReservation } from '../Models/Reservation';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +23,10 @@ export class ReservationService {
   }
   GetForVendorByStatus(Status:string){
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/${Status}`)
+  }
+
+  GetForVendorByPagination(Status:string ,PageIndex: number, PageSize: number): Observable<VendorReservationList> {
+    return this.HttpClient.get<VendorReservationList>(`${environment.apiUrl}/Reservation/GetVendorReservationsByPagination/${Status}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
   GetAllForVendor(){
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
