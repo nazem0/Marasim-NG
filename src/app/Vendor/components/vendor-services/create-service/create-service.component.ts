@@ -35,7 +35,6 @@ export class CreateServiceComponent {
       for (let i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
         this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
       }
-      // this.data.append('Pictures', this.UploadedPictures?.nativeElement.files);
       this.ServiceService.AddService(this.data)
         .subscribe({
           next: (data) => {

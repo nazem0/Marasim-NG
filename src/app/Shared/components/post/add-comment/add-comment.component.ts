@@ -28,8 +28,8 @@ export class AddCommentComponent {
 
   addComment() {
     if (this.formIsValid) {
-      this.data.append('Text', this.commentForm.get('Text')?.value);
-      this.data.append('postId', this.postId.toString());
+      this.data.set('Text', this.commentForm.get('Text')?.value);
+      this.data.set('postId', this.postId.toString());
 
       this.PostService.AddComment(this.data)
         .subscribe({
