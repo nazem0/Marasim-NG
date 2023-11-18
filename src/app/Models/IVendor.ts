@@ -1,7 +1,10 @@
 export interface IVendor {
-  id: string,
-  address: string,
-  categoryId: number,
+  id: number,
+  city: string;
+  district: string;
+  governorate: string;
+  street?: string | null;
+  category: string,
   externalUrl: string | null,
   gender: boolean,
   latitude: number,
@@ -34,4 +37,17 @@ export interface address{
 district: string;
 governorate: string;
 street?: string | null;
+}
+
+export interface iVendorCard{
+  id: number,
+  userId: string,
+  name: string,
+  picUrl: string,
+  summary: string,
+  category: string,
+  city: string;
+  district: string;
+  governorate: string;
+  street?: string | null;
 }

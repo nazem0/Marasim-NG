@@ -228,10 +228,3 @@ label {
 .rating > input:checked ~ label {
   color: #ffa723;
 }
-
-
-
-
-.card-img-top{
-  max-height: 18rem;
-}

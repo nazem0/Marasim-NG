@@ -39,7 +39,7 @@ export class ProfileEditComponent implements OnInit {
       Name: [this.User?.name, Validators.minLength(2)],
       Picture: [null],
       PhoneNumber: [this.User?.phoneNumber, [Validators.minLength(11), Validators.pattern(this.PhoneNumberRegEx)]],
-      CategoryId: [this.Vendor?.categoryId],
+      CategoryId: [null],
       Summary: [this.Vendor?.summary, [Validators.minLength(20), Validators.maxLength(1000)]],
     })
   }

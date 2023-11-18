@@ -54,15 +54,8 @@
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
       <div
         class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-        <div class="col card text-center p-0 m-0" *ngFor="let Vendor of Category.vendors">
-          <img class="card-img-top rounded p-0 m-0" src="{{apiUrl}}/{{Vendor.userId}}/profilepicture/{{Vendor.picUrl}}">
-          <!-- get vendor photo from user -->
-          <div class="card-body">
-            <h5 class="card-title">{{Vendor.name | truncate : 15}}</h5>
-            <p class="card-text"> {{Vendor.summary | truncate : 20}}</p>
-            <p>{{Vendor.address}}</p>
-            <button class="primary-btn" [routerLink]="[Vendor.id]">المزيد من التفاصيل</button>
-          </div>
+        <div class="col card text-center p-0 m-0" *ngFor="let vendor of Category.vendors">
+          <app-vendor-card [vendor]="vendor"></app-vendor-card>
         </div>
       </div>
 
