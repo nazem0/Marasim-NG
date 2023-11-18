@@ -28,3 +28,10 @@ export interface IVendorMidInfo {
   summary: string,
   categoryName: string,
 }
+
+export interface address{
+  city: string;
+district: string;
+governorate: string;
+street?: string | null;
+}
