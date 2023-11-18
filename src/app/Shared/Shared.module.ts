@@ -7,7 +7,6 @@ import { CommentsComponent } from './components/post/comments/comments.component
 import { ReactionsComponent } from './components/post/reactions/reactions.component';
 import { ReactionComponent } from './components/post/reactions/reaction/reaction.component';
 import { CommentComponent } from './components/post/comments/comment/comment.component';
-import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
 import { ReviewComponent } from './components/review/review.component';
 import { RequestServiceComponent } from './components/request-service/request-service.component';
 import { AttachmentModalComponent } from './components/attachment-modal/attachment-modal.component';
@@ -16,8 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AddCommentComponent } from './components/post/add-comment/add-comment.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { Nav2Component } from './components/landing/nav2/nav2.component';
@@ -60,7 +58,6 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     ReactionsComponent,
     ReactionComponent,
     CommentComponent,
-    VendorCardComponent,
     ReviewComponent,
     RequestServiceComponent,
     AttachmentModalComponent,
@@ -92,7 +89,6 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
     ReactionsComponent,
     ReviewComponent,
     RequestServiceComponent,
-    VendorCardComponent,
     AttachmentModalComponent,
     CarouselComponent,
     InputSelectComponent,

@@ -1,7 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
-import { VendorCardComponent } from '../Shared/components/vendor-card/vendor-card.component';
 import { EditServiceComponent } from './components/vendor-services/action-buttons/edit-service/edit-service.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
@@ -31,7 +30,6 @@ const vendorRoutes: Routes = [
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
-            { path: 'card', component: VendorCardComponent },
             { path: 'edit', component: ProfileEditComponent },
             // { path: 'wallet', component: WalletComponent },
             { path: 'wallet/:page', component: WalletComponent },
