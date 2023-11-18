@@ -40,7 +40,6 @@ const routes: Routes = [
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
-      { path: 'invitation/:id', component: InvitationComponent},
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
@@ -60,9 +59,10 @@ const routes: Routes = [
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
       { path: "filterd", component: FilterdComponent },
-
+      
     ],
   },
+  { path: 'invitation/:id', component: InvitationComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'vendor-registeration', component: VendorRegisterationComponent },
 
