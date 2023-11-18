@@ -32,8 +32,9 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
-import { FilterdComponent } from './components/filterd/filterd.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
+import { VendorsFilterOptionsComponent } from './components/vendors-filter/filter/filter.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HomeComponent,
     ReservationsComponent,
     AddReviewComponent,
-    FilterdComponent,
+    VendorsFilterComponent,
+    VendorsFilterOptionsComponent
   ]
 })
 export class UserModule { }

@@ -27,7 +27,7 @@ import { VendorRegisterationComponent } from '../Shared/components/vendor-regist
 import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
-import { FilterdComponent } from './components/filterd/filterd.component';
+import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
 
 
 
@@ -43,7 +43,7 @@ const routes: Routes = [
       { path: 'generate-packages', component: GeneratePackagesComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'feed/:page', component: FeedComponent },
+      { path: 'feed/:pageIndex', component: FeedComponent },
       { path: 'vendors/:id', component: VendorProfileComponent },
       { path: 'followings', component: FollowingsComponent },
       { path: 'checkout/:id', component: CheckoutComponent },
@@ -58,7 +58,7 @@ const routes: Routes = [
       { path: "reservation", component: ReservationsComponent },
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
-      { path: "filterd", component: FilterdComponent },
+      { path: "vendors-filteration/:pageIndex", component:VendorsFilterComponent}
       
     ],
   },
