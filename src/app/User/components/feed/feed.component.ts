@@ -37,7 +37,7 @@ export class FeedComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.ActivatedRoute.paramMap.subscribe({
       next: (params) => {
-        this.config.currentPage = parseInt(params.get('page')!);
+        this.config.currentPage = parseInt(params.get('pageIndex')!);
         this.getData();
       },
     });
