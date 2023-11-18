@@ -1,4 +1,3 @@
-import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IVendor, IVendorMidInfo } from '../Models/IVendor';
@@ -38,5 +37,12 @@ export class VendorService {
 
     UpdateVendor(updateData: any) {
         return this.HttpClient.put(`${environment.apiUrl}/Vendor/Update`, updateData)
+    }
+
+    getVendorAddress(address: address) {
+        if (address.street)
+            return `${address.street}, ${address.district}, ${address.city}, ${address.governorate}`
+
+        return `${address.district}, ${address.city}, ${address.governorate}`
     }
 }
