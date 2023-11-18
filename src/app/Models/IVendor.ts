@@ -23,13 +23,17 @@ export interface IVendorMinInfo {
   picUrl: string,
 }
 
-export interface IVendorMidInfo {
-  id: number,
-  userId: string,
-  name: string,
-  picUrl: string,
-  summary: string,
-  categoryName: string,
+export interface IVendorMidInfo  {
+  id: number;
+  name: string;
+  picUrl: string;
+  userId: string;
+  summary: string;
+  category: string;
+  city: string;
+  district: string;
+  governorate: string;
+  street?: string | null;
 }
 
 export interface address{
