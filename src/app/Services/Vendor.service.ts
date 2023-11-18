@@ -4,6 +4,7 @@ import { IVendor, IVendorMidInfo, address } from '../Models/IVendor';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { FullVendorInfo } from '../Models/FullVendorInfo';
+import { PaginationViewModel } from '../Models/PaginationViewModel';
 
 @Injectable({
     providedIn: 'root'
@@ -38,7 +39,9 @@ export class VendorService {
     UpdateVendor(updateData: any) {
         return this.HttpClient.put(`${environment.apiUrl}/Vendor/Update`, updateData)
     }
-
+    filterVendors(pageIndex=1):Observable<PaginationViewModel<IVendorMidInfo>>{
+        return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(`${environment.apiUrl}/Vendor/Filter/${pageIndex}`)
+    }
     getVendorAddress(address: address) {
         if (address.street)
             return `${address.street}, ${address.district}, ${address.city}, ${address.governorate}`
