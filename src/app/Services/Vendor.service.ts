@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IVendor, IVendorMidInfo } from '../Models/IVendor';
+import { IVendor, IVendorMidInfo, address } from '../Models/IVendor';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { FullVendorInfo } from '../Models/FullVendorInfo';
