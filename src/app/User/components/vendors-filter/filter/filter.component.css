@@ -1,51 +1,3 @@
-.searching{
-
-  scale: 90%;
-}
-
-.cover-img {
-  width: 100%;
-  /* height: 20vh; */
-  /* background-image: url(../../../../assets/img/hall.webp); */
-
-  object-fit: cover;
-}
-
-.gradient{
-  width: 500px;
-  height: 30px;
-  background-image: linear-gradient(to left, #23c0c9 , white);
-
-}
-.card {
-  background-color: white;
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
-  transition: 0.5s all;
-}
-
-.card:hover {
-  cursor: pointer;
-  transform: translateY(-8px);
-}
-
-
-.button__shared {
-  color: #fff;
-  background-color: var(--primary-color);
-  cursor: pointer;
-}
-
-.button__shared:hover {
-  color: #fff;
-  background-color: #088f95
-}
-
-
-/* ///////////////////////////////////////////////////////////////// */
-button{
-  max-height: 100vh;
-}
-
 /* this is a recreation of twitter search in css */
 .searchInput {
   --focus-input-bg-color: transparent;
@@ -228,5 +180,3 @@ label {
 .rating > input:checked ~ label {
   color: #ffa723;
 }
-
-
