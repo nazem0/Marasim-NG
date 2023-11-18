@@ -1,6 +1,3 @@
-import { IPost } from "./IPost"
-import { IVendorMidInfo } from "./IVendor"
-
 export interface IFollowing {
     id: number,
     userId: number,

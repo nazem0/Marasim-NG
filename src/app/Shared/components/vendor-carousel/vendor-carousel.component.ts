@@ -13,8 +13,7 @@ export class VendorCarouselComponent implements AfterViewInit {
   apiUrl = environment.serverUrl;
   @Input() @HostBinding('style.--slide-width') slideWidth = '520px';
   @Input() @HostBinding('style.--slide-height') slideHeight = '380px';
-  @Input()
-  slides: IVendorMidInfo[] = [];
+  @Input() slides: IVendorMidInfo[] = [];
 
   ngAfterViewInit() {
     const swiper = new Swiper('.swiper', {
