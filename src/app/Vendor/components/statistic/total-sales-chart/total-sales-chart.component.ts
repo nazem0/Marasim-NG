@@ -14,30 +14,34 @@ export class TotalSalesChartComponent {
   chartOptions: any = {
     scales: {
       x: {
-        title: {
-          display: true,
-          text: 'الشهور',
-          font: {
-            size: 30 
-          }
-        },
+        // title: {
+        //   display: true,
+        //   text: 'الشهور',
+        //   font: {
+        //     family:"Alexandria",
+        //     size: 20 
+        //   }
+        // },
         ticks: {
           font: {
-            size: 18 
+            family:"Alexandria",
+            size: 12
           }
         }
       },
       y: {
-        title: {
-          display: true,
-          text: 'المبيعات',
-          font: {
-            size: 30
-          }
-        },
+        // title: {
+        //   display: true,
+        //   // text: 'المبيعات',
+        //   font: {
+        //     family:"Alexandria",
+        //     size: 20
+        //   }
+        // },
         ticks: {
           font: {
-            size: 18 
+            family:"Alexandria",
+            size: 12
           }
         }
       }
@@ -46,7 +50,8 @@ export class TotalSalesChartComponent {
       legend: {
         labels: {
           font: {
-            size: 20 
+            family:"Alexandria",
+            size: 12
           }
         }
       },
@@ -64,11 +69,10 @@ export class TotalSalesChartComponent {
           }
         },
         displayColors: false,
-        title: function () {
-          return ''; 
-        },
+        title: '',
         bodyFont: {
-          size: 18 
+          family:"Alexandria",
+          size: 12
         }
       }
     }
@@ -91,7 +95,7 @@ export class TotalSalesChartComponent {
               pointStyle: 'circle',
               pointRadius: 5,
               pointBackgroundColor: 'rgba(8, 143, 149, 1)',
-              tension: 0.4
+              tension: 0.4,
             }
           ]
         };

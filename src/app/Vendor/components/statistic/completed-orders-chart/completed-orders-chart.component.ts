@@ -22,9 +22,10 @@ export class CompletedOrdersChartComponent {
             {
               data: Object.values(data),
               label: 'الحجوزات المكتملة',
-              backgroundColor: this.createGradient(), 
+              backgroundColor: this.createGradient(),
+              // backgroundColor: 'rgba(8, 143, 149, 0.5)',
               borderColor: 'rgba(8, 143, 149, 1)',
-              borderWidth: 1,
+              borderWidth: 2,
               barPercentage: 0.8,
               hoverBackgroundColor: 'rgba(8, 143, 149, 0.7)',
               hoverBorderColor: 'rgba(8, 143, 149, 1)'
@@ -39,36 +40,41 @@ export class CompletedOrdersChartComponent {
     });
   }
 
-  ngOnInit(): void {this.loadTotalOrderData();}
+  ngOnInit(): void { this.loadTotalOrderData(); }
   chartOptions: any = {
+    responsive: true,
     scales: {
       x: {
-        title: {
-          display: true,
-          text: 'الشهور',
-          font: {
-            size: 30 
-          }
-        },
+        // title: {
+        //   display: true,
+        //   text: 'الشهور',
+        //   font: {
+        //     family:"Alexandria",
+        //     size: 20
+        //   }
+        // },
         ticks: {
           font: {
-            size: 18 
+            family:"Alexandria",
+            size: 12
           }
         }
       },
       y: {
-        title: {
-          display: true,
-          text: ' الحجوزات ',
-          font: {
-            size: 30
-          }
-        },
+        // title: {
+        //   display: true,
+        //   text: ' الحجوزات ',
+        //   font: {
+        //     family:"Alexandria",
+        //     size: 20
+        //   }
+        // },
         ticks: {
           font: {
-            size: 18 
+            family:"Alexandria",
+            size: 12
           },
-          stepSize: 1 
+          stepSize: 1
         }
       }
     },
@@ -76,14 +82,15 @@ export class CompletedOrdersChartComponent {
       legend: {
         labels: {
           font: {
-            size: 20 
+            family:"Alexandria",
+            size: 12,
           }
         }
       },
       tooltip: {
         callbacks: {
           label: function (context: any) {
-            var label = context.dataset.label || '';
+            let label = context.dataset.label || '';
 
             if (label) {
               label += ': ';
@@ -95,10 +102,11 @@ export class CompletedOrdersChartComponent {
         },
         displayColors: false,
         title: function () {
-          return ''; 
+          return '';
         },
         bodyFont: {
-          size: 18 
+          family:"Alexandria",
+          size: 12
         }
       }
     }
@@ -111,6 +119,6 @@ export class CompletedOrdersChartComponent {
     return gradient;
   }
 
-    
-  }
+
+}
 
