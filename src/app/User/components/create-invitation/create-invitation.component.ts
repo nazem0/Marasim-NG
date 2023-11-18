@@ -25,7 +25,7 @@ export class CreateInvitationComponent {
       GroomPic: ['', [Validators.required]],
       BrideName: ['', [Validators.required, Validators.maxLength(150)]],
       BridePic: ['', [Validators.required]],
-      WeddingDate: ['', [Validators.required]],
+      DateTime: ['', [Validators.required]],
       Poster: ['', [Validators.required]],
       Location: ['', [Validators.required, Validators.maxLength(150)]],
     });
@@ -37,7 +37,7 @@ export class CreateInvitationComponent {
       this.data.set('GroomPic', this.GroomPic?.nativeElement.files[0]);
       this.data.set('BridePic', this.BridePic?.nativeElement.files[0]);
       this.data.set('Poster', this.Poster?.nativeElement.files[0]);
-      this.data.set('WeddingDate', this.form.get('WeddingDate')?.value);
+      this.data.set('DateTime', this.form.get('DateTime')?.value);
       this.data.set('Location', this.form.get('Location')?.value);
       this.InvitationService.add(this.data).subscribe({
         next: () => {
