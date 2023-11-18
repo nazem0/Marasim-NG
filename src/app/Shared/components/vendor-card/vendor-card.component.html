@@ -1,4 +1,4 @@
-<div *ngIf="vendor">
+<div class="card" *ngIf="vendor">
     <img title="{{vendor.name}}" [src]="userService.GetProfilePicUrl(vendor.userId,vendor.picUrl)">
     <!-- get vendor photo from user -->
     <div class="m-3">
