@@ -3,7 +3,7 @@
 <section id="bride_groom_section">
   <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center gap-5">
     <app-bride-groom [invitation]="invitation"></app-bride-groom>
-    <app-counter></app-counter>
+    <app-counter [date]="invitation.date"></app-counter>
   </div>
 </section>
 <footer class="bg-dark py-4 text-center">
