@@ -11,7 +11,7 @@ import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 export class VendorsFilterComponent {
 vendors:PaginationViewModel<IVendorMidInfo>|null = null;
 constructor(private vendorService:VendorService){
-  this.vendorService.filterVendors().subscribe(
+  this.vendorService.filterVendors(1,2,1).subscribe(
     {
       next:vendors=>this.vendors=vendors
     }

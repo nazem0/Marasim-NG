@@ -1,21 +1,8 @@
-<div class="container searching mb-5">
-    <div class="search-bar">
-      <div class="input-group">
-
-        <app-vendors-filter-options></app-vendors-filter-options>
-
-  
-        <button class="btn button__shared">بحث <i class="fa-solid fa-search"></i></button>
-      </div>
-  
-  
-  
-  
-    </div>
-  </div>
-
-<div class="row row-cols-md-4 g-3 justify-content-center align-content-center" *ngIf="vendors">
+<section class="row">
+  <app-vendors-filter-options class="col"></app-vendors-filter-options>
+<div class="col-10 row row-cols-md-4 g-3 justify-content-center align-content-center" *ngIf="vendors">
     <div *ngFor="let vendor of vendors.data">
         <app-vendor-card [vendor]="vendor"></app-vendor-card>
     </div>
 </div>
+</section>
