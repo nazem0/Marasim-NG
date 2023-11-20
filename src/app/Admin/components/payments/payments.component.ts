@@ -9,62 +9,78 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.css']
 })
-export class PaymentsComponent implements OnInit{
-
-  filter : string = "f";
+export class PaymentsComponent implements OnInit {
+  filter: string = "f";
   constructor(
-    private PaymentService:PaymentService,
-    private ReservationService:ReservationService,
-    private Toastr:ToastrService
-    ){}
-  Payments : Payment[] =[];
+    private PaymentService: PaymentService,
+    private ReservationService: ReservationService,
+    private Toastr: ToastrService
+  ) { }
+  Payments: Payment[] = [];
+
   ngOnInit(): void {
     this.GetAll();
   }
-  Confirm(ReservationId:number){
+
+  Confirm(ReservationId: number) {
     this.ReservationService.Confirm(ReservationId).subscribe({
-      next: () => this.Toastr.success("تم تأكيد الدفع"),
-        error: (error) => {
-          this.Toastr.success("","حدث خطأ");
-          console.log(error);
-        }
+      next: () => {
+        this.GetAll();
+        this.Toastr.success("تم تأكيد الدفع");
+      },
+      error: (error) => {
+        this.Toastr.success("", "حدث خطأ");
+        console.log(error);
+      }
     })
   }
-  GetAll(){
+
+  GetAll() {
     this.PaymentService.Get().subscribe(
       {
-        next:(response)=>{
-          this.Payments=response
+        next: (response) => {
+          this.Payments = response
           console.log(response);
         },
-        error:(error)=>console.log(error)
+        error: (error) => console.log(error)
       }
     )
   }
 
-  GetUnconfirmed(){
-      this.PaymentService.GetUnconfirmed().subscribe(
-        {
-          next:(response)=>{
-            this.Payments=response
-            console.log(response);
-          },
-          error:(error)=>console.log(error)
-        }
-      )
-    
+  GetUnconfirmed() {
+    this.PaymentService.GetUnconfirmed().subscribe(
+      {
+        next: (response) => {
+          this.Payments = response
+          console.log(response);
+        },
+        error: (error) => console.log(error)
+      }
+    )
   }
 
-  GetConfirmed(){
+  GetConfirmed() {
     this.PaymentService.GetConfirmed().subscribe(
       {
-        next:(response)=>{
-          this.Payments=response
+        next: (response) => {
+          this.Payments = response
           console.log(response);
         },
-        error:(error)=>console.log(error)
+        error: (error) => console.log(error)
       }
     )
-  
-}
+  }
+  Unconfirm(ReservationId: number) {
+    // this.ReservationService.Confirm(ReservationId).subscribe({
+    //   next: () => {
+    //     this.GetAll();
+    //     this.Toastr.success("تم تأكيد الدفع");
+    //   },
+    //   error: (error) => {
+    //     this.Toastr.success("", "حدث خطأ");
+    //     console.log(error);
+    //   }
+    // })
+    this.Toastr.success("NO FUNCTION")
+  }
 }

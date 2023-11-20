@@ -42,15 +42,17 @@
             <td scope="row">{{payment.reservation.user.name}}</td>
             <td>{{payment.reservation.vendor.name}}</td>
             <td>{{payment.instaPay}}</td>
-            <td>{{payment.reservation.price * 0.3}}</td>
+            <td>{{(payment.reservation.price * 0.3).toLocaleString("ar-EG")}}</td>
             <td>{{payment.reservation.dateTime | dateFormatArabic}}</td>
             <td>{{payment.dateTime | dateFormatArabic}}</td>
             <td class="d-flex gap-2 justify-content-center">
-              <button title="تأكيد الدفع" *ngIf="payment.reservation.status=='f';else unconfirm" type="button" class="primary-btn" (click)="Confirm(payment.reservation.id)">
+              <button title="تأكيد الدفع" *ngIf="payment.reservation.status=='f';else unconfirm" type="button"
+                class="primary-btn" (click)="Confirm(payment.reservation.id)">
                 <i class="fa-solid fa-check"></i>
               </button>
-              <ng-template #unconfirm title="تأكيد الدفع" type="button" class="danger-btn" (click)="Confirm(payment.reservation.id)">
-                <button title="تأكيد الدفع" type="button" class="danger-btn" (click)="Confirm(payment.reservation.id)">
+              <ng-template #unconfirm>
+                <button title="تأكيد الدفع" type="button" class="danger-btn"
+                  (click)="Unconfirm(payment.reservation.id)">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </ng-template>
