@@ -1,8 +1,90 @@
-<section class="row">
-  <app-vendors-filter-options class="col"></app-vendors-filter-options>
-<div class="col-10 row row-cols-md-4 g-3 justify-content-center align-content-center" *ngIf="vendors">
-    <div *ngFor="let vendor of vendors.data">
+<section class="d-flex gap-4">
+  <div class="p-3 shadow">
+    <form [formGroup]="form" class="d-flex flex-column gap-3">
+      <div class="searchInput shadow-sm text-dark rounded-5 w-100">
+        <label for="search">
+          <div class="search">
+            <i class="fa fa-search"></i>
+          </div>
+          <input class="input" type="text" required="" placeholder="ابحث بالأسم" id="search" formControlName="Name">
+          <div class="fancy-bg"></div>
+        </label>
+      </div>
+
+      <div>
+        <select class="form-select" type="text" id="govInput" name="gov"
+          formControlName="GovernorateId" placeholder="محافظتك" #gov>
+          <option selected [value]="null">اختر محافظتك</option>
+          <ng-container *ngFor="let gov of govs">
+            <option [value]="gov.id">{{gov.nameAr}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+      <div *ngIf="form.controls['GovernorateId'].value !== null">
+        <select class="form-select" type="text" id="cityInput" name="city"
+          formControlName="CityId" placeholder="مدينتك" #gov>
+          <option selected [value]="null">اختر مدينتك</option>
+          <ng-container *ngFor="let city of cities">
+            <option [value]="city.id">{{city.nameAr}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+
+      <div>
+        <input class="form-control" type="text" id="districtInput" name="district"
+          formControlName="District" placeholder="اسم منطقتك">
+      </div>
+
+      <!-- <div class="g-4">
+        <div class="d-flex align-items-center gap-3">
+          <i class="fa-solid fa-road "></i>
+          <input class="border-0 border-bottom border-2 w-100 p-2" type="text" id="streetInput" name="street"
+            formControlName="Street" placeholder="اسم شارعك - اختياري">
+        </div>
+      </div> -->
+
+      <div>
+        <p>الأقسام</p>
+        <ng-container *ngFor="let category of categories">
+          <div class="form-check d-flex gap-3 justify-content-between align-items-center">
+            <input class="form-check-input" type="checkbox" [checked]="categoriesInput.includes(category.id)"
+              (change)="onCategoryChange(category.id, $event)">
+            <label class="form-check-label" for="">
+              {{category.name}}
+            </label>
+          </div>
+        </ng-container>
+      </div>
+
+      <label for="customRange3" class="form-label text-primary fs-5">حسب السعر</label>
+      <span>price</span>
+      <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+      <label for="customRange3" class="form-label text-primary fs-5">حسب التقييم</label>
+
+      <div class="rating d-flex  mb-3">
+        <input value="5" name="rate" id="star5" type="radio">
+        <label title="text" for="star5"></label>
+        <input value="4" name="rate" id="star4" type="radio">
+        <label title="text" for="star4"></label>
+        <input value="3" name="rate" id="star3" type="radio" checked>
+        <label title="text" for="star3"></label>
+        <input value="2" name="rate" id="star2" type="radio">
+        <label title="text" for="star2"></label>
+        <input value="1" name="rate" id="star1" type="radio">
+        <label title="text" for="star1"></label>
+      </div>
+      
+      <button (click)="getData()" type="button" class="btn btn-outline-primary w-100 mb-2">بحث</button>
+
+    </form>
+  </div>
+  <div class="container">
+    <div class="row row-cols-md-4 justify-content-center g-3" *ngIf="vendors">
+      <div *ngFor="let vendor of vendors.data">
         <app-vendor-card [vendor]="vendor"></app-vendor-card>
+      </div>
     </div>
-</div>
+  </div>
 </section>
