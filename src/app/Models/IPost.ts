@@ -1,5 +1,3 @@
-import { IUser } from "./IUser"
-
 export interface IPost {
   id: number,
   vendorId: number,
@@ -7,8 +5,8 @@ export interface IPost {
   description: string,
   dateTime: string,
   postAttachments: IPostAttachment[],
-  comment: IComment[],
-  react: IReaction[],
+  commentsCount: number,
+  reactsCount:number,
   vendorName: string,
   vendorPicUrl: string,
   vendorUserId: string
