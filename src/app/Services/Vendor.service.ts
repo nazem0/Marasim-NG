@@ -55,16 +55,17 @@ export class VendorService {
 
   filterVendors(
     pageIndex = 1,
-    FormModel: FormModel | null = null
+    VendorFilterForm: VendorFilterForm | null = null
   ): Observable<PaginationViewModel<IVendorMidInfo>> {
     let queryParams: string[] | string = [];
-    if (FormModel) {
-      if (FormModel.Name) queryParams.push(`Name=${FormModel.Name}`)
-      if (FormModel.Categories?.length>0) queryParams.push(`Categories=${FormModel.Categories.join()}`);
-      if (FormModel.GovernorateId) queryParams.push(`GovernorateId=${FormModel.GovernorateId}`);
-      if (FormModel.CityId) queryParams.push(`CityId=${FormModel.CityId}`);
-      if (FormModel.District) queryParams.push(`District=${FormModel.District}`);
-      if (FormModel.PageSize) queryParams.push(`PageSize=${FormModel.PageSize}`);
+    if (VendorFilterForm) {
+      if (VendorFilterForm.Name) queryParams.push(`Name=${VendorFilterForm.Name}`)
+      if (VendorFilterForm.Categories?.length>0) queryParams.push(`Categories=${VendorFilterForm.Categories.join()}`);
+      if (VendorFilterForm.GovernorateId) queryParams.push(`GovernorateId=${VendorFilterForm.GovernorateId}`);
+      if (VendorFilterForm.CityId) queryParams.push(`CityId=${VendorFilterForm.CityId}`);
+      if (VendorFilterForm.District) queryParams.push(`District=${VendorFilterForm.District}`);
+      if (VendorFilterForm.PageSize) queryParams.push(`PageSize=${VendorFilterForm.PageSize}`);
+      if(VendorFilterForm.Rate) queryParams.push(`Rate=${VendorFilterForm.Rate}`)
     }
     queryParams = queryParams.join("&")
     return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(
@@ -79,11 +80,12 @@ export class VendorService {
   }
 }
 
-export interface FormModel {
+export interface VendorFilterForm {
   PageSize: number;
   Categories: number[];
   GovernorateId: number | null;
   CityId: number | null;
   Name: string | null;
   District: string | null;
+  Rate:number|null;
 }
