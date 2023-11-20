@@ -33,8 +33,13 @@
                             <textarea class="commit" rows="5" cols="10" placeholder='أضف تعليقًا هنا'
                                 formControlName="message"></textarea>
                         </div>
+                        <h5 class="text-danger my-2"
+                            *ngIf="form.controls['rate'].hasError('required') && form.controls['rate'].touched">ادخل
+                            التقيم</h5>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">تـأكيد</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                                [disabled]="!form.valid">
+                                تـأكيد</button>
                         </div>
                     </form>
                 </div>
