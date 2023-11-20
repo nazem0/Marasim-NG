@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IVendor, IVendorMidInfo, address } from '../Models/IVendor';
@@ -10,7 +11,7 @@ import { PaginationViewModel } from '../Models/PaginationViewModel';
   providedIn: 'root',
 })
 export class VendorService {
-  constructor(private HttpClient: HttpClient) {}
+  constructor(private HttpClient: HttpClient) { }
 
   GetAll() {
     return this.HttpClient.get(`${environment.apiUrl}/Vendor/GetAll`);
@@ -51,30 +52,20 @@ export class VendorService {
       updateData
     );
   }
-  /*
-            int PageSize = 5,
-            int? CategoryId = null,
-            int? GovernorateId = null,
-            int? CityId = null,
-            string? Name = null,
-            string? District = null
-    */
+
   filterVendors(
     pageIndex = 1,
-    CategoryId: number | null = null,
-    GovernorateId: number | null = null,
-    CityId: number | null = null,
-    Name: string | null = null,
-    District: string | null = null,
-    PageSize: number | null = 8
+    FormModel: FormModel | null = null
   ): Observable<PaginationViewModel<IVendorMidInfo>> {
     let queryParams: string[] | string = [];
-    if(Name) queryParams.push(`Name=${Name}`)
-    if (CategoryId) queryParams.push(`CategoryId=${CategoryId}`);
-    if (GovernorateId) queryParams.push(`GovernorateId=${GovernorateId}`);
-    if (CityId) queryParams.push(`CityId=${CityId}`);
-    if (District) queryParams.push(`District=${District}`);
-    if (PageSize) queryParams.push(`PageSize=${PageSize}`);
+    if (FormModel) {
+      if (FormModel.Name) queryParams.push(`Name=${FormModel.Name}`)
+      if (FormModel.Categories?.length>0) queryParams.push(`Categories=${FormModel.Categories.join()}`);
+      if (FormModel.GovernorateId) queryParams.push(`GovernorateId=${FormModel.GovernorateId}`);
+      if (FormModel.CityId) queryParams.push(`CityId=${FormModel.CityId}`);
+      if (FormModel.District) queryParams.push(`District=${FormModel.District}`);
+      if (FormModel.PageSize) queryParams.push(`PageSize=${FormModel.PageSize}`);
+    }
     queryParams = queryParams.join("&")
     return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(
       `${environment.apiUrl}/Vendor/Filter/${pageIndex}?${queryParams}`
@@ -86,4 +77,13 @@ export class VendorService {
 
     return `${address.district}, ${address.city}, ${address.governorate}`;
   }
+}
+
+export interface FormModel {
+  PageSize: number;
+  Categories: number[];
+  GovernorateId: number | null;
+  CityId: number | null;
+  Name: string | null;
+  District: string | null;
 }
