@@ -49,7 +49,8 @@ export class VendorsFilterComponent implements AfterViewInit {
       GovernorateId: [null], // Default value for GovernorateId
       CityId: [null], // Default value for CityId
       Name: [null], // Default value for Name
-      District: [null] // Default value for District
+      District: [null], // Default value for District
+      Rate:[null]
     });
     this.categoryService.GetNames().subscribe(
       {
