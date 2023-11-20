@@ -11,11 +11,11 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ViewUserProfileComponent {
   apiUrl = environment.serverUrl;
-  User : IUser | null = null;
-  constructor(private UserService:UserService, private CookieService:CookieService){}
-  ngOnInit(){
+  User: IUser | null = null;
+  constructor(public UserService: UserService, private CookieService: CookieService) { }
+  ngOnInit() {
     console.log(this.CookieService.get("Id"))
-    this.UserService.getById(this.CookieService.get("Id")).subscribe((response)=>{
+    this.UserService.getById(this.CookieService.get("Id")).subscribe((response) => {
       this.User = response
     });
   }

@@ -19,7 +19,7 @@
         <td class="d-flex justify-content-between">
           <a class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.user)"
             data-bs-toggle="modal" data-bs-target="#customerModal">
-            <img src="{{apiUrl}}/{{Reservation.user.id}}/profilepicture/{{Reservation.user.picUrl}}" alt="صورة العميل"
+            <img [src]="UserService.GetProfilePicUrl(Reservation.user.id, Reservation.user.picUrl)" alt="صورة العميل"
               class="img-vendor">
             <span> {{ Reservation.user.name }}</span>
           </a>
@@ -52,13 +52,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="customer-info">
+        <div *ngIf="selectedCustomer" class="customer-info">
           <!-- Add the customer image here -->
-          <img src="{{apiUrl}}/{{selectedCustomer?.id}}/profilepicture/{{selectedCustomer?.picUrl}}" alt="صورة العميل"
+          <img [src]="UserService.GetProfilePicUrl(selectedCustomer.id, selectedCustomer.picUrl)" alt="صورة العميل"
             class="customer-image">
           <div class="customer-details">
-            <p><strong>الأسم</strong> {{ selectedCustomer?.name }}</p>
-            <p><strong>رقم الهاتف</strong> {{ selectedCustomer?.phoneNumber }}</p>
+            <p><strong>الأسم</strong> {{selectedCustomer.name}}</p>
+            <p><strong>رقم الهاتف</strong> {{selectedCustomer.phoneNumber}}</p>
           </div>
         </div>
       </div>

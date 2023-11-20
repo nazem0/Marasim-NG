@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FullVendorInfo } from 'src/app/Models/FullVendorInfo';
 import { ICategory } from 'src/app/Models/ICategory';
-import { IFollowUser, IFollowVendor } from 'src/app/Models/IFollow';
+import { IFollowUser } from 'src/app/Models/IFollow';
 import { IReview } from 'src/app/Models/IReview';
 import { CategoryService } from 'src/app/Services/Category.service';
 import { ReviewService } from 'src/app/Services/Review.service';
@@ -13,6 +13,8 @@ import { IServiceAttachmentCustom } from 'src/app/Models/IService';
 import { AttachmentService } from 'src/app/Services/Attachment.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/Services/Auth.service';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-vendor-profile',
@@ -29,12 +31,13 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
   vendor: FullVendorInfo | null = null;
   category: ICategory | null = null;
   reviews: IReview[] | null = null;
-  followers: IFollowUser[] | null = null;
+  followers: PaginationViewModel<IFollowUser> | null = null;
   slides: IServiceAttachmentCustom[] = [];
 
 
 
   constructor(
+    public UserService: UserService,
     private VendorService: VendorService,
     private ReviewService: ReviewService,
     private ActivatedRoute: ActivatedRoute,

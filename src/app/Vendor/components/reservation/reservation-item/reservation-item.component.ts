@@ -6,6 +6,7 @@ import { VendorReservation } from 'src/app/Models/Reservation';
 import { environment } from 'src/environments/environment.development';
 import { ReservationService } from 'src/app/Services/Reservation.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/Services/User.service';
 
 
 @Component({
@@ -19,7 +20,11 @@ export class ReservationItemComponent implements OnInit {
   selectedVendor: IServiceMinInfo | null = null;
   selectedCustomer: IUser | null = null;
   apiUrl = environment.serverUrl;
-  constructor(private reservationService: ReservationService,private toastr: ToastrService,private ReservationService:ReservationService) {}
+  constructor(
+    public UserService: UserService,
+    private reservationService: ReservationService,
+    private toastr: ToastrService,
+    private ReservationService: ReservationService) { }
 
   ngOnInit() {
     this.getReservations();
@@ -28,11 +33,11 @@ export class ReservationItemComponent implements OnInit {
   openCustomerModal(User: IUser) {
     this.selectedCustomer = User;
   }
-  
-  getReservations(){
+
+  getReservations() {
     this.ReservationService.GetForVendorByStatus(this.activeTab).subscribe({
-      next:(response)=>{
-        this.Reservations=response
+      next: (response) => {
+        this.Reservations = response
         console.log(this.Reservations);
       },
       error: (error) => {
@@ -57,7 +62,7 @@ export class ReservationItemComponent implements OnInit {
       },
     });
   }
-  
+
   rejectReservation(reserveration: VendorReservation) {
     const data = {
       id: reserveration.id,
@@ -75,5 +80,5 @@ export class ReservationItemComponent implements OnInit {
     });
   }
 
-  
+
 }

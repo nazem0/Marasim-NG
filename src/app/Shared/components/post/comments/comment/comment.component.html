@@ -1,10 +1,10 @@
-<div class="d-flex gap-2 mb-3 comment">
-    <img class="userPic" src="{{apiUrl}}/{{comment?.userId}}/profilepicture/{{comment?.userPicUrl}}">
+<div *ngIf="comment" class="d-flex gap-2 mb-3 comment">
+    <img class="userPic" [src]="UserService.GetProfilePicUrl(comment.userId, comment.userPicUrl)">
     <div class="w-100">
         <div class="d-flex justify-content-between">
-        <span class="fw-bold">{{comment?.userName}}</span>
-        <small class="text-muted">{{comment?.dateTime}}</small>
+        <span class="fw-bold">{{comment.userName}}</span>
+        <small class="text-muted">{{comment.dateTime}}</small>
         </div>
-        <p>{{comment?.text}}</p>
+        <p>{{comment.text}}</p>
     </div>
 </div>

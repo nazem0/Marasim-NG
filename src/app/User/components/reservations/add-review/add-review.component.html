@@ -12,7 +12,7 @@
             <div class="modal-body d-flex flex-colmun justify-content-center align-items-center">
                 <div class="col2" style="max-width: 100%;">
                     <form [formGroup]="form" class="testimonial" (submit)="addReview()">
-                        <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                        <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                             alt="">
                         <p class="name">{{Reservation.vendor.name}}</p>
                         <div class="d-flex justify-content-center">

@@ -1,9 +1,10 @@
 import { ToastrService } from 'ngx-toastr';
 import { ReviewService } from 'src/app/Services/Review.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserReservation } from 'src/app/Models/Reservation';
 import { environment } from 'src/environments/environment.development';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-add-review',
@@ -17,6 +18,7 @@ export class AddReviewComponent {
   form: FormGroup;
   data: FormData;
   constructor(
+    public UserService: UserService,
     private builder: FormBuilder,
     private ReviewService: ReviewService,
     private Toastr: ToastrService

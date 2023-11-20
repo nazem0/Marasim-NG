@@ -2,7 +2,7 @@
 
 <div class="header d-flex flex-column p-4 align-items-center justify-content-center" *ngIf="vendor">
   <div class="img-container ">
-    <img class="rounded-circle avatar shadow" [src]="UserService.GetProfilePicUrl(vendor.id, vendor.picUrl)"
+    <img class="rounded-circle avatar shadow" [src]="UserService.GetProfilePicUrl(vendor.userId, vendor.picUrl)"
       alt="avatar" />
   </div>
 

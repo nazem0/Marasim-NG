@@ -5,6 +5,7 @@ import { ReservationService } from './../../../Services/Reservation.service';
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-pending',
@@ -16,6 +17,7 @@ export class ReservationsComponent {
   apiUrl = environment.serverUrl;
   Reservations: UserReservation[] = [];
   constructor(
+    public UserService: UserService,
     private ReservationService: ReservationService,
     private CookieService: CookieService,
     private Toastr: ToastrService,

@@ -3,6 +3,7 @@ import { IFollowVendor } from 'src/app/Models/IFollow';
 import { environment } from 'src/environments/environment';
 import { FollowService } from 'src/app/Services/Follow.service';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-following',
@@ -13,7 +14,10 @@ export class FollowingComponent implements OnInit {
   apiUrl = environment.serverUrl;
   @Output() refresh = new EventEmitter();
   @Input() Following: IFollowVendor | null = null;
-  constructor(private FollowService: FollowService, private CookieService: CookieService) { }
+  constructor(
+    public UserService: UserService,
+    private FollowService: FollowService,
+    private CookieService: CookieService) { }
 
   ngOnInit() {
     this.FollowService.GetWhoUserFollows()

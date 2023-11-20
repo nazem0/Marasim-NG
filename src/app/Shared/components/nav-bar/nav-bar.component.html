@@ -18,10 +18,10 @@
                         <a class="nav-link" routerLink="vendors" routerLinkActive="active">الفئات</a>
                     </li>
 
-                    
-                    
-                    
-                    
+
+
+
+
                     <li class="navbar-item">
                         <a class="nav-link" routerLink="contact" routerLinkActive="active">اتصل بنا</a>
                     </li>
@@ -56,15 +56,19 @@
                                 <a href="#"
                                     class="d-flex align-items-center text-primary text-decoration-none dropdown-toggle"
                                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{apiUrl}}{{userId}}/ProfilePicture/{{profilePicture}}" alt="hugenerd"
+                                    <img [src]="UserService.GetProfilePicUrl(userId, profilePicture)" alt="hugenerd"
                                         width="50" height="50" class="rounded-circle profile-pic">
                                     <span class="d-none d-sm-inline mx-1 text-white">{{ name | truncate: 12}}</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                                    <li><a class="dropdown-item" routerLink="view-profile" routerLinkActive="active">البيانات الشخصية</a></li>
-                                    <li><a class="dropdown-item" routerLink="reservation" routerLinkActive="active">الحجوزات</a></li>
-                                    <li><a class="dropdown-item" routerLink="feed/1" routerLinkActive="active">المنشورات</a></li>
-                                    <li><a class="dropdown-item" routerLink="followings" routerLinkActive="active">المتابعون</a></li>
+                                    <li><a class="dropdown-item" routerLink="view-profile"
+                                            routerLinkActive="active">البيانات الشخصية</a></li>
+                                    <li><a class="dropdown-item" routerLink="reservation"
+                                            routerLinkActive="active">الحجوزات</a></li>
+                                    <li><a class="dropdown-item" routerLink="feed/1"
+                                            routerLinkActive="active">المنشورات</a></li>
+                                    <li><a class="dropdown-item" routerLink="followings"
+                                            routerLinkActive="active">المتابعون</a></li>
 
                                     <ng-container *ngIf="isVendor">
                                         <li>

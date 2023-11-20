@@ -2,7 +2,7 @@
 
 <div class="d-flex flex-row align-items-center">
     <div class="row justify-content-center pe-3">
-        <img class="review-img rounded-circle" src="{{apiUrl}}{{Review.user.id}}/ProfilePicture/{{Review.user.picUrl}}"
+        <img class="review-img rounded-circle" [src]="UserSerivce.GetProfilePicUrl(Review.user.id, Review.user.picUrl)"
             alt="avatar">
     </div>
 

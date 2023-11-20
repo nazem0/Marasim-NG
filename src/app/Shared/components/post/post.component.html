@@ -3,7 +3,7 @@
 
     <div class="vendor-detials d-flex align-items-center gap-2 mb-3">
 
-      <img class="vendorPic" src="{{apiUrl}}/{{post.vendorUserId}}/profilepicture/{{post.vendorPicUrl}}" alt="">
+      <img class="vendorPic" [src]="UserService.GetProfilePicUrl(post.vendorUserId, post.vendorPicUrl)" alt="">
 
       <div class="d-flex flex-column">
         <span class="fs-5">{{post.vendorName}}</span>
@@ -20,8 +20,8 @@
     <p class="post-description">{{post.description}}</p>
   </div>
   <!-- Carousel : Attachments -->
-  <app-attachments [postAttachments]="post.postAttachments" [postId]="post.id" [vendorId]="post.vendorId" [vendorUserId]="post.vendorUserId"
-    [postTitle]="post.title"></app-attachments>
+  <app-attachments [postAttachments]="post.postAttachments" [postId]="post.id" [vendorId]="post.vendorId"
+    [vendorUserId]="post.vendorUserId" [postTitle]="post.title"></app-attachments>
   <!-- End Carousel -->
   <!-- Modal : Reactions -->
   <app-reactions [postId]="post.id"></app-reactions>
@@ -32,4 +32,3 @@
 
   <!-- Add Comment -->
 </div>
-

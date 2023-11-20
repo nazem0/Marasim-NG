@@ -2,6 +2,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/Services/Auth.service';
 import { environment } from 'src/environments/environment';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-v-dashboard',
@@ -12,7 +13,10 @@ export class VDashboardComponent {
   apiUrl=environment.serverUrl;
   isVendor:boolean=this.CookieService.get('Role').includes('vendor');
 
-  constructor(public AuthService:AuthService,private CookieService:CookieService){
+  constructor(
+    public UserService: UserService,
+    public AuthService:AuthService,
+    private CookieService:CookieService){
     this.isVendor=true;
   }
   userId = this.CookieService.get("Id");

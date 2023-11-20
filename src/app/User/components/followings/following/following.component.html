@@ -1,15 +1,11 @@
-<div class=" card col-6 ">
+<div *ngIf="Following" class=" card col-6 ">
     <div class="img">
-        <img class="photo"
-            src="{{apiUrl}}{{Following?.userId}}/ProfilePicture/{{Following?.picUrl}}"
-            alt="">
+        <img class="photo" [src]="UserService.GetProfilePicUrl(Following.userId, Following.picUrl)" alt="">
     </div>
     <div class="vendor">
-        <a class="list col text-primary fs-4">{{Following?.name}}</a>
+        <a class="list col text-primary fs-4">{{Following.name}}</a>
     </div>
 </div>
-
-
 <div class="unfolow col-6 ">
     <button type="button" class="btn btn-danger" (click)="Unfollow()">إلغاء المتابعة</button>
 </div>

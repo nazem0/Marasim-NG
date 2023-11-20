@@ -3,6 +3,7 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { IVendorMidInfo } from 'src/app/Models/IVendor';
 import { environment } from 'src/environments/environment';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-vendor-carousel',
@@ -14,6 +15,8 @@ export class VendorCarouselComponent implements AfterViewInit {
   @Input() @HostBinding('style.--slide-width') slideWidth = '520px';
   @Input() @HostBinding('style.--slide-height') slideHeight = '380px';
   @Input() slides: IVendorMidInfo[] = [];
+
+  constructor(public UserService: UserService) { }
 
   ngAfterViewInit() {
     const swiper = new Swiper('.swiper', {

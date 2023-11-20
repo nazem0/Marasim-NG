@@ -12,10 +12,8 @@ export class FollowerComponent {
   apiUrl=environment.serverUrl;
 
   @Input() Follower: IFollowUser | null = null;
-  constructor() {
-
+  constructor(public userService: UserService) {
   }
-
 }
 
 

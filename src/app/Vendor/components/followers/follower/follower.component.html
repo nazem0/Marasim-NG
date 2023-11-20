@@ -1,4 +1,4 @@
-<div class="">
-    <img class="photo rounded-circle" src="{{apiUrl}}{{Follower?.userId}}/ProfilePicture/{{Follower?.picUrl}}" alt="">
-    <a class="name text-primary">{{Follower?.name}}</a>
+<div *ngIf="Follower" class="">
+    <img class="photo rounded-circle" [src]="userService.GetProfilePicUrl(Follower.userId,Follower.picUrl)" alt="">
+    <a class="name text-primary">{{Follower.name}}</a>
 </div>

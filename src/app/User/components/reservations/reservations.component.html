@@ -64,13 +64,13 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
-                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
+                nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime| dateFormatArabic}}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -95,13 +95,13 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
-                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
+                nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center">
@@ -131,13 +131,13 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
-                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
+                nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -164,13 +164,13 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
-                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
+                nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
               <td class="text-center text-pp">
@@ -201,13 +201,13 @@
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>
               <td class="text-center text-pp">
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
-                  nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
+                nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
               <td class="text-center text-pp">{{Reservation.price}}</td>
             </tr>
@@ -234,7 +234,7 @@
 
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
-                <img src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}"
+                <img [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)"
                   class="img-vendor">
                 <span class="ms-2">{{Reservation.vendor.name}}</span>
               </td>

@@ -16,7 +16,7 @@
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div class="d-flex align-items-center w-100" *ngIf="Reservation">
                 <img class="vendorPicture"
-                  src="{{apiUrl}}/{{Reservation.vendor.userId}}/profilepicture/{{Reservation.vendor.picUrl}}" alt="">
+                  [src]="UserService.GetProfilePicUrl(Reservation.vendor.userId, Reservation.vendor.picUrl)" alt="">
                 <div class="ms-3 w-100">
                   <span class="fw-bold">{{Reservation.vendor.name}}</span>
                   <div class="d-flex justify-content-between">
@@ -56,10 +56,10 @@
                   <label for="cc-name" class="form-label">حسابك على إنستا باي</label>
                   <input type="text" class="form-control" id="cc-name" placeholder="example@instapay" required
                     formControlName="InstaPay">
-                    <small *ngIf="checkoutForm?.get('InstaPay')?.invalid && checkoutForm?.get('InstaPay')?.touched"
+                  <small *ngIf="checkoutForm?.get('InstaPay')?.invalid && checkoutForm?.get('InstaPay')?.touched"
                     class="text-danger">
                     يجب إدخال اسم حساب إنستا باي
-                </small>
+                  </small>
                 </div>
                 <h5 class="mt-5">
                   قم بارسال المبلغ على هذا الحساب

@@ -6,8 +6,7 @@
                 <div class="swiper-slide">
                     <!-- elements with  "swiper-carousel-animate-opacity" class will have animated opacity -->
                     <div class="swiper-carousel-animate-opacity">
-                        <img
-                            src="{{apiUrl}}{{slide.userId}}/ProfilePicture/{{slide.picUrl}}">
+                        <img [src]="UserService.GetProfilePicUrl(slide.userId, slide.picUrl)">
                         <div class="slide-content text-white text-center">
                             <h2>{{slide.name}}</h2>
                             <p class="text-white">{{slide.summary |truncate: 20}}</p>

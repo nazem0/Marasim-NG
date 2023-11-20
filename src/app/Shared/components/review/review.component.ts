@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IReview } from 'src/app/Models/IReview';
+import { UserService } from 'src/app/Services/User.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,6 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent {
-  apiUrl=environment.serverUrl;
+  apiUrl = environment.serverUrl;
   @Input() Review!: IReview;
+  constructor(public UserSerivce: UserService) { }
 }

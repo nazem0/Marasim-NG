@@ -6,6 +6,7 @@ import { CheckoutReservation } from 'src/app/Models/Reservation';
 import { environment } from 'src/environments/environment.development';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-checkout',
@@ -19,6 +20,7 @@ export class CheckoutComponent {
   Reservation: CheckoutReservation | null = null;
   ReservationId = parseInt(this.ActivatedRoute.snapshot.paramMap.get("id")!)
   constructor(
+    public UserService: UserService,
     private ReservationService: ReservationService,
     private ActivatedRoute: ActivatedRoute,
     private PaymentService:PaymentService,
