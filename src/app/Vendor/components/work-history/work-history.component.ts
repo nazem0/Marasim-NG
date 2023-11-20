@@ -48,6 +48,5 @@ export class WorkHistoryComponent implements OnInit {
 
   pageChange(newPage: number) {
     this.Router.navigate(['../',newPage],{relativeTo:this.activatedRoute})
-    this.getData();
   }
 }
