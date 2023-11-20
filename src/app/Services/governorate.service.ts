@@ -7,7 +7,7 @@ import { Governorate } from '../Models/governorate';
   providedIn: 'root',
 })
 export class GovernorateService {
-  controller = 'governorate';
+  private controller = 'governorate';
   constructor(private HttpClient: HttpClient) {}
   public get() {
     return this.HttpClient.get<Governorate[]>(`${environment.apiUrl}/${this.controller}/get`);
