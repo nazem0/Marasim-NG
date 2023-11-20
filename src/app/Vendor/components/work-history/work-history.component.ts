@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { PostService } from 'src/app/Services/Post.service';
-import { PostList } from 'src/app/Models/IPost';
+import { IPost } from 'src/app/Models/IPost';
 import { PaginationInstance } from 'ngx-pagination';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 
 @Component({
   selector: 'app-work-history',
@@ -11,7 +12,7 @@ import { PaginationInstance } from 'ngx-pagination';
   styleUrls: ['./work-history.component.css'],
 })
 export class WorkHistoryComponent implements OnInit {
-  posts: PostList | null = null;
+  posts: PaginationViewModel<IPost> | null = null;
   p: number | undefined = undefined;
   public config: PaginationInstance = {
     id: 'paginationConfig',

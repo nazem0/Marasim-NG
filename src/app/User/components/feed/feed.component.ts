@@ -1,9 +1,10 @@
-import { PostList } from 'src/app/Models/IPost';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PostService } from 'src/app/Services/Post.service';
 import { PaginationInstance } from 'ngx-pagination';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
+import { IPost } from 'src/app/Models/IPost';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, AfterViewInit {
-  posts: PostList | null = null;
+  posts: PaginationViewModel<IPost> | null = null;
   p: number | undefined = undefined;
   public config: PaginationInstance = {
     id: 'paginationConfig',

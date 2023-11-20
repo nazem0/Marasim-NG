@@ -11,7 +11,7 @@
     <hr class="mt-3">
     <div class="container text-center  mt-4">
       <ng-container *ngIf="Followings">
-        <div *ngFor=" let Following of Followings" class="row">
+        <div *ngFor=" let Following of Followings.data" class="row">
           <app-following (refresh)="refresh()" [Following]="Following"></app-following>
         </div>
       </ng-container>

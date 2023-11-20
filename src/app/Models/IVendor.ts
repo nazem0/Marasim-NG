@@ -1,9 +1,9 @@
 export interface IVendor {
   id: number,
-  city: string;
-  district: string;
-  governorate: string;
-  street?: string | null;
+  city: string,
+  district: string,
+  governorate: string,
+  street?: string | null,
   category: string,
   externalUrl: string | null,
   gender: boolean,
@@ -23,35 +23,35 @@ export interface IVendorMinInfo {
   picUrl: string,
 }
 
-export interface IVendorMidInfo  {
-  id: number;
-  name: string;
-  picUrl: string;
-  userId: string;
-  summary: string;
-  category: string;
-  city: string;
-  district: string;
-  governorate: string;
-  street?: string | null;
+export interface IVendorMidInfo {
+  id: number,
+  name: string,
+  picUrl: string,
+  userId: string,
+  summary: string,
+  category: string,
+  city: string,
+  district: string,
+  governorate: string,
+  street?: string | null,
 }
 
-export interface address{
-  city: string;
-district: string;
-governorate: string;
-street?: string | null;
+export interface address {
+  city: string,
+  district: string,
+  governorate: string,
+  street?: string | null,
 }
 
-export interface iVendorCard{
+export interface iVendorCard {
   id: number,
   userId: string,
   name: string,
   picUrl: string,
   summary: string,
   category: string,
-  city: string;
-  district: string;
-  governorate: string;
-  street?: string | null;
+  city: string,
+  district: string,
+  governorate: string,
+  street?: string | null,
 }

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IComment, IPost, IReaction, PostList } from '../Models/IPost';
+import { IComment, IPost, IReaction } from '../Models/IPost';
 import { environment } from 'src/environments/environment';
+import { PaginationViewModel } from '../Models/PaginationViewModel';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
@@ -26,12 +27,12 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorId(VendorId: number, PageIndex: number, PageSize: number): Observable<PostList> {
-    return this.HttpClient.get<PostList>(`${environment.apiUrl}/Post/GetByVendorId/${VendorId}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
+  GetByVendorId(VendorId: number, PageIndex: number, PageSize: number): Observable<PaginationViewModel<IPost>>{
+    return this.HttpClient.get<PaginationViewModel<IPost>>(`${environment.apiUrl}/Post/GetByVendorId/${VendorId}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
 
-  GetByPostsByFollow(PageIndex: number, PageSize: number): Observable<PostList> {
-    return this.HttpClient.get<PostList>(`${environment.apiUrl}/Post/GetByPostsByFollow??PageSize=${PageSize}&PageIndex=${PageIndex}`)
+  GetByPostsByFollow(PageIndex: number, PageSize: number): Observable<PaginationViewModel<IPost>> {
+    return this.HttpClient.get<PaginationViewModel<IPost>>(`${environment.apiUrl}/Post/GetByPostsByFollow??PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
 
 

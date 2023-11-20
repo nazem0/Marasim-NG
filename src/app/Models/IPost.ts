@@ -39,10 +39,10 @@ export interface IPostAttachment {
   attachmentUrl: string,
 }
 
-export interface PostList{
-  count: number;
-  data: IPost[];
-  lastPage: number;
-  pageIndex: number;
-  pageSize: number;
-}
+// export interface PostList{
+//   count: number;
+//   data: IPost[];
+//   lastPage: number;
+//   pageIndex: number;
+//   pageSize: number;
+// }

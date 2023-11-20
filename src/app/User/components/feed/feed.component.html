@@ -10,8 +10,8 @@
         <div *ngFor="let post of posts.data | paginate: config" class="my-4">
             <app-post [post]="post"></app-post>
         </div>
-        <div *ngIf="posts?.data?.length! > 0" class="text-center">
-            <pagination-controls *ngIf="posts?.count! > posts?.pageSize!" class="pagination" [responsive]="true"
+        <div *ngIf="posts.data.length > 0" class="text-center">
+            <pagination-controls *ngIf="posts.count > posts.pageSize" class="pagination" [responsive]="true"
                 previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
                 [id]="config.id!"></pagination-controls>
         </div>

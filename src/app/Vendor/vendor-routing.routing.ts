@@ -28,13 +28,13 @@ const vendorRoutes: Routes = [
             { path: 'reservation', component: ReservationComponent },
             { path: 'edit-service', component: EditServiceComponent },
             { path: 'vendorform', component: VendorFormComponent },
-            { path: 'followers', component: FollowersComponent },
+            { path: 'followers/:page', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
             { path: 'edit', component: ProfileEditComponent },
             // { path: 'wallet', component: WalletComponent },
             { path: 'wallet/:page', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
-            { path :'vendor-profile',  component : VendorProfileComponent},
+            { path: 'vendor-profile', component: VendorProfileComponent },
         ]
     }
 

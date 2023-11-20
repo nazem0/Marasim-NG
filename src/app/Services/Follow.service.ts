@@ -3,23 +3,19 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { IFollowUser, IFollowVendor } from '../Models/IFollow';
-import { IPost } from '../Models/IPost';
+import { PaginationViewModel } from '../Models/PaginationViewModel';
 
 @Injectable({ providedIn: 'root' })
 export class FollowService {
   constructor(private HttpClient: HttpClient) { }
 
-  GetWhoFollowsVendors(VendorId : number): Observable<IFollowUser[]> {
-    return this.HttpClient.get<IFollowUser[]>(`${environment.apiUrl}/Follow/GetFollowersVendor/${VendorId}`)
+  GetWhoFollowsVendors(VendorId: number): Observable<PaginationViewModel<IFollowUser>> {
+    return this.HttpClient.get<PaginationViewModel<IFollowUser>>(`${environment.apiUrl}/Follow/GetFollowersVendor/${VendorId}`)
   }
 
-  GetWhoUserFollows(): Observable<IFollowVendor[]> {
-    return this.HttpClient.get<IFollowVendor[]>(`${environment.apiUrl}/Follow/GetFollowingForUser/`)
+  GetWhoUserFollows(): Observable<PaginationViewModel<IFollowVendor>> {
+    return this.HttpClient.get<PaginationViewModel<IFollowVendor>>(`${environment.apiUrl}/Follow/GetFollowingForUser/`)
   }
-
-  // GetPostsByFollow(): Observable<IFollowPosts[]>{
-  //   return this.HttpClient.get<IFollowPosts[]>(`${environment.apiUrl}/Follow/GetPostsByFollow/`)
-  // }
 
   Add(Follow: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Follow/Add`, Follow)
@@ -28,7 +24,7 @@ export class FollowService {
   Delete(VendorId: number) {
     return this.HttpClient.delete(`${environment.apiUrl}/Follow/Remove/${VendorId}`)
   }
-  
+
   IsFollowing(VendorId: number): Observable<boolean> {
     return this.HttpClient.get<boolean>(`${environment.apiUrl}/Follow/IsUserFollowingVendor/${VendorId}`)
   }

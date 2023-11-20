@@ -2,7 +2,7 @@
 
 <div class="header d-flex flex-column p-4 align-items-center justify-content-center" *ngIf="vendor">
   <div class="img-container ">
-    <img class="rounded-circle avatar shadow" src="{{apiUrl}}/{{vendor.userId}}/profilepicture/{{vendor.picUrl}}"
+    <img class="rounded-circle avatar shadow" [src]="UserService.GetProfilePicUrl(vendor.id, vendor.picUrl)"
       alt="avatar" />
   </div>
 
@@ -24,7 +24,7 @@
               class="fas fa-check me-1 my-auto"></i>متابع</button>
         </ng-template>
       </div>
-      <span *ngIf="followers" class="Links">{{followers!.length.toLocaleString('ar-EG')}}
+      <span *ngIf="followers" class="Links">{{followers.data.length.toLocaleString('ar-EG')}}
         <a class="text-muted text-white" data-bs-toggle="modal" data-bs-target="#FollowModal">المتابعين</a>
       </span>
       <div class="counter row mt-2">
@@ -39,8 +39,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <div class="d-flex flex-column gap-3 w-50">
-                  <div *ngFor=" let Follower of followers">
+                <div *ngIf="followers" class="d-flex flex-column gap-3 w-50">
+                  <div *ngFor=" let Follower of followers.data">
                     <app-follower [Follower]="Follower"></app-follower>
                   </div>
                 </div>
@@ -89,7 +89,7 @@
       </div>
       <hr>
     </div>
-   <!-- End Routing Buttons -->
+    <!-- End Routing Buttons -->
 
     <!-- About -->
     <section id="AboutUs">
@@ -125,6 +125,7 @@
         <div *ngFor="let review of reviews | slice:0:2" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
         </div>
+        <br>
         <button class="primary-btn">اعرض المزيد</button>
       </div>
     </section>
