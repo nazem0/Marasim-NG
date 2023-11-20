@@ -45,6 +45,7 @@ export class FeedComponent implements OnInit, AfterViewInit {
   }
 
   getData() {
+    console.log(this.config.currentPage);
     this.PostService.GetByPostsByFollow(this.config.currentPage, this.config.itemsPerPage)
     .subscribe((result) => {
       this.posts = result;
@@ -56,7 +57,6 @@ export class FeedComponent implements OnInit, AfterViewInit {
 
   pageChange(newPage: number) {
     this.Router.navigate(['../',newPage],{relativeTo:this.ActivatedRoute})
-    this.getData();
   }
 
   showFilter() {
