@@ -236,6 +236,31 @@ button {
 
 }
 
+/* Secondary Button */
+
+.secondary-btn {
+    transition: 0.5s all;
+    color: var(--secondary-color);
+    background-color: rgba(var(--bs-secondary-rgb), 0.3) !important;
+    outline: unset;
+    border: unset;
+    border-radius: 5rem;
+    /* --fa-primary-color:var(--fa-primary-color); */
+}
+
+.secondary-btn i {
+    color: var(--bs-secondary) !important;
+    transition: 0.5s color;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(var(--bs-secondary-rgb), 0.5) !important;
+}
+
+.secondary-btn:hover i {
+    color: color-mix(in srgb, var(--bs-secondary) 70%, rgb(60, 60, 60)100%) !important;
+}
+
 /* Danger Button */
 
 .danger-btn {
@@ -302,15 +327,16 @@ body {
 .pac-container {
     z-index: 2000 !important;
 }
+
 .pagination .ngx-pagination .current {
     background: var(--primary-color);
 }
 
-.pagination .ngx-pagination .current span span{
+.pagination .ngx-pagination .current span span {
     color: var(--primary-background-color);
 }
 
-.pagination{
+.pagination {
     display: flex;
     justify-content: center;
 }
