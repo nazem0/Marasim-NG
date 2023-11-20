@@ -59,10 +59,10 @@ export interface AdminReservation {
   vendor: IVendorMinInfo;
 }
 
-export interface VendorReservationList{
-  count: number;
-  data: VendorReservation[];
-  lastPage: number;
-  pageIndex: number;
-  pageSize: number;
-}
+// export interface VendorReservationList{
+//   count: number;
+//   data: VendorReservation[];
+//   lastPage: number;
+//   pageIndex: number;
+//   pageSize: number;
+// }

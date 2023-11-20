@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.development';
 import { ReservationService } from 'src/app/Services/Reservation.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/Services/User.service';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { UserService } from 'src/app/Services/User.service';
   styleUrls: ['./reservation-item.component.css'],
 })
 export class ReservationItemComponent implements OnInit {
-  @Input() Reservations: VendorReservation[] = [];
+  @Input() Reservations: PaginationViewModel<VendorReservation> | null = null;
   @Input() activeTab: string = 'p';
   selectedVendor: IServiceMinInfo | null = null;
   selectedCustomer: IUser | null = null;

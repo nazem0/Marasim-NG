@@ -59,7 +59,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+          <ng-container *ngFor="let Reservation of Reservations?.data;let i=index">
 
             <tr>
               <th scope="row">{{i+1}}</th>
@@ -72,7 +72,7 @@
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
                 nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime| dateFormatArabic}}</td>
-              <td class="text-center text-pp">{{Reservation.price}}</td>
+              <td class="text-center text-pp">{{Reservation.price.toLocaleString("ar-Eg")}}</td>
             </tr>
           </ng-container>
         </tbody>
@@ -91,7 +91,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+          <ng-container *ngFor="let Reservation of Reservations?.data;let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -103,7 +103,7 @@
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
                 nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
-              <td class="text-center text-pp">{{Reservation.price}}</td>
+              <td class="text-center text-pp">{{Reservation.price.toLocaleString("ar-Eg")}}</td>
               <td class="text-center">
                 <button type="button" class="primary-btn"><a class="link-pay"
                     routerLink="/checkout/{{Reservation.id}}">ادفع جزء من
@@ -127,7 +127,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+          <ng-container *ngFor="let Reservation of Reservations?.data;let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -139,7 +139,7 @@
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
                 nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
-              <td class="text-center text-pp">{{Reservation.price}}</td>
+              <td class="text-center text-pp">{{Reservation.price.toLocaleString("ar-Eg")}}</td>
             </tr>
           </ng-container>
         </tbody>
@@ -154,13 +154,14 @@
             <th scope="col" class="text-center">معلومات البائع</th>
             <th scope="col" class="text-center">المكان</th>
             <th scope="col" class="text-center">تاريخ الحجز</th>
+            <th scope="col" class="text-center">هاتف مقدم الخدمة</th>
             <th scope="col" class="text-center">المبلغ</th>
             <th scope="col" class="text-center">تمت</th>
 
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+          <ng-container *ngFor="let Reservation of Reservations?.data;let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -172,7 +173,8 @@
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
                 nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
-              <td class="text-center text-pp">{{Reservation.price}}</td>
+              <td class="text-center text-pp">{{Reservation.vendor.phoneNumber}}</td>
+              <td class="text-center text-pp">{{Reservation.price.toLocaleString("ar-EG")}}</td>
               <td class="text-center text-pp">
                 <button class="primary-btn" (click)="markAsDone(Reservation.id)">
                   <i class="fa fa-check"></i>
@@ -197,7 +199,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+          <ng-container *ngFor="let Reservation of Reservations?.data;let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -209,7 +211,7 @@
                 {{Reservation.street! | nullToSpace}},{{Reservation.district! |
                 nullToSpace}},{{Reservation.city}},{{Reservation.gov}}</td>
               <td class="text-center text-pp">{{Reservation.dateTime | dateFormatArabic }}</td>
-              <td class="text-center text-pp">{{Reservation.price}}</td>
+              <td class="text-center text-pp">{{Reservation.price.toLocaleString("ar-Eg")}}</td>
             </tr>
           </ng-container>
         </tbody>
@@ -228,7 +230,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations;let i=index">
+          <ng-container *ngFor="let Reservation of Reservations?.data;let i=index">
 
             <tr>
 

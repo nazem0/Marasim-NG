@@ -21,6 +21,7 @@ export interface IVendorMinInfo {
   id: number,
   name: string,
   picUrl: string,
+  phoneNumber: string
 }
 
 export interface IVendorMidInfo {

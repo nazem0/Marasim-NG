@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/Services/User.service';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 
 @Component({
   selector: 'app-pending',
@@ -15,7 +16,7 @@ import { UserService } from 'src/app/Services/User.service';
 export class ReservationsComponent {
   activeTab: string = 'p';
   apiUrl = environment.serverUrl;
-  Reservations: UserReservation[] = [];
+  Reservations: PaginationViewModel<UserReservation> | null = null;
   constructor(
     public UserService: UserService,
     private ReservationService: ReservationService,

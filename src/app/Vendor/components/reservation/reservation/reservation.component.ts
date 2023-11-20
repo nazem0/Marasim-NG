@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 import { VendorReservation } from 'src/app/Models/Reservation';
 import { ReservationService } from 'src/app/Services/Reservation.service';
 
@@ -12,7 +13,7 @@ export class ReservationComponent implements OnInit {
 
   activeTab: string = 'p';
   search: string = '';
-  Reservations: VendorReservation[] = [];
+  Reservations: PaginationViewModel<VendorReservation> | null = null;
   constructor(private ReservationService:ReservationService) { }
 
   ngOnInit() {

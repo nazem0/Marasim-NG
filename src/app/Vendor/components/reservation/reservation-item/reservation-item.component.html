@@ -14,7 +14,7 @@
 
     </thead>
     <tbody class="text-center">
-      <tr *ngFor="let Reservation of Reservations , let i = index; ">
+      <tr *ngFor="let Reservation of Reservations?.data , let i = index; ">
         <td>{{i+1}}</td>
         <td class="d-flex justify-content-between">
           <a class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.user)"
@@ -29,10 +29,8 @@
         <td>{{Reservation.street}},{{Reservation.district}},{{Reservation.city}},{{Reservation.gov}}</td>
 
         <td *ngIf="activeTab == 'p'">
-          <button class="btn btn-success acceptBtn" (click)="acceptReservation(Reservation)">قبول</button>
-          <br>
-          <button class="btn btn-danger rejectBtn" (click)="rejectReservation(Reservation)">رفض</button>
-
+          <button class="btn btn-success acceptBtn mx-1" (click)="acceptReservation(Reservation)">قبول</button>
+          <button class="btn btn-danger rejectBtn mx-1" (click)="rejectReservation(Reservation)">رفض</button>
         </td>
       </tr>
     </tbody>
