@@ -1,11 +1,9 @@
-<div class="card" *ngIf="vendor">
+<div class="card" *ngIf="vendor" routerLink="/vendors/{{vendor.id}}">
+    <div class="ribbon-2">{{vendor.category}}</div>
     <img title="{{vendor.name}}" [src]="userService.GetProfilePicUrl(vendor.userId,vendor.picUrl)">
     <!-- get vendor photo from user -->
-    <div class="m-3">
+    <div class="py-2">
         <span class="fw-bold">{{vendor.name | truncate : 15}}</span>
-        <hr>
-        <span> {{vendor.category}}</span>
-        <p>{{vendorService.getVendorAddress(vendor)}}</p>
-        <button type="button" class="primary-btn" [routerLink]="[vendor.id]">المزيد من التفاصيل</button>
+        <span class="d-block mx-1">{{vendorService.getVendorAddress(vendor)|truncate:43}}</span>
     </div>
 </div>
