@@ -9,12 +9,20 @@ import { CategoryName } from 'src/app/Models/CategoryName';
   styleUrls: ['./filter.component.css']
 })
 export class VendorsFilterOptionsComponent {
-  categories :CategoryName[] =[]
-  constructor(private categoryService : CategoryService){
-    this.categoryService.GetNames().subscribe(
-      {
-        next:categories=>this.categories=categories
-      }
-    )
-  }
+  pageIndex: number = 1;
+  pageSize: number = 8;
+  categoryId: number | null = null;
+  governorateId: number | null = null;
+  cityId: number | null = null;
+  name: string | null = null;
+  district: string | null = null;
+
+categories: CategoryName[] = []
+constructor(private categoryService : CategoryService){
+  this.categoryService.GetNames().subscribe(
+    {
+      next: categories => this.categories = categories
+    }
+  )
+}
 }
