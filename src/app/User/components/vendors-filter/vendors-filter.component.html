@@ -14,17 +14,17 @@
       <div>
         <select class="form-select" type="text" id="govInput" name="gov"
           formControlName="GovernorateId" placeholder="محافظتك" #gov>
-          <option selected [value]="null">اختر محافظتك</option>
+          <option selected value="{{null}}">اختر محافظتك</option>
           <ng-container *ngFor="let gov of govs">
             <option [value]="gov.id">{{gov.nameAr}}</option>
           </ng-container>
         </select>
       </div>
 
-      <div *ngIf="form.controls['GovernorateId'].value !== null">
+      <div *ngIf="form.controls['GovernorateId'].value != ''">
         <select class="form-select" type="text" id="cityInput" name="city"
           formControlName="CityId" placeholder="مدينتك" #gov>
-          <option selected [value]="null">اختر مدينتك</option>
+          <option selected value="{{null}}">اختر مدينتك</option>
           <ng-container *ngFor="let city of cities">
             <option [value]="city.id">{{city.nameAr}}</option>
           </ng-container>

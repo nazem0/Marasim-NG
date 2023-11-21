@@ -37,20 +37,20 @@ export class VendorsFilterComponent implements AfterViewInit {
     private governorateService: GovernorateService,
     private cityService: CityService,
     private formBuilder: FormBuilder,
-    private activatedRoute:ActivatedRoute) {
-      this.activatedRoute.paramMap.subscribe(
-        {
-          next:params=>this.pageIndex = parseInt(params.get("pageIndex")!)
-        }
-      )
+    private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.paramMap.subscribe(
+      {
+        next: params => this.pageIndex = parseInt(params.get("pageIndex")!)
+      }
+    )
     this.form = this.formBuilder.group({
       PageSize: [8], // Default value for PageSize
       Categories: [null], // Default value for Categories
-      GovernorateId: [null], // Default value for GovernorateId
-      CityId: [null], // Default value for CityId
+      GovernorateId: [''], // Default value for GovernorateId
+      CityId: [''], // Default value for CityId
       Name: [null], // Default value for Name
       District: [null], // Default value for District
-      Rate:[null]
+      Rate: [null]
     });
     this.categoryService.GetNames().subscribe(
       {
@@ -70,12 +70,16 @@ export class VendorsFilterComponent implements AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.gov?.nativeElement.addEventListener('change', (e: any) => {
-      this.cityService.getByGovId(this.gov?.nativeElement.value).subscribe((resp) => this.cities = resp)
+      if (this.gov?.nativeElement.value != "")
+      {
+        this.form.get("CityId")?.setValue(null);
+        this.cityService.getByGovId(this.gov?.nativeElement.value).subscribe((resp) => this.cities = resp)
+      }
     });
   }
   getData() {
     console.log(this.form.value);
-    this.vendorService.filterVendors(this.pageIndex,this.form.value).subscribe(
+    this.vendorService.filterVendors(this.pageIndex, this.form.value).subscribe(
       {
         next: vendors => this.vendors = vendors
       }
