@@ -38,8 +38,8 @@ export class PostService {
 
   //Reacts Requests
 
-  GetReactsByPostId(postId: number): Observable<IReaction[]> {
-    return this.HttpClient.get<IReaction[]>(`${environment.apiUrl}/React/GetReactsByPostId/${postId}`)
+  GetReactsByPostId(postId: number,pageIndex:number,pageSize=10): Observable<PaginationViewModel<IReaction>>{
+    return this.HttpClient.get<PaginationViewModel<IReaction>>(`${environment.apiUrl}/React/GetByPostId/${pageIndex}?postId=${postId}&pageSize=${pageSize}`)
   }
 
   IsLiked(postId: number): Observable<boolean> {
@@ -61,7 +61,7 @@ export class PostService {
 
 
   GetCommentsByPostId(postId: number,pageIndex:number,pageSize=5): Observable<PaginationViewModel<IComment>>{
-    return this.HttpClient.get<PaginationViewModel<IComment>>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${postId}?pageIndex=${pageIndex}&pageSize=${pageSize}`)
+    return this.HttpClient.get<PaginationViewModel<IComment>>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${pageIndex}?postId=${postId}&pageSize=${pageSize}`)
   }
 
   AddComment(Comment: any) {

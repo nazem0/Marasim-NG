@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<div class="d-flex flex-column mt-3" *ngIf="Reactions">
+<div class="d-flex flex-column mt-3">
     <div *ngIf="AuthService.isLoggedIn| async">
         <button *ngIf="isLiked; else elseBlock" (click)="DisLike()"
             class="like btn border-0 d-flex text-decoration-none gap-1 align-items-center text-primary">
@@ -14,7 +14,7 @@
     </div>
     <button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
         attr.data-bs-target="#p_comm{{postId}}"
-        (click)="GetLikes()"
+        (click)="getData()"
         >
         <span><i class="fa-regular fa-thumbs-up"></i> {{reactsCount?.toLocaleString('ar-EG')}}</span>
     </button>
@@ -45,15 +45,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="p_comm{{postId}}Label">Reactions</h1>
+                <h1 class="modal-title fs-5" id="p_comm{{postId}}Label">التفاعلات</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div *ngFor="let reaction of Reactions">
+                <div *ngFor="let reaction of reacts.data">
                     <app-reaction [reaction]="reaction"></app-reaction>
                     <hr>
                 </div>
-
+                <a class="text-decoration-none text-primary" *ngIf="reacts.data.length != reacts.count" (click)="getData()">عرض المزيد</a>
             </div>
         </div>
     </div>
