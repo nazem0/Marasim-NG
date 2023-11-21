@@ -13,8 +13,10 @@
         </ng-template>
     </div>
     <button type="button" class="btn reacts w-100 text-start" data-bs-toggle="modal"
-        attr.data-bs-target="#p_comm{{postId}}">
-        <span><i class="fa-regular fa-thumbs-up"></i> {{Reactions.length.toLocaleString('ar-EG')}}</span>
+        attr.data-bs-target="#p_comm{{postId}}"
+        (click)="GetLikes()"
+        >
+        <span><i class="fa-regular fa-thumbs-up"></i> {{reactsCount?.toLocaleString('ar-EG')}}</span>
     </button>
 </div>
 
