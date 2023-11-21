@@ -3,7 +3,7 @@
     <div class="w-100">
         <div class="d-flex justify-content-between">
         <span class="fw-bold">{{comment.userName}}</span>
-        <small class="text-muted">{{comment.dateTime}}</small>
+        <small class="text-muted">{{comment.dateTime | dateFormatArabic}}</small>
         </div>
         <p>{{comment.text}}</p>
     </div>

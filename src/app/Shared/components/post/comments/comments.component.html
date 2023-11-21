@@ -3,19 +3,22 @@
         <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 attr.data-bs-target="#p_comm_collapse{{postId}}" aria-expanded="false"
-                attr.aria-controls="p_comm_collapse{{postId}}">
-                <span class="text-center">
-                    <i class="fa-regular fa-comments"></i> {{comments.length.toLocaleString('ar-EG')}}
+                attr.aria-controls="p_comm_collapse{{postId}}"
+                (click)="getData()">
+                <span class="text-center"
+                >
+                    <i class="fa-regular fa-comments"></i> {{commentsCount?.toLocaleString('ar-EG')}}
                 </span>
             </button>
         </h2>
         <div id="p_comm_collapse{{postId}}" class="accordion-collapse collapse" attr.data-bs-parent="#p_comm{{postId}}">
             <div class="accordion-body">
-                <ng-container *ngFor="let comment of comments">
+                <ng-container *ngFor="let comment of comments?.data">
                     <app-comment [comment]="comment"></app-comment>
                 </ng-container>
+                <a class="text-decoration-none text-primary" *ngIf="comments.data.length != comments.count" (click)="getData()">عرض المزيد</a>
             </div>
         </div>
     </div>
-    <app-add-comment *ngIf="AuthService.isLoggedIn| async" (refresh)="ngOnInit()" [postId]="postId"></app-add-comment>
+    <app-add-comment *ngIf="AuthService.isLoggedIn| async" (refresh)="getLastComment()" [postId]="postId"></app-add-comment>
 </div>
