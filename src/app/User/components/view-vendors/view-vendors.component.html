@@ -54,7 +54,7 @@
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
       <div
         class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 align-content-center justify-content-center gap-2">
-        <div class="col card text-center p-0 m-0" *ngFor="let vendor of Category.vendors">
+        <div class="col text-center p-0 m-0" *ngFor="let vendor of Category.vendors">
           <app-vendor-card [vendor]="vendor"></app-vendor-card>
         </div>
       </div>
