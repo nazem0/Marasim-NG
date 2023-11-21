@@ -2,6 +2,6 @@
     <img class="userPic" [src]="UserService.GetProfilePicUrl(reaction.userId, reaction.userPicUrl)" alt="">
     <div class="d-flex justify-content-between w-100">
         <span class="fw-bold">{{reaction.userName}}</span>
-        <small class="text-muted">{{reaction.dateTime}}</small>
+        <small class="text-muted">{{reaction.dateTime | dateFormatArabic}}</small>
     </div>
 </div>

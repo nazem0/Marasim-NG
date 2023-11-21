@@ -14,7 +14,7 @@ export class ReactionsComponent {
   currentUserId: string = '';
   isLiked: boolean = false;
   @Input() postId!: number;
-  @Input() reactsCount: number | null = null;
+  reactsCount: number | null = null;
   Reactions: IReaction[] = [];
 
   constructor
@@ -26,8 +26,13 @@ export class ReactionsComponent {
   ngOnInit() {
     this.currentUserId = this.CookieService.get("Id");
     this.CheckLiked();
+    this.GetReactsCount();
   }
-
+  GetReactsCount(){
+    this.PostService.GetReactsCountByPostId(this.postId).subscribe({
+      next:reactsCount=>this.reactsCount=reactsCount
+    })
+  }
   GetLikes() {
     console.log("clicked");
     this.PostService.GetReactsByPostId(this.postId)
@@ -58,7 +63,7 @@ export class ReactionsComponent {
       .subscribe({
         next: () => {
           console.log("Liked");
-          this.GetLikes();
+          this.GetReactsCount();
           this.isLiked = true;
           this.data = new FormData();
         },
@@ -74,7 +79,7 @@ export class ReactionsComponent {
       .subscribe({
         next: () => {
           console.log("Disliked");
-          this.GetLikes();
+          this.GetReactsCount();
           this.isLiked = false;
         },
         error: (error) => {
@@ -82,5 +87,6 @@ export class ReactionsComponent {
         }
       })
   }
+  
 
 }

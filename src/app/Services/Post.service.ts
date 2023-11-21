@@ -54,17 +54,24 @@ export class PostService {
     return this.HttpClient.delete(`${environment.apiUrl}/React/Delete/${postId}`)
   }
 
-
+  GetReactsCountByPostId(postId:number):Observable<number>{
+    return this.HttpClient.get<number>(`${environment.apiUrl}/React/GetReactsCountByPostId/${postId}`)
+  }
   //Comments Requests
 
 
-  GetCommentsByPostId(postId: number): Observable<IComment[]> {
-    return this.HttpClient.get<IComment[]>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${postId}`)
+  GetCommentsByPostId(postId: number,pageIndex:number,pageSize=5): Observable<PaginationViewModel<IComment>>{
+    return this.HttpClient.get<PaginationViewModel<IComment>>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${postId}?pageIndex=${pageIndex}&pageSize=${pageSize}`)
   }
 
   AddComment(Comment: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Comment/Add`, Comment)
   }
+
+  GetCommentsCountByPostId(postId:number):Observable<number>{
+    return this.HttpClient.get<number>(`${environment.apiUrl}/Comment/GetCommentsCountByPostId/${postId}`)
+  }
+  
 }
 
 
