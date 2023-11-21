@@ -1,25 +1,19 @@
 <section>
-    <div class="container">
-      <h1 class="text-center my-5 text-primary">المنشورات</h1>
-      <app-create-post (refresh)="ngOnInit()"></app-create-post>
-  
-      <div *ngIf="posts">
-        <div *ngFor="let post of posts.data | paginate: config">
-          <div class="my-4">
-            <app-post (refresh)="ngOnInit()" [post]="post"></app-post>
-          </div>
-        </div>
-        <div class="text-center">
-          <pagination-controls
-            class="pagination"
-            [responsive]="true"
-            previousLabel="السابق"
-            nextLabel="التالي"
-            (pageChange)="pageChange($event)"
-            [id]="config.id!"
-          ></pagination-controls>
+  <div class="container">
+    <h1 class="text-center my-5 text-primary">المنشورات</h1>
+    <app-create-post (refresh)="ngOnInit()"></app-create-post>
+
+    <div *ngIf="posts">
+      <div *ngFor="let post of posts.data | paginate: config">
+        <div class="my-4">
+          <app-post (refresh)="ngOnInit()" [post]="post"></app-post>
         </div>
       </div>
+      <div class="text-center">
+        <pagination-controls *ngIf="posts.count > posts.pageSize" class="pagination" [responsive]="true"
+          previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+          [id]="config.id!"></pagination-controls>
+      </div>
     </div>
-  </section>
-  
+  </div>
+</section>
