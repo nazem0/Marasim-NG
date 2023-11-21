@@ -1,19 +1,23 @@
-<button title="التصنيف" type="button" class="primary-btn floating-action-button" (click)="showFilter()">
+<!-- <button title="التصنيف" type="button" class="primary-btn floating-action-button" (click)="showFilter()">
     <i class="fa fa-caret-left" #caret></i>
-</button>
-
-<div class="d-flex">
-    <div #filterContainer class="filter-container">
-        <app-filter></app-filter>
-    </div>
-    <div *ngIf="posts" class="container">
-        <div *ngFor="let post of posts.data | paginate: config" class="my-4">
-            <app-post [post]="post"></app-post>
+</button> -->
+<div *ngIf="posts">
+    <div *ngIf="posts.data.length > 0; else elseBlock" class="d-flex">
+        <!-- <div #filterContainer class="filter-container">
+            <app-filter></app-filter>
+        </div> -->
+        <div class="container">
+            <div *ngFor="let post of posts.data | paginate: config" class="my-4">
+                <app-post [post]="post"></app-post>
+            </div>
+            <div *ngIf="posts.count > posts.pageSize" class="text-center">
+                <pagination-controls *ngIf="posts.count > posts.pageSize" class="pagination" [responsive]="true"
+                    previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+                    [id]="config.id!"></pagination-controls>
+            </div>
         </div>
-        <div *ngIf="posts.data.length > 0" class="text-center">
-            <pagination-controls *ngIf="posts.count > posts.pageSize" class="pagination" [responsive]="true"
-                previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
-                [id]="config.id!"></pagination-controls>
-        </div>
     </div>
+    <ng-template #elseBlock>
+        <app-no-follows></app-no-follows>
+    </ng-template>
 </div>

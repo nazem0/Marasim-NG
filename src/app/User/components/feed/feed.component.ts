@@ -6,7 +6,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 import { IPost } from 'src/app/Models/IPost';
 
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -20,8 +19,8 @@ export class FeedComponent implements OnInit, AfterViewInit {
     itemsPerPage: 2,
     currentPage: 1,
   };
-  @ViewChild("filterContainer") filterContainer!: ElementRef;
-  @ViewChild("caret") caret!: ElementRef;
+  // @ViewChild("filterContainer") filterContainer!: ElementRef;
+  // @ViewChild("caret") caret!: ElementRef;
 
   constructor(
     private PostService: PostService,
@@ -31,8 +30,7 @@ export class FeedComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    console.log(this.filterContainer.nativeElement);
-    
+    // console.log(this.filterContainer.nativeElement);
   }
 
   ngOnInit() {
@@ -47,27 +45,27 @@ export class FeedComponent implements OnInit, AfterViewInit {
   getData() {
     console.log(this.config.currentPage);
     this.PostService.GetByPostsByFollow(this.config.currentPage, this.config.itemsPerPage)
-    .subscribe((result) => {
-      this.posts = result;
-      this.config.currentPage = result.pageIndex;
-      this.config.totalItems = result.count;
-      this.config.itemsPerPage = result.pageSize;
-    });
+      .subscribe((result) => {
+        this.posts = result;
+        this.config.currentPage = result.pageIndex;
+        this.config.totalItems = result.count;
+        this.config.itemsPerPage = result.pageSize;
+      });
   }
 
   pageChange(newPage: number) {
-    this.Router.navigate(['../',newPage],{relativeTo:this.ActivatedRoute})
+    this.Router.navigate(['../', newPage], { relativeTo: this.ActivatedRoute })
   }
 
-  showFilter() {
-    if (this.filterContainer.nativeElement.classList.contains('expanded')) {
-      this.caret.nativeElement.classList.add('fa-caret-left')
-      this.caret.nativeElement.classList.remove('fa-caret-right')
-      this.filterContainer.nativeElement.classList.remove('expanded');
-    } else {
-      this.caret.nativeElement.classList.remove('fa-caret-left')
-      this.caret.nativeElement.classList.add('fa-caret-right')
-      this.filterContainer.nativeElement.classList.add('expanded');
-    }
-  }
+  // showFilter() {
+  //   if (this.filterContainer.nativeElement.classList.contains('expanded')) {
+  //     this.caret.nativeElement.classList.add('fa-caret-left')
+  //     this.caret.nativeElement.classList.remove('fa-caret-right')
+  //     this.filterContainer.nativeElement.classList.remove('expanded');
+  //   } else {
+  //     this.caret.nativeElement.classList.remove('fa-caret-left')
+  //     this.caret.nativeElement.classList.add('fa-caret-right')
+  //     this.filterContainer.nativeElement.classList.add('expanded');
+  //   }
+  // }
 }
