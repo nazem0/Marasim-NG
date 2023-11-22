@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingRoutes } from './admin-routing.routing';
 import { LayoutComponent } from './layout/layout.component';
-import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboard.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ViewUsersComponent } from './components/view-users/view-users.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
@@ -20,7 +19,6 @@ import { SharedModule } from '../Shared/Shared.module';
 @NgModule({
   declarations: [
     LayoutComponent,
-    AdminDashboardComponent,
     CategoriesComponent,
     ViewUsersComponent,
     ViewVendorsComponent,
