@@ -1,77 +1,60 @@
+<div class="sidebar" [class.open]="sidebarOpen">
+  <div class="logo-details">
+    <div class="logo_name ms-2">مراسم</div>
+    <i class='fa-solid fa-bars' id="btn" (click)="toggleSidebar()"></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <a routerLink="/admin">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span class="links_name">لوحة التحكم</span>
+      </a>
+      <span class="tooltip">لوحة التحكم</span>
+    </li>
+    <li>
+      <a routerLink="users">
+        <i class='fas fa-user fa-fw'></i>
+        <span class="links_name">العملاء</span>
+      </a>
+      <span class="tooltip">العملاء</span>
+    </li>
+    <li>
+      <a routerLink="vendors">
+        <i class='fas fa-user-tie fa-fw'></i>
+        <span class="links_name">مقدو الخدمة</span>
+      </a>
+      <span class="tooltip">مقدمو الخدمة</span>
+    </li>
 
-  <div class="sidebar" [class.open]="sidebarOpen">
-    <div class="logo-details">
-
-        <div class="logo_name ms-2" >مراسم</div>
-
-        <i class='fa-solid fa-bars' id="btn" (click)="toggleSidebar()" ></i>
-
-    </div>
-    <ul class="nav-list">
-
-      <li>
-        <a routerLink="/admin/home">
-          <i class="fa-solid fa-chart-pie"></i>
-          <span class="links_name">لوحة التحكم</span>
-        </a>
-         <span class="tooltip">لوحة التحكم</span>
-      </li>
-      <li>
-       <a routerLink="users">
-         <i class='fas fa-user fa-fw' ></i>
-         <span class="links_name">العملاء</span>
-       </a>
-       <span class="tooltip">العملاء</span>
-     </li>
-     <li>
-       <a routerLink="vendors">
-         <i class='fas fa-user-tie fa-fw' ></i>
-         <span class="links_name">مقدو الخدمة</span>
-       </a>
-       <span class="tooltip">مقدمو الخدمة</span>
-     </li>
-
-      <li>
-        <a routerLink="categories">
-          <i class='fas fa-layer-group fa-fw' ></i>
-          <span class="links_name">الفئات</span>
-        </a>
-        <span class="tooltip">الفئات</span>
-      </li>
-     <li>
-       <a routerLink="payments">
-         <i class='fas fa-dollar fa-fw' ></i>
-         <span class="links_name">حالات الدفع </span>
-       </a>
-       <span class="tooltip">حالات الدفع</span>
-     </li>
-     <li>
+    <li>
+      <a routerLink="categories">
+        <i class='fas fa-layer-group fa-fw'></i>
+        <span class="links_name">الفئات</span>
+      </a>
+      <span class="tooltip">الفئات</span>
+    </li>
+    <li>
+      <a routerLink="payments">
+        <i class='fas fa-dollar fa-fw'></i>
+        <span class="links_name">حالات الدفع </span>
+      </a>
+      <span class="tooltip">حالات الدفع</span>
+    </li>
+    <!-- <li>
       <a routerLink="">
         <i class="fa-solid fa-eye"></i>
         <span class="links_name">منظور العميل</span>
       </a>
       <span class="tooltip">منظور العميل</span>
+    </li> -->
+    <li class="profile">
+      <div class="profile-details ms-3">
+        <img src="/assets/img/groom.png" alt="profileImg">
+        <div class="name_job ms-2">
+          <div class="name">Admin</div>
+        </div>
+      </div>
+      <button routerLink="/login"><i class='fa-solid fa-right-from-bracket' id="log_out"></i></button>
     </li>
-    <li>
-      <a routerLink="edit">
-        <i class="fa-solid fa-user-pen"></i>
-        <span class="links_name">تعديل البيانات</span>
-      </a>
-      <span class="tooltip"> تعديل البيانات</span>
-    </li>
-
-     <li class="profile">
-         <div class="profile-details ms-3">
-           <img src="../../../../assets/img/groom.png" alt="profileImg">
-           <div class="name_job ms-2">
-             <div class="name">صهيب احمد </div>
-           </div>
-         </div>
-       <button routerLink="/login"><i class='fa-solid fa-right-from-bracket' id="log_out" ></i></button>
-
-
-
-
-     </li>
-    </ul>
-  </div>
+  </ul>
+</div>
