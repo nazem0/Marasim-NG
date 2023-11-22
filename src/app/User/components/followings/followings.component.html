@@ -1,15 +1,11 @@
 <div class="container py-5 ">
   <div class="d-flex flex-column text-center align-items-around">
     <i class="fa fa-heart fs-1 text-primary"></i>
-    <h3 class="favtext fs-1 mt-2 text-primary">المُتابعون </h3>
+    <h3 class="favtext fs-1 mt-2 text-primary">المُتابعون</h3>
   </div>
   <div id="favlist" class="container text-center mt-5 ">
-    <div class="row">
-      <span class="col text-primary fs-4"></span>
-      <span class="col text-primary fs-4"></span>
-    </div>
     <hr class="mt-3">
-    <div class="container text-center  mt-4">
+    <div class="container text-center mt-4">
       <ng-container *ngIf="Followings">
         <div *ngFor=" let Following of Followings.data" class="row">
           <app-following (refresh)="refresh()" [Following]="Following"></app-following>

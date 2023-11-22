@@ -1,11 +1,8 @@
-<div *ngIf="Following" class=" card col-6 ">
+<!-- <link rel="stylesheet" href="../../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
+<div *ngIf="Following" class="col-4 d-flex flex-column justify-content-center align-content-center">
     <div class="img">
         <img class="photo" [src]="UserService.GetProfilePicUrl(Following.userId, Following.picUrl)" alt="">
     </div>
-    <div class="vendor">
-        <a class="list col text-primary fs-4">{{Following.name}}</a>
-    </div>
-</div>
-<div class="unfolow col-6 ">
-    <button type="button" class="btn btn-danger" (click)="Unfollow()">إلغاء المتابعة</button>
+    <a class=" text-decoration-none text-primary fs-4 my-1">{{Following.name}}</a>
+    <button type="button" class="danger-btn my-1 w-50 mx-auto" (click)="Unfollow()">إلغاء المتابعة</button>
 </div>
