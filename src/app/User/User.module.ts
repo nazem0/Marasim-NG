@@ -34,7 +34,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddReviewComponent } from './components/reservations/add-review/add-review.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
-import { VendorsFilterOptionsComponent } from './components/vendors-filter/filter/filter.component';
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 
 
@@ -80,7 +79,6 @@ import { NoFollowsComponent } from './components/no-follows/no-follows.component
     ReservationsComponent,
     AddReviewComponent,
     VendorsFilterComponent,
-    VendorsFilterOptionsComponent,
     NoFollowsComponent
   ]
 })
