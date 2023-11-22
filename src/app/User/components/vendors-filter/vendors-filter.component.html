@@ -14,17 +14,17 @@
       <div>
         <select class="form-select" type="text" id="govInput" name="gov"
           formControlName="GovernorateId" placeholder="محافظتك" #gov>
-          <option selected value="{{null}}">اختر محافظتك</option>
+          <option selected [ngValue]="null">اختر محافظتك</option>
           <ng-container *ngFor="let gov of govs">
             <option [value]="gov.id">{{gov.nameAr}}</option>
           </ng-container>
         </select>
       </div>
 
-      <div *ngIf="form.controls['GovernorateId'].value != ''">
+      <div *ngIf="form.controls['GovernorateId'].value">
         <select class="form-select" type="text" id="cityInput" name="city"
           formControlName="CityId" placeholder="مدينتك" #gov>
-          <option selected value="{{null}}">اختر مدينتك</option>
+          <option selected [ngValue]="null">اختر مدينتك</option>
           <ng-container *ngFor="let city of cities">
             <option [value]="city.id">{{city.nameAr}}</option>
           </ng-container>
@@ -49,8 +49,8 @@
         <p>الأقسام</p>
         <ng-container *ngFor="let category of categories">
           <div class="form-check d-flex gap-3 justify-content-between align-items-center">
-            <input class="form-check-input" type="checkbox" [checked]="categoriesInput.includes(category.id)"
-              (change)="onCategoryChange(category.id, $event)">
+            <input class="form-check-input" type="checkbox" [checked]="categoriesInput.includes(category.id.toString())"
+              (change)="onCategoryChange(category.id.toString(), $event)">
             <label class="form-check-label" for="">
               {{category.name}}
             </label>
@@ -76,8 +76,8 @@
         <label title="text" for="star1"></label>
       </div>
       
-      <button (click)="getData()" type="button" class="btn btn-outline-primary w-100 mb-2">بحث</button>
-
+      <button (click)="filter()" type="button" class="primary-btn w-100">بحث</button>
+      <button type="button" class="warning-btn w-100 mb-2">إلغاء</button>
     </form>
   </div>
   <div class="container">
@@ -86,5 +86,8 @@
         <app-vendor-card [vendor]="vendor"></app-vendor-card>
       </div>
     </div>
+    <ng-container *ngIf="noResult">
+      <app-no-result-search></app-no-result-search>
+    </ng-container>
   </div>
 </section>

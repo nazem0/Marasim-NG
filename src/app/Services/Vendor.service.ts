@@ -55,17 +55,20 @@ export class VendorService {
 
   filterVendors(
     pageIndex = 1,
-    VendorFilterForm: VendorFilterForm | null = null
+    vendorFilterForm: VendorFilterForm | null = null
   ): Observable<PaginationViewModel<IVendorMidInfo>> {
+    console.log(vendorFilterForm);
     let queryParams: string[] | string = [];
-    if (VendorFilterForm) {
-      if (VendorFilterForm.Name) queryParams.push(`Name=${VendorFilterForm.Name}`)
-      if (VendorFilterForm.Categories?.length>0) queryParams.push(`Categories=${VendorFilterForm.Categories.join()}`);
-      if (VendorFilterForm.GovernorateId) queryParams.push(`GovernorateId=${VendorFilterForm.GovernorateId}`);
-      if (VendorFilterForm.CityId) queryParams.push(`CityId=${VendorFilterForm.CityId}`);
-      if (VendorFilterForm.District) queryParams.push(`District=${VendorFilterForm.District}`);
-      if (VendorFilterForm.PageSize) queryParams.push(`PageSize=${VendorFilterForm.PageSize}`);
-      if(VendorFilterForm.Rate) queryParams.push(`Rate=${VendorFilterForm.Rate}`)
+    if (vendorFilterForm) {
+      if (vendorFilterForm.name) queryParams.push(`Name=${vendorFilterForm.name}`);
+
+      if (vendorFilterForm.categories) queryParams.push(`Categories=${vendorFilterForm.categories}`);
+      
+      if (vendorFilterForm.governorateId) queryParams.push(`GovernorateId=${vendorFilterForm.governorateId}`);
+      if (vendorFilterForm.cityId) queryParams.push(`CityId=${vendorFilterForm.cityId}`);
+      if (vendorFilterForm.district) queryParams.push(`District=${vendorFilterForm.district}`);
+      if (vendorFilterForm.pageSize) queryParams.push(`PageSize=${vendorFilterForm.pageSize}`);  
+      if (vendorFilterForm.rate) queryParams.push(`Rate=${vendorFilterForm.rate}`);
     }
     queryParams = queryParams.join("&")
     return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(
@@ -81,11 +84,11 @@ export class VendorService {
 }
 
 export interface VendorFilterForm {
-  PageSize: number;
-  Categories: number[];
-  GovernorateId: number | null;
-  CityId: number | null;
-  Name: string | null;
-  District: string | null;
-  Rate:number|null;
+  pageSize?: number;
+  categories?: string;
+  governorateId?: number | null;
+  cityId?: number | null;
+  name?: string | null;
+  district?: string | null;  
+  rate?: string | null;
 }
