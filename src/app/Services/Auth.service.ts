@@ -6,8 +6,6 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { LoginResponse } from '../Models/LoginResponse';
 import { ToastrService } from 'ngx-toastr';
-import { error } from 'jquery';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -55,6 +53,9 @@ export class AuthService {
     }
     this._isLoggedIn.next(true)
     this.Toastr.success("تم تسجيل الدخول")
+    if(Role.includes("admin"))
+      this.Router.navigate(["/admin"]);
+    else
     this.Router.navigate(["/home"]);
   }
   removeCookies() {
