@@ -37,6 +37,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
 import { VendorCarouselComponent } from './components/vendor-carousel/vendor-carousel.component';
 import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
+import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 
 @NgModule({
   imports: [
@@ -79,6 +80,7 @@ import { VendorCardComponent } from './components/vendor-card/vendor-card.compon
     Home2Component,
     VendorCarouselComponent,
     VendorCardComponent,
+    NoResultSearchComponent
 
   ],
   providers: [
@@ -103,6 +105,7 @@ import { VendorCardComponent } from './components/vendor-card/vendor-card.compon
     NullToSpacePipe,
     DeleteModalComponent,
     VendorCardComponent,
+    NoResultSearchComponent
   ],
 
 })

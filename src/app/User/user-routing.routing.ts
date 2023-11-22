@@ -21,7 +21,7 @@ import { VendorProfileComponent } from '../Shared/components/vendor-profile/vend
 import { FollowingsComponent } from './components/followings/followings.component';
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
-import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
+import { NoResultSearchComponent } from '../Shared/components/no-result-search/no-result-search.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
 import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
 import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
