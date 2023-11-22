@@ -5,7 +5,6 @@ import { ViewUsersComponent } from './components/view-users/view-users.component
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaymentsComponent } from './components/payments/payments.component';
-import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 
 const routes: Routes = [
   {
@@ -17,7 +16,6 @@ const routes: Routes = [
       {path:"users",component:ViewUsersComponent},
       {path:"categories",component:CategoriesComponent},
       {path:"payments",component:PaymentsComponent},
-      {path:"edit",component:EditAdminComponent}
     ]
   },
 ];
