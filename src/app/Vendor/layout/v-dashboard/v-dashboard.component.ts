@@ -23,7 +23,7 @@ export class VDashboardComponent {
   profilePicture = this.CookieService.get("ProfilePicture");
   name = this.CookieService.get("Name");
   role = this.CookieService.get("Role")
-  
+  vendorId = this.CookieService.get("VendorId");
   logout(){
     this.AuthService.logout();
     this.AuthService.removeCookies();
