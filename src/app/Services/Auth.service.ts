@@ -55,6 +55,9 @@ export class AuthService {
     this.Toastr.success("تم تسجيل الدخول")
     if(Role.includes("admin"))
       this.Router.navigate(["/admin"]);
+    else if(Role.includes("vendor")){
+      this.Router.navigate(["/vendor"]);
+    }
     else
     this.Router.navigate(["/home"]);
   }
