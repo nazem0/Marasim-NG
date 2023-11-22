@@ -8,14 +8,13 @@ import { InterceptorService } from './Services/interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { DateFormatArabicPipe } from './Pipes/DateFormatArabic.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { VendorAuthGuard } from './Guards/vendor.guard';
-import { AdminAuthGuard } from './Guards/admin.service';
-import { UserAuthGuard } from './Guards/user.service';
+import { AdminAuthGuard } from './Guards/admin.guard';
+import { UserAuthGuard } from './Guards/user.guard';
 
 @NgModule({
   declarations: [
