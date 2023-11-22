@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DateFormatArabicPipe } from './Pipes/DateFormatArabic.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
       progressBar: true,
       closeButton: true,
       enableHtml: true,
-    })
+    }),
+    
+    // for HttpClient use:
+    LoadingBarHttpClientModule,
+
+    // for Router use:
+    LoadingBarRouterModule,
+
+    // for Core use:
+    LoadingBarModule,
   ],
   providers: [AuthGuard,
     // { provide: LOCALE_ID, useValue: "ar-EG" },

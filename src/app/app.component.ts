@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  Router,
-  // import as RouterEvent to avoid confusion with the DOM Event
-  Event as RouterEvent,
-  NavigationStart,
-  NavigationEnd,
-  NavigationCancel,
-  NavigationError
-} from '@angular/router'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,29 +7,5 @@ import {
 })
 export class AppComponent {
   title = 'Marasim';
-  loader = true;
-  constructor(private router: Router) {
-
-    this.router.events.subscribe((e: RouterEvent) => {
-      this.navigationInterceptor(e);
-    })
-  }
-  navigationInterceptor(event: RouterEvent): void {
-    if (event instanceof NavigationStart) {
-      this.loader = true;
-
-    }
-    if (event instanceof NavigationEnd) {
-      this.loader = false;
-    }
-    // Set loading state to false in both of the below events to hide the spinner in case a request fails
-    if (event instanceof NavigationCancel) {
-      this.loader = true;
-    }
-    if (event instanceof NavigationError) {
-      this.loader = true;
-    }
-
-  }
 }
 
