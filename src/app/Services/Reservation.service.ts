@@ -11,42 +11,40 @@ import { PaginationViewModel } from '../Models/PaginationViewModel';
   providedIn: 'root'
 })
 export class ReservationService {
-
   constructor(private HttpClient: HttpClient) { }
+
   Add(Data: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Reservation/Add`, Data)
   }
-  GetAllForUser(){
+
+  GetAllForUser() {
     return this.HttpClient.get<UserReservation[]>(`${environment.apiUrl}/Reservation/GetAllByUserId`)
   }
-  GetForUserByStatus(Status:string){
-    return this.HttpClient.get<PaginationViewModel<UserReservation>>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus/${Status}`)
-  }
-  GetForVendorByStatus(Status:string){
-    return this.HttpClient.get<PaginationViewModel<VendorReservation>>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/${Status}`)
-  }
-
-  GetForVendorByPagination(Status:string ,PageIndex: number, PageSize: number): Observable<PaginationViewModel<VendorReservation>> {
-    return this.HttpClient.get<PaginationViewModel<VendorReservation>>(`${environment.apiUrl}/Reservation/GetVendorReservationsByPagination/${Status}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
-  }
-  GetAllForVendor(){
+  GetAllForVendor() {
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
   }
-  CheckoutById(Id:number){
+
+  GetForUserByStatus(Status: string) {
+    return this.HttpClient.get<PaginationViewModel<UserReservation>>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus/1?Status=${Status}`)
+  }
+  GetForVendorByStatus(Status: string) {
+    return this.HttpClient.get<PaginationViewModel<VendorReservation>>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/1?Status=${Status}`)
+  }
+
+  CheckoutById(Id: number) {
     return this.HttpClient.get<CheckoutReservation>(`${environment.apiUrl}/Reservation/CheckoutReservationById/${Id}`)
   }
 
-  Accept(Data : any){
-    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Accept`,Data)
+  Accept(Data: any) {
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Accept`, Data)
   }
-
-  Reject(Data : any){
-    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Reject`,Data)
+  Reject(Data: any) {
+    return this.HttpClient.put<VendorReservation>(`${environment.apiUrl}/Reservation/Reject`, Data)
   }
-  Confirm(ReservationId:number){
+  Confirm(ReservationId: number) {
     return this.HttpClient.get(`${environment.apiUrl}/Reservation/Confirm/${ReservationId}`)
   }
-  Done(Data:any){
-    return this.HttpClient.put(`${environment.apiUrl}/Reservation/Done`,Data)
+  Done(Data: any) {
+    return this.HttpClient.put(`${environment.apiUrl}/Reservation/Done`, Data)
   }
 }

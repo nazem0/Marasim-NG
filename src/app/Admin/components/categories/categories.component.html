@@ -1,73 +1,50 @@
+<!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 <main class="container">
-  <h1 class="text-center text-primary mt-5">الفئات</h1>
+  <h1 class="text-center text-primary my-5">الفئات</h1>
 
-  <div class="searching my-5 mx-auto ">
-    <div class="search-bar">
-      <div class="input-group">
-        <span class="input-group-text"><i class="fa-solid fa-add"></i>
-        </span>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInputGroup2" placeholder="اضافة خدمة">
-          <label for="floatingInputGroup2" class="mt-2 px-2">اضافة خدمة</label>
+  <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+    <div class="w-75 my-5 mx-auto ">
+      <div class="search-bar">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fa-solid fa-add"></i>
+          </span>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="Input" placeholder="اضافة خدمة" formControlName="Name">
+            <label for="Input" class="mt-2 px-2">اضافة فئة</label>
+          </div>
+          <button type="reset" (click)="addCategory()" [disabled]="!this.categoryForm.valid"
+            [ngClass]="{ 'primary-btn': formIsValid, 'secondary-btn noHover': !formIsValid }">اضافة</button>
         </div>
-
-        <button class="btn btn-primary button__shared">اضافة</button>
+        <div *ngIf="categoryForm?.get('Name')?.invalid && categoryForm?.get('Name')?.touched">
+          <small class="text-danger">
+              اسم الفئة يجب أن يحتوي على ٣-٣٠ حرفًا
+          </small>
+      </div>
       </div>
     </div>
-  </div>
+  </form>
 
-
-
-  <div class="table-responsive-md border ">
-    <table class="table table-white text-primary text-center  " >
+  <div class="w-75 mx-auto">
+    <table class="table text-primary text-center">
       <thead>
         <tr>
-          <th scope="col" class="text-danger">اسم الفئة</th>
-
-          <th scope="col" class="text-danger"></th>
-
+          <th scope="col" class="fs-4 text-primary">رقم</th>
+          <th scope="col" class="fs-4 text-primary">اسم الفئة</th>
+          <th scope="col" class="fs-4 text-primary">اجراءات</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- *ngfor="let vendor of Vendors" -->
-        <tr>
-          <td scope="row">مصور فوتوغرافي</td>
-          <td class="d-flex gap-2 justify-content-center">
-            <button type="button" class="btn btn-primary">عرض</button>
-            <button type="button" class="btn btn-danger">حذف</button>
-          </td>
-        </tr>
-
-                          <!---------- TO BE DELETED ------------>
-
-        <tr>
-          <td scope="row">قاعة افراح</td>
-          <td class="d-flex gap-2 justify-content-center">
-            <button type="button" class="btn btn-primary">عرض</button>
-            <button type="button" class="btn btn-danger">حذف</button>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td scope="row">خبير تجميل</td>
-          <td class="d-flex gap-2 justify-content-center">
-            <button type="button" class="btn btn-primary">عرض</button>
-            <button type="button" class="btn btn-danger">حذف</button>
-
+      <tbody *ngIf="categories">
+        <tr *ngFor="let category of categories; let i = index">
+          <td class=""><span>{{(i+1).toLocaleString('ar-EG')}}</span></td>
+          <td class=""><span>{{category.name}}</span></td>
+          <td class="">
+            <!-- estna filter using quary params -->
+            <button type="button" class="primary-btn me-2">عرض</button>
+            <!-- <button type="button" class="danger-btn">حذف</button> -->
           </td>
         </tr>
       </tbody>
-
-
-                            <!---------- TO BE DELETED ------------>
-
-
     </table>
-
-
   </div>
-  </main>
-
-
-
+  <br>
+</main>
