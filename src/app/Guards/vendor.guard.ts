@@ -23,6 +23,7 @@ export class VendorAuthGuard implements CanActivate, CanActivateChild {
     } else {
       this.toastr.error("ليس لديك صلاحية للدخول على هذه الصفحة")
       this.router.navigate(['/'])
+      console.log(this.CookieService.get("Role"));
       return false;
     }
   }

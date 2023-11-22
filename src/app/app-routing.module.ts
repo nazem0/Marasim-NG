@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./Admin/Admin.module').then(m => m.AdminModule),
-    canActivate:[VendorAuthGuard]
+    canActivate:[AdminAuthGuard]
   },
 
   { path: '**', component: PageNotFoundComponent },

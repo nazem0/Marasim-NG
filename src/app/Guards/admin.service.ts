@@ -17,7 +17,8 @@ export class AdminAuthGuard implements CanActivate, CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.CookieService.get("Role").includes("admin")) {
+    let roles = this.CookieService.get("Role");
+    if (roles.includes("admin")) {
       return true;
     } else {
       this.toastr.error("ليس لديك صلاحية للدخول على هذه الصفحة")
