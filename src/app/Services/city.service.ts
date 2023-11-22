@@ -8,7 +8,7 @@ import { City } from '../Models/City';
 export class CityService {
   controllerName = "City"
   constructor(private HttpClient:HttpClient) { }
-  public getByGovId(govId:number){
+  public getByGovId(govId:string){
     return this.HttpClient.get<City[]>(`${environment.apiUrl}/${this.controllerName}/getByGovId/${govId}`);
   }
 }
