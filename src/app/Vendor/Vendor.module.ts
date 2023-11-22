@@ -21,7 +21,6 @@ import { StatNavComponent } from './components/statistic/stat-nav.component';
 import {TotalSalesChartComponent } from './components/statistic/total-sales-chart/total-sales-chart.component';
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-import { VendorDashboardComponent } from './layout/vendor-dashboard/vendor-dashboard.component';
 import { VendorRoutes } from './vendor-routing.routing';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
@@ -58,7 +57,6 @@ import { VendorNavToggleComponent } from './components/vendor-nav-toggle/vendor-
     TotalSalesChartComponent,
     CompletedOrdersChartComponent,
     ProfileEditComponent,
-    VendorDashboardComponent,
     EditServiceComponent,
     WalletComponent,
     VhomeComponent,
