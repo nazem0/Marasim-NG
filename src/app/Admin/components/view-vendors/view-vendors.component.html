@@ -1,104 +1,61 @@
 <main class="container">
 
-<h1 class="text-center text-primary mt-5 ">مقدمو الخدمة</h1>
+  <h1 class="text-center text-primary my-5 ">مقدمو الخدمة</h1>
 
-<div class="container searching mb-5 mt-5 ">
-  <div class="search-bar">
-    <div class="input-group">
-      <span class="input-group-text"><i class="fa-solid fa-search"></i>
-      </span>
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
-        <label for="floatingInputGroup2" class="mt-2 px-2">بحث</label>
+  <!-- <div class="container searching mb-5 mt-5 ">
+    <div class="search-bar">
+      <div class="input-group">
+        <span class="input-group-text"><i class="fa-solid fa-search"></i>
+        </span>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGroup2" placeholder="بحث">
+          <label for="floatingInputGroup2" class="mt-2 px-2">بحث</label>
+        </div>
+        <div class="form-floating">
+          <select class="form-select py-0" id="floatingSelectGrid">
+            <option disabled hidden selected value="">اختر من بين الفئات</option>
+            <option value="1">القاعات</option>
+            <option value="2">المصورين</option>
+            <option value="3">المطاعم</option>
+            <option value="4">صالونات التجميل</option>
+            <option value="5">النوادى</option>
+          </select>
+        </div>
+        <button class="btn btn-primary button__shared">بحث <i class="fa-solid fa-search"></i></button>
       </div>
-      <div class="form-floating">
-        <select class="form-select py-0" id="floatingSelectGrid">
-          <option disabled hidden selected value="">اختر من بين الفئات</option>
-          <option value="1">القاعات</option>
-          <option value="2">المصورين</option>
-          <option value="3">المطاعم</option>
-          <option value="4">صالونات التجميل</option>
-          <option value="5">النوادى</option>
-        </select>
-        <!-- <label for="floatingSelectGrid">اختر من بين الفئات</label> -->
-      </div>
-
-      <button class="btn btn-primary button__shared">بحث <i class="fa-solid fa-search"></i></button>
     </div>
+  </div> -->
 
 
-
-
+  <div class="d-flex flex-column justify-content-center">
+    <div *ngIf="vendors" class="table-responsive-md ">
+      <table class="table  table-white text-primary text-center border ">
+        <thead>
+          <tr>
+            <th scope="col" class="fs-4 text-primary">الاسم</th>
+            <th scope="col" class="fs-4 text-primary">تاريخ الانضمام</th>
+            <th scope="col" class="fs-4 text-primary">الفئة</th>
+            <th scope="col" class="fs-4 text-primary">اجراءات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vendor of vendors.data | paginate: config">
+            <td scope="row">
+              <img class="vendor-img" [src]="this.UserService.GetProfilePicUrl(vendor.userId ,vendor.picUrl)" alt="">
+              <span class="mx-2">{{vendor.name}}</span>
+            </td>
+            <td>ssssssss</td>
+            <td>{{vendor.category}}</td>
+            <td class="">
+              <button type="button" class="primary-btn">عرض</button>
+              <!-- <button type="button" class="danger-btn">حذف</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls *ngIf="vendors.count > vendors.pageSize" class="pagination" [responsive]="true"
+        previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+        [id]="config.id!"></pagination-controls>
+    </div>
   </div>
-</div>
-
-
-<div class="d-flex flex-column justify-content-center">
-<div class="table-responsive-md ">
-  <table class="table  table-white text-primary text-center border " >
-    <thead>
-      <tr>
-        <th scope="col" class="col text-danger">الاسم</th>
-        <th scope="col" class="col text-danger">تاريخ الانضمام</th>
-        <th scope="col" class="col text-danger">الفئة</th>
-        <th scope="col" class="col text-danger"></th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <!-- *ngfor="let vendor of Vendors" -->
-      <tr>
-        <td scope="row">
-          <img class="vendor-img" src="../../../../assets/img/chefs.webp" alt="">
-          صهيب احمد محمد
-        </td>
-        <td>18/10/2018</td>
-        <td> مصور فوتغرافي</td>
-        <td class="d-flex gap-2 justify-content-center">
-          <button type="button" class="btn btn-primary">عرض</button>
-          <button type="button" class="btn btn-danger">حذف</button>
-
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <!-- *ngfor="let vendor of Vendors" -->
-      <tr>
-        <td scope="row">
-          <img class="vendor-img" src="../../../../assets/img/chefs.webp" alt="">
-          صهيب احمد محمد
-        </td>
-        <td>18/10/2018</td>
-        <td> مصور فوتغرافي</td>
-        <td class="d-flex gap-2 justify-content-center">
-          <button type="button" class="btn btn-primary">عرض</button>
-          <button type="button" class="btn btn-danger">حذف</button>
-
-        </td>
-      </tr>
-    </tbody>
-
-    <tbody>
-      <!-- *ngfor="let vendor of Vendors" -->
-      <tr>
-        <td scope="row">
-          <img class="vendor-img" src="../../../../assets/img/chefs.webp" alt="">
-            صهيب احمد محمد </td>
-        <td>18/10/2018</td>
-        <td> مصور فوتغرافي</td>
-        <td class="d-flex gap-2 justify-content-center">
-          <button type="button" class="btn btn-primary">عرض</button>
-          <button type="button" class="btn btn-danger">حذف</button>
-
-        </td>
-      </tr>
-    </tbody>
-
-  </table>
-
-</div>
-</div>
 </main>
-
-
-

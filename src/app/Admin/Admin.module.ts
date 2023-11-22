@@ -12,6 +12,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { SharedModule } from '../Shared/Shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ]
 })
 export class AdminModule { }

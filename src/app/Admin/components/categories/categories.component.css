@@ -15,8 +15,10 @@ label {
 }
 
 table, th, td {
-  border: 1px solid rgb(133, 132, 132);
+  border: 1px solid rgb(200, 200, 200);
   border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .noHover{

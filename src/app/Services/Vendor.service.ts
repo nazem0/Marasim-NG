@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IVendor, IVendorMidInfo, address } from '../Models/IVendor';
+import { IVendor, IVendorMidInfo, address} from '../Models/IVendor';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { FullVendorInfo } from '../Models/FullVendorInfo';
@@ -13,8 +13,8 @@ import { PaginationViewModel } from '../Models/PaginationViewModel';
 export class VendorService {
   constructor(private HttpClient: HttpClient) { }
 
-  GetAll() {
-    return this.HttpClient.get(`${environment.apiUrl}/Vendor/GetAll`);
+  GetAll(PageIndex: number, PageSize: number): Observable<PaginationViewModel<IVendorMidInfo>> {
+    return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(`${environment.apiUrl}/Vendor/GetAll?PageSize=${PageSize}&PageIndex=${PageIndex}`);
   }
   GetByVendorId(vendorId: number): Observable<IVendor> {
     return this.HttpClient.get<IVendor>(
@@ -63,11 +63,11 @@ export class VendorService {
       if (vendorFilterForm.name) queryParams.push(`Name=${vendorFilterForm.name}`);
 
       if (vendorFilterForm.categories) queryParams.push(`Categories=${vendorFilterForm.categories}`);
-      
+
       if (vendorFilterForm.governorateId) queryParams.push(`GovernorateId=${vendorFilterForm.governorateId}`);
       if (vendorFilterForm.cityId) queryParams.push(`CityId=${vendorFilterForm.cityId}`);
       if (vendorFilterForm.district) queryParams.push(`District=${vendorFilterForm.district}`);
-      if (vendorFilterForm.pageSize) queryParams.push(`PageSize=${vendorFilterForm.pageSize}`);  
+      if (vendorFilterForm.pageSize) queryParams.push(`PageSize=${vendorFilterForm.pageSize}`);
       if (vendorFilterForm.rate) queryParams.push(`Rate=${vendorFilterForm.rate}`);
     }
     queryParams = queryParams.join("&")
@@ -89,6 +89,6 @@ export interface VendorFilterForm {
   governorateId?: number | null;
   cityId?: number | null;
   name?: string | null;
-  district?: string | null;  
+  district?: string | null;
   rate?: string | null;
 }
