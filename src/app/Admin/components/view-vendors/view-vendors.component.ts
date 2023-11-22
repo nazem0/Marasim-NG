@@ -16,7 +16,7 @@ export class ViewVendorsComponent {
   p: number | undefined = undefined;
   public config: PaginationInstance = {
     id: 'paginationConfig',
-    itemsPerPage: 2,
+    itemsPerPage: 5,
     currentPage: 1,
   };
 
