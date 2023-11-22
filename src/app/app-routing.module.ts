@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './Shared/components/page-not-found/page-not-found.component';
-import { AuthGuard } from './Guards/vendor.guard';
+import { VendorAuthGuard } from './Guards/vendor.guard';
+import { AdminAuthGuard } from './Guards/admin.service';
 
 const routes: Routes = [
 
@@ -14,11 +15,12 @@ const routes: Routes = [
     path: 'vendor',
     loadChildren: () =>
       import('./Vendor/Vendor.module').then((m) => m.VendorModule)
-    ,canActivate: [AuthGuard]
+    ,canActivate: [VendorAuthGuard]
   },
   {
     path: 'admin',
-    loadChildren: () => import('./Admin/Admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./Admin/Admin.module').then(m => m.AdminModule),
+    canActivate:[VendorAuthGuard]
   },
 
   { path: '**', component: PageNotFoundComponent },

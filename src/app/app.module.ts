@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from './Guards/vendor.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './Services/interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +13,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { VendorAuthGuard } from './Guards/vendor.guard';
+import { AdminAuthGuard } from './Guards/admin.service';
+import { UserAuthGuard } from './Guards/user.service';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,10 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
     // for Core use:
     LoadingBarModule,
   ],
-  providers: [AuthGuard,
-    // { provide: LOCALE_ID, useValue: "ar-EG" },
+  providers: [
+    VendorAuthGuard
+    ,AdminAuthGuard
+    ,UserAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,

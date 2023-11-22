@@ -3,22 +3,21 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  Router,
   CanActivateChild,
+  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-
 import { ToastrService } from 'ngx-toastr';
 @Injectable()
-export class VendorAuthGuard implements CanActivate, CanActivateChild {
-  constructor(private router: Router, private CookieService: CookieService,private toastr:ToastrService) { }
+export class AdminAuthGuard implements CanActivate, CanActivateChild {
+  constructor(private router:Router,private CookieService: CookieService, private toastr: ToastrService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.CookieService.get("Role").includes("vendor")) {
+    if (this.CookieService.get("Role").includes("admin")) {
       return true;
     } else {
       this.toastr.error("ليس لديك صلاحية للدخول على هذه الصفحة")
