@@ -14,6 +14,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 import { SharedModule } from '../Shared/Shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,7 +35,9 @@ import { SharedModule } from '../Shared/Shared.module';
     CommonModule,
     AdminRoutingRoutes,
     NgChartsModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class AdminModule { }

@@ -10,20 +10,24 @@ import { CategoryName } from '../Models/CategoryName';
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
   GetAll(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>(`${environment.apiUrl}/Category/GetAll`)
+    return this.HttpClient.get<ICategory[]>(`${environment.apiUrl}/Category/GetAll`)
   }
 
   GetById(categoryId : number ): Observable<ICategory> {
-    return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetById/${categoryId}`)
+    return this.HttpClient.get<ICategory>(`${environment.apiUrl}/Category/GetById/${categoryId}`)
   }
 
   GetByVendorId(vendorId : number ): Observable<ICategory> {
-    return this.http.get<ICategory>(`${environment.apiUrl}/Category/GetByVendorId/${vendorId}`)
+    return this.HttpClient.get<ICategory>(`${environment.apiUrl}/Category/GetByVendorId/${vendorId}`)
   }
 
   GetNames(): Observable<CategoryName[]>{
-    return this.http.get<CategoryName[]>(`${environment.apiUrl}/Category/GetNames`)
+    return this.HttpClient.get<CategoryName[]>(`${environment.apiUrl}/Category/GetNames`)
+  }
+
+  AddCategory(Category: any){
+    return this.HttpClient.post(`${environment.apiUrl}/Category/Add`, Category)
   }
 }
