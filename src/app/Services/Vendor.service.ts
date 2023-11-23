@@ -8,6 +8,7 @@ import { FullVendorInfo } from '../Models/FullVendorInfo';
 import { PaginationViewModel } from '../Models/PaginationViewModel';
 import { ParamMap } from '@angular/router';
 import { param } from 'jquery';
+import { GeneratePackage } from '../Models/generatePackage';
 
 @Injectable({
   providedIn: 'root',
@@ -90,6 +91,10 @@ export class VendorService {
       return `${address.street}, ${address.district}, ${address.city}, ${address.governorate}`;
 
     return `${address.district}, ${address.city}, ${address.governorate}`;
+  }
+
+  generatePackage(generatePackage:GeneratePackage){
+    return this.HttpClient.post(`${environment.apiUrl}/Vendor/GeneratePackage`,generatePackage)
   }
 }
 

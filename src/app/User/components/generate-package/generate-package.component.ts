@@ -1,3 +1,4 @@
+import { VendorService } from 'src/app/Services/Vendor.service';
 import { CityService } from 'src/app/Services/city.service';
 import { GovernorateService } from 'src/app/Services/governorate.service';
 import { CategoryName } from 'src/app/Models/CategoryName';
@@ -25,7 +26,8 @@ export class GeneratePackageComponent implements AfterViewInit {
     public categoryService: CategoryService,
     private toastr: ToastrService,
     private governorateService: GovernorateService,
-    private cityService: CityService
+    private cityService: CityService,
+    private vendorService:VendorService
   ) {
     this.governorateService.get().subscribe({
       next: (governorates) => this.govenorates = governorates
@@ -46,32 +48,7 @@ export class GeneratePackageComponent implements AfterViewInit {
           .subscribe((resp) => (this.cities = resp));
     });
   }
-  sumbit() {
-    if (!this.categoryPrice || !this.budget?.nativeElement.value || !this.cityId?.nativeElement.value || !this.govId?.nativeElement.value) {
-      this.toastr.error("الميزانية، المحافظة، المدينة، الفئات", "تأكد من ملئ البيانات")
-      return
-    }
-    if (this.categoryPrice!.length == 0) {
-      this.toastr.error("قم بأضافة فئات اولاً")
-      return
-    }
-    let totalPercentage = 0;
-    this.categoryPrice!.forEach(e => totalPercentage += e.percentage)
-    if (totalPercentage > 100) {
-      console.log(totalPercentage);
-      this.toastr.error("يجب ألا تتخطى النسب 100%")
-      return
-    }
-    else {
-      let generatePackage: GeneratePackage = {
-        budget: this.budget?.nativeElement.value,
-        categoryPrice: this.categoryPrice!,
-        cityId: this.cityId?.nativeElement.value,
-        govId: this.govId?.nativeElement.value
-      }
-      console.log(generatePackage);
-    }
-  }
+
   addCategoryPrice(categoryId: number) {
     if (!this.categoryPrice) this.categoryPrice = [];
     let elementExists = this.categoryPrice.findIndex(e => e.categoryId == categoryId)
@@ -115,7 +92,35 @@ export class GeneratePackageComponent implements AfterViewInit {
     }
     this.categoryPrice.splice(elementIndex, 1);
     console.log(this.categoryPrice);
-
-
+  }
+  sumbit() {
+    if (!this.categoryPrice || !this.budget?.nativeElement.value || !this.govId?.nativeElement.value) {
+      this.toastr.error("الميزانية، المحافظة، الفئات", "تأكد من ملئ البيانات")
+      return
+    }
+    if (this.categoryPrice!.length == 0) {
+      this.toastr.error("قم بأضافة فئات اولاً")
+      return
+    }
+    let totalPercentage = 0;
+    this.categoryPrice!.forEach(e => totalPercentage += e.percentage)
+    if (totalPercentage > 100) {
+      console.log(totalPercentage);
+      this.toastr.error("يجب ألا تتخطى النسب 100%")
+      return
+    }
+    else {
+      let generatePackage: GeneratePackage = {
+        budget: this.budget?.nativeElement.value,
+        categoryPrice: this.categoryPrice!,
+        cityId: this.cityId?.nativeElement.value,
+        govId: this.govId?.nativeElement.value
+      }
+      this.vendorService.generatePackage(generatePackage).subscribe(
+        {
+          next:resp=>console.log(resp)
+        }
+      );
+    }
   }
 }

@@ -5,14 +5,14 @@
             <label class="fw-bold fs-3 mb-3" for="budget-input">الميزانية</label>
             <input #budget min="0" type="number" class="form-control" id="budget-input">
         </div>
-        <select class="form-select" placeholder="محافظتك" #govId>
+        <select class="form-select" title="محافظتك" #govId>
             <option selected [ngValue]="null">اختر محافظتك</option>
             <ng-container *ngFor="let gov of govenorates">
                 <option [value]="gov.id">{{gov.nameAr}}</option>
             </ng-container>
         </select>
-        <select class="form-select" placeholder="مدينتك" #cityId>
-            <option selected [ngValue]="null">اختر مدينتك</option>
+        <select class="form-select" title="مدينتك" #cityId>
+            <option selected [ngValue]="null" value="">اختر مدينتك</option>
             <ng-container *ngFor="let city of cities">
                 <option [value]="city.id">{{city.nameAr}}</option>
             </ng-container>
