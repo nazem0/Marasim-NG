@@ -1,4 +1,3 @@
-import { HomeComponent } from './../Shared/components/home/home.component';
 import { Home2Component } from './components/home/home.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
@@ -7,7 +6,6 @@ import { CheckoutLoadingComponent } from './components/checkout//checkout-loadin
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { Routes, RouterModule } from '@angular/router';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
-import { GeneratePackagesComponent } from './components/generate-packages/generate-packages.component';
 import { InvitationComponent } from './components/invitation/invitation.component';
 import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
@@ -28,6 +26,8 @@ import { VendorFollowingVendorComponent } from '../Shared/components/vendor-foll
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
+import { GeneratePackageOldComponent } from './components/generate-package-old/generate-package.component';
+import { GeneratePackageComponent } from './components/generate-package/generate-package.component';
 
 
 
@@ -40,7 +40,8 @@ const routes: Routes = [
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
-      { path: 'generate-packages', component: GeneratePackagesComponent },
+      { path: 'generate-package-old', component: GeneratePackageOldComponent },
+      { path: 'generate-package', component: GeneratePackageComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'feed/:pageIndex', component: FeedComponent },

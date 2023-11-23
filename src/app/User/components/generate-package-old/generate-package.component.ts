@@ -1,16 +1,16 @@
-import { CityService } from './../../../Services/city.service';
-import { GovernorateService } from './../../../Services/governorate.service';
+import { CityService } from '../../../Services/city.service';
+import { GovernorateService } from '../../../Services/governorate.service';
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { City } from 'src/app/Models/City';
 import { Governorate } from 'src/app/Models/governorate';
 
 @Component({
-  selector: 'app-generate-packages',
-  templateUrl: './generate-packages.component.html',
-  styleUrls: ['./generate-packages.component.css']
+  selector: 'app-generate-package',
+  templateUrl: './generate-package.component.html',
+  styleUrls: ['./generate-package.component.css']
 })
-export class GeneratePackagesComponent implements AfterViewInit {
+export class GeneratePackageOldComponent implements AfterViewInit {
   @ViewChild("gov") gov: ElementRef | null = null;
   form: FormGroup;
   data: FormData;
