@@ -22,8 +22,7 @@
       </div>
 
       <div *ngIf="form.controls['GovernorateId'].value">
-        <select class="form-select" type="text" id="cityInput" name="city" formControlName="CityId" placeholder="مدينتك"
-          #gov>
+        <select class="form-select" type="text" id="cityInput" name="city" formControlName="CityId" placeholder="مدينتك">
           <option selected [ngValue]="null">اختر مدينتك</option>
           <ng-container *ngFor="let city of cities">
             <option [value]="city.id">{{city.nameAr}}</option>
