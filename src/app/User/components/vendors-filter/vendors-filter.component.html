@@ -1,4 +1,4 @@
-<section class="d-flex gap-4">
+<section class="d-flex align-items-center gap-4">
   <div class="p-3 shadow">
     <form [formGroup]="form" class="d-flex flex-column gap-3">
       <div class="searchInput shadow-sm text-dark rounded-5 w-100">
@@ -12,8 +12,8 @@
       </div>
 
       <div>
-        <select class="form-select" type="text" id="govInput" name="gov"
-          formControlName="GovernorateId" placeholder="محافظتك" #gov>
+        <select class="form-select" type="text" id="govInput" name="gov" formControlName="GovernorateId"
+          placeholder="محافظتك" #gov>
           <option selected [ngValue]="null">اختر محافظتك</option>
           <ng-container *ngFor="let gov of govs">
             <option [value]="gov.id">{{gov.nameAr}}</option>
@@ -22,8 +22,8 @@
       </div>
 
       <div *ngIf="form.controls['GovernorateId'].value">
-        <select class="form-select" type="text" id="cityInput" name="city"
-          formControlName="CityId" placeholder="مدينتك" #gov>
+        <select class="form-select" type="text" id="cityInput" name="city" formControlName="CityId" placeholder="مدينتك"
+          #gov>
           <option selected [ngValue]="null">اختر مدينتك</option>
           <ng-container *ngFor="let city of cities">
             <option [value]="city.id">{{city.nameAr}}</option>
@@ -33,8 +33,8 @@
 
 
       <div>
-        <input class="form-control" type="text" id="districtInput" name="district"
-          formControlName="District" placeholder="اسم منطقتك">
+        <input class="form-control" type="text" id="districtInput" name="district" formControlName="District"
+          placeholder="اسم منطقتك">
       </div>
 
       <!-- <div class="g-4">
@@ -44,22 +44,23 @@
             formControlName="Street" placeholder="اسم شارعك - اختياري">
         </div>
       </div> -->
-
-      <div>
-        <p>الأقسام</p>
-        <ng-container *ngFor="let category of categories">
-          <div class="form-check d-flex gap-3 justify-content-between align-items-center">
-            <input class="form-check-input" type="checkbox" [checked]="categoriesInput.includes(category.id.toString())"
-              (change)="onCategoryChange(category.id.toString(), $event)">
-            <label class="form-check-label" for="">
-              {{category.name}}
-            </label>
-          </div>
-        </ng-container>
+      <div class="dropdown">
+        <button class="primary-btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          الفئات
+        </button>
+        <ul class="dropdown-menu">
+          <li class="m-2" *ngFor="let category of categories">
+            <div class="form-check d-flex gap-3 justify-content-between align-items-center">
+              <input class="form-check-input" [id]="category.id" type="checkbox"
+                [checked]="categoriesInput.includes(category.id.toString())"
+                (change)="onCategoryChange(category.id.toString(), $event)">
+              <label class="form-check-label" for="{{category.id}}">
+                {{category.name}}
+              </label>
+            </div>
+          </li>
+        </ul>
       </div>
-
-      <label for="customRange3" class="form-label text-primary fs-5">حسب السعر</label>
-      <span>price</span>
       <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
       <label for="customRange3" class="form-label text-primary fs-5">حسب التقييم</label>
 
@@ -75,17 +76,20 @@
         <input value="1" id="star1" type="radio" formControlName="Rate">
         <label title="text" for="star1"></label>
       </div>
-      
+
       <button (click)="filter()" type="button" class="primary-btn w-100">بحث</button>
       <button type="button" class="warning-btn w-100 mb-2">إلغاء</button>
     </form>
   </div>
   <div class="container">
     <div class="row row-cols-md-4 justify-content-center g-3" *ngIf="vendors">
-      <div *ngFor="let vendor of vendors.data">
+      <div *ngFor="let vendor of vendors.data | paginate : config">
         <app-vendor-card [vendor]="vendor"></app-vendor-card>
       </div>
     </div>
+    <pagination-controls *ngIf="vendors" class="my-5 pagination" [responsive]="true"
+      previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+      [id]="config.id!"></pagination-controls>
     <ng-container *ngIf="noResult">
       <app-no-result-search></app-no-result-search>
     </ng-container>

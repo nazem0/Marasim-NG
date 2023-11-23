@@ -1,11 +1,13 @@
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IVendor, IVendorMidInfo, address} from '../Models/IVendor';
+import { IVendor, IVendorMidInfo, address } from '../Models/IVendor';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { FullVendorInfo } from '../Models/FullVendorInfo';
 import { PaginationViewModel } from '../Models/PaginationViewModel';
+import { ParamMap } from '@angular/router';
+import { param } from 'jquery';
 
 @Injectable({
   providedIn: 'root',
@@ -55,24 +57,27 @@ export class VendorService {
 
   filterVendors(
     pageIndex = 1,
-    vendorFilterForm: VendorFilterForm | null = null
+    pageSize = 4,
+    params: ParamMap | null = null
   ): Observable<PaginationViewModel<IVendorMidInfo>> {
-    console.log(vendorFilterForm);
     let queryParams: string[] | string = [];
-    if (vendorFilterForm) {
-      if (vendorFilterForm.name) queryParams.push(`Name=${vendorFilterForm.name}`);
-
-      if (vendorFilterForm.categories) queryParams.push(`Categories=${vendorFilterForm.categories}`);
-
-      if (vendorFilterForm.governorateId) queryParams.push(`GovernorateId=${vendorFilterForm.governorateId}`);
-      if (vendorFilterForm.cityId) queryParams.push(`CityId=${vendorFilterForm.cityId}`);
-      if (vendorFilterForm.district) queryParams.push(`District=${vendorFilterForm.district}`);
-      if (vendorFilterForm.pageSize) queryParams.push(`PageSize=${vendorFilterForm.pageSize}`);
-      if (vendorFilterForm.rate) queryParams.push(`Rate=${vendorFilterForm.rate}`);
+    if (params) {
+      let name = params.get("name")
+      let categories = params.get("categories")
+      let governorateId = params.get("governorateId")
+      let cityId = params.get("cityId")
+      let district = params.get("district");
+      let rate = params.get("rate");
+      if (name) queryParams.push(`Name=${name}`);
+      if (categories) queryParams.push(`Categories=${categories}`);
+      if (governorateId) queryParams.push(`GovernorateId=${governorateId}`);
+      if (cityId) queryParams.push(`CityId=${cityId}`);
+      if (district) queryParams.push(`District=${district}`);
+      if (rate) queryParams.push(`Rate=${rate}`);
     }
     queryParams = queryParams.join("&")
     return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(
-      `${environment.apiUrl}/Vendor/Filter/${pageIndex}?${queryParams}`
+      `${environment.apiUrl}/Vendor/Filter/${pageIndex}?pageSize=${pageSize}&${queryParams}`
     );
   }
   getVendorAddress(address: address) {
