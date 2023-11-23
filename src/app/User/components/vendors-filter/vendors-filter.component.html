@@ -13,7 +13,7 @@
 
       <div>
         <select class="form-select" type="text" id="govInput" name="gov" formControlName="GovernorateId"
-          placeholder="محافظتك" #gov>
+          title="محافظتك" #gov>
           <option selected [ngValue]="null">اختر محافظتك</option>
           <ng-container *ngFor="let gov of govs">
             <option [value]="gov.id">{{gov.nameAr}}</option>
@@ -22,7 +22,7 @@
       </div>
 
       <div *ngIf="form.controls['GovernorateId'].value">
-        <select class="form-select" type="text" id="cityInput" name="city" formControlName="CityId" placeholder="مدينتك">
+        <select class="form-select" type="text" id="cityInput" name="city" formControlName="CityId" title="مدينتك">
           <option selected [ngValue]="null">اختر مدينتك</option>
           <ng-container *ngFor="let city of cities">
             <option [value]="city.id">{{city.nameAr}}</option>
@@ -50,7 +50,7 @@
         <ul class="dropdown-menu">
           <li class="m-2" *ngFor="let category of categories">
             <div class="form-check d-flex gap-3 justify-content-between align-items-center">
-              <input class="form-check-input" [id]="category.id" type="checkbox"
+              <input title="{{category.name}}" class="form-check-input" [id]="category.id" type="checkbox"
                 [checked]="categoriesInput.includes(category.id.toString())"
                 (change)="onCategoryChange(category.id.toString(), $event)">
               <label class="form-check-label" for="{{category.id}}">
@@ -86,7 +86,7 @@
         <app-vendor-card [vendor]="vendor"></app-vendor-card>
       </div>
     </div>
-    <pagination-controls *ngIf="vendors" class="my-5 pagination" [responsive]="true"
+    <pagination-controls *ngIf="vendors && vendors.length>0" class="my-5 pagination" [responsive]="true"
       previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
       [id]="config.id!"></pagination-controls>
     <ng-container *ngIf="noResult">
