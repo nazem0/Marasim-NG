@@ -15,19 +15,23 @@ export class CategoryService {
     return this.HttpClient.get<ICategory[]>(`${environment.apiUrl}/Category/GetAll`)
   }
 
-  GetById(categoryId : number ): Observable<ICategory> {
+  GetById(categoryId: number): Observable<ICategory> {
     return this.HttpClient.get<ICategory>(`${environment.apiUrl}/Category/GetById/${categoryId}`)
   }
 
-  GetByVendorId(vendorId : number ): Observable<ICategory> {
+  GetByVendorId(vendorId: number): Observable<ICategory> {
     return this.HttpClient.get<ICategory>(`${environment.apiUrl}/Category/GetByVendorId/${vendorId}`)
   }
 
-  GetNames(): Observable<CategoryName[]>{
+  GetNames(): Observable<CategoryName[]> {
     return this.HttpClient.get<CategoryName[]>(`${environment.apiUrl}/Category/GetNames`)
   }
 
-  AddCategory(Category: any){
+  Count(): Observable<number> {
+    return this.HttpClient.get<number>(`${environment.apiUrl}/Category/Count`)
+  }
+
+  AddCategory(Category: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Category/Add`, Category)
   }
 }

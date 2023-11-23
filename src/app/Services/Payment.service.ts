@@ -14,6 +14,9 @@ export class PaymentService {
   Get(): Observable<Payment[]> {
     return this.HttpClient.get<Payment[]>(`${environment.apiUrl}/Payment/Get/`)
   }
+  Count(): Observable<number> {
+    return this.HttpClient.get<number>(`${environment.apiUrl}/Payment/Count`)
+  }
   GetUnconfirmed(): Observable<Payment[]> {
     return this.HttpClient.get<Payment[]>(`${environment.apiUrl}/Payment/GetUnconfirmed/`)
   }
