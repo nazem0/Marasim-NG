@@ -5,3 +5,8 @@ export interface ICategory {
   name: string,
   vendors: IVendor[]
 }
+
+export interface CategoryName {
+  id:number
+  name:string
+}

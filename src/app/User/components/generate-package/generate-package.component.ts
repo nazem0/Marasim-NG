@@ -1,13 +1,13 @@
 import { VendorService } from 'src/app/Services/Vendor.service';
 import { CityService } from 'src/app/Services/city.service';
 import { GovernorateService } from 'src/app/Services/governorate.service';
-import { CategoryName } from 'src/app/Models/CategoryName';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CategoryPrice, GeneratePackage } from 'src/app/Models/generatePackage';
 import { CategoryService } from 'src/app/Services/Category.service';
 import { ToastrService } from 'ngx-toastr';
 import { Governorate } from 'src/app/Models/governorate';
 import { City } from 'src/app/Models/City';
+import { CategoryName } from 'src/app/Models/ICategory';
 @Component({
   selector: 'app-generate-package',
   templateUrl: './generate-package.component.html',

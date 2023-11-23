@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { IVendorMidInfo } from 'src/app/Models/IVendor';
 import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
-import { CategoryName } from 'src/app/Models/CategoryName';
 import { CategoryService } from 'src/app/Services/Category.service';
 import { Governorate } from 'src/app/Models/governorate';
 import { City } from 'src/app/Models/City';
@@ -18,6 +17,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { combineLatest } from 'rxjs';
+import { CategoryName } from 'src/app/Models/ICategory';
 
 @Component({
   selector: 'app-vendors-filter',

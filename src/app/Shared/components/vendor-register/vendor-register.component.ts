@@ -5,11 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 import { RegisterService } from 'src/app/Services/Register.service';
 import { Router } from '@angular/router';
-import { CategoryName } from 'src/app/Models/CategoryName';
 import { ToastrService } from 'ngx-toastr';
 import { City } from 'src/app/Models/City';
 import { Governorate } from 'src/app/Models/governorate';
 import { GovernorateService } from 'src/app/Services/governorate.service';
+import { CategoryName } from 'src/app/Models/ICategory';
 @Component({
   selector: 'app-vendor-register',
   templateUrl: './vendor-register.component.html',
