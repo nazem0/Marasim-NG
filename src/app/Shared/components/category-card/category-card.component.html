@@ -1,0 +1,12 @@
+<div class="category-card d-flex justify-content-center align-items-stretch" *ngIf="category">
+    <div class="img-hover-zoom">
+        <div class="black_banner d-flex flex-column justify-content-center">
+            <div class="display-4 text-center text-white">
+                <span class="text-white">
+                    {{category.name}}
+                </span>
+            </div>
+        </div>
+        <img class="w-100" [src]="picUrl" alt="{{category.name}}">
+    </div>
+</div>

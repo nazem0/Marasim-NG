@@ -38,6 +38,7 @@ import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
 import { VendorCarouselComponent } from './components/vendor-carousel/vendor-carousel.component';
 import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { NoResultSearchComponent } from './components/no-result-search/no-result
     Home2Component,
     VendorCarouselComponent,
     VendorCardComponent,
-    NoResultSearchComponent
+    NoResultSearchComponent,
+    CategoryCardComponent
 
   ],
   providers: [
@@ -105,7 +107,8 @@ import { NoResultSearchComponent } from './components/no-result-search/no-result
     NullToSpacePipe,
     DeleteModalComponent,
     VendorCardComponent,
-    NoResultSearchComponent
+    NoResultSearchComponent,
+    CategoryCardComponent
   ],
 
 })
