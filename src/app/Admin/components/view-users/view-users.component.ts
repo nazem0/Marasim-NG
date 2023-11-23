@@ -36,6 +36,9 @@ export class ViewUsersComponent {
     this.UserService.GetAll(this.config.currentPage, this.config.itemsPerPage).subscribe({
       next: (result) => {
         this.Users = result;
+        this.config.currentPage = result.pageIndex;
+        this.config.totalItems = result.count;
+        this.config.itemsPerPage = result.pageSize;
       },
       error: (error) => {
         console.log(error);

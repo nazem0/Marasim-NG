@@ -40,7 +40,7 @@
           </tr>
         </tbody>
       </table>
-      <pagination-controls *ngIf="Users.count > Users.pageSize" class="pagination" [responsive]="true"
+      <pagination-controls class="pagination" [responsive]="true"
         previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
         [id]="config.id!"></pagination-controls>
     </div>
