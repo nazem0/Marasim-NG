@@ -18,6 +18,11 @@ export class VendorService {
   GetAll(PageIndex: number, PageSize: number): Observable<PaginationViewModel<IVendorMidInfo>> {
     return this.HttpClient.get<PaginationViewModel<IVendorMidInfo>>(`${environment.apiUrl}/Vendor/GetAll?PageSize=${PageSize}&PageIndex=${PageIndex}`);
   }
+
+  Count(): Observable<number> {
+    return this.HttpClient.get<number>(`${environment.apiUrl}/Vendor/Count`)
+  }
+
   GetByVendorId(vendorId: number): Observable<IVendor> {
     return this.HttpClient.get<IVendor>(
       `${environment.apiUrl}/Vendor/GetVendorById/${vendorId}`

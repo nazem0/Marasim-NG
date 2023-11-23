@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { CategoryService } from 'src/app/Services/Category.service';
+import { PaymentService } from 'src/app/Services/Payment.service';
+import { UserService } from 'src/app/Services/User.service';
+import { VendorService } from 'src/app/Services/Vendor.service';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +10,66 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  numOfUsers: number | null = null;
+  numOfVendors: number | null = null;
+  numOfCategories: number | null = null;
+  numOfPayments: number | null = null;
+
+  constructor(
+    private UserService: UserService,
+    private VendorService: VendorService,
+    private PaymentService: PaymentService,
+    private CategoryService: CategoryService
+  ) { }
+
+  ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.UserService.Count()
+      .subscribe({
+        next: (result) => {
+          this.numOfUsers = result;
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      });
+    this.VendorService.Count()
+      .subscribe({
+        next: (result) => {
+          this.numOfVendors = result;
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      });
+    this.CategoryService.Count()
+      .subscribe({
+        next: (result) => {
+          this.numOfCategories = result;
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      });
+    this.PaymentService.Count()
+      .subscribe({
+        next: (result) => {
+          this.numOfPayments = result;
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      });
+  }
+
+
+
+
+
+
   barChartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     datasets: [

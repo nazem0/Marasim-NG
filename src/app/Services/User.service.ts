@@ -15,6 +15,10 @@ export class UserService {
     return this.HttpClient.get<PaginationViewModel<IUser>>(`${environment.apiUrl}/User/Get?PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
 
+  Count(): Observable<number> {
+    return this.HttpClient.get<number>(`${environment.apiUrl}/User/Count`)
+  }
+
   getById(Id: string | null = null): Observable<IUser> {
     if (Id) {
       return this.HttpClient.get<IUser>(`${environment.apiUrl}/user/UserDetails/${Id}`)

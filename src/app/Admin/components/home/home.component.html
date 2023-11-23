@@ -1,18 +1,17 @@
-<h1 class="text-center text-primary mt-3">لوحة التحكم</h1>
-<p class="text-start  text-dark fs-2 mt-3">العداد</p>
-<div class="d-flex flex-row justify-content-center gap-4 mt-5">
+<h1 class="text-center text-primary mt-5 mb-3">لوحة التحكم</h1>
+<p class="text-start text-dark fs-2">الأعداد</p>
+<div class="d-flex flex-row justify-content-center gap-4 my-3">
   <div class="card d-flex flex-row bg-danger border p-2 justify-content-between shadow">
     <i class="icon-red fas fa-user-tie fa-fw fs-1 p-2"></i>
     <div class="d-flex flex-column p-2">
-      <p class="text-end fs-3 text-white">254</p>
+      <p class="text-end fs-3 text-white">{{numOfVendors?.toLocaleString('ar-EG')}}</p>
       <h4 class="text-white">مقدمو الخدمة</h4>
     </div>
   </div>
-
   <div class="card d-flex flex-row bg-warning border p-2 justify-content-between shadow">
     <i class="icon-yallow fas fa-user fa-fw fs-1 p-2"></i>
     <div class="d-flex flex-column p-2">
-      <p class="text-end fs-3 text-white">727</p>
+      <p class="text-end fs-3 text-white">{{numOfUsers?.toLocaleString('ar-EG')}}</p>
       <h4 class="text-white">العملاء</h4>
     </div>
   </div>
@@ -20,7 +19,7 @@
   <div class="card d-flex flex-row bg-primary border p-2 justify-content-between shadow">
     <i class="fas fa-layer-group fa-fw fs-1 p-2"></i>
     <div class="d-flex flex-column p-2">
-      <p class="text-end fs-3 text-white">13</p>
+      <p class="text-end fs-3 text-white">{{numOfCategories?.toLocaleString('ar-EG')}}</p>
       <h4 class="text-white">الفئات</h4>
     </div>
   </div>
@@ -28,14 +27,14 @@
   <div class="card d-flex flex-row bg-success border p-2 justify-content-between shadow">
     <i class="icon-green fas fa-dollar fa-fw fs-1 p-2"></i>
     <div class="d-flex flex-column p-2">
-      <p class="text-end fs-3 text-white">345</p>
+      <p class="text-end fs-3 text-white">{{numOfPayments?.toLocaleString('ar-EG')}}</p>
       <h4 class="text-white">عمليات الدفع</h4>
     </div>
   </div>
 
 </div>
-<p class=" container text-start  text-dark fs-2 mt-5">الاحصائيات</p>
-<div class="d-flex flex-row gap-5  justify-content-center mb-5" >
+<p class=" container text-start text-dark fs-2 my-2">الاحصائيات</p>
+<div class="d-flex flex-row gap-5 justify-content-center my-2" >
   <div class="chart-container">
     <div class="title"></div>
     <div class="nav">
