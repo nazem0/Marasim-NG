@@ -20,7 +20,7 @@ const vendorRoutes: Routes = [
     {
         path: '', component: LayoutComponent, children: [
             { path: '', component: VhomeComponent },
-            { path: 'profile/:id', component: VendorProfileComponent },
+            { path: 'profile', component: ProfileVendorsideComponent },
             { path: 'create-offer', component: CreateOfferComponent },
             { path: 'reviews/:page', component: VendorReviewsComponent },
             { path: 'services', component: VendorServicesComponent },
@@ -31,7 +31,6 @@ const vendorRoutes: Routes = [
             { path: 'followers/:page', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },
             { path: 'edit', component: ProfileEditComponent },
-            // { path: 'wallet', component: WalletComponent },
             { path: 'wallet/:page', component: WalletComponent },
             { path: 'info', component: VhomeComponent },
         ]
