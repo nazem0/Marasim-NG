@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IVendor } from '../Models/IVendor';
 import { Observable, forkJoin } from 'rxjs';
 import { IUser } from '../Models/IUser';
-import { IService } from '../Models/IService';
 import { environment } from 'src/environments/environment.development';
+import { PaginationViewModel } from '../Models/PaginationViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +11,9 @@ import { environment } from 'src/environments/environment.development';
 export class UserService {
   constructor(private HttpClient: HttpClient) { }
 
-  // get(){
-  //   return this.http.get<IUser[]>("http://localhost:3000/users/")
-  // }
+  GetAll(PageIndex: number, PageSize: number): Observable<PaginationViewModel<IUser>> {
+    return this.HttpClient.get<PaginationViewModel<IUser>>(`${environment.apiUrl}/User/Get?PageSize=${PageSize}&PageIndex=${PageIndex}`)
+  }
 
   getById(Id: string | null = null): Observable<IUser> {
     if (Id) {
@@ -27,11 +26,8 @@ export class UserService {
   UpdateVendor(updateData: FormData) {
     return this.HttpClient.put(`${environment.apiUrl}/User/Update`, updateData)
   }
-  // getFollowing(Id:number){
-  //   return this.http.get<any>(`http://localhost:3000/follows?userId=${Id}`)
-  // }
 
-  GetProfilePicUrl(UserId:string,PicUrl:string){
+  GetProfilePicUrl(UserId: string, PicUrl: string) {
     return `${environment.serverUrl}/${UserId}/ProfilePicture/${PicUrl}`
   }
 }
