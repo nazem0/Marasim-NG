@@ -31,7 +31,10 @@ export class UserService {
     return this.HttpClient.put(`${environment.apiUrl}/User/Update`, updateData)
   }
 
-  GetProfilePicUrl(UserId: string, PicUrl: string) {
-    return `${environment.serverUrl}/${UserId}/ProfilePicture/${PicUrl}`
+  GetProfilePicUrl(UserId: string | null = null, PicUrl: string | null = null) {
+    if(UserId && PicUrl)
+      return `${environment.serverUrl}/${UserId}/ProfilePicture/${PicUrl}`
+    else
+    return "/assets/img/question-mark.png"
   }
 }
