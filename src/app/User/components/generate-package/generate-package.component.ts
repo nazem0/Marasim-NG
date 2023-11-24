@@ -2,7 +2,7 @@ import { VendorService } from 'src/app/Services/Vendor.service';
 import { CityService } from 'src/app/Services/city.service';
 import { GovernorateService } from 'src/app/Services/governorate.service';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { CategoryPrice, GeneratePackage } from 'src/app/Models/generatePackage';
+import { CategoryPrice, GeneratePackage, GeneratedPackage } from 'src/app/Models/generatePackage';
 import { CategoryService } from 'src/app/Services/Category.service';
 import { ToastrService } from 'ngx-toastr';
 import { Governorate } from 'src/app/Models/governorate';
@@ -18,7 +18,7 @@ export class GeneratePackageComponent implements AfterViewInit {
   @ViewChild("budgetElement") budgetElement: ElementRef | null = null;
   @ViewChild("cityId") cityId: ElementRef | null = null;
   @ViewChild("govId") govId: ElementRef | null = null;
-  vendors:IVendorMidInfo[] | null = null;
+  vendors:GeneratedPackage[] | null = null;
   budget: number | null = null;
   categories: CategoryName[] = [];
   categoryPrice: CategoryPrice[] | null = null;
