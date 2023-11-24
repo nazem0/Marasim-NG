@@ -1,12 +1,14 @@
-<div class="card" *ngIf="vendor" routerLink="/vendors/{{vendor.id}}">
-    <div class="ribbon-2">{{vendor.category}}</div>
-    <img title="{{vendor.name}}" [src]="userService.GetProfilePicUrl(vendor.userId,vendor.picUrl)">
-    <!-- get vendor photo from user -->
-    <div class="py-2">
-        <span class="fw-bold">{{vendor.name | truncate : 15}}</span>
-        <span class="d-block mx-1">{{vendorService.getVendorAddress(vendor)|truncate:43}}</span>
+<a class="text-decoration-none" routerLink="/vendors/{{vendor?.id}}">
+    <div class="card rounded-0 rounded-bottom-3 ">
+        <div class="ribbon-2">{{vendor?.category || "لا يوجد"}}</div>
+        <img title="{{vendor?.name || 'لا يوجد'}}" [src]="userService.GetProfilePicUrl(vendor?.userId,vendor?.picUrl)">
+        <!-- get vendor photo from user -->
+        <div class="py-2">
+            <span class="fw-bold">{{(vendor?.name || "لا يوجد")| truncate : 15}}</span>
+            <span class="d-block mx-1">{{vendorService.getVendorAddress(vendor)|truncate:43}}</span>
+        </div>
     </div>
-</div>
+</a>
 
 
 <!-- Handle Null Vendor When Generate Returns Null -->
