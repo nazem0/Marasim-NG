@@ -3,10 +3,10 @@
     <div class="d-flex flex-column gap-2 mb-3">
         <div>
             <label class="fw-bold fs-3 mb-3" for="budget-input">الميزانية</label>
-            <input #budget min="0" type="number" class="form-control" id="budget-input">
+            <input #budgetElement min="0" type="number" class="form-control" id="budget-input">
         </div>
         <select class="form-select" title="محافظتك" #govId>
-            <option selected [ngValue]="null">اختر محافظتك</option>
+            <option selected [ngValue]="null" value="">اختر محافظتك</option>
             <ng-container *ngFor="let gov of govenorates">
                 <option [value]="gov.id">{{gov.nameAr}}</option>
             </ng-container>
@@ -35,5 +35,18 @@
             </div>
         </div>
     </div>
-    <button class="success-btn w-100" (click)="sumbit()">sss</button>
+    <div class="border-3 p-4 rounded-4" *ngIf="categoryPrice; else noCategoyPrice">
+        <p class="fw-bold">الفئات التي تم إضافتها</p>
+        <ul *ngFor="let cp of categoryPrice">
+            <li>{{showCategoryName(cp.categoryId)}} {{cp.percentage.toLocaleString("ar-EG")}}% = {{(cp.percentage / 100 * ( this.budget || 0 )).toLocaleString("ar-EG")}}</li>
+        </ul>
+        <hr>
+        <span>{{getTotalPrice().toLocaleString("ar-EG")}} جنيه</span>
+    </div>
+    <ng-template #noCategoyPrice>
+        <p class="text-danger">
+            لم تُقم بإضافة فئات
+        </p>
+    </ng-template>
+    <button class="success-btn w-100" (click)="sumbit()">إنشاء</button>
 </div>

@@ -14,10 +14,10 @@ import { CategoryName } from 'src/app/Models/ICategory';
   styleUrls: ['./generate-package.component.css']
 })
 export class GeneratePackageComponent implements AfterViewInit {
-  @ViewChild("budget") budget: ElementRef | null = null;
+  @ViewChild("budgetElement") budgetElement: ElementRef | null = null;
   @ViewChild("cityId") cityId: ElementRef | null = null;
   @ViewChild("govId") govId: ElementRef | null = null;
-
+  budget: number | null = null;
   categories: CategoryName[] = [];
   categoryPrice: CategoryPrice[] | null = null;
   govenorates: Governorate[] = [];
@@ -27,7 +27,7 @@ export class GeneratePackageComponent implements AfterViewInit {
     private toastr: ToastrService,
     private governorateService: GovernorateService,
     private cityService: CityService,
-    private vendorService:VendorService
+    private vendorService: VendorService
   ) {
     this.governorateService.get().subscribe({
       next: (governorates) => this.govenorates = governorates
@@ -38,6 +38,9 @@ export class GeneratePackageComponent implements AfterViewInit {
 
   }
   ngAfterViewInit(): void {
+    this.budgetElement?.nativeElement.addEventListener('change', () => {
+      this.budget = this.budgetElement?.nativeElement.value
+    })
     this.govId?.nativeElement.addEventListener('change', () => {
       if (
         this.govId?.nativeElement.value != '' &&
@@ -51,6 +54,7 @@ export class GeneratePackageComponent implements AfterViewInit {
 
   addCategoryPrice(categoryId: number) {
     if (!this.categoryPrice) this.categoryPrice = [];
+
     let elementExists = this.categoryPrice.findIndex(e => e.categoryId == categoryId)
     let percentage = parseInt((document.getElementById(`category-${categoryId}`) as HTMLInputElement).value);
 
@@ -63,6 +67,7 @@ export class GeneratePackageComponent implements AfterViewInit {
     //check element already exists or not
     if (elementExists != -1) {
       if (this.categoryPrice[elementExists].percentage != percentage) {
+        if (!this.checkPercentage(percentage, elementExists)) return
         this.categoryPrice[elementExists].percentage = percentage
         this.toastr.info("تم تعديل النسبة")
       }
@@ -71,6 +76,8 @@ export class GeneratePackageComponent implements AfterViewInit {
     }
 
     else {
+      if (!this.checkPercentage(percentage)) return
+
       let element = {
         categoryId: categoryId,
         percentage: percentage
@@ -94,33 +101,62 @@ export class GeneratePackageComponent implements AfterViewInit {
     console.log(this.categoryPrice);
   }
   sumbit() {
-    if (!this.categoryPrice || !this.budget?.nativeElement.value || !this.govId?.nativeElement.value) {
-      this.toastr.error("الميزانية، المحافظة، الفئات", "تأكد من ملئ البيانات")
-      return
-    }
-    if (this.categoryPrice!.length == 0) {
-      this.toastr.error("قم بأضافة فئات اولاً")
-      return
-    }
-    let totalPercentage = 0;
-    this.categoryPrice!.forEach(e => totalPercentage += e.percentage)
-    if (totalPercentage > 100) {
-      console.log(totalPercentage);
-      this.toastr.error("يجب ألا تتخطى النسب 100%")
-      return
-    }
-    else {
+    if (this.checkValidity()) {
       let generatePackage: GeneratePackage = {
-        budget: this.budget?.nativeElement.value,
+        budget: this.budget || 0,
         categoryPrice: this.categoryPrice!,
         cityId: this.cityId?.nativeElement.value,
         govId: this.govId?.nativeElement.value
       }
       this.vendorService.generatePackage(generatePackage).subscribe(
         {
-          next:resp=>console.log(resp)
+          next: resp => console.log(resp)
         }
       );
     }
+  }
+  showCategoryName(categoryId: number) {
+    return `${this.categories.find(c => c.id == categoryId)?.name}`
+  }
+  getCategoryPriceTotalPercentage() {
+    let totalPercentage = 0;
+    this.categoryPrice?.forEach(e => totalPercentage += e.percentage)
+    return totalPercentage
+  }
+  checkValidity() {
+    if (!this.categoryPrice || !this.budget || !this.govId?.nativeElement.value) {
+      this.toastr.error("الميزانية، المحافظة، الفئات", "تأكد من ملئ البيانات")
+      return false
+    }
+    if (this.categoryPrice!.length == 0) {
+      this.toastr.error("قم بأضافة فئات اولاً")
+      return false
+    }
+    let totalPercentage = 0;
+    this.categoryPrice!.forEach(e => totalPercentage += e.percentage)
+    if (this.getCategoryPriceTotalPercentage() > 100) {
+      console.log(totalPercentage);
+      this.toastr.error("يجب ألا تتخطى النسب 100%")
+      return false
+    }
+    return true
+  }
+  getTotalPrice() {
+    let totalPrice = 0;
+    this.categoryPrice?.forEach(e => totalPrice += e.percentage * (0.01) * (this.budget || 0))
+    return totalPrice
+  }
+  checkPercentage(newPercentage: number, elementIndex: number =-1) {
+    let oldPercentage = 0;
+    if (this.categoryPrice && elementIndex != -1) {
+      oldPercentage = this.categoryPrice[elementIndex].percentage
+      console.log(oldPercentage);
+    }
+
+    if (this.getCategoryPriceTotalPercentage() - oldPercentage + newPercentage > 100) {
+      this.toastr.warning("ستتخطى النسبة 100% يجب عليك ضبط النسب اولاً")
+      return false
+    }
+    return true
   }
 }
