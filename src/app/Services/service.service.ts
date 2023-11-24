@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { IService } from '../Models/IService';
+import { IService, IServiceAttachment } from '../Models/IService';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -27,5 +27,8 @@ export class ServiceService {
   }
   DeleteService(Id: number) {
     return this.HttpClient.delete(`${environment.apiUrl}/Service/Delete/${Id}`);
+  }
+  getServiceAttatchmentUrl(vendor:{id:number,userId:string},serviceAttatchment:IServiceAttachment){
+    return `${environment.serverUrl}/${vendor.userId}/serviceAttachment/${serviceAttatchment.serviceId}-${vendor?.id}/${serviceAttatchment.attachmentUrl}`
   }
 }
