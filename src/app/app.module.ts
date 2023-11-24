@@ -34,7 +34,7 @@ import { UserAuthGuard } from './Guards/user.guard';
       "messageClass": "text-white",
       "positionClass": 'toast-bottom-right',
       timeOut: 5000,
-      preventDuplicates: true,
+      preventDuplicates: false,
       progressBar: true,
       closeButton: true,
       enableHtml: true,
