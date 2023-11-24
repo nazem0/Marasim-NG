@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Governorate } from 'src/app/Models/governorate';
 import { City } from 'src/app/Models/City';
 import { CategoryName } from 'src/app/Models/ICategory';
+import { IVendorMidInfo } from 'src/app/Models/IVendor';
 @Component({
   selector: 'app-generate-package',
   templateUrl: './generate-package.component.html',
@@ -17,6 +18,7 @@ export class GeneratePackageComponent implements AfterViewInit {
   @ViewChild("budgetElement") budgetElement: ElementRef | null = null;
   @ViewChild("cityId") cityId: ElementRef | null = null;
   @ViewChild("govId") govId: ElementRef | null = null;
+  vendors:IVendorMidInfo[] | null = null;
   budget: number | null = null;
   categories: CategoryName[] = [];
   categoryPrice: CategoryPrice[] | null = null;
@@ -110,7 +112,9 @@ export class GeneratePackageComponent implements AfterViewInit {
       }
       this.vendorService.generatePackage(generatePackage).subscribe(
         {
-          next: resp => console.log(resp)
+          next: resp => {
+            this.vendors = resp
+          }
         }
       );
     }

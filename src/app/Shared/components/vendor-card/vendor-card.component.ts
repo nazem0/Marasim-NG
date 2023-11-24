@@ -1,5 +1,5 @@
 import { VendorService } from 'src/app/Services/Vendor.service';
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { iVendorCard } from 'src/app/Models/IVendor';
 import { UserService } from 'src/app/Services/User.service';
 

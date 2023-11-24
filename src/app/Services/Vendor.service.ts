@@ -93,8 +93,8 @@ export class VendorService {
     return `${address.district}, ${address.city}, ${address.governorate}`;
   }
 
-  generatePackage(generatePackage:GeneratePackage){
-    return this.HttpClient.post(`${environment.apiUrl}/Vendor/GeneratePackage`,generatePackage)
+  generatePackage(generatePackage:GeneratePackage):Observable<IVendorMidInfo[]>{
+    return this.HttpClient.post<IVendorMidInfo[]>(`${environment.apiUrl}/Vendor/GeneratePackage`,generatePackage)
   }
 }
 
