@@ -1,3 +1,4 @@
+import { ServiceService } from 'src/app/Services/service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from 'src/app/Services/Reservation.service';
 import { Component, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
@@ -9,7 +10,7 @@ import { City } from 'src/app/Models/City';
 import { CityService } from 'src/app/Services/city.service';
 import { Governorate } from 'src/app/Models/governorate';
 import { GovernorateService } from 'src/app/Services/governorate.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-service',
@@ -18,38 +19,43 @@ import { Router } from '@angular/router';
 
   ]
 })
-export class RequestServiceComponent implements AfterViewInit  {
-  @Input() service: IService | null = null;
-  @ViewChild("gov") gov: ElementRef | null = null;
+export class RequestServiceComponent implements AfterViewInit {
+  service: IService | null = null;
+    @ViewChild("governorate") gov: ElementRef | null = null;
   requestServiceForm: FormGroup;
   today = new Date().toISOString().split('T')[0];
   data: FormData;
   cities: City[] = [];
-  govs:Governorate[] = [];
+  govs: Governorate[] = [];
   constructor(
     private builder: FormBuilder,
     private ReservationService: ReservationService,
     private CookieService: CookieService,
     private Toastr: ToastrService,
     public AuthService: AuthService,
-    private CityService:CityService,
-    private GovernorateService:GovernorateService,
-    private Router: Router
-    ) {
-    this.GovernorateService.get().subscribe((resp)=>this.govs = resp);
+    private CityService: CityService,
+    private GovernorateService: GovernorateService,
+    private Router: Router,
+    private activatedRoute: ActivatedRoute,
+    public serviceService: ServiceService
+  ) {
+
+    this.getServiceFromUrlParams();
+    this.GovernorateService.get().subscribe((resp) => this.govs = resp);
     this.data = new FormData()
     this.requestServiceForm = this.builder.group({
-      PromoCode: [null,[Validators.maxLength(10)]],
+      PromoCode: [null, [Validators.maxLength(10)]],
       DateTime: [null, [Validators.required]],
-      CityId: [null,[Validators.required]],
-      GovId: [null,[Validators.required]],
-      District: [null,[Validators.required,Validators.maxLength(100)]],
-      Street:[null,[Validators.maxLength(100)]]
+      CityId: [null, [Validators.required]],
+      GovId: [null, [Validators.required]],
+      District: [null, [Validators.required, Validators.maxLength(100)]],
+      Street: [null, [Validators.maxLength(100)]]
     })
   }
   ngAfterViewInit(): void {
+    console.log(document.querySelector("#govInput"));;
     this.gov?.nativeElement.addEventListener('change', (e: any) => {
-      this.CityService.getByGovId(this.gov?.nativeElement.value).subscribe((resp)=>this.cities=resp)
+      this.CityService.getByGovId(this.gov?.nativeElement.value).subscribe((resp) => this.cities = resp)
     });
   }
   request() {
@@ -81,4 +87,30 @@ export class RequestServiceComponent implements AfterViewInit  {
     this.data.set('Street', this.requestServiceForm.get('Street')?.value);
   }
 
+  getServiceFromUrlParams() {
+    this.activatedRoute.paramMap.subscribe(
+      {
+        next: params => {
+          let serviceIdParam = params.get("serviceId");
+          if (serviceIdParam) {
+            let serviceId: number = parseInt(serviceIdParam);
+            if (isNaN(serviceId)) {
+              this.Router.navigate(["/404"]);
+              return;
+            }
+            else
+              this.getServiceByServiceId(parseInt(serviceIdParam))
+          }
+        }
+      }
+    )
+  }
+  getServiceByServiceId(serviceId: number) {
+    this.serviceService.GetById(serviceId).subscribe({
+      next:service=>{
+        this.service=service
+        console.log(service);
+      }
+    })
+  }
 }

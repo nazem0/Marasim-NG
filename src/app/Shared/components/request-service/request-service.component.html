@@ -1,113 +1,119 @@
-<ng-container *ngIf="service">
-    <!-- Button trigger modal -->
-    <ng-container *ngIf="AuthService.isLoggedIn | async; else NotLoggedIn">
-        <button title="احجز" type="button" class="primary-btn" data-bs-toggle="modal"
-            attr.data-bs-target="#reserve{{service.id}}">احجز الآن</button>
-    </ng-container>
-    <ng-template #NotLoggedIn>
-        <button title="سجل" type="button" class="primary-btn" routerLink="/register">سجل الآن</button>
-    </ng-template>
-
-    <!-- Modal -->
-    <div class="modal fade" id="reserve{{service.id}}" tabindex="-1" attr.aria-labelledby="reserve{{service.id}}Label"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="reserve{{service.id}}Label">حجز خدمة : {{service.title}}</h1>
-                    <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{service.description}}</p>
-                    <form [formGroup]="requestServiceForm" (ngSubmit)="request()">
-                        <div class="g-4 mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <input class="form-control" type="datetime-local" [min]="today" id="date" name="date"
-                                    formControlName="DateTime" placeholder="تاريخ الحجز">
-                            </div>
-                            <h5 class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['DateTime'].hasError('required') && requestServiceForm.controls['DateTime'].touched">
-                                ادخل تاريخ الحجز</h5>
+<ng-container>
+    <div class="container my-5">
+        <div class="row row-cols-md-2 justify-content-center align-content-center">
+            <div>
+                <h1 class="fs-5" id="reserve{{service?.id}}Label">حجز خدمة : {{service?.title}}</h1>
+                <p>{{service?.description}}</p>
+                <form [formGroup]="requestServiceForm" (ngSubmit)="request()">
+                    <div class="g-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <input class="form-control" type="datetime-local" [min]="today" id="date" name="date"
+                                formControlName="DateTime" placeholder="تاريخ الحجز">
                         </div>
-
-                        <div class="g-4 mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-tag"></i>
-                                <input class="form-control" type="text" id="cuponInput" name="cupon"
-                                    formControlName="PromoCode" placeholder="أضف كود خصم إذا كنت تملك واحداً">
-                            </div>
-                            <div class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['PromoCode'].hasError('maxLength') && requestServiceForm.controls['PromoCode'].touched">
-                                الحد الأقصى لطول الرمز هو 10 أحرف</div>
+                        <small class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['DateTime'].hasError('required') && requestServiceForm.controls['DateTime'].touched">
+                            ادخل تاريخ الحجز
+                        </small>
+                    </div>
+                    <div class="g-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-tag"></i>
+                            <input class="form-control" type="text" id="cuponInput" name="cupon"
+                                formControlName="PromoCode" placeholder="أضف كود خصم إذا كنت تملك واحداً">
                         </div>
+                        <small class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['PromoCode'].hasError('maxLength') && requestServiceForm.controls['PromoCode'].touched">
+                            الحد الأقصى لطول الرمز هو 10 أحرف
+                        </small>
+                    </div>
 
-                        <div class="g-4 mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-city"></i>
-                                <select class="form-control" type="text" id="govInput" name="gov"
-                                    formControlName="GovId" placeholder="محافظتك" #gov>
-                                    <option selected [value]="null">اختر محافظتك</option>
-                                    <ng-container *ngFor="let gov of govs">
-                                        <option [value]="gov.id">{{gov.nameAr}}</option>
-                                    </ng-container>
-                                </select>
-                            </div>
-                            <div class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['GovId'].hasError('required') && requestServiceForm.controls['GovId'].touched">
-                                اختر محافظتك
-                            </div>
+                    <div class="g-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-city"></i>
+                            <select class="form-control" type="text" id="govInput" name="gov" formControlName="GovId"
+                                placeholder="محافظتك" #governorate>
+                                <option selected [value]="null">اختر محافظتك</option>
+                                <ng-container *ngFor="let gov of govs">
+                                    <option [value]="gov.id">{{gov.nameAr}}</option>
+                                </ng-container>
+                            </select>
                         </div>
+                        <small class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['GovId'].hasError('required') && requestServiceForm.controls['GovId'].touched">
+                            اختر محافظتك
+                        </small>
+                    </div>
 
-                        <div class="g-4 mb-4" *ngIf="requestServiceForm.controls['GovId'].value !== null">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-building-circle-arrow-right"></i>
-                                <select class="form-control" type="text" id="cityInput" name="city"
-                                    formControlName="CityId" placeholder="مدينتك" #gov>
-                                    <option selected [value]="null">اختر مدينتك</option>
-                                    <ng-container *ngFor="let city of cities">
-                                        <option [value]="city.id">{{city.nameAr}}</option>
-                                    </ng-container>
-                                </select>
-                            </div>
-                            <div class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['CityId'].hasError('required') && requestServiceForm.controls['CityId'].touched">
-                                اختر مدينتك
-                            </div>
+                    <div class="g-4 mb-4" *ngIf="requestServiceForm.controls['GovId'].value !== null">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-building-circle-arrow-right"></i>
+                            <select class="form-control" type="text" id="cityInput" name="city" formControlName="CityId"
+                                placeholder="مدينتك">
+                                <option selected [value]="null">اختر مدينتك</option>
+                                <ng-container *ngFor="let city of cities">
+                                    <option [value]="city.id">{{city.nameAr}}</option>
+                                </ng-container>
+                            </select>
                         </div>
+                        <div class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['CityId'].hasError('required') && requestServiceForm.controls['CityId'].touched">
+                            اختر مدينتك
+                        </div>
+                    </div>
 
 
-                        <div class="g-4 mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-street-view"></i>
-                                <input class="form-control" type="text" id="districtInput" name="district"
-                                    formControlName="District" placeholder="اسم منطقتك">
-                            </div>
-                            <div class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['District'].hasError('required') && requestServiceForm.controls['District'].touched">
-                                ادخل منطقتك</div>
-                            <div class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['District'].hasError('maxLength') && requestServiceForm.controls['District'].touched">
-                                الحد الأقصى لاسم المنطقة هو 100 حرف</div>
+                    <div class="g-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-street-view"></i>
+                            <input class="form-control" type="text" id="districtInput" name="district"
+                                formControlName="District" placeholder="اسم منطقتك">
                         </div>
+                        <div class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['District'].hasError('required') && requestServiceForm.controls['District'].touched">
+                            ادخل منطقتك</div>
+                        <div class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['District'].hasError('maxLength') && requestServiceForm.controls['District'].touched">
+                            الحد الأقصى لاسم المنطقة هو 100 حرف</div>
+                    </div>
 
-                        <div class="g-4 mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-house"></i>
-                                <input class="form-control" type="text" id="streetInput" name="street"
-                                    formControlName="Street" placeholder="اسم شارعك">
+                    <div class="g-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-house"></i>
+                            <input class="form-control" type="text" id="streetInput" name="street"
+                                formControlName="Street" placeholder="اسم شارعك">
+                        </div>
+                        <div class="text-danger my-2"
+                            *ngIf="requestServiceForm.controls['Street'].hasError('maxLength') && requestServiceForm.controls['Street'].touched">
+                            الحد الأقصى لأسم الشارع هو 100 حرف</div>
+                    </div>
+                    <button type="submit" class="btn primary-btn w-100" [disabled]="!requestServiceForm.valid">
+                        طلب الخدمة
+                    </button>
+                </form>
+            </div>
+            <div>
+                <h1 class="fs-5">الملحقات</h1>
+                <div id="carousel{{service?.id}}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <ng-container
+                            *ngFor="let serviceAttachment of service?.serviceAttachments;let i=index; first as isFirst">
+                            <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+                                <img [src]="serviceService.getServiceAttatchmentUrl({id:service!.vendorId,userId:service!.userId},serviceAttachment)"
+                                    class="d-block w-100 carousel-pic" alt="{{service?.description}}">
                             </div>
-                            <div class="text-danger my-2"
-                                *ngIf="requestServiceForm.controls['Street'].hasError('maxLength') && requestServiceForm.controls['Street'].touched">
-                                الحد الأقصى لأسم الشارع هو 100 حرف</div>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn primary-btn w-100" data-bs-dismiss="modal"
-                                [disabled]="!requestServiceForm.valid">
-                                طلب الخدمة
-                            </button>
-                        </div>
-                    </form>
+                        </ng-container>
+                    </div>
+                    <button class="carousel-control-prev" type="button" attr.data-bs-target="#carousel{{service?.id}}"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" attr.data-bs-target="#carousel{{service?.id}}"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">التالي</span>
+                    </button>
                 </div>
             </div>
         </div>
