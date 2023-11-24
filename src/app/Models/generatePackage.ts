@@ -10,7 +10,7 @@ export interface GeneratePackage {
 
 export interface CategoryPrice {
     categoryId: number;
-    percentage: number;
+    price: number;
 }
 
 export interface GeneratedPackage {
