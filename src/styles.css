@@ -81,9 +81,14 @@ input {
     text-align: right !important;
 }
 
-input::placeholder {
+/* input::placeholder {
     padding: 0 0 1px 0;
+} */
+
+input::-webkit-input-placeholder {
+    padding: 0 0 5px 0;
 }
+
 
 .form-check-input:checked {
     background-color: var(--primary-color);
@@ -340,3 +345,10 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.carousel-inner{
+    height: 100%;
+  }
+  .carousel-inner *{
+    height: 100%;
+  }
