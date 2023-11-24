@@ -3,7 +3,7 @@ import { IPost } from "./IPost";
 import { IService } from "./IService";
 
 export interface FullVendorInfo {
-  id: string;
+  id: number;
   address: string;
   categoryId: number;
   externalUrl: string | null;
