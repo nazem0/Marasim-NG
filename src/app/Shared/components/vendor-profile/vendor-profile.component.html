@@ -137,7 +137,9 @@
         <h2 class="text-primary">الخدمات المتاحة</h2>
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
           <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
-            <app-request-services-cards [vendor]="vendor"></app-request-services-cards>
+            <ng-container *ngFor="let service of vendor?.services">
+              <app-request-services-cards [vendor]="vendor" [service]="service"></app-request-services-cards>
+            </ng-container>
           </div>
         </div>
       </div>
