@@ -1,5 +1,5 @@
-<div class="card text-center p-0 overflow-hidden" *ngFor="let service of vendor?.services">
-    <div [attr.id]="'carousel-'+service.id" class="carousel slide">
+<ng-container *ngIf="service">
+    <div [attr.id]="'carousel-'+service.id" class="card text-center p-0 overflow-hidden carousel slide">
         <div class="carousel-inner">
             <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
                 <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
@@ -18,11 +18,16 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">التالي</span>
         </button>
+        <div class="my-2">
+            <span class="fw-bold fs-5">{{service.title}}</span>
+        </div>
+        <div class="mb-3">
+            <ng-container *ngIf="AuthService.isLoggedIn | async; else NotLoggedIn">
+                <a title="احجز" type="button" class="text-decoration-none p-2 primary-btn" routerLink="/request-service/{{service.id}}">احجز الآن</a>
+            </ng-container>
+            <ng-template #NotLoggedIn>
+                <a title="سجل" type="button" class="text-decoration-none p-2 primary-btn" routerLink="/register">سجل الآن</a>
+            </ng-template>
+        </div>
     </div>
-    <div class="my-2">
-        <span class="fw-bold fs-5">{{service.title}}</span>
-    </div>
-    <div class="mb-3">
-        <app-request-service [service]="service"></app-request-service>
-    </div>
-</div>
+</ng-container>
