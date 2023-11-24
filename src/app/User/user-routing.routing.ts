@@ -28,6 +28,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
 import { GeneratePackageOldComponent } from './components/generate-package-old/generate-package.component';
 import { GeneratePackageComponent } from './components/generate-package/generate-package.component';
+import { RequestServiceComponent } from '../Shared/components/request-service/request-service.component';
 
 
 
@@ -59,7 +60,8 @@ const routes: Routes = [
       { path: "reservation", component: ReservationsComponent },
       { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
-      { path: "vendors-filteration/:pageIndex", component:VendorsFilterComponent}
+      { path: "vendors-filteration/:pageIndex", component:VendorsFilterComponent},
+      {path:"request-service/:serviceId",component:RequestServiceComponent}
       
     ],
   },
