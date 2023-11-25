@@ -39,7 +39,7 @@ import { VendorCarouselComponent } from './components/vendor-carousel/vendor-car
 import { VendorCardComponent } from './components/vendor-card/vendor-card.component';
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
-import { RequestServicesCardsComponent } from './components/request-service-card/request-services-cards.component';
+import { RequestServiceCardComponent } from './components/request-service-card/request-service-card.component';
 
 @NgModule({
   imports: [
@@ -84,7 +84,7 @@ import { RequestServicesCardsComponent } from './components/request-service-card
     VendorCardComponent,
     NoResultSearchComponent,
     CategoryCardComponent,
-    RequestServicesCardsComponent
+    RequestServiceCardComponent
 
   ],
   providers: [
@@ -111,7 +111,7 @@ import { RequestServicesCardsComponent } from './components/request-service-card
     VendorCardComponent,
     NoResultSearchComponent,
     CategoryCardComponent,
-    RequestServicesCardsComponent
+    RequestServiceCardComponent
   ],
 
 })

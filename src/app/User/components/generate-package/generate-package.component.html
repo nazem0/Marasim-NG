@@ -94,7 +94,7 @@
                             </div>
                             <div class="modal-body row row-cols-3 justify-content-center align-content-center">
                                 <div class="col" *ngFor="let service of vendor.services">
-                                    <app-request-services-cards [vendor]="vendor"></app-request-services-cards>
+                                    <app-request-service-card [vendor]="vendor" [service]="service"></app-request-service-card>
                                 </div>
                             </div>
                         </div>

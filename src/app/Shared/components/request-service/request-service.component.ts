@@ -1,7 +1,7 @@
 import { ServiceService } from 'src/app/Services/service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from 'src/app/Services/Reservation.service';
-import { Component, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IService } from 'src/app/Models/IService';
 import { ToastrService } from 'ngx-toastr';
