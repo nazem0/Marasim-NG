@@ -1,9 +1,9 @@
 <div class="container">
     <h1 class="text-center my-5 text-primary">الحجوزات</h1>
     <br>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <input type="text" class="form-control" [(ngModel)]="search" placeholder="البحث..." />
-    </div>
+    </div> -->
     <div class="tabs-box">
         <div class="coll-btn">
             <button class="tab-btn" [class.active]="activeTab === 'p'" (click)="filterReservations('p')">المعلقـة</button>
@@ -17,7 +17,6 @@
     </div>
 
     <div class="tab-content" id="myTabContent">
-        <!-- <app-reservation-item (refresh)="getReservations()" [Reservations]="Reservations" [activeTab]="activeTab"></app-reservation-item> -->
-        <app-reservation-item [Reservations]="Reservations" [activeTab]="activeTab"></app-reservation-item>
+        <app-reservation-item [activeTab]="activeTab"></app-reservation-item>
     </div>
 </div>

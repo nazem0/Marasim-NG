@@ -1,5 +1,5 @@
 import { ReservationComponent } from './../reservation/reservation.component';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { IUser } from 'src/app/Models/IUser';
 import { IServiceMinInfo } from 'src/app/Models/IService';
 import { VendorReservation } from 'src/app/Models/Reservation';
@@ -15,30 +15,44 @@ import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
   templateUrl: './reservation-item.component.html',
   styleUrls: ['./reservation-item.component.css'],
 })
-export class ReservationItemComponent implements OnInit {
-  @Input() Reservations: PaginationViewModel<VendorReservation> | null = null;
+export class ReservationItemComponent implements OnChanges ,OnInit  {
+  Reservations: PaginationViewModel<VendorReservation> | null = null;
   @Input() activeTab: string = 'p';
   selectedVendor: IServiceMinInfo | null = null;
   selectedCustomer: IUser | null = null;
   apiUrl = environment.serverUrl;
+  currentPage =1
+  pageSize =5
+  totalItems ?:number
   constructor(
     public UserService: UserService,
     private reservationService: ReservationService,
     private toastr: ToastrService,
     private ReservationService: ReservationService) { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.getReservations();
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.currentPage=1
+    this.getReservations();
+    console.log(changes);
+  }
+
 
   openCustomerModal(User: IUser) {
     this.selectedCustomer = User;
   }
+  pageChange(event:any){
+    this.currentPage=event
+    this.getReservations();
+  }
 
   getReservations() {
-    this.ReservationService.GetForVendorByStatus(this.activeTab).subscribe({
+    this.ReservationService.GetForVendorByStatus(this.activeTab,this.currentPage,this.pageSize).subscribe({
       next: (response) => {
-        this.Reservations = response
+        this.Reservations = response;
+        this.totalItems = response.count;
         console.log(this.Reservations);
       },
       error: (error) => {
