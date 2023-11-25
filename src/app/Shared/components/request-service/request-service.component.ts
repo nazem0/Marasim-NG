@@ -53,7 +53,6 @@ export class RequestServiceComponent implements AfterViewInit {
     })
   }
   ngAfterViewInit(): void {
-    console.log(document.querySelector("#govInput"));;
     this.gov?.nativeElement.addEventListener('change', (e: any) => {
       this.CityService.getByGovId(this.gov?.nativeElement.value).subscribe((resp) => this.cities = resp)
     });
