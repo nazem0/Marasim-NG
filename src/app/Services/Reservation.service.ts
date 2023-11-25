@@ -27,8 +27,8 @@ export class ReservationService {
   GetForUserByStatus(Status: string) {
     return this.HttpClient.get<PaginationViewModel<UserReservation>>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus/1?Status=${Status}`)
   }
-  GetForVendorByStatus(Status: string) {
-    return this.HttpClient.get<PaginationViewModel<VendorReservation>>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus/1?Status=${Status}`)
+  GetForVendorByStatus(Status: string,PageIndex:number,PageSize:number=5) {
+    return this.HttpClient.get<PaginationViewModel<VendorReservation>>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus?Status=${Status}&PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
 
   CheckoutById(Id: number) {
