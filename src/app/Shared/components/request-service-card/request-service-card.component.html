@@ -23,7 +23,7 @@
         </div>
         <div class="mb-3">
             <ng-container *ngIf="AuthService.isLoggedIn | async; else NotLoggedIn">
-                <a title="احجز" type="button" class="text-decoration-none p-2 primary-btn" routerLink="/request-service/{{service.id}}" target="_blank">احجز الآن</a>
+                <a title="احجز" type="button" class="text-decoration-none p-2 primary-btn" routerLink="/request-service/{{service.id}}">احجز الآن</a>
             </ng-container>
             <ng-template #NotLoggedIn>
                 <a title="سجل" type="button" class="text-decoration-none p-2 primary-btn" routerLink="/register">سجل الآن</a>
