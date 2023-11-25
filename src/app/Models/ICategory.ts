@@ -10,3 +10,11 @@ export interface CategoryName {
   id:number
   name:string
 }
+
+
+export interface CategoryWithMinMaxViewModel {
+  id: number;
+  name: string;
+  min: number;
+  max: number;
+}
