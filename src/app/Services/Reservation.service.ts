@@ -24,8 +24,8 @@ export class ReservationService {
     return this.HttpClient.get<VendorReservation[]>(`${environment.apiUrl}/Reservation/GetAllVendorReservations`)
   }
 
-  GetForUserByStatus(Status: string) {
-    return this.HttpClient.get<PaginationViewModel<UserReservation>>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus/1?Status=${Status}`)
+  GetForUserByStatus(Status: string,PageIndex:number,PageSize:number=5) {
+    return this.HttpClient.get<PaginationViewModel<UserReservation>>(`${environment.apiUrl}/Reservation/GetUserReservationsByStatus?Status=${Status}&PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
   GetForVendorByStatus(Status: string,PageIndex:number,PageSize:number=5) {
     return this.HttpClient.get<PaginationViewModel<VendorReservation>>(`${environment.apiUrl}/Reservation/GetVendorReservationsByStatus?Status=${Status}&PageSize=${PageSize}&PageIndex=${PageIndex}`)

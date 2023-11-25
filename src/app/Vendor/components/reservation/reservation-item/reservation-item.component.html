@@ -37,7 +37,9 @@
     </tbody>
   </table>
 </div>
-<pagination-controls class="pagination" *ngIf="Reservations!.count > Reservations!.pageSize" previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"></pagination-controls>
+<pagination-controls class="pagination" *ngIf="Reservations!.count > Reservations!.pageSize"
+  previousLabel="السابق" nextLabel="التالي" 
+  (pageChange)="pageChange($event)"></pagination-controls>
 
 
 <!-- modal -->
