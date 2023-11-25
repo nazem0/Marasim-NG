@@ -1,0 +1,28 @@
+<div class="card text-center p-0 overflow-hidden" *ngFor="let service of vendor?.services">
+    <div [attr.id]="'carousel-'+service.id" class="carousel slide">
+        <div class="carousel-inner">
+            <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
+                <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+                    <img src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendor?.id}}/{{pic.attachmentUrl}}"
+                        class="d-block w-100 carousel-pic ServiceImg" alt="...">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-'+service.id"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">السابق</span>
+        </button>
+        <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-'+service.id"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">التالي</span>
+        </button>
+    </div>
+    <div class="my-2">
+        <span class="fw-bold fs-5">{{service.title}}</span>
+    </div>
+    <div class="mb-3">
+        <app-request-service [service]="service"></app-request-service>
+    </div>
+</div>

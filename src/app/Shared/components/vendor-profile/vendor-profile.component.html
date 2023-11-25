@@ -137,35 +137,7 @@
         <h2 class="text-primary">الخدمات المتاحة</h2>
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
           <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
-            <div class="col card text-center p-0 overflow-hidden" *ngFor="let service of vendor?.services">
-              <div [attr.id]="'carousel-'+service.id" class="carousel slide">
-                <div class="carousel-inner">
-                  <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
-                    <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
-                      <img
-                        src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendorId}}/{{pic.attachmentUrl}}"
-                        class="d-block w-100 carousel-pic ServiceImg" alt="...">
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-'+service.id"
-                  data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-'+service.id"
-                  data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">{{service.title}}</h3>
-                <p class="card-text">{{service.description}}</p>
-              </div>
-              <app-request-service [service]="service"></app-request-service>
-              <br>
-            </div>
+            <app-request-services-cards [vendor]="vendor"></app-request-services-cards>
           </div>
         </div>
       </div>

@@ -43,13 +43,14 @@ export class AuthService {
   addCookies(token: string, ProfilePicture: string, Role: string, Name: string, Id: string, vendorId?: string) {
     // 4 days, then cookie will expire
     let expirationInDays = 4;
-    this.CookieService.set('Token', token, expirationInDays,"");
-    this.CookieService.set('ProfilePicture', ProfilePicture, expirationInDays,"");
-    this.CookieService.set('Role', Role, expirationInDays,"");
-    this.CookieService.set('Name', Name, expirationInDays,"")
-    this.CookieService.set('Id', Id, expirationInDays,"")
+    let cookiesPath = "/";
+    this.CookieService.set('Token', token, expirationInDays,cookiesPath);
+    this.CookieService.set('ProfilePicture', ProfilePicture, expirationInDays,cookiesPath);
+    this.CookieService.set('Role', Role, expirationInDays,cookiesPath);
+    this.CookieService.set('Name', Name, expirationInDays,cookiesPath)
+    this.CookieService.set('Id', Id, expirationInDays,cookiesPath)
     if (vendorId != undefined) {
-      this.CookieService.set("VendorId", vendorId, expirationInDays,"")
+      this.CookieService.set("VendorId", vendorId, expirationInDays,cookiesPath)
       console.log(vendorId);
     }
     this._isLoggedIn.next(true)

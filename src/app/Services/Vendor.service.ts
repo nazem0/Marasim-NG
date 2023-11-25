@@ -8,7 +8,7 @@ import { FullVendorInfo } from '../Models/FullVendorInfo';
 import { PaginationViewModel } from '../Models/PaginationViewModel';
 import { ParamMap } from '@angular/router';
 import { param } from 'jquery';
-import { GeneratePackage } from '../Models/generatePackage';
+import { GeneratePackage, GeneratedPackage } from '../Models/generatePackage';
 
 @Injectable({
   providedIn: 'root',
@@ -86,15 +86,19 @@ export class VendorService {
       `${environment.apiUrl}/Vendor/Filter/${pageIndex}?pageSize=${pageSize}&${queryParams}`
     );
   }
-  getVendorAddress(address: address) {
-    if (address.street)
+  getVendorAddress(address: address | null = null) {
+
+    if (!address?.city && !address?.district && !address?.governorate && !address?.street)
+      return "لا يوجد مقدم خدمة بهذه المواصفات";
+
+    if (address?.street)
       return `${address.street}, ${address.district}, ${address.city}, ${address.governorate}`;
 
-    return `${address.district}, ${address.city}, ${address.governorate}`;
+    return `${address?.district}, ${address?.city}, ${address?.governorate}`;
   }
 
-  generatePackage(generatePackage:GeneratePackage):Observable<IVendorMidInfo[]>{
-    return this.HttpClient.post<IVendorMidInfo[]>(`${environment.apiUrl}/Vendor/GeneratePackage`,generatePackage)
+  generatePackage(generatePackage: GeneratePackage): Observable<GeneratedPackage[]> {
+    return this.HttpClient.post<GeneratedPackage[]>(`${environment.apiUrl}/Vendor/GeneratePackage`, generatePackage)
   }
 }
 

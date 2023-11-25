@@ -14,10 +14,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="reserve{{service.id}}Label">حجز خدمة</h1>
+                    <h1 class="modal-title fs-5" id="reserve{{service.id}}Label">حجز خدمة : {{service.title}}</h1>
                     <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <p>{{service.description}}</p>
                     <form [formGroup]="requestServiceForm" (ngSubmit)="request()">
                         <div class="g-4 mb-4">
                             <div class="d-flex align-items-center gap-3">
