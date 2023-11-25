@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CategoryName, ICategory } from '../Models/ICategory';
+import { CategoryWithMinMaxViewModel, CategoryName, ICategory } from '../Models/ICategory';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -73,6 +73,8 @@ export class CategoryService {
       return picUrl
     else
       return "/assets/img/wedding-boom.jpg"
-
+  }
+  GetCategoriesWithMinMax():Observable<CategoryWithMinMaxViewModel[]>{
+    return this.HttpClient.get<CategoryWithMinMaxViewModel[]>(`${environment.apiUrl}/Category/GetCategoriesWithMinMax`)
   }
 }
