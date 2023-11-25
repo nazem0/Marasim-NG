@@ -7,7 +7,7 @@ import { CategoryService } from 'src/app/Services/Category.service';
 import { ToastrService } from 'ngx-toastr';
 import { Governorate } from 'src/app/Models/governorate';
 import { City } from 'src/app/Models/City';
-import { CategoryName } from 'src/app/Models/ICategory';
+import { CategoryWithMinMaxViewModel } from 'src/app/Models/ICategory';
 
 @Component({
   selector: 'app-generate-package',
@@ -20,7 +20,7 @@ export class GeneratePackageComponent implements AfterViewInit {
   @ViewChild("govId") govId: ElementRef | null = null;
   vendors:GeneratedPackage[] | null = null;
   budget=0;
-  categories: CategoryName[] = [];
+  categories: CategoryWithMinMaxViewModel[] = [];
   categoryPrice: CategoryPrice[] | null = null;
   govenorates: Governorate[] = [];
   cities: City[] = [];
@@ -34,7 +34,7 @@ export class GeneratePackageComponent implements AfterViewInit {
     this.governorateService.get().subscribe({
       next: (governorates) => this.govenorates = governorates
     })
-    this.categoryService.GetNames().subscribe({
+    this.categoryService.GetCategoriesWithMinMax().subscribe({
       next: categories => this.categories = categories,
     });
 
@@ -64,7 +64,6 @@ export class GeneratePackageComponent implements AfterViewInit {
 
   addCategoryPrice(categoryId: number) {
     if (!this.categoryPrice) this.categoryPrice = [];
-
     let elementExists = this.categoryPrice.findIndex(e => e.categoryId == categoryId)
     let price = parseInt((document.getElementById(`category-${categoryId}`) as HTMLInputElement).value);
 
@@ -73,7 +72,10 @@ export class GeneratePackageComponent implements AfterViewInit {
       this.toastr.error("يجب إدخال مبلغ صحيح")
       return
     }
-
+    if(price < this.categories.find(c=>c.id == categoryId)!.min){
+      this.toastr.warning("لا يوجد خدمة بهذا السعر في هذه الفئة","المبلغ اقل من الحد الأدنى")
+      return;
+    }
     //check element already exists or not
     if (elementExists != -1) {
       if (this.categoryPrice[elementExists].price != price) {
