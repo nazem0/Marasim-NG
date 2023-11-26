@@ -1,4 +1,3 @@
-import { Home2Component } from './components/home/home.component';
 import { ViewUserProfileComponent } from './components/view-profile/view-profile.component';
 import { CheckoutPassComponent } from './components/checkout/checkout-pass/checkout-pass.component';
 import { CheckoutFailComponent } from './components/checkout//checkout-fail/checkout-fail.component';
@@ -56,7 +55,6 @@ const routes: Routes = [
       { path: "no-follows", component: NoFollowsComponent },
       { path: "no-result", component: NoResultSearchComponent },
       { path: "reservation", component: ReservationsComponent },
-      { path: "home", component: Home2Component },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
       { path: "vendors-filteration/:pageIndex", component:VendorsFilterComponent},
       {path:"request-service/:serviceId",component:RequestServiceComponent}
