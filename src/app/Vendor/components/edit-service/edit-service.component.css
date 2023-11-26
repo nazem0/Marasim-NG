@@ -1,0 +1,17 @@
+
+.F{
+    width: 50%;
+}
+.title-edit-page{
+    color: var(--primary-color);
+}
+
+.invalid-button {
+    background-color: #727070;
+    color: white;
+  }
+
+.card-img-top{
+    width: 100%;
+    height: 100%;
+}

@@ -1,12 +1,8 @@
 <div class="d-flex gap-2 justify-content-center flex-wrap">
-    <app-create-offer style="width: 90%;" (refresh)="this.refresh.emit()" [service]="service"></app-create-offer>
-    <app-edit-service (refresh)="this.refresh.emit()" [service]="service"></app-edit-service>
+    <app-create-offer class="w-75" (refresh)="this.refresh.emit()" [service]="service"></app-create-offer>
+    <a class="btn warning-btn" routerLink="edit/{{service?.id}}">تعديل الخدمة</a>
     <button title="حذف الخدمة" class="danger-btn" (click)="DeleteSrvice()">
         <!-- <i class="fa-solid fa-trash"></i> -->
         حذف الخدمة
     </button>
-    <!-- <button title="عرض سابقة الأعمال" class="success-btn"> -->
-        <!-- <i class="fa-solid fa-clipboard"></i> -->
-        <!-- عرض المنشورات وسابقة الأعمال
-    </button> -->
 </div>
