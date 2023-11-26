@@ -22,6 +22,7 @@ export interface IServiceMinInfo {
     title: string,
 }
 export interface IServiceAttachmentCustom {
+    id : number,
     serviceId: number,
     attachmentUrl: string,
     userId: string,
