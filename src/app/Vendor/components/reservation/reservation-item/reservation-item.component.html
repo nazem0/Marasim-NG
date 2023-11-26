@@ -13,9 +13,9 @@
       </tr>
 
     </thead>
-    <tbody class="text-center">
+    <tbody class="text-center" *ngIf="Reservations">
       <tr
-        *ngFor="let Reservation of Reservations!.data | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalItems } , let i = index; ">
+        *ngFor="let Reservation of Reservations.data | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalItems } , let i = index; ">
         <td>{{i+1}}</td>
         <td class="d-flex justify-content-between">
           <a class="text-decoration-none" href="javascript:void(0);" (click)="openCustomerModal(Reservation.user)"
@@ -37,7 +37,7 @@
     </tbody>
   </table>
 </div>
-<pagination-controls class="pagination" *ngIf="Reservations!.count > Reservations!.pageSize"
+<pagination-controls class="pagination" *ngIf="Reservations && Reservations.count > Reservations!.pageSize"
   previousLabel="السابق" nextLabel="التالي" 
   (pageChange)="pageChange($event)"></pagination-controls>
 
