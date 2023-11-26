@@ -1,14 +1,14 @@
 <!-- Button trigger modal -->
 
 <div *ngIf="service?.promoCode == null; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock><button title="إضافة تخفيض على الخدمة" type="button" class="primary-btn w-100" data-bs-toggle="modal"
+<ng-template #thenBlock><button title="إضافة تخفيض على الخدمة" type="button" class="primary-btn rounded-0 w-100" data-bs-toggle="modal"
         attr.data-bs-target="#Modal{{service!.id}}">
         أضف تخفيض
     </button>
   </ng-template>
 <ng-template #elseBlock>
- <p class="text-danger">{{service?.promoCode?.discount|currency:"ج.م."}}-</p>
-  <button title="حذف التخفيض من الخدمة" type="button" class="danger-btn" (click)="DeleteOffer()">
+ <span class="d-block text-danger">{{service?.promoCode?.discount|currency:"ج.م."}}-</span>
+  <button title="حذف التخفيض من الخدمة" type="button" class="danger-btn rounded-0 w-100" (click)="DeleteOffer()">
         حذف
         التخفيض
     </button>
@@ -62,22 +62,6 @@
                         <input class="form-control" type="number" id="Discount" name="Discount" min="1"
                             placeholder="الخصم" formControlName="Discount">
                     </div>
-
-
-
-                    <!-- <div class="row row-cols-md-3 align-items-center justify-content-evenly gy-5">
-                        <div class="d-flex align-items-center justify-content-center gap-3">
-                            <label for="oldPrice">السعر القديم</label>
-                            <i class="fa-regular fa-money-bill-1"></i>
-                            <span id="oldPrice"> <small>{{service?.price| currency:"ج. م. "}} </small></span>
-                        </div>
-
-                        <div class="d-flex align-items-center justify-content-center gap-3">
-                            <label for="newPrice">السعر الجديد</label>
-                            <i class="fa-solid fa-money-bill-1"></i>
-                            <span id="newPrice"> </span>
-                        </div>
-                    </div> -->
                 </form>
 
             </div>

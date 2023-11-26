@@ -25,14 +25,13 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">{{service.title}}</h3>
-          <p>{{service.description}}</p>
-          <p>{{service.price | currency:"ج. م. "}}</p>
+        <div class="card-body pb-0">
+          <h3>{{service.title}}</h3>
+          <span class="d-block">{{service.description}}</span>
+          <span class="d-block">{{service.price | currency:"ج. م. "}}</span>
           <!-- new price -->
         </div>
         <app-action-buttons (refresh)="ngOnInit()" [service]="service"></app-action-buttons>
-        <br>
       </div>
     </div>
   </div>

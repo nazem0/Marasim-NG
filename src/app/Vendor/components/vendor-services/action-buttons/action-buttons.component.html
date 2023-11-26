@@ -1,8 +1,11 @@
-<div class="d-flex gap-2 justify-content-center flex-wrap">
-    <app-create-offer class="w-75" (refresh)="this.refresh.emit()" [service]="service"></app-create-offer>
-    <a class="btn warning-btn" routerLink="edit/{{service?.id}}">تعديل الخدمة</a>
-    <button title="حذف الخدمة" class="danger-btn" (click)="DeleteSrvice()">
-        <!-- <i class="fa-solid fa-trash"></i> -->
-        حذف الخدمة
-    </button>
+<div class="row row-cols-1">
+    <app-create-offer (refresh)="this.refresh.emit()" [service]="service"></app-create-offer>
+    <a class="btn warning-btn rounded-0" routerLink="edit/attachments/{{service?.id}}">تعديل الملحقات</a>
+    <div class="d-flex">
+        <a class="btn warning-btn rounded-0 w-100" routerLink="edit/{{service?.id}}">تعديل الخدمة</a>
+        <button title="حذف الخدمة" class="danger-btn rounded-0 w-100" (click)="DeleteSrvice()">
+            <!-- <i class="fa-solid fa-trash"></i> -->
+            حذف الخدمة
+        </button>
+    </div>
 </div>
