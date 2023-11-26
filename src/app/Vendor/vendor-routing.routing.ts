@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
-import { EditServiceComponent } from './components/vendor-services/action-buttons/edit-service/edit-service.component';
+import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
@@ -14,6 +14,8 @@ import { WorkHistoryComponent } from './components/work-history/work-history.com
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
+import { AttachmentModalComponent } from '../Shared/components/attachment-modal/attachment-modal.component';
+import { EditServiceAttachmentsComponent } from './components/edit-service-attachments/edit-service-attachments.component';
 // import { ViewVendorsComponent } from '../User/components/view-vendors/view-vendors.component';
 
 const vendorRoutes: Routes = [
@@ -24,9 +26,10 @@ const vendorRoutes: Routes = [
             { path: 'create-offer', component: CreateOfferComponent },
             { path: 'reviews/:page', component: VendorReviewsComponent },
             { path: 'services', component: VendorServicesComponent },
+            { path: 'services/edit/:serviceId', component: EditServiceComponent },
+            { path: 'services/edit/attachments/:serviceId', component: EditServiceAttachmentsComponent },
             { path: 'work-history/:page', component: WorkHistoryComponent },
             { path: 'reservation', component: ReservationComponent },
-            { path: 'edit-service', component: EditServiceComponent },
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers/:page', component: FollowersComponent },
             { path: 'stats', component: StatNavComponent },

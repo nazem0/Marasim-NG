@@ -12,7 +12,7 @@ import { VendorServicesComponent } from './components/vendor-services/vendor-ser
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
 import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
-import { EditServiceComponent } from './components/vendor-services/action-buttons/edit-service/edit-service.component';
+import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
@@ -24,9 +24,10 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { VendorRoutes } from './vendor-routing.routing';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
-import { CreateServiceComponent } from './components/vendor-services/create-service/create-service.component';
+import { CreateServiceComponent } from './components/create-service/create-service.component';
 import { VDashboardComponent } from './layout/v-dashboard/v-dashboard.component';
 import { VendorNavToggleComponent } from './components/vendor-nav-toggle/vendor-nav-toggle.component';
+import { EditServiceAttachmentsComponent } from './components/edit-service-attachments/edit-service-attachments.component';
 
 @NgModule({
   imports: [
@@ -63,6 +64,7 @@ import { VendorNavToggleComponent } from './components/vendor-nav-toggle/vendor-
     CreateServiceComponent,
     VDashboardComponent,
     VendorNavToggleComponent,
+    EditServiceAttachmentsComponent,
   ]
 })
 export class VendorModule { }
