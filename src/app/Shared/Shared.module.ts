@@ -32,7 +32,6 @@ import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 import { TruncatePipe } from '../Pipes/Truncate.pipe';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { EditPostComponent } from './components/post/edit-post/edit-post.component';
-import { Home2Component } from '../User/components/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
 import { VendorCarouselComponent } from './components/vendor-carousel/vendor-carousel.component';
@@ -41,6 +40,8 @@ import { NoResultSearchComponent } from './components/no-result-search/no-result
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { RequestServiceCardComponent } from './components/request-service-card/request-service-card.component';
 import { GovernoratesMapComponent } from './components/landing/governorates-map/governorates-map.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { WalkthroughComponent } from './components/landing/walkthrough/walkthrough.component';
 
 @NgModule({
   imports: [
@@ -80,14 +81,14 @@ import { GovernoratesMapComponent } from './components/landing/governorates-map/
     VendorFollowingVendorComponent,
     DeleteModalComponent,
     EditPostComponent,
-    Home2Component,
     VendorCarouselComponent,
     VendorCardComponent,
     NoResultSearchComponent,
     CategoryCardComponent,
     RequestServiceCardComponent,
-    GovernoratesMapComponent
-
+    GovernoratesMapComponent,
+    NavBarComponent,
+    WalkthroughComponent,
   ],
   providers: [
   ],
@@ -113,7 +114,8 @@ import { GovernoratesMapComponent } from './components/landing/governorates-map/
     VendorCardComponent,
     NoResultSearchComponent,
     CategoryCardComponent,
-    RequestServiceCardComponent
+    RequestServiceCardComponent,
+    NavBarComponent
   ],
 
 })
