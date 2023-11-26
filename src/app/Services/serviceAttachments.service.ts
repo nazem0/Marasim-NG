@@ -7,7 +7,7 @@ import { IServiceAttachment, IServiceAttachmentCustom } from '../Models/IService
 @Injectable({
   providedIn: 'root'
 })
-export class AttachmentService {
+export class ServiceAttachmentService {
   constructor(private HttpClient: HttpClient) { }
 
   // GetAll(): Observable<IServiceAttachment[]> {
@@ -22,4 +22,17 @@ export class AttachmentService {
     return this.HttpClient.get<IServiceAttachmentCustom[]>(`${environment.apiUrl}/ServiceAttachment/GetAllCustom/`)
   }
 
+  getByServiceId(serviceId:number){
+    return this.HttpClient.get<IServiceAttachmentCustom[]>(`${environment.apiUrl}/ServiceAttachment/GetByServiceId/${serviceId}`)
+  }
+  add(data:FormData){
+    return this.HttpClient.post(`${environment.apiUrl}/ServiceAttachment/Add`,data)
+  }
+  delete(attachmentId:string|number){
+    return this.HttpClient.delete(`${environment.apiUrl}/ServiceAttachment/Delete/${attachmentId}`)
+  }
+
+  getUrl(attachment:IServiceAttachmentCustom){
+    return `${environment.serverUrl}/${attachment.userId}/serviceAttachment/${attachment.serviceId}-${attachment.vendorId}}/${attachment.attachmentUrl}}`
+  }
 }
