@@ -1,0 +1,12 @@
+.sm_state:hover{
+    fill: var(--primary-color-heavy);
+}
+.govDialog {
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    pointer-events: none;
+  }

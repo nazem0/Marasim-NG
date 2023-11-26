@@ -40,6 +40,7 @@ import { VendorCardComponent } from './components/vendor-card/vendor-card.compon
 import { NoResultSearchComponent } from './components/no-result-search/no-result-search.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { RequestServiceCardComponent } from './components/request-service-card/request-service-card.component';
+import { GovernoratesMapComponent } from './components/landing/governorates-map/governorates-map.component';
 
 @NgModule({
   imports: [
@@ -84,7 +85,8 @@ import { RequestServiceCardComponent } from './components/request-service-card/r
     VendorCardComponent,
     NoResultSearchComponent,
     CategoryCardComponent,
-    RequestServiceCardComponent
+    RequestServiceCardComponent,
+    GovernoratesMapComponent
 
   ],
   providers: [
