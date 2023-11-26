@@ -26,7 +26,6 @@ import { ViewUserProfileComponent } from './components/view-profile/view-profile
 import { CreateInvitationComponent } from './components/create-invitation/create-invitation.component';
 import { PageNotFoundComponent } from '../Shared/components/page-not-found/page-not-found.component';
 import { ContactComponent } from '../Shared/components/contact/contact.component';
-import { HomeComponent } from '../Shared/components/home/home.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -59,7 +58,6 @@ import { GeneratePackageComponent } from './components/generate-package/generate
     BrideGroomComponent,
     GeneratedPackagesComponent,
     LayoutComponent,
-    NavBarComponent,
     GeneratedPackageCardComponent,
     FeedComponent,
     VendorProfileComponent,
@@ -74,7 +72,6 @@ import { GeneratePackageComponent } from './components/generate-package/generate
     CreateInvitationComponent,
     PageNotFoundComponent,
     ContactComponent,
-    HomeComponent,
     ReservationsComponent,
     AddReviewComponent,
     VendorsFilterComponent,
