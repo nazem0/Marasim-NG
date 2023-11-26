@@ -10,7 +10,7 @@ import { VendorService } from 'src/app/Services/Vendor.service';
 import { FollowService } from 'src/app/Services/Follow.service';
 import { environment } from 'src/environments/environment.development';
 import { IServiceAttachmentCustom } from 'src/app/Models/IService';
-import { AttachmentService } from 'src/app/Services/Attachment.service';
+import { ServiceAttachmentService } from 'src/app/Services/serviceAttachments.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/Services/Auth.service';
 import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
@@ -43,7 +43,7 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
     private ActivatedRoute: ActivatedRoute,
     private CategoryService: CategoryService,
     private FollowService: FollowService,
-    private AttachmentService: AttachmentService,
+    private ServiceAttachmentService: ServiceAttachmentService,
     private CookieService: CookieService,
     public AuthService: AuthService) {
     this.data = new FormData();
@@ -93,7 +93,7 @@ export class VendorProfileComponent implements OnInit, AfterViewInit {
         }
       })
 
-    this.AttachmentService.GetByVendorId(this.vendorId!)
+    this.ServiceAttachmentService.GetByVendorId(this.vendorId!)
       .subscribe((result) => {
         this.slides = result;
       });
