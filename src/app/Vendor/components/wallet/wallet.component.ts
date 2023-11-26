@@ -5,6 +5,8 @@ import { VendorPayment } from 'src/app/Models/Payment';
 import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 import { PaymentService } from 'src/app/Services/Payment.service';
 import { PaginationInstance } from 'ngx-pagination';
+import { WithdrawalService } from 'src/app/Services/Withdrawal.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-wallet',
@@ -14,6 +16,7 @@ import { PaginationInstance } from 'ngx-pagination';
 export class WalletComponent implements OnInit {
   payments: PaginationViewModel<VendorPayment> | null = null;
   balance: number | null = null;
+  data: FormData;
   page = 1;
   itemsPerPage = 3;
   public config: PaginationInstance = {
@@ -24,10 +27,14 @@ export class WalletComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
+    private WithdrawalService: WithdrawalService,
     public UserService: UserService,
+    private Toastr: ToastrService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.data = new FormData();
+  }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -37,11 +44,8 @@ export class WalletComponent implements OnInit {
         this.getData();
       }
     });
+    this.getBalance();
 
-    this.paymentService.GetVendorBalance().subscribe({
-      next: resp => this.balance = resp,
-      error: error => console.log(error)
-    });
   }
 
   pageChange(newPage: number) {
@@ -58,5 +62,28 @@ export class WalletComponent implements OnInit {
       },
       error: error => console.log(error)
     });
+  }
+
+  getBalance() {
+    this.paymentService.GetVendorBalance().subscribe({
+      next: resp => this.balance = resp,
+      error: error => console.log(error)
+    });
+  }
+
+  requestMoney() {
+    let inputElement = document.getElementById('Instapay') as HTMLInputElement;
+    let instaPay = inputElement.value;
+    this.data.set('Instapay', instaPay);
+    this.WithdrawalService.Add(this.data).subscribe({
+      next: () => {
+        this.Toastr.success("تم ارسال طلبك");
+        this.getBalance();
+      },
+      error: (error) => {
+        this.Toastr.error("برجاء المحاولة مرة أخرى", "حدث خطأ");
+        console.log(error);
+      }
+    });;
   }
 }
