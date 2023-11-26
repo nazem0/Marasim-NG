@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Governorate } from 'src/app/Models/governorate';
 import { City } from 'src/app/Models/City';
 import { CategoryWithMinMaxViewModel } from 'src/app/Models/ICategory';
+import { ScrollRevealService } from 'src/app/Services/Scroll-reveal.service';
 
 @Component({
   selector: 'app-generate-package',
@@ -24,13 +25,15 @@ export class GeneratePackageComponent implements AfterViewInit {
   categoryPrice: CategoryPrice[] | null = null;
   govenorates: Governorate[] = [];
   cities: City[] = [];
+  sr = this.scrollReveal.getScrollReveal();
   constructor(
     public categoryService: CategoryService,
     private toastr: ToastrService,
     private governorateService: GovernorateService,
     private cityService: CityService,
-    private vendorService: VendorService
-  ) {
+    private vendorService: VendorService,
+    private scrollReveal:ScrollRevealService
+  ) {    
     this.governorateService.get().subscribe({
       next: (governorates) => this.govenorates = governorates
     })

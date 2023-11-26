@@ -20,26 +20,31 @@
             </select>
         </div>
         <div class="row row-cols-md-4 justify-content-center align-items-center">
-            <div *ngFor="let category of categories">
-                <label for="category-{{category.id}}">
-                    <app-category-card [category]="category"
-                        [picUrl]="categoryService.getCategoryPicture(category.id)"></app-category-card>
-                </label>
-                <div class="mb-4 mt-2">
-                    <div class="d-flex flex-column">
-                        <input min="1" class="rounded-0 rounded-top-4 form-control categoryPrice"
-                            id="category-{{category.id}}" type="number" placeholder="اقل سعر {{category.min.toLocaleString('ar-EG')}}، أعلى سعر {{category.max.toLocaleString('ar-EG')}}" required>
-                    </div>
-                    <div class="d-flex rounded-bottom-4 overflow-hidden w-100">
-                        <button class="primary-btn rounded-0 w-100"
-                            (click)="addCategoryPrice(category.id)">إضافة</button>
-                        <button class="danger-btn rounded-0 w-100"
-                            (click)="removeCategoryPrice(category.id)">حذف</button>
+            <ng-container *ngFor="let category of categories;let i =index">
+                <div>
+                    <label for="category-{{category.id}}">
+                        <app-category-card [category]="category"
+                            [picUrl]="categoryService.getCategoryPicture(category.id)"></app-category-card>
+                    </label>
+                    <div class="mb-4 mt-2">
+                        <div class="d-flex flex-column">
+                            <input min="1" class="rounded-0 rounded-top-4 form-control categoryPrice"
+                                id="category-{{category.id}}" type="number"
+                                placeholder="اقل سعر {{category.min.toLocaleString('ar-EG')}}، أعلى سعر {{category.max.toLocaleString('ar-EG')}}"
+                                required>
+                        </div>
+                        <div class="d-flex rounded-bottom-4 overflow-hidden w-100">
+                            <button class="primary-btn rounded-0 w-100"
+                                (click)="addCategoryPrice(category.id)">إضافة</button>
+                            <button class="danger-btn rounded-0 w-100"
+                                (click)="removeCategoryPrice(category.id)">حذف</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ng-container>
+
         </div>
-        <div class="border-3 p-4 rounded-4" *ngIf="categoryPrice; else noCategoyPrice">
+        <div *ngIf="categoryPrice; else noCategoyPrice">
             <p class="fw-bold">الفئات التي تم إضافتها</p>
             <ul *ngFor="let cp of categoryPrice">
                 <li>{{showCategoryName(cp.categoryId)}} ← {{cp.price.toLocaleString("ar-EG")}}</li>
@@ -48,8 +53,7 @@
             <ul>
                 <li>المجموع : {{getTotalPrice().toLocaleString("ar-EG")}} جنيه</li>
                 <li>الميزانية : {{budget.toLocaleString("ar-EG")}} جنيه</li>
-                <li *ngIf="budget - getTotalPrice() > 0; else difference"
-                    class="text-primary">
+                <li *ngIf="budget - getTotalPrice() > 0; else difference" class="text-primary">
                     قُمت بتوفير
                     {{(budget - getTotalPrice()).toLocaleString("ar-EG")}}
                     جنيه
@@ -73,10 +77,12 @@
     <!-- Generated Package -->
     <div class="my-2">
         <div class="row row-cols-md-3 g-3 justify-content-center align-content-center">
-            <div class="d-flex flex-column gap-2" *ngFor="let vendor of vendors">
-                <app-vendor-card [vendor]="vendor"></app-vendor-card>
+            <div class="d-flex flex-column gap-2" *ngFor="let vendor of vendors; let i =index">
+                <div class=" translateY" [style.animation-delay]="i/2+'s'">
+                    <app-vendor-card [vendor]="vendor"></app-vendor-card>
+                </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                <button *ngIf="vendor.id" type="button" class="btn btn-primary" data-bs-toggle="modal"
                     attr.data-bs-target="#services-{{vendor.id}}">
                     عرض قائمة الخدمات
                 </button>
@@ -91,9 +97,10 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body row row-cols-3 justify-content-center align-content-center">
+                            <div class="modal-body row row-cols-md-3 justify-content-center align-content-center">
                                 <div class="col" *ngFor="let service of vendor.services">
-                                    <app-request-service-card [vendor]="vendor" [service]="service"></app-request-service-card>
+                                    <app-request-service-card [vendor]="vendor"
+                                        [service]="service"></app-request-service-card>
                                 </div>
                             </div>
                         </div>
