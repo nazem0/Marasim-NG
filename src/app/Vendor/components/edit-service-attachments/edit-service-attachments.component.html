@@ -1,0 +1,27 @@
+<div class="container py-3">
+    <form class="mb-3 d-flex flex-column align-items-center">
+        <label for="upload-files" class="mb-2">
+            <span class="btn btn-primary">
+                <i class="fa fa-plus text-white"></i>
+            </span>
+            <span class="d-block text-center">
+                {{files?.length?.toLocaleString("ar-EG")}}
+            </span>
+        </label>
+        <input class="d-none" type="file" id="upload-files" #uploadedFiles accept="image/*" multiple>
+        <button type="submit" class="btn primary-btn" (click)="addAttachmnets()">إضافة</button>
+    </form>
+    <ng-container *ngIf="filesUploaded">
+        <!-- <img *ngFor="let item of form.get('attachments')?.value" [src]="item" alt=""> -->
+    </ng-container>
+    <div class="row g-2 row-cols-md-3 justify-content-center">
+        <div class="position-relative" *ngFor="let pic of serviceAttachments">
+            <button class="position-absolute top-0 btn btn-danger" (click)="delete(pic.id)">
+                <i class="fa fa-xmark text-light"></i>
+            </button>
+            <img class="border border-3"
+                src="{{serverUrl}}/{{pic?.userId}}/serviceAttachment/{{serviceId}}-{{pic?.vendorId}}/{{pic.attachmentUrl}}"
+                alt="...">
+        </div>
+    </div>
+</div>
