@@ -150,11 +150,6 @@ video {
 
 }
 
-.info-text {
-  font-size: medium;
-  color: black;
-
-}
 
 /* .background-img {
   height: 20vh;
@@ -344,3 +339,70 @@ height: 60vh;
 .catbutton:hover::before {
   width: 105%;
 }
+
+
+/* 
+.Sec-2{
+    display: flex;
+    gap: 4%;
+    background-color: var(--primary-background-color);
+}
+
+.Sec2-t{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.Sec2-t button{
+    padding: .5rem;
+    width: 140px;
+    border-radius: 40px;
+}
+
+.Sec2-imgs{
+    width: 48%;
+}
+.Sec2-img{
+    width: 100%;
+}
+.S2-img1{
+    border-radius: 20px;
+    position: relative;
+    top: -7px;
+    right: 4px;
+}
+.S2-d-border{
+    border: 1px solid #b0c7d9;
+    border-radius: 20px;
+    margin-top: 27px;
+    opacity: 100%;
+    z-index: 1;
+}
+.S2-flower{
+    position: relative;
+    right: 32px;
+}
+.S2-d-border2{
+    border: 1px solid #b0c7d9;
+    border-radius: 20px;
+    opacity: 100%;
+    height: fit-content;
+    position: relative;
+    left: 125px;
+    top: -80px;
+    z-index: 1;
+}
+.S2-img2{
+    border-radius: 20px;
+    position: relative;
+    top: -7px;
+    right: 4px;
+}
+.S2-branch{
+    width: 12%;
+    position: relative;
+    top: -128px;
+    right: 266px;
+    transform: rotate(-7deg);
+} */

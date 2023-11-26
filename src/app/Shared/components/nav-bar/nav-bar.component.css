@@ -1,12 +1,8 @@
 .navbar {
   text-align: center !important;
   z-index: 1000;
-  min-height: 4rem;
-  background-color: #24262b !important;
+  height: 4rem;
 
-}
-.navd:hover{
-color: var(--primary-color);
 }
 
 .dbg{
@@ -21,10 +17,6 @@ color: var(--primary-color);
 .dbg a{
 color: white;  }
 
-
-.navd{
-  color: white;
-}
 .navbar-item a {
   text-decoration: none;
   color: white;

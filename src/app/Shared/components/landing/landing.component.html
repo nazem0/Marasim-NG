@@ -1,37 +1,46 @@
 <!-- ////////////////////////// -->
-<div class="hero-section" id="hero">
-
-  <app-nav2></app-nav2>
-
-
-  <video preload playsinline loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" id="background-video">
-    <source src="assets/video/Wedding.mp4" type="video/mp4" />
-  </video>
-  <div class="upper">
-    <div class="container">
-      <p class="display-2 text-white ">نشاركك ادق التفاصيل</p>
-      <p class="text-white fs-5">بكل سهولة حدد المناسب لك ونحن سنهتم بالبقية</p>
-      <p class="text-white fs-5">من بيتك وبضغطة زر</p>
-
-      <!-- <p class="wellcome-text"> اختر{{cat[0]}}</p> -->
-      <div class="d-flex gap-2 mt-5 ">
-        <button class="primary-btn" routerLink="/register">احجز حفل زفافك الان</button>
-        <div class="log d-flex align-items-center"><span class="text-white ">
-            هل لديك حساب بالفعل ؟
-            <a class="text-primary text-decoration-none" routerLink="/login">سجل دخولك</a>
-          </span>
-        </div>
-      </div>
-      <a (click)="go2()"><svg class="arrows">
-          <path href="#" class="a1" d="M0 0 L30 32 L60 0"></path>
-          <path class="a2" d="M0 20 L30 52 L60 20"></path>
-          <path class="a3" d="M0 40 L30 72 L60 40"></path>
-        </svg></a>
-    </div>
+<div *ngIf="this.AuthService.isLoggedIn| async;else notLoggedNav">
+  <app-nav-bar></app-nav-bar>
+  <div class="mt-5 py-5">
+    <app-walkthrough></app-walkthrough>
   </div>
 </div>
+<!-- Not Logged In ⬇ -->
+<ng-template #notLoggedNav>
+  <app-nav2></app-nav2>
+  <div class="hero-section" id="hero">
 
 
+    <video preload playsinline loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"
+      id="background-video">
+      <source src="assets/video/Wedding.mp4" type="video/mp4" />
+    </video>
+    <div class="upper">
+      <div class="container">
+        <p class="display-2 text-white ">نشاركك ادق التفاصيل</p>
+        <p class="text-white fs-5">بكل سهولة حدد المناسب لك ونحن سنهتم بالبقية</p>
+        <p class="text-white fs-5">من بيتك وبضغطة زر</p>
+
+        <!-- <p class="wellcome-text"> اختر{{cat[0]}}</p> -->
+        <div class="d-flex gap-2 mt-5 ">
+          <button class="primary-btn" routerLink="/register">احجز حفل زفافك الان</button>
+          <div class="log d-flex align-items-center"><span class="text-white ">
+              هل لديك حساب بالفعل ؟
+              <a class="text-primary text-decoration-none" routerLink="/login">سجل دخولك</a>
+            </span>
+          </div>
+        </div>
+        <a (click)="go2()"><svg class="arrows">
+            <path href="#" class="a1" d="M0 0 L30 32 L60 0"></path>
+            <path class="a2" d="M0 20 L30 52 L60 20"></path>
+            <path class="a3" d="M0 40 L30 72 L60 40"></path>
+          </svg></a>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Walkthrough Section, For Loggedin User -->
 
 <!-- ////////////////////////// -->
 
@@ -104,25 +113,25 @@
     <div class="mt-4">
       <div class="caddd d-flex flex-row w-100">
 
-  <div class="carddd card1">
-    <h1 class="text-white">مصور فوتوغرافي</h1>
-    <button class="catbutton mt-3">
-      اكتشف الان
-    </button>
-  </div>
-  <div class="carddd card2">
-    <h1 class="text-white"> خبير تجميل</h1>
-    <button class="catbutton mt-3">
-      اكتشف الان
-    </button>
-  </div>
-  <div class="carddd card3">
-    <h1 class="text-white">منسق حفلات</h1>
-    <button class="catbutton mt-3">
-      اكتشف الان
-    </button>
-  </div>
-</div>
+        <div class="carddd card1">
+          <h1 class="text-white">مصور فوتوغرافي</h1>
+          <button class="catbutton mt-3">
+            اكتشف الان
+          </button>
+        </div>
+        <div class="carddd card2">
+          <h1 class="text-white"> خبير تجميل</h1>
+          <button class="catbutton mt-3">
+            اكتشف الان
+          </button>
+        </div>
+        <div class="carddd card3">
+          <h1 class="text-white">منسق حفلات</h1>
+          <button class="catbutton mt-3">
+            اكتشف الان
+          </button>
+        </div>
+      </div>
       <div class="colored-btn d-flex flex-row justify-content-end">
         <div class="circle-cont d-flex flex-column justify-content-center align-items-center mt-3">
           <img src="../../../../assets/svg/circle.png" style="width:12rem" alt="">
@@ -147,17 +156,64 @@
     <app-vendor-carousel [slides]="slides" [slideWidth]="'450px'"></app-vendor-carousel>
   </div>
 </div>
-<div id="contact"></div>
-<div class=" d-flex flex-row mt-5 justify-content-around">
+<div class="container">
+  <div class="row row-cols-md-2 mt-5 justify-content-around">
 
-  <div class="info-text mt-5 mx-5">
-    <h1 class="text-start text-primary">تحتاج الي مساعدة</h1>
-    <h4 class="text-muted mt-3">تواصل مع فريق العمل في حالة وجود اي استفسار</h4>
-    <button class="btn btn-outline-primary mt-5 contact-btn" routerLink="/contact">تواصل معنا</button>
+    <div>
+      <h1 class="text-start text-primary">تحتاج الي مساعدة</h1>
+      <h4 class="text-muted mt-3">تواصل مع فريق العمل في حالة وجود اي استفسار</h4>
+      <button class="btn btn-outline-primary mt-5 contact-btn" routerLink="/contact">تواصل معنا</button>
 
-  </div>
-  <div class="contact-img ">
-    <img src="../../../../assets/svg/contact.svg" alt="" />
+    </div>
+    <div class="contact-img ">
+      <img src="/assets/svg/contact.svg" alt="" />
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
+
+
+
+
+
+
+
+<!--
+   <section class="Sec-2">
+    <div class="container sec-con-2 d-flex gap-5">
+      <div class="Sec2-t">
+        <h1 style="text-align: center;">نحن أفضل منظمي حفلات
+          الزفـــاف</h1>
+        <p>
+          نحن هنا لجعل لحظاتكم الخاصة لا تُنسى. باعتبارنا
+          فريقًا من المحترفين في تنظيم الأفراح والمناسبات،
+          نفخر بتقديم خدمات استثنائية تلبي توقعاتكم وتتجاوزها.
+          سواء كنتم تبحثون عن مصورين مبدعين يلتقطون
+          أجمل اللحظات أو عن أروع القاعات التي تلبي تصاميم
+          أحلامكم، نحن هنا لنجعل رؤيتكم حقيقة. بفخر نقدم
+          خدماتنا الاحترافية لنخلق أجواءً ساحرة وتجارب
+          استثنائية. اتصلوا بنا اليوم ودعونا نبدأ في تحويل
+          أحلامكم إلى واقع ساحر.
+        </p>
+
+        <button class="btn btn-outline-primary">المزيـد</button>
+      </div>
+      <div class="Sec2-imgs">
+        <img class="S2-flower" src="./assets/img/thumb.png" alt>
+        <div class="d-flex">
+          <div class="S2-d-border">
+            <img class="Sec2-img S2-img1" src="./assets/img/517jgNfKc-L._AC_SX466_.jpg" alt>
+          </div>
+          <div class="S2-d-border2">
+            <img class="Sec2-img S2-img2"
+              src="./assets/img/Large-wedding-square-127d187f9ffa966a69471c4661a7d516-608bff9815fb3.jpg" alt>
+          </div>
+        </div>
+        <div>
+          <img class="S2-branch" src="./assets/img/shape.png" alt>
+        </div>
+      </div>
+
+    </div>
+  </section>
+ -->

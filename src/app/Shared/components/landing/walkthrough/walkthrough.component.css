@@ -1,0 +1,62 @@
+/* Walkthrough Css */
+.w1{
+    margin-top: 5rem;
+  }
+  .txt1{
+    position: absolute;
+  
+  }
+  .txt2{
+    margin-top: 6rem;
+  }
+  .arw2{
+    margin-top: 4rem;
+  
+  }
+  .arw3{
+    position: absolute;
+    margin-top: 1rem;
+  
+  }
+  .arw3t{
+    position: absolute;
+    margin-left: 7rem;
+    margin-top: 6rem;
+  }
+  .arw4{
+    position: absolute;
+    margin-right: 17rem;
+    margin-top: 3rem;
+  
+  }
+  .arw4t{
+    position: absolute;
+    margin-right: 5rem;
+    margin-top: 8rem;
+  }
+  .arw5{
+  position: absolute;
+  margin-top: 9rem;
+  margin-right: 15rem;
+  }
+  .arw5t{
+    position: absolute;
+    margin-top: 11rem;
+    margin-right: 21rem;
+  
+  }
+  
+  .arw6{
+    position: absolute;
+  margin-right: 35rem;
+  margin-top: 9rem;
+  }
+  .arw6t{
+    position: absolute;
+    margin-right: 41rem;
+    margin-top: 11rem;
+  }
+
+  .left-content{
+    min-height: 30rem;
+  }
