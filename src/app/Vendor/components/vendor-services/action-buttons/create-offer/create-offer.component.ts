@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, AfterViewInit } from '@angular/core';
 import { IService } from 'src/app/Models/IService';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PromoCodeservice } from 'src/app/Services/PromoCode.service';
@@ -9,7 +9,7 @@ import { PromoCodeservice } from 'src/app/Services/PromoCode.service';
   templateUrl: './create-offer.component.html',
   styleUrls: ['./create-offer.component.css'],
 })
-export class CreateOfferComponent {
+export class CreateOfferComponent implements AfterViewInit {
   @Input() service: IService | null = null;
   @Output() refresh = new EventEmitter();
   offerForm: FormGroup;
@@ -26,7 +26,7 @@ export class CreateOfferComponent {
     this.data = new FormData();
     this.offerForm = this.formBuilder.group({
       Code: [null, [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z][a-zA-Z0-9]{2,7}$')]],
-      Discount: [null, [Validators.required, Validators.min(1), Validators.max(this.service?.price!)]],
+      Discount: [null, [Validators.required, Validators.min(1)]],
       Limit: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
       ExpirationDate: [null, [Validators.required]],
     });
@@ -34,6 +34,9 @@ export class CreateOfferComponent {
     this.offerForm.statusChanges.subscribe(() => {
       this.formIsValid = this.offerForm.valid;
     });
+  }
+  ngAfterViewInit(): void {
+    this.offerForm.get("Discount")?.addValidators(Validators.max(this.service!.price));
   }
 
 
