@@ -7,7 +7,6 @@ import { CoverComponent } from './components/invitation/cover/cover.component';
 import { InvitationComponent } from './components/invitation/invitation.component';
 import { CounterComponent } from './components/invitation/counter/counter.component';
 import { BrideGroomComponent } from './components/invitation/bride-groom/bride-groom.component';
-import { GeneratePackageOldComponent } from './components/generate-package-old/generate-package.component';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NavBarComponent } from '../Shared/components/nav-bar/nav-bar.component';
@@ -58,7 +57,6 @@ import { GeneratePackageComponent } from './components/generate-package/generate
     InvitationComponent,
     CounterComponent,
     BrideGroomComponent,
-    GeneratePackageOldComponent,
     GeneratedPackagesComponent,
     LayoutComponent,
     NavBarComponent,

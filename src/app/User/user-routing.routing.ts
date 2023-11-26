@@ -26,7 +26,6 @@ import { VendorFollowingVendorComponent } from '../Shared/components/vendor-foll
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
-import { GeneratePackageOldComponent } from './components/generate-package-old/generate-package.component';
 import { GeneratePackageComponent } from './components/generate-package/generate-package.component';
 import { RequestServiceComponent } from '../Shared/components/request-service/request-service.component';
 
@@ -41,7 +40,6 @@ const routes: Routes = [
       { path: 'check-list', component: UserCheckListComponent },
       { path: 'invitation-list', component: InvitationListComponent },
       { path: 'edit', component: UserEditProfileComponent },
-      { path: 'generate-package-old', component: GeneratePackageOldComponent },
       { path: 'generate-package', component: GeneratePackageComponent },
       { path: 'generated-packages', component: GeneratedPackagesComponent },
       { path: 'contact', component: ContactComponent },
