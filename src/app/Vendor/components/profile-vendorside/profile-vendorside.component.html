@@ -82,11 +82,10 @@
                         <div class="col card text-center p-0 overflow-hidden" *ngFor="let service of vendor?.services">
                             <div [attr.id]="'carousel-'+service.id" class="carousel slide">
                                 <div class="carousel-inner">
-                                    <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst">
-                                        <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
-                                            <img src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendorId}}/{{pic.attachmentUrl}}"
-                                                class="d-block w-100 carousel-pic ServiceImg" alt="...">
-                                        </div>
+                                    <div *ngFor="let pic of service.serviceAttachments;let i=index; first as isFirst"
+                                        [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+                                        <img src="{{apiUrl}}{{vendor?.userId}}/serviceAttachment/{{pic.serviceId}}-{{vendorId}}/{{pic.attachmentUrl}}"
+                                            class="d-block w-100 carousel-pic ServiceImg" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
