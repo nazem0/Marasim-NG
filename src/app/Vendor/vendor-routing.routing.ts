@@ -1,3 +1,4 @@
+import { VendorPostsComponent } from './components/vendor-posts/vendor-posts.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
@@ -10,12 +11,12 @@ import { VendorFormComponent } from './components/vendor-form/vendor-form.compon
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
 import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
-import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
 import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
 import { AttachmentModalComponent } from '../Shared/components/attachment-modal/attachment-modal.component';
 import { EditServiceAttachmentsComponent } from './components/edit-service-attachments/edit-service-attachments.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 // import { ViewVendorsComponent } from '../User/components/view-vendors/view-vendors.component';
 
 const vendorRoutes: Routes = [
@@ -28,7 +29,8 @@ const vendorRoutes: Routes = [
             { path: 'services', component: VendorServicesComponent },
             { path: 'services/edit/:serviceId', component: EditServiceComponent },
             { path: 'services/edit/attachments/:serviceId', component: EditServiceAttachmentsComponent },
-            { path: 'work-history/:page', component: WorkHistoryComponent },
+            { path: 'posts/:page', component: VendorPostsComponent },
+            {path :'posts/edit/:postId',component:EditPostComponent},
             { path: 'reservation', component: ReservationComponent },
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers/:page', component: FollowersComponent },

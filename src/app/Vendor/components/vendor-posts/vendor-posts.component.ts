@@ -7,11 +7,11 @@ import { PaginationInstance } from 'ngx-pagination';
 import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
 
 @Component({
-  selector: 'app-work-history',
-  templateUrl: './work-history.component.html',
-  styleUrls: ['./work-history.component.css'],
+  selector: 'app-vendor-posts',
+  templateUrl: './vendor-posts.component.html',
+  styleUrls: ['./vendor-posts.component.css'],
 })
-export class WorkHistoryComponent implements OnInit {
+export class VendorPostsComponent implements OnInit {
   posts: PaginationViewModel<IPost> | null = null;
   p: number | undefined = undefined;
   public config: PaginationInstance = {
