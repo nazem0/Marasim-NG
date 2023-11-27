@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
 import { IPost } from 'src/app/Models/IPost';
@@ -16,7 +17,8 @@ export class PostComponent {
     public UserService: UserService,
     private CookieService: CookieService,
     private PostService: PostService,
-    private Toastr: ToastrService) { }
+    private Toastr: ToastrService,
+    public activatedRoute:ActivatedRoute) { }
   isVendor: boolean = this.CookieService.get('Role').includes('vendor');
   @Output() refresh = new EventEmitter();
   @Input() post: IPost | null = null;

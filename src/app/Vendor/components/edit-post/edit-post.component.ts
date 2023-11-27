@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IPost } from 'src/app/Models/IPost';
 import { PostService } from 'src/app/Services/Post.service';
@@ -10,13 +11,28 @@ import { PostService } from 'src/app/Services/Post.service';
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent {
-  @Input() post: IPost | null = null;
-  @Output() refresh = new EventEmitter();
+  post: IPost | null = null;
   editPostForm: FormGroup;
   data: FormData;
   formIsValid = false;
 
-  constructor(private formBuilder: FormBuilder, private PostService: PostService,private Toastr:ToastrService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private PostService: PostService,
+    private Toastr: ToastrService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.paramMap.subscribe({
+      next: params => {
+        let postId = parseInt(params.get("postId")!);
+        if (isNaN(postId))
+          this.router.navigate(["404"]);
+        else
+          this.getPostById(postId);
+      }
+    })
+
     this.data = new FormData();
     this.editPostForm = this.formBuilder.group({
       Title: [this.post?.title, [Validators.minLength(5), Validators.maxLength(1000)]],
@@ -28,7 +44,11 @@ export class EditPostComponent {
       this.formIsValid = this.editPostForm.valid;
     });
   }
-
+  getPostById(postId: number) {
+    this.PostService.getById(postId).subscribe({
+      next:post=>this.post = post
+    })
+  }
   updatePost() {
     if (this.formIsValid) {
       if (this.editPostForm.get('Title')?.value) {
@@ -45,9 +65,7 @@ export class EditPostComponent {
         .subscribe({
           next: (data) => {
             this.Toastr.success("تم التعديل بنجاح")
-            this.refresh.emit();
-            this.editPostForm.reset();
-            this.data = new FormData();
+            this.router.navigate(["../../1"], { relativeTo: this.activatedRoute })
           },
           error: (error) => {
             this.Toastr.error("فشل التعديل, حاول مرة آخرى")

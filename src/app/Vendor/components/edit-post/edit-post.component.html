@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="text-center mt-5 text-primary">تعديـل منشور</h1>
+    <div class="parent my-5 d-flex justify-content-center">
+        <div class="F DivForm w-50">
+            <form [formGroup]="editPostForm" (ngSubmit)="updatePost()">
+                <div class="mb-3">
+                    <label for="Inputtitle" class="form-label">عنوان المنشور</label>
+                    <input type="text" class="form-control" id="Inputtitle" formControlName="Title"
+                        [placeholder]="post?.title">
+                </div>
+                <div class="mb-3">
+                    <label for="Inputdescription" class="form-label">وصف المنشور</label>
+                <textarea class="form-control" rows="5" [placeholder]="post?.description"
+                    formControlName="Description" id="Inputdescription"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="primary-btn w-100">حفظ التعديلات</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
