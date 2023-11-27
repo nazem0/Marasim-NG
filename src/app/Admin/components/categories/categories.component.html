@@ -1,7 +1,5 @@
-<!-- <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"> -->
 <main class="container">
   <h1 class="text-center text-primary my-5">الفئات</h1>
-
   <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
     <div class="w-75 my-5 mx-auto ">
       <div class="search-bar">
@@ -17,9 +15,9 @@
         </div>
         <div *ngIf="categoryForm?.get('Name')?.invalid && categoryForm?.get('Name')?.touched">
           <small class="text-danger">
-              اسم الفئة يجب أن يحتوي على ٣-٣٠ حرفًا
+            اسم الفئة يجب أن يحتوي على ٣-٣٠ حرفًا
           </small>
-      </div>
+        </div>
       </div>
     </div>
   </form>
