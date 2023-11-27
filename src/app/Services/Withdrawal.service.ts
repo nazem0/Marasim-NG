@@ -24,4 +24,8 @@ export class WithdrawalService {
         return this.HttpClient.get<PaginationViewModel<Withdrawal>>(`${environment.apiUrl}/Withdrawal/Get/${PageIndex}?PageSize=${PageSize}`)
     }
 
+    Confirm(withdrawalId: number) {
+        return this.HttpClient.get(`${environment.apiUrl}/Withdrawal/Confirm/${withdrawalId}`)
+    }
+
 }

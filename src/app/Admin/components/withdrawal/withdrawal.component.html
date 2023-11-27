@@ -21,14 +21,13 @@
                         <td>{{withdrawal.instaPay}}</td>
                         <td>{{withdrawal.totalWithdrawal.toLocaleString("ar-EG")}}</td>
                         <td>{{withdrawal.dateTime | dateFormatArabic}}</td>
-                        <td class="d-flex gap-2 justify-content-center">
-                            <button title="تأكيد الدفع" type="button" class="primary-btn">
+                        <td>
+                            <button title="تأكيد الدفع" *ngIf="withdrawal.isConfirmed == false;else done" type="button"
+                                class="primary-btn" (click)="confirmWithdrawal(withdrawal.id)">
                                 <i class="fa-solid fa-check"></i>
                             </button>
                             <ng-template #done>
-                                <button title="تأكيد الدفع" type="button" class="danger-btn">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
+                                <span class="text-primary">مأكد</span>
                             </ng-template>
                         </td>
                     </tr>
