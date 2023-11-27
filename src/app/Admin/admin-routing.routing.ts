@@ -5,6 +5,7 @@ import { ViewUsersComponent } from './components/view-users/view-users.component
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaymentsComponent } from './components/payments/payments.component';
+import { WithdrawalComponent } from './components/withdrawal/withdrawal.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,8 @@ const routes: Routes = [
       {path:"users/:page",component:ViewUsersComponent},
       {path:"categories",component:CategoriesComponent},
       {path:"payments",component:PaymentsComponent},
+      {path:"withdrawals",component:WithdrawalComponent},
+
     ]
   },
 ];

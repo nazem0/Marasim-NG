@@ -39,6 +39,5 @@ export class NavBarComponent {
   role = this.CookieService.get("Role")
   logout() {
     this.AuthService.logout();
-    this.AuthService.removeCookies();
   }
 }

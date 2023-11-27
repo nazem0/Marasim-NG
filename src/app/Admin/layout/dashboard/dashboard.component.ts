@@ -27,7 +27,6 @@ export class DashboardComponent {
 
   logout() {
     this.AuthService.logout();
-    this.AuthService.removeCookies();
   }
 
 }

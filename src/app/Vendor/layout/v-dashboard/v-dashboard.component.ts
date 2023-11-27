@@ -26,7 +26,6 @@ export class VDashboardComponent {
   vendorId = this.CookieService.get("VendorId");
   logout(){
     this.AuthService.logout();
-    this.AuthService.removeCookies();
   }
 
 

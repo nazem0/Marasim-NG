@@ -61,7 +61,7 @@ export class AuthService {
       this.Router.navigate(["/vendor"]);
     }
     else
-    this.Router.navigate(["/home"]);
+    this.Router.navigate(["/"]);
   }
   removeCookies() {
     console.log("cookies removed");

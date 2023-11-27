@@ -13,9 +13,19 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { SharedModule } from '../Shared/Shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { WithdrawalComponent } from './components/withdrawal/withdrawal.component';
 
 
 @NgModule({
+  imports: [
+    CommonModule,
+    AdminRoutingRoutes,
+    NgChartsModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
+  ],
   declarations: [
     LayoutComponent,
     CategoriesComponent,
@@ -25,15 +35,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReservationsComponent,
     HomeComponent,
     DashboardComponent,
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingRoutes,
-    NgChartsModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
+    WithdrawalComponent
   ]
 })
 export class AdminModule { }

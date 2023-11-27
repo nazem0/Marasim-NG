@@ -29,7 +29,7 @@ export class PaymentsComponent implements OnInit {
         this.Toastr.success("تم تأكيد الدفع");
       },
       error: (error) => {
-        this.Toastr.success("", "حدث خطأ");
+        this.Toastr.error("", "حدث خطأ");
         console.log(error);
       }
     })

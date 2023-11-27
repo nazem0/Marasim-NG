@@ -21,7 +21,11 @@ export class WithdrawalService {
     }
 
     GetAll(PageIndex = 1, PageSize = 2): Observable<PaginationViewModel<Withdrawal>> {
-        return this.HttpClient.get<PaginationViewModel<Withdrawal>>(`${environment.apiUrl}/Withdrawal/GetWithdrawals/${PageIndex}?PageSize=${PageSize}`)
+        return this.HttpClient.get<PaginationViewModel<Withdrawal>>(`${environment.apiUrl}/Withdrawal/Get/${PageIndex}?PageSize=${PageSize}`)
+    }
+
+    Confirm(withdrawalId: number) {
+        return this.HttpClient.get(`${environment.apiUrl}/Withdrawal/Confirm/${withdrawalId}`)
     }
 
 }
