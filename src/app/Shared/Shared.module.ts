@@ -31,7 +31,7 @@ import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
 import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 import { TruncatePipe } from '../Pipes/Truncate.pipe';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
-import { EditPostComponent } from './components/post/edit-post/edit-post.component';
+import { EditPostComponent } from '../Vendor/components/edit-post/edit-post.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NullToSpacePipe } from '../Pipes/NullToSpacePipe.pipe';
 import { VendorCarouselComponent } from './components/vendor-carousel/vendor-carousel.component';
@@ -80,7 +80,6 @@ import { WalkthroughComponent } from './components/landing/walkthrough/walkthrou
     FollowerComponent,
     VendorFollowingVendorComponent,
     DeleteModalComponent,
-    EditPostComponent,
     VendorCarouselComponent,
     VendorCardComponent,
     NoResultSearchComponent,

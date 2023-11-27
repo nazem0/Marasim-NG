@@ -7,11 +7,9 @@ import { SharedModule } from '../Shared/Shared.module';
 import { LayoutComponent } from './layout/layout.component';
 import { CreateOfferComponent } from './components/vendor-services/action-buttons/create-offer/create-offer.component';
 import { VendorReviewsComponent } from './components/vendor-reviews/vendor-reviews.component';
-import { WorkHistoryComponent } from './components/work-history/work-history.component';
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { ReservationItemComponent } from './components/reservation/reservation-item/reservation-item.component';
-import { CreatePostComponent } from './components/work-history/create-post/create-post.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
 import { ProfileVendorsideComponent } from './components/profile-vendorside/profile-vendorside.component';
@@ -28,6 +26,9 @@ import { CreateServiceComponent } from './components/create-service/create-servi
 import { VDashboardComponent } from './layout/v-dashboard/v-dashboard.component';
 import { VendorNavToggleComponent } from './components/vendor-nav-toggle/vendor-nav-toggle.component';
 import { EditServiceAttachmentsComponent } from './components/edit-service-attachments/edit-service-attachments.component';
+import { VendorPostsComponent } from './components/vendor-posts/vendor-posts.component';
+import { CreatePostComponent } from './components/vendor-posts/create-post/create-post.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 
 @NgModule({
   imports: [
@@ -44,8 +45,9 @@ import { EditServiceAttachmentsComponent } from './components/edit-service-attac
   ],
   declarations: [
     CreateOfferComponent,
+    EditPostComponent,
     VendorReviewsComponent,
-    WorkHistoryComponent,
+    VendorPostsComponent,
     ReservationComponent,
     ReservationItemComponent,
     VendorServicesComponent,
