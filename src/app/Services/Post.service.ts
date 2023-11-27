@@ -8,7 +8,9 @@ import { PaginationViewModel } from '../Models/PaginationViewModel';
 @Injectable({ providedIn: 'root' })
 export class PostService {
   constructor(private HttpClient: HttpClient) { }
-
+  getById(postId:number):Observable<IPost>{
+    return this.HttpClient.get<IPost>(`${environment.apiUrl}/Post/GetById/${postId}`)
+  }
   //Posts Requests
 
   Add(Post: any) {
