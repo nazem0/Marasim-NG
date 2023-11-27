@@ -1,18 +1,30 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, type OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PaginationViewModel } from 'src/app/Models/PaginationViewModel';
+import { Withdrawal } from 'src/app/Models/Withdrawal';
+import { WithdrawalService } from 'src/app/Services/Withdrawal.service';
 
 @Component({
   selector: 'app-withdrawal',
-  standalone: true,
-  imports: [
-    CommonModule,
-  ],
   templateUrl: './withdrawal.component.html',
   styleUrls: ['./withdrawal.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WithdrawalComponent implements OnInit {
+  Withdrawals: PaginationViewModel<Withdrawal> | null = null;
 
-  ngOnInit(): void { }
+  constructor(private WithdrawalService: WithdrawalService) { }
 
+  ngOnInit() { 
+    this.getData();
+  }
+
+  getData() {
+    this.WithdrawalService.GetAll().subscribe({
+      next: (result) => {
+        this.Withdrawals = result;
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+  }
 }

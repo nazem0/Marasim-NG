@@ -1,1 +1,39 @@
-<p>withdrawal works!</p>,
+<main class="container">
+    <h1 class="text-center text-primary my-5">عمليات السحب</h1>
+    <div class="d-flex gap-2 flex-wrap justify-content-center my-3">
+    </div>
+
+    <div class="d-flex flex-column justify-content-center">
+        <div class="table-responsive-md ">
+            <table class="table table-white text-primary text-center border ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col text-primary">مقدم الخدمة</th>
+                        <th scope="col" class="col text-primary">حساب العميل</th>
+                        <th scope="col" class="col text-primary">المبلغ</th>
+                        <th scope="col" class="col text-primary">تاريخ الطلب</th>
+                        <th scope="col" class="col text-primary">تأكيد الطلب</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="Withdrawals">
+                    <tr *ngFor="let withdrawal of Withdrawals.data">
+                        <td>{{withdrawal.vendor.name}}</td>
+                        <td>{{withdrawal.instaPay}}</td>
+                        <td>{{withdrawal.totalWithdrawal.toLocaleString("ar-EG")}}</td>
+                        <td>{{withdrawal.dateTime | dateFormatArabic}}</td>
+                        <td class="d-flex gap-2 justify-content-center">
+                            <button title="تأكيد الدفع" type="button" class="primary-btn">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <ng-template #done>
+                                <button title="تأكيد الدفع" type="button" class="danger-btn">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </ng-template>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

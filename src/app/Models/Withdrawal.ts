@@ -6,5 +6,6 @@ export interface Withdrawal {
     dateTime: string,
     isConfirmed: boolean,
     vendor: IVendorMinInfo,
+    totalWithdrawal: number,
     payments: Payment[]
 }
