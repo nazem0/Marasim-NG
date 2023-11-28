@@ -23,7 +23,7 @@ export class InvitationComponent implements OnInit {
   }
   getData() {
     this.invitationId = parseInt(this.ActivatedRoute.snapshot.paramMap.get("id")!)
-    this.InvitationService.get(this.invitationId).subscribe({
+    this.InvitationService.getById(this.invitationId).subscribe({
       next: (response) => {
         this.invitation = response
         console.log(response)

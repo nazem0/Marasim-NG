@@ -25,7 +25,7 @@ export class NavBarComponent {
   ) {
     this.isVendor = this.CookieService.get('Role').includes('vendor');
     this.isUser = this.CookieService.get('Role').includes('user');
-    this.InvetationService.getInvitaionId().subscribe({
+    this.InvetationService.getInvitaions().subscribe({
       next: (result) => {
         this.invitations = result;
       },

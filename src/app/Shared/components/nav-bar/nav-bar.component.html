@@ -55,13 +55,12 @@
                                         <li><a class="dropdown-item" routerLink="generate-package"
                                                 routerLinkActive="active">انشاء باقتك الخاصة</a></li>
                                         <ng-container *ngIf="invitations">
-                                            <ng-container
-                                                *ngIf="invitations.length || invitations == null ; else elseTemplete">
+                                            <ng-container *ngIf="invitations.length == 0; else elseTemplete">
                                                 <li><a class="dropdown-item" routerLink="create-invitation"
                                                         routerLinkActive="active">انشاء دعوة</a></li>
                                             </ng-container>
                                             <ng-template #elseTemplete>
-                                                <li><a class="dropdown-item" routerLink="invitations"
+                                                <li><a class="dropdown-item" routerLink="invitation"
                                                         routerLinkActive="active">دعوتك الخاصة</a></li>
                                             </ng-template>
                                         </ng-container>

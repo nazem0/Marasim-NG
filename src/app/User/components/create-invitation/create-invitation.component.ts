@@ -1,6 +1,7 @@
 import { InvitationService } from './../../../Services/invitation.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -17,7 +18,8 @@ export class CreateInvitationComponent {
   constructor(
     private fb: FormBuilder,
     private InvitationService: InvitationService,
-    private Toastr:ToastrService
+    private Toastr: ToastrService,
+    private Router: Router
   ) {
     this.data = new FormData();
     this.form = this.fb.group({
@@ -42,6 +44,7 @@ export class CreateInvitationComponent {
       this.InvitationService.add(this.data).subscribe({
         next: () => {
           this.Toastr.success('تم إنشاء الدعوة');
+          this.Router.navigate(["/invitation"])
         },
         error: (error) => {
           console.log(error);

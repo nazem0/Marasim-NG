@@ -1,1 +1,24 @@
-<p>invitations works!</p>,
+<div *ngIf="invitations" class="container">
+    <div *ngIf="invitations.length > 0; else none">
+        <div class="row row-cols-md-4 justify-content-center g-3">
+            <div *ngFor="let invitation of invitations">
+                <div class="card rounded-3">
+                    <a class="text-decoration-none" routerLink="/invitation/{{invitation.id}}">
+                        <div class="ribbon-2">{{invitation.id.toLocaleString("ar-EG")}}</div>
+                        <img class="rounded-top-3"
+                            src="{{apiUrl}}/{{invitation.userId}}/invitation/{{invitation.posterUrl}}">
+                        <p class="text-primary pt-2">{{invitation.date | dateFormatArabic}}</p>
+                    </a>
+                    <button class="danger-btn mx-auto mb-2" (click)="delete(invitation.id)">حذف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #none>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-primary mt-3 fs-1">لا توجد دعوات </h1>
+            <p class="text-muted mt-3">قم بإنشاء دعوتك الخاصة الآن</p>
+            <button class="fs-5 primary-btn mx-auto my-3" routerLink="create-invitation">إضافة</button>
+        </div>
+    </ng-template>
+</div>

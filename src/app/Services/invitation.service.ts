@@ -8,15 +8,19 @@ import { Invitation } from '../Models/Invitation';
 })
 export class InvitationService {
 
-  constructor(private HttpClient:HttpClient) { }
-  add(Data:any){
-    return this.HttpClient.post(`${environment.apiUrl}/Invitation/Add`,Data)
+  constructor(private HttpClient: HttpClient) { }
+  add(Data: any) {
+    return this.HttpClient.post(`${environment.apiUrl}/Invitation/Add`, Data)
   }
-  get(Id:number){
+  getById(Id: number) {
     return this.HttpClient.get<Invitation>(`${environment.apiUrl}/Invitation/Get/${Id}`)
   }
 
-  getInvitaionId(){
+  getInvitaions() {
     return this.HttpClient.get<Invitation[]>(`${environment.apiUrl}/Invitation/GetByUserId/`)
+  }
+
+  delete(Id: number) {
+    return this.HttpClient.get(`${environment.apiUrl}/Invitation/Delete/${Id}`)
   }
 }

@@ -34,6 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
 import { NoFollowsComponent } from './components/no-follows/no-follows.component';
 import { GeneratePackageComponent } from './components/generate-package/generate-package.component';
+import { InvitationsComponent } from './components/invitations/invitations.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { GeneratePackageComponent } from './components/generate-package/generate
     UserEditProfileComponent,
     CoverComponent,
     InvitationComponent,
+    InvitationsComponent,
     CounterComponent,
     BrideGroomComponent,
     GeneratedPackagesComponent,
