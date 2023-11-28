@@ -26,7 +26,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FollowersComponent } from '../Vendor/components/followers/followers.component';
 import { FollowerComponent } from '../Vendor/components/followers/follower/follower.component';
-import { VendorFollowingVendorComponent } from './components/vendor-following-vendor/vendor-following-vendor.component';
 import { DEFAULT_PSM_OPTIONS } from 'angular-password-strength-meter/zxcvbn';
 import { DateFormatArabicPipe } from '../Pipes/DateFormatArabic.pipe';
 import { TruncatePipe } from '../Pipes/Truncate.pipe';
@@ -78,7 +77,6 @@ import { WalkthroughComponent } from './components/landing/walkthrough/walkthrou
     FooterComponent,
     FollowersComponent,
     FollowerComponent,
-    VendorFollowingVendorComponent,
     DeleteModalComponent,
     VendorCarouselComponent,
     VendorCardComponent,
@@ -105,7 +103,6 @@ import { WalkthroughComponent } from './components/landing/walkthrough/walkthrou
     FooterComponent,
     FollowersComponent,
     FollowerComponent,
-    VendorFollowingVendorComponent,
     DateFormatArabicPipe,
     TruncatePipe,
     NullToSpacePipe,

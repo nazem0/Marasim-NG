@@ -21,7 +21,6 @@ import { NoFollowsComponent } from './components/no-follows/no-follows.component
 import { NoResultSearchComponent } from '../Shared/components/no-result-search/no-result-search.component';
 import { LandingComponent } from '../Shared/components/landing/landing.component';
 import { VendorRegisterationComponent } from '../Shared/components/vendor-register/vendor-register.component';
-import { VendorFollowingVendorComponent } from '../Shared/components/vendor-following-vendor/vendor-following-vendor.component';
 import { ViewVendorsComponent } from './components/view-vendors/view-vendors.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
@@ -53,7 +52,6 @@ const routes: Routes = [
       { path: "no-follows", component: NoFollowsComponent },
       { path: "no-result", component: NoResultSearchComponent },
       { path: "reservation", component: ReservationsComponent },
-      { path: "vendorfvendor", component: VendorFollowingVendorComponent },
       { path: "vendors-filteration/:pageIndex", component: VendorsFilterComponent },
       { path: "request-service/:serviceId", component: RequestServiceComponent },
       { path: 'invitation', component: InvitationsComponent }
