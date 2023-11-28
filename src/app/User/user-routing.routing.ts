@@ -5,7 +5,7 @@ import { CheckoutLoadingComponent } from './components/checkout//checkout-loadin
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { Routes, RouterModule } from '@angular/router';
 import { GeneratedPackagesComponent } from './components/generated-packages/generated-packages.component';
-import { InvitationComponent } from './components/invitation/invitation.component';
+import { InvitationComponent } from './components/invitations/invitation/invitation.component';
 import { UserEditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { InvitationListComponent } from './components/invitation-list/invitation-list.component';
 import { UserCheckListComponent } from './components/user-check-list/user-check-list.component';
@@ -27,12 +27,10 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { VendorsFilterComponent } from './components/vendors-filter/vendors-filter.component';
 import { GeneratePackageComponent } from './components/generate-package/generate-package.component';
 import { RequestServiceComponent } from '../Shared/components/request-service/request-service.component';
-
-
-
+import { InvitationsComponent } from './components/invitations/invitations.component';
 
 const routes: Routes = [
-  { path: "", component: LandingComponent,pathMatch:"full" },
+  { path: "", component: LandingComponent, pathMatch: "full" },
 
   {
     path: '', component: LayoutComponent, children: [
@@ -56,21 +54,16 @@ const routes: Routes = [
       { path: "no-result", component: NoResultSearchComponent },
       { path: "reservation", component: ReservationsComponent },
       { path: "vendorfvendor", component: VendorFollowingVendorComponent },
-      { path: "vendors-filteration/:pageIndex", component:VendorsFilterComponent},
-      {path:"request-service/:serviceId",component:RequestServiceComponent}
-      
+      { path: "vendors-filteration/:pageIndex", component: VendorsFilterComponent },
+      { path: "request-service/:serviceId", component: RequestServiceComponent },
+      { path: 'invitation', component: InvitationsComponent }
     ],
   },
-  { path: 'invitation/:id', component: InvitationComponent},
+  { path: 'invitation/:id', component: InvitationComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'vendor-registeration', component: VendorRegisterationComponent },
-
   { path: 'login', component: LoginComponent },
   { path: "contact", component: ContactComponent },
-
-
-
-
 ];
 
 export const UserRoutes = RouterModule.forChild(routes);

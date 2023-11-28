@@ -17,6 +17,6 @@ export class InvitationService {
   }
 
   getInvitaionId(){
-    return this.HttpClient.get<number>(`${environment.apiUrl}/Invitation/GetByUserId/`)
+    return this.HttpClient.get<Invitation[]>(`${environment.apiUrl}/Invitation/GetByUserId/`)
   }
 }

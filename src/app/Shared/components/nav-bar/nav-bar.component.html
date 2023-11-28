@@ -54,14 +54,17 @@
                                                 routerLinkActive="active">المتابعون</a></li>
                                         <li><a class="dropdown-item" routerLink="generate-package"
                                                 routerLinkActive="active">انشاء باقتك الخاصة</a></li>
-                                        <ng-container *ngIf="invetationId == 0 || invetationId == null ; else elseTemplete">
-                                            <li><a class="dropdown-item" routerLink="create-invitation"
-                                                    routerLinkActive="active">انشاء دعوة</a></li>
+                                        <ng-container *ngIf="invitations">
+                                            <ng-container
+                                                *ngIf="invitations.length || invitations == null ; else elseTemplete">
+                                                <li><a class="dropdown-item" routerLink="create-invitation"
+                                                        routerLinkActive="active">انشاء دعوة</a></li>
+                                            </ng-container>
+                                            <ng-template #elseTemplete>
+                                                <li><a class="dropdown-item" routerLink="invitations"
+                                                        routerLinkActive="active">دعوتك الخاصة</a></li>
+                                            </ng-template>
                                         </ng-container>
-                                        <ng-template #elseTemplete>
-                                            <li><a class="dropdown-item" routerLink="invitation/{{invetationId}}"
-                                                    routerLinkActive="active">دعوتك الخاصة</a></li>
-                                        </ng-template>
                                     </ng-container>
                                     <ng-container *ngIf="isVendor">
                                         <li>

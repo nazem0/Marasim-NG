@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/Services/Auth.service';
 import { environment } from 'src/environments/environment.development';
 import { UserService } from 'src/app/Services/User.service';
 import { InvitationService } from 'src/app/Services/invitation.service';
+import { Invitation } from 'src/app/Models/Invitation';
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,7 +15,7 @@ export class NavBarComponent {
   apiUrl = environment.serverUrl;
   isUser: boolean = false;
   isVendor: boolean = false;
-  invetationId: number | null = null;
+  invitations: Invitation[] | null = null;
 
   constructor(
     public AuthService: AuthService,
@@ -26,7 +27,7 @@ export class NavBarComponent {
     this.isUser = this.CookieService.get('Role').includes('user');
     this.InvetationService.getInvitaionId().subscribe({
       next: (result) => {
-        this.invetationId = result;
+        this.invitations = result;
       },
       error: (error) => {
         console.log(error);
