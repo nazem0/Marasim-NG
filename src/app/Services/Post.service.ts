@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IComment, IPost, IReaction } from '../Models/IPost';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { PaginationViewModel } from '../Models/PaginationViewModel';
 
 @Injectable({ providedIn: 'root' })

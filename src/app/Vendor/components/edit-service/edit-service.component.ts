@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IService } from 'src/app/Models/IService';
 import { ServiceService } from 'src/app/Services/service.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 
 @Component({

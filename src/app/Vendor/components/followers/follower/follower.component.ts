@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/User.service';
 import { IFollowUser } from 'src/app/Models/IFollow';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-follower',

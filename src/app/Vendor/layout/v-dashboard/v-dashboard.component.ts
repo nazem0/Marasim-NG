@@ -1,7 +1,7 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/Services/Auth.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { UserService } from 'src/app/Services/User.service';
 
 @Component({

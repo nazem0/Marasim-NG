@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostBinding, Input } from '@angular/core';
 import { IServiceAttachmentCustom } from 'src/app/Models/IService';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 

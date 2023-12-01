@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IFollowVendor } from 'src/app/Models/IFollow';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { FollowService } from 'src/app/Services/Follow.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/Services/User.service';

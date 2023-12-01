@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostBinding, Input } from '@angul
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { IVendorMidInfo } from 'src/app/Models/IVendor';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { UserService } from 'src/app/Services/User.service';
 
 @Component({

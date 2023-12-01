@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Invitation } from 'src/app/Models/Invitation';
 import { InvitationService } from 'src/app/Services/invitation.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-invitations',

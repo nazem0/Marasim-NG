@@ -4,7 +4,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { IReview, ReviewList } from '../Models/IReview';
 import { IVendor } from '../Models/IVendor';
 import { IUser } from '../Models/IUser';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPostAttachment } from 'src/app/Models/IPost';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-attachments',

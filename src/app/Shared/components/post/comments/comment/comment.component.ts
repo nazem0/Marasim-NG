@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IComment } from 'src/app/Models/IPost';
 import { UserService } from 'src/app/Services/User.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-comment',
