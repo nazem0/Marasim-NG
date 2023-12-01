@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 import { IFollowUser, IFollowVendor } from '../Models/IFollow';
 import { PaginationViewModel } from '../Models/PaginationViewModel';
