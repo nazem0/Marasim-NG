@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
-    apiUrl :'https://localhost:7295/api',
-    serverUrl:'https://localhost:7295/'
+    production: true,
+    apiUrl :'https://marasim.bsite.net/api',
+    serverUrl:'https://marasim.bsite.net/'
 };
