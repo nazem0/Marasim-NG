@@ -44,7 +44,7 @@
               <img class="vendor-img" [src]="this.UserService.GetProfilePicUrl(vendor.userId ,vendor.picUrl)" alt="">
               <span class="mx-2">{{vendor.name}}</span>
             </td>
-            <td>ssssssss</td>
+            <td>{{vendor.registrationDate | dateFormatArabic}}</td>
             <td>{{vendor.category}}</td>
             <td class="">
               <button type="button" class="primary-btn" routerLink="/vendors/{{vendor.id}}">عرض</button>

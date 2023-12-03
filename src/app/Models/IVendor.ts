@@ -35,6 +35,7 @@ export interface IVendorMidInfo {
   district: string,
   governorate: string,
   street?: string | null,
+  registrationDate: string
 }
 
 export interface address {
