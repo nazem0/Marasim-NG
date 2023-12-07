@@ -31,7 +31,7 @@ export class CreateServiceComponent {
     if (this.formIsValid) {
       this.data.set('Title', this.serviceForm.get('Title')?.value);
       this.data.set('Description', this.serviceForm.get('Description')?.value);
-      this.data.set('Price', this.serviceForm.get('Price')?.value);
+      this.data.set('Price', this.serviceForm.get('Price')?.value.toFixed());
       for (let i = 0; i < this.UploadedPictures?.nativeElement.files.length; i++) {
         this.data.append('Pictures', this.UploadedPictures?.nativeElement.files[i]);
       }
