@@ -100,7 +100,7 @@
     <!-- End About -->
 
     <!-- Posts -->
-    <section id="Posts" *ngIf="vendor?.posts!.length > 0 || vendor?.posts != null">
+    <section id="Posts" *ngIf="vendor?.posts!.length > 0 && vendor?.posts != null">
       <div class="py-3">
         <h2 class="text-primary">المنشورات</h2>
         <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
@@ -125,7 +125,7 @@
     <!-- End Reviews -->
 
     <!-- Services -->
-    <section id="Services" *ngIf="vendor?.services!.length > 0 || vendor?.services != null">
+    <section id="Services" *ngIf="vendor?.services!.length > 0 && vendor?.services != null">
       <div class="py-3">
         <h2 class="text-primary">الخدمات المتاحة</h2>
         <br>

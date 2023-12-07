@@ -39,7 +39,7 @@
         <!-- End About -->
 
         <!-- Posts -->
-        <section id="Posts" *ngIf="vendor?.posts!.length > 0 || vendor?.posts != null">
+        <section id="Posts" *ngIf="vendor?.posts!.length > 0 && vendor?.posts != null">
             <div class="py-3">
                 <h2 class="text-primary">المنشورات</h2>
                 <div>
@@ -64,7 +64,7 @@
         <!-- End Reviews -->
 
         <!-- Services -->
-        <section id="Services" *ngIf="vendor?.services!.length > 0 || vendor?.services != null">
+        <section id="Services" *ngIf="vendor?.services!.length > 0 && vendor?.services != null">
             <div class="py-3">
                 <h2 class="text-primary">الخدمات المتاحة</h2>
                 <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
