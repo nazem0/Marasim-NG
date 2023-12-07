@@ -108,7 +108,7 @@
         <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
           <app-post [post]="post"></app-post>
         </div>
-        <button class="primary-btn">اعرض المزيد</button>
+        <!-- <button class="primary-btn">اعرض المزيد</button> -->
       </div>
     </section>
     <!-- End Posts -->
@@ -119,11 +119,11 @@
     <section id="Reviews">
       <div class="py-3">
         <h2 class="text-primary">المراجعات</h2>
-        <div *ngFor="let review of reviews | slice:0:2" class="vstack gap-4 mt-5">
+        <div *ngFor="let review of reviews | slice:0:3" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
         </div>
         <br>
-        <button class="primary-btn">اعرض المزيد</button>
+        <!-- <button class="primary-btn">اعرض المزيد</button> -->
       </div>
     </section>
     <!-- End Reviews -->

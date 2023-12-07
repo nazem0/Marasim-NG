@@ -47,7 +47,6 @@
                         <app-post [post]="post"></app-post>
                     </div>
                 </div>
-                <button class="primary-btn">اعرض المزيد</button>
             </div>
         </section>
         <!-- End Posts -->
@@ -56,10 +55,10 @@
         <section id="Reviews">
             <div class="py-3">
                 <h2 class="text-primary">المراجعات</h2>
-                <div *ngFor="let review of reviews" class="vstack gap-4 mt-5">
+                <div *ngFor="let review of reviews | slice:0:3" class="vstack gap-4 mt-5">
                     <app-review [Review]="review"></app-review>
-                    <hr class="m-0" />
                 </div>
+                <br>
             </div>
         </section>
         <!-- End Reviews -->
