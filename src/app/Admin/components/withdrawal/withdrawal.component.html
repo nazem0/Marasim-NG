@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody *ngIf="Withdrawals">
-                    <tr *ngFor="let withdrawal of Withdrawals.data">
+                    <tr *ngFor="let withdrawal of Withdrawals.data | paginate: config">
                         <td>{{withdrawal.vendor.name}}</td>
                         <td>{{withdrawal.instaPay}}</td>
                         <td>{{withdrawal.totalWithdrawal.toLocaleString("ar-EG")}}</td>
@@ -33,6 +33,9 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls class="pagination" [responsive]="true"
+        previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
+        [id]="config.id!"></pagination-controls>
         </div>
     </div>
 </main>

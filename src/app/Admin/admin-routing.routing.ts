@@ -17,7 +17,7 @@ const routes: Routes = [
       {path:"users/:page",component:ViewUsersComponent},
       {path:"categories",component:CategoriesComponent},
       {path:"payments",component:PaymentsComponent},
-      {path:"withdrawals",component:WithdrawalComponent},
+      {path:"withdrawals/:page",component:WithdrawalComponent},
 
     ]
   },
