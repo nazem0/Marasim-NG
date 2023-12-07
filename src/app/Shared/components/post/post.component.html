@@ -10,8 +10,8 @@
         <span class="text-muted">{{post.dateTime | dateFormatArabic}}</span>
       </div>
 
-      <app-delete-modal *ngIf="isVendor" class="topleft" (delete)="deletePost()"></app-delete-modal>
-      <a class="btn warning-btn" routerLink="../edit/{{post.id}}" [relativeTo]="activatedRoute">
+      <!-- <app-delete-modal *ngIf="isVendor" class="topleftnext" (delete)="deletePost()"></app-delete-modal> -->
+      <a *ngIf="isVendor" class="btn warning-btn topleft" routerLink="../edit/{{post.id}}" [relativeTo]="activatedRoute">
         <i class="fa-solid fa-pen-to-square"></i></a>
     </div>
 
