@@ -83,9 +83,6 @@
         <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Services')">
           الخدمات
         </button>
-        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('VendorMap')">
-          الموقع
-        </button>
       </div>
       <hr>
     </div>
@@ -104,17 +101,17 @@
 
 
 
-    <!-- Work History -->
+    <!-- Posts -->
     <section id="WorkHistory">
       <div class="py-3">
         <h2 class="text-primary">المنشورات</h2>
         <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
           <app-post [post]="post"></app-post>
         </div>
-        <button class="primary-btn">اعرض المزيد</button>
+        <!-- <button class="primary-btn">اعرض المزيد</button> -->
       </div>
     </section>
-    <!-- End Work History -->
+    <!-- End Posts -->
 
 
 
@@ -122,11 +119,11 @@
     <section id="Reviews">
       <div class="py-3">
         <h2 class="text-primary">المراجعات</h2>
-        <div *ngFor="let review of reviews | slice:0:2" class="vstack gap-4 mt-5">
+        <div *ngFor="let review of reviews | slice:0:3" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
         </div>
         <br>
-        <button class="primary-btn">اعرض المزيد</button>
+        <!-- <button class="primary-btn">اعرض المزيد</button> -->
       </div>
     </section>
     <!-- End Reviews -->
@@ -145,27 +142,6 @@
       </div>
     </section>
     <!-- End Services -->
-
-
-    <!-- Map -->
-    <ng-container *ngIf="vendor">
-      <section id="VendorMap">
-        <div class="py-3">
-          <h2 class="text-primary py-3">موقعنا</h2>
-          <div class="ms-5"> <img class="map" title="موقع مقدم الخدمة" src="https://maps.googleapis.com/maps/api/staticmap?center={{
-            vendor.latitude
-            }},{{
-              vendor.longitude
-            }}&zoom=14&markers=scale:2%7Cicon:https://cdn1.weddingwire.com/assets/img/maps/below-the-fold/bg_marker-pushpin.png%7Clabel:S%7C{{
-              vendor.latitude
-            }},{{
-              vendor.longitude
-            }}&size=760x420&scale=2&key=AIzaSyCO8NM_maRZpRNxzMym0jS5TqplqHtrWV8&language=en" />
-          </div>
-        </div>
-      </section>
-    </ng-container>
-    <!-- End Map -->
   </div>
   <!-- End Main Component -->
 

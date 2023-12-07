@@ -1,9 +1,9 @@
 import { UserMinInfo } from "./IUser";
-import { IVendorMinInfo } from "./IVendor";
 import { AdminReservation } from "./Reservation";
 
 export interface Payment {
     instaPay: string,
+    amount: number,
     dateTime:string,
     reservation: AdminReservation
 }
@@ -11,7 +11,7 @@ export interface Payment {
 export interface VendorPayment{
     userId: string;
     serviceTitle: string;
-    price: number;
+    amount: number;
     dateTime: string;
     user: UserMinInfo;
 }

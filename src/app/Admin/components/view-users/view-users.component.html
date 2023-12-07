@@ -32,7 +32,7 @@
               <img class="vendor-img" [src]="this.UserService.GetProfilePicUrl(user.id, user.picUrl)" alt="">
               <span class="mx-2">{{user.name}}</span>
             </td>
-            <td>dateofregister</td>
+            <td>{{user.registrationDate | dateFormatArabic}}</td>
             <td class="">
               <button type="button" class="primary-btn">عرض</button>
               <!-- <button type="button" class="danger-btn">حذف</button> -->

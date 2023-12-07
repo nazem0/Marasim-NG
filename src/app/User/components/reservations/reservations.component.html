@@ -1,5 +1,5 @@
 <h1 class="text-center py-5 text-primary">الحجـــــوزات</h1>
-<div class="container mt-5" >
+<div *ngIf="Reservations" class="container mt-5">
 
 
   <div class="tabs-box">
@@ -46,7 +46,7 @@
 
 
   </div>
-  <div class="content-box" >
+  <div class="content-box">
     <div class="content" [class.active]="activeTab === 'p'">
       <table class="table ">
         <thead>
@@ -59,7 +59,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations!.data | paginate: config ,let i=index">
+          <ng-container *ngFor="let Reservation of Reservations.data | paginate: config ,let i=index">
 
             <tr>
               <th scope="row">{{i+1}}</th>
@@ -91,7 +91,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations!.data | paginate: config ,let i=index">
+          <ng-container *ngFor="let Reservation of Reservations.data | paginate: config ,let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -127,7 +127,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations!.data | paginate: config ,let i=index">
+          <ng-container *ngFor="let Reservation of Reservations.data | paginate: config ,let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -161,7 +161,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations!.data | paginate: config ,let i=index">
+          <ng-container *ngFor="let Reservation of Reservations.data | paginate: config ,let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -199,7 +199,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations!.data | paginate: config ,let i=index">
+          <ng-container *ngFor="let Reservation of Reservations.data | paginate: config ,let i=index">
             <tr>
               <th scope="row">{{i+1}}</th>
               <td class="text-center">
@@ -230,7 +230,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let Reservation of Reservations!.data | paginate: config ,let i=index">
+          <ng-container *ngFor="let Reservation of Reservations.data | paginate: config ,let i=index">
 
             <tr>
 
@@ -270,13 +270,10 @@
         </tbody>
       </table>
     </div>
-    
+
   </div>
-      <pagination-controls class="pagination" [responsive]="true" 
-        *ngIf="Reservations!.count > Reservations!.pageSize" 
-        [previousLabel]="Reservations!.pageIndex > 1 ?  'السابق' :''"
-        [nextLabel]="Reservations!.pageIndex < maxPageIndex ? 'التالي' : ''"
-        nextLabel ="التالي" 
-        (pageChange)="pageChange($event)"
-        [id]="config.id!"></pagination-controls>
+  <pagination-controls class="pagination" [responsive]="true" *ngIf="Reservations.count > Reservations.pageSize"
+    [previousLabel]="Reservations.pageIndex > 1 ?  'السابق' :''"
+    [nextLabel]="Reservations.pageIndex < maxPageIndex ? 'التالي' : ''" nextLabel="التالي"
+    (pageChange)="pageChange($event)" [id]="config.id!"></pagination-controls>
 </div>

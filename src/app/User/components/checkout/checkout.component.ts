@@ -1,4 +1,4 @@
-import { PaymentService } from './../../../Services/Payment.service';
+import { PaymentService } from 'src/app/Services/Payment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/Services/Reservation.service';
 import { Component } from '@angular/core';
@@ -23,9 +23,9 @@ export class CheckoutComponent {
     public UserService: UserService,
     private ReservationService: ReservationService,
     private ActivatedRoute: ActivatedRoute,
-    private PaymentService:PaymentService,
+    private PaymentService: PaymentService,
     private Toastr: ToastrService,
-    private Router : Router
+    private Router: Router
   ) {
     this.data = new FormData();
     this.checkoutForm = new FormGroup({
@@ -42,14 +42,15 @@ export class CheckoutComponent {
   }
 
   submitForm() {
-    if(this.checkoutForm.valid){
+    if (this.checkoutForm.valid) {
       this.data.set('InstaPay', this.checkoutForm.get('InstaPay')?.value);
       this.data.set('ReservationId', this.checkoutForm.get('ReservationId')?.value);
+      this.data.set('Amount', this.Reservation!.price.toFixed());
       console.log(this.checkoutForm.value);
       this.PaymentService.Add(this.data).subscribe(
         {
           next: () => {
-            this.Toastr.success("سيتم تأكيد الدفع في غضون دقائق","عملية دفع ناجحة")
+            this.Toastr.success("سيتم تأكيد الدفع في غضون دقائق", "عملية دفع ناجحة")
             this.Router.navigate(['/reservation'])
           },
           error: (error) => {

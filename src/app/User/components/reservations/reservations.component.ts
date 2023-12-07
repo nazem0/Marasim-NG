@@ -58,7 +58,6 @@ export class ReservationsComponent implements  OnInit {
 
         // Calculate maxPageIndex
         this.maxPageIndex = Math.ceil(response.count / response.pageSize);
-        console.log(this.Reservations);
       }
     })
   }
