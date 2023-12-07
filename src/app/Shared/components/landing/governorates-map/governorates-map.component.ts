@@ -52,6 +52,9 @@ export class GovernoratesMapComponent implements AfterViewInit {
       stateElement.addEventListener('mouseleave', () => {
         this.hideTooltip();
       });
+      stateElement.addEventListener('click', () => {
+        this.hideTooltip();
+      });
     });
   }
   
