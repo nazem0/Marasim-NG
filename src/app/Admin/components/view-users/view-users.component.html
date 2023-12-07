@@ -23,7 +23,7 @@
           <tr>
             <th scope="col" class="fs-4 text-primary">الاسم</th>
             <th scope="col" class="fs-4 text-primary">تاريخ الانضمام</th>
-            <th scope="col" class="fs-4 text-primary">اجراءات</th>
+            <!-- <th scope="col" class="fs-4 text-primary">اجراءات</th> -->
           </tr>
         </thead>
         <tbody>
@@ -33,14 +33,14 @@
               <span class="mx-2">{{user.name}}</span>
             </td>
             <td>{{user.registrationDate | dateFormatArabic}}</td>
-            <td class="">
+            <!-- <td class="">
               <button type="button" class="primary-btn">عرض</button>
-              <!-- <button type="button" class="danger-btn">حذف</button> -->
-            </td>
+              <button type="button" class="danger-btn">حذف</button>
+            </td> -->
           </tr>
         </tbody>
       </table>
-      <pagination-controls class="pagination" [responsive]="true"
+      <pagination-controls *ngIf="Users.count > Users.pageSize" class="pagination" [responsive]="true"
         previousLabel="السابق" nextLabel="التالي" (pageChange)="pageChange($event)"
         [id]="config.id!"></pagination-controls>
     </div>
