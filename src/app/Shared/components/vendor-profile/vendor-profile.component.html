@@ -74,7 +74,7 @@
         <button class="nav-btn btn" (click)="scrollToTargetAdjusted('AboutUs')">
           معلومات عنا
         </button>
-        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('WorkHistory')">
+        <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Posts')">
           المنشورات
         </button>
         <button class="nav-btn btn" (click)="scrollToTargetAdjusted('Reviews')">
@@ -99,10 +99,8 @@
     </section>
     <!-- End About -->
 
-
-
     <!-- Posts -->
-    <section id="WorkHistory">
+    <section id="Posts" *ngIf="vendor?.posts!.length > 0 || vendor?.posts != null">
       <div class="py-3">
         <h2 class="text-primary">المنشورات</h2>
         <div *ngFor="let post of vendor?.posts| slice:0:2" class="my-4">
@@ -113,11 +111,9 @@
     </section>
     <!-- End Posts -->
 
-
-
     <!-- Reviews -->
-    <section id="Reviews">
-      <div class="py-3">
+    <section id="Reviews" *ngIf="reviews">
+      <div class="py-3" *ngIf="reviews.length > 0">
         <h2 class="text-primary">المراجعات</h2>
         <div *ngFor="let review of reviews | slice:0:3" class="vstack gap-4 mt-5">
           <app-review [Review]="review"></app-review>
@@ -129,9 +125,10 @@
     <!-- End Reviews -->
 
     <!-- Services -->
-    <section id="Services">
+    <section id="Services" *ngIf="vendor?.services!.length > 0 || vendor?.services != null">
       <div class="py-3">
         <h2 class="text-primary">الخدمات المتاحة</h2>
+        <br>
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
           <div class="w-100 row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 justify-content-center gap-2">
             <ng-container *ngFor="let service of vendor?.services">
