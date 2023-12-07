@@ -30,7 +30,7 @@
             <div>
               <label for="inputText" class="form-label py-1">النبذة المختصرة</label>
               <textarea type="text" class="form-control py-1" id="inputText" rows="3" [placeholder]="Vendor.summary"
-              formControlName="Summary" style="direction: rtl;"></textarea>
+                formControlName="Summary" style="direction: rtl;"></textarea>
             </div>
 
             <!-- Category -->
@@ -49,52 +49,30 @@
             </div>
           </form>
         </div>
-
-        <div class="card mt-3">
-          <div class="card-body">
-            <div>
-              <label for="update_email_input" class="form-label py-1">
-                تحديث الأيميل</label>
-              <input type="email" class="form-control py-1" id="update_email_input" [placeholder]="User.email" />
-            </div>
-            <div>
-              <label for="inputPassword4" class="form-label py-1">كلمة المرور
-              </label>
-              <input type="password" class="form-control py-1" id="inputPassword4" />
-            </div>
-
-
-            <div class="col-12 mt-3">
-              <button type="submit" class="btn btn-primary w-100">
-                حفظ التغيرات
-              </button>
-            </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div>
+            <label for="update_password_input" class="form-label py-1">كلمة المرور الحالية
+            </label>
+            <input type="password" class="form-control py-1" id="update_password_input" />
           </div>
-        </div>
+          <div>
+            <label for="update_password_input" class="form-label py-1">كلمة المرور الجديدة</label>
+            <input type="password" class="form-control py-1" id="update_password_input" />
+          </div>
+          <div>
+            <label for="update_password_input" class="form-label py-1">تأكيد كلمة المرور الجديدة</label>
+            <input type="password" class="form-control py-1" id="update_password_input" />
+          </div>
 
-        <div class="card mt-3">
-          <div class="card-body">
-            <div>
-              <label for="update_password_input" class="form-label py-1">كلمة المرور الحالية
-              </label>
-              <input type="password" class="form-control py-1" id="update_password_input" />
-            </div>
-            <div>
-              <label for="update_password_input" class="form-label py-1">كلمة المرور الجديدة</label>
-              <input type="password" class="form-control py-1" id="update_password_input" />
-            </div>
-            <div>
-              <label for="update_password_input" class="form-label py-1">تأكيد كلمة المرور الجديدة</label>
-              <input type="password" class="form-control py-1" id="update_password_input" />
-            </div>
-
-            <div class="col-12 mt-3">
-              <button type="submit" class="btn btn-primary w-100">
-                حفظ التغيرات
-              </button>
-            </div>
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary w-100">
+              حفظ التغيرات
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
