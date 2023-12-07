@@ -19,6 +19,7 @@
         </button>
         <div class="my-2">
             <span class="fw-bold fs-5">{{service.title}}</span>
+            <span class="d-block">{{service.price.toLocaleString("ar-EG")}} ج. م.</span>
         </div>
         <div class="mb-3">
             <ng-container *ngIf="AuthService.isLoggedIn | async; else NotLoggedIn">
