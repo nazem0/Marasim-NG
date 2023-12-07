@@ -25,7 +25,7 @@
             <td scope="row">{{payment.reservation.user.name}}</td>
             <td>{{payment.reservation.vendor.name}}</td>
             <td>{{payment.instaPay}}</td>
-            <td>{{(payment.reservation.price * 0.3).toLocaleString("ar-EG")}}</td>
+            <td>{{payment.amount.toLocaleString("ar-EG")}}</td>
             <td>{{payment.reservation.dateTime | dateFormatArabic}}</td>
             <td>{{payment.dateTime | dateFormatArabic}}</td>
             <td class="d-flex gap-2 justify-content-center">
