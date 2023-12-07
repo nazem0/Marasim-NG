@@ -1,4 +1,4 @@
-<a class="text-decoration-none" routerLink="/vendors/{{vendor?.id}}">
+<a class="text-decoration-none" routerLink="/vendors/{{vendor?.id}}" target="_blank">
     <div class="card rounded-0 rounded-bottom-3 ">
         <div class="ribbon-2">{{vendor?.category || "لا يوجد"}}</div>
         <img title="{{vendor?.name || 'لا يوجد'}}" [src]="userService.GetProfilePicUrl(vendor?.userId,vendor?.picUrl)">
