@@ -45,7 +45,7 @@ export class CheckoutComponent {
     if (this.checkoutForm.valid) {
       this.data.set('InstaPay', this.checkoutForm.get('InstaPay')?.value);
       this.data.set('ReservationId', this.checkoutForm.get('ReservationId')?.value);
-      this.data.set('Amount', (this.Reservation!.price * 0.3).toFixed());
+      this.data.set('Amount', this.Reservation!.price.toFixed());
       console.log(this.checkoutForm.value);
       this.PaymentService.Add(this.data).subscribe(
         {
