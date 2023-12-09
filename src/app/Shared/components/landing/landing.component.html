@@ -1,10 +1,10 @@
 <!-- ////////////////////////// -->
-<app-nav-bar></app-nav-bar>
-<div *ngIf="this.AuthService.isLoggedIn| async;else notLoggedNav">
+<ng-container *ngIf="this.AuthService.isLoggedIn| async;else notLoggedNav">
+  <app-nav-bar></app-nav-bar>
   <div class="mt-5 py-5">
     <app-walkthrough></app-walkthrough>
   </div>
-</div>
+</ng-container>
 <!-- Not Logged In ⬇ -->
 <ng-template #notLoggedNav>
   <app-nav2></app-nav2>
@@ -50,7 +50,7 @@
     <div>
       <div class="txt0">
         <h4 class="maintxt text-primary mt-3 mb-3 fs-4">اول موقع لتنظيم الافراح والمناسبات في مصر</h4>
-      <img src="/assets/svg/underline.png" alt="">
+        <img src="/assets/svg/underline.png" alt="">
       </div>
       <div class="txt1 d-flex flex-row gap-2  align-items-center">
         <img style="width: 1.7rem;" src="/assets/gif/row.gif">
