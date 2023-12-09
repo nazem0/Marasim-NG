@@ -313,7 +313,7 @@ height: 60vh;
   font-size: 16px;
   transition: .3s;
   z-index: 1;
-  color: white ;
+  color: var(--primary-color) ;
 }
 
 
@@ -333,11 +333,11 @@ height: 60vh;
 }
 
 .catbutton:hover {
-  color: #111;
+  color: white;
 }
 
 .catbutton:hover::before {
-  width: 105%;
+  width: 100%;
 }
 
 

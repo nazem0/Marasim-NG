@@ -30,17 +30,18 @@ export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const sr = this.ScrollReveal.getScrollReveal();
     sr.reveal('.map-img', { origin: 'left', duration: 2000, distance: '500px' })
-    sr.reveal('.txt1', { origin: 'right', duration: 2000, distance: '500px' })
-    sr.reveal('.txt2', { origin: 'right', duration: 2100, distance: '500px' })
-    sr.reveal('.txt3', { origin: 'right', duration: 2200, distance: '500px' })
-    sr.reveal('.txt4', { origin: 'right', duration: 2300, distance: '500px' })
-    sr.reveal('.ic1', { origin: 'right', duration: 2300, distance: '500px' })
-    sr.reveal('.ic2' , { origin: 'right', duration: 2400, distance: '500px' })
-    sr.reveal('.ic3', { origin: 'right', duration: 2500, distance: '500px' })
-    sr.reveal('.ic4', { origin: 'right', duration: 2600, distance: '500px' })
-    sr.reveal('.cd1' , { origin: 'left', duration: 2000, distance: '500px' })
-    sr.reveal('.cd2', { origin: 'left', duration: 2100, distance: '500px' })
-    sr.reveal('.cd3', { origin: 'left', duration: 2200, distance: '500px' })
+    sr.reveal('.txt0', { origin: 'right', duration: 2100, distance: '500px' })
+    sr.reveal('.txt1', { origin: 'right', duration: 2100, distance: '500px' })
+    sr.reveal('.txt2', { origin: 'right', duration: 2200, distance: '500px' })
+    sr.reveal('.txt3', { origin: 'right', duration: 2300, distance: '500px' })
+    sr.reveal('.txt4', { origin: 'right', duration: 2400, distance: '500px' })
+    sr.reveal('.ic1', { origin: 'right', duration: 2500, distance: '500px' })
+    sr.reveal('.ic2' , { origin: 'right', duration: 2600, distance: '500px' })
+    sr.reveal('.ic3', { origin: 'right', duration: 2700, distance: '500px' })
+    sr.reveal('.ic4', { origin: 'right', duration: 2800, distance: '500px' })
+    sr.reveal('.cd1' , { origin: 'left', duration: 2100, distance: '500px' })
+    sr.reveal('.cd2', { origin: 'left', duration: 2200, distance: '500px' })
+    sr.reveal('.cd3', { origin: 'left', duration: 2300, distance: '500px' })
   }
   ngAfterViewInit(): void {
     let nav = document.querySelector('.navNotLoggedIn');

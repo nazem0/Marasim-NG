@@ -1,6 +1,6 @@
 <!-- ////////////////////////// -->
+<app-nav-bar></app-nav-bar>
 <div *ngIf="this.AuthService.isLoggedIn| async;else notLoggedNav">
-  <app-nav-bar></app-nav-bar>
   <div class="mt-5 py-5">
     <app-walkthrough></app-walkthrough>
   </div>
@@ -48,8 +48,10 @@
 
   <div class="map-photo row row-cols-1 row-cols-md-2 justify-content-between align-items-center ">
     <div>
-      <h4 class="maintxt text-primary mt-3 mb-3 fs-4 ">اول موقع لتنظيم الافراح والمناسبات في مصر</h4>
+      <div class="txt0">
+        <h4 class="maintxt text-primary mt-3 mb-3 fs-4">اول موقع لتنظيم الافراح والمناسبات في مصر</h4>
       <img src="/assets/svg/underline.png" alt="">
+      </div>
       <div class="txt1 d-flex flex-row gap-2  align-items-center">
         <img style="width: 1.7rem;" src="/assets/gif/row.gif">
         <p class="mt-3 fs-5">بسيط وسهل الاستخدام</p>
@@ -67,7 +69,7 @@
         <p class="mt-3 fs-5">توفير الوقت والجهد</p>
       </div>
     </div>
-    <app-governorates-map></app-governorates-map>
+    <app-governorates-map class="map-img"></app-governorates-map>
     <!-- <img class="map-img mt-5" src="assets/svg/egypt.avif" alt="" /> -->
   </div>
 
@@ -114,29 +116,20 @@
       <div class="caddd d-flex flex-row w-100">
 
         <div class="carddd card1">
-          <h1 class="text-white">مصور فوتوغرافي</h1>
-          <button class="catbutton mt-3">
-            اكتشف الان
-          </button>
+          <h1 class="text-white text-shadow">مصور فوتوغرافي</h1>
         </div>
         <div class="carddd card2">
-          <h1 class="text-white"> خبير تجميل</h1>
-          <button class="catbutton mt-3">
-            اكتشف الان
-          </button>
+          <h1 class="text-white text-shadow"> خبير تجميل</h1>
         </div>
         <div class="carddd card3">
-          <h1 class="text-white">منسق حفلات</h1>
-          <button class="catbutton mt-3">
-            اكتشف الان
-          </button>
+          <h1 class="text-white text-shadow">منسق حفلات</h1>
         </div>
       </div>
       <div class="colored-btn d-flex flex-row justify-content-end">
         <div class="circle-cont d-flex flex-column justify-content-center align-items-center mt-3">
-          <img src="../../../../assets/svg/circle.png" style="width:12rem" alt="">
-          <a class="justify-content-end  text-primary  position-absolute  text-decoration-none "
-            routerLink="/vendors">اكتشف المزيد</a>
+          <a class="catbutton text-decoration-none" routerLink="/vendors">
+            اكتشف المزيد
+          </a>
         </div>
       </div>
 
