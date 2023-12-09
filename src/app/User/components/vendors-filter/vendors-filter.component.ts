@@ -25,6 +25,8 @@ import { CategoryName } from 'src/app/Models/ICategory';
   styleUrls: ['./vendors-filter.component.css'],
 })
 export class VendorsFilterComponent implements AfterViewInit {
+  starsArray = Array.from({ length: 5 }, (_, index) => index + 1);
+
   public config: PaginationInstance = {
     id: 'paginationConfig',
     itemsPerPage: 4,
@@ -52,6 +54,7 @@ export class VendorsFilterComponent implements AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
+    console.log(this.starsArray);
     combineLatest([
       this.activatedRoute.paramMap,
       this.activatedRoute.queryParamMap])
@@ -118,6 +121,10 @@ export class VendorsFilterComponent implements AfterViewInit {
           this.form.get('District')?.value == ''
             ? null
             : this.form.get('District')?.value,
+        rate:
+          this.form.get('Rate')?.value == ''
+          ? null
+          : this.form.get('Rate')?.value
       },
       relativeTo:this.activatedRoute
     });
