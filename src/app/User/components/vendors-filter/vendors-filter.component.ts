@@ -36,13 +36,8 @@ export class VendorsFilterComponent implements AfterViewInit {
   vendors: PaginationViewModel<IVendorMidInfo> | null = null;
   categories: CategoryName[] = [];
   categoriesInput: string[] = [];
-  governorateId: string | null = null;
-  cityId: string | null = null;
-  name: string | null = null;
-  district: string | null = null;
   govs: Governorate[] = [];
   cities: City[] = [];
-  rate: string | null = null;
   form: FormGroup;
   constructor(
     private categoryService: CategoryService,
@@ -53,79 +48,62 @@ export class VendorsFilterComponent implements AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    console.log(this.starsArray);
-    combineLatest([
-      this.activatedRoute.paramMap,
-      this.activatedRoute.queryParamMap])
-      .subscribe(([paramsMap, queryParamsMap]) => {
-        if (paramsMap)
-          this.config.currentPage = parseInt(paramsMap?.get('pageIndex')!);
-        if (queryParamsMap) {
-          this.getQueryParams(queryParamsMap);
-        }
-
-        this.getData(this.config.currentPage, queryParamsMap)
-      });
-
     this.form = this.formBuilder.group({
-      PageSize: [this.config.itemsPerPage],
-      Categories: [this.categoriesInput],
-      GovernorateId: [this.governorateId],
-      CityId: [this.cityId],
-      Name: [this.name],
-      District: [this.district],
-      Rate: [this.rate],
+      categories: [],
+      governorateId: [],
+      cityId: [],
+      name: [],
+      district: [],
+      rate: [],
     });
     this.categoryService.GetNames().subscribe({
       next: (categories) => (this.categories = categories),
     });
     this.governorateService.get().subscribe({
-      next: (govs) => (this.govs = govs),
+      next: (govs) => {
+        (this.govs = govs)
+        combineLatest([
+          this.activatedRoute.paramMap,
+          this.activatedRoute.queryParamMap])
+          .subscribe(([paramsMap, queryParamsMap]) => {
+            if (paramsMap)
+              this.config.currentPage = parseInt(paramsMap?.get('pageIndex')!);
+            if (queryParamsMap) {
+              console.log("here");
+              console.log(queryParamsMap.get('cityId'));
+              let govId = queryParamsMap.get("governorateId")
+              govId ? this.getCities(govId) : null;
+              this.form.patchValue({
+                name: queryParamsMap.get('name') || null,
+                categories: queryParamsMap.get('categories') || null,
+                governorateId: queryParamsMap.get('governorateId') || null,
+                cityId: queryParamsMap.get('cityId') || null,
+                district: queryParamsMap.get('district') || null,
+                rate: queryParamsMap.get('rate') || null,
+              })
+            }
+            this.getData(this.config.currentPage, queryParamsMap)
+          });
+      }
     });
+
   }
   ngAfterViewInit(): void {
-    this.gov?.nativeElement.addEventListener('change', () => {
-      this.form.get('CityId')?.setValue(null);
-
-      if (
-        this.gov?.nativeElement.value != '' &&
-        this.gov?.nativeElement.value != '0: null'
-      )
-        this.cityService
-          .getByGovId(this.gov?.nativeElement.value)
-          .subscribe((resp) => (this.cities = resp));
+    this.gov?.nativeElement.addEventListener('change', (e: Event) => {
+      let elem = e.target as HTMLInputElement;
+      let value = elem.value;
+      if (value != '' && value != '0: null') {
+        this.form.patchValue({ cityId: null })
+        this.getCities(value);
+      }
     });
   }
 
   filter() {
+    const queryParams = this.form.value;
     this.router.navigate(['../1'], {
-      queryParams: {
-        name:
-          this.form.get('Name')?.value == ''
-            ? null
-            : this.form.get('Name')?.value,
-        categories:
-          this.form.get('Categories')?.value.join() == ''
-            ? null
-            : this.form.get('Categories')?.value.join(),
-        governorateId:
-          this.form.get('GovernorateId')?.value == ''
-            ? null
-            : this.form.get('GovernorateId')?.value,
-        cityId:
-          this.form.get('CityId')?.value == ''
-            ? null
-            : this.form.get('CityId')?.value,
-        district:
-          this.form.get('District')?.value == ''
-            ? null
-            : this.form.get('District')?.value,
-        rate:
-          this.form.get('Rate')?.value == ''
-          ? null
-          : this.form.get('Rate')?.value
-      },
-      relativeTo:this.activatedRoute
+      queryParams: this.form.value,
+      relativeTo: this.activatedRoute
     });
   }
   getData(pageIndex: number, params: ParamMap) {
@@ -139,6 +117,7 @@ export class VendorsFilterComponent implements AfterViewInit {
         next: (result) => {
           this.noResult = !result.count;
           this.vendors = result;
+          this.vendors.length = result.count;
           this.config.currentPage = result.pageIndex;
           this.config.totalItems = result.count;
           this.config.itemsPerPage = result.pageSize;
@@ -154,29 +133,17 @@ export class VendorsFilterComponent implements AfterViewInit {
     }
 
     // update form control
-    this.form.controls['Categories'].setValue(this.categoriesInput);
+    this.form.controls['categories'].setValue(this.categoriesInput);
   }
   pageChange(newPage: number) {
     this.router.navigate(['../', newPage], { relativeTo: this.activatedRoute, queryParamsHandling: 'merge' })
   }
-  getQueryParams(queryParamsMap:ParamMap){
-    let categoriesParam = queryParamsMap.get('categories')?.split(',');
-          let governorateIdParam = queryParamsMap.get('governorateId');
-          let cityIdParam = queryParamsMap.get('cityId');
-          let nameParam = queryParamsMap.get('name');
-          let districtParam = queryParamsMap.get('district');
-          let rateParam = queryParamsMap.get('rate');
-          if (categoriesParam && categoriesParam.length > 0)
-            this.categoriesInput = categoriesParam;
-          if (governorateIdParam) {
-            this.governorateId = governorateIdParam;
-            this.cityService
-              .getByGovId(this.governorateId)
-              .subscribe((resp) => (this.cities = resp));
-          }
-          if (cityIdParam) this.cityId = cityIdParam;
-          if (nameParam) this.name = nameParam;
-          if (districtParam) this.district = districtParam;
-          if (rateParam) this.rate = rateParam;
+  getCities(govId: string) {
+    this.cityService.getByGovId(govId).subscribe((cities) => this.cities = cities);
+  }
+  clearFilter() {
+    this.router.navigate(['../1'], {
+      relativeTo: this.activatedRoute
+    })
   }
 }
