@@ -17,4 +17,8 @@ export class StatsService {
     return this.HttpClient.get(`${environment.apiUrl}/Reservation/GetTotalSales`)
   }
 
+  getOurTotalProfits(Year:number | string){
+    return this.HttpClient.get(`${environment.apiUrl}/Payment/GetOurTotalProfits/${Year}`)
+  }
+
 }

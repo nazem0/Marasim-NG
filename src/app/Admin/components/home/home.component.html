@@ -33,36 +33,17 @@
   </div>
 
 </div>
-<p class=" container text-start text-dark fs-2 my-2">الاحصائيات</p>
-<div class="d-flex flex-row gap-5 justify-content-center my-2" >
-  <div class="chart-container">
-    <div class="title"></div>
-    <div class="nav">
-    </div>
-    <div class="chart-wrapper">
-      <canvas
-        baseChart
-        width="600"
-        height="400"
-        type="bar"
-        [data]="barChartData"
-      >
-    </canvas>
-    </div>
+<p class="text-start text-dark fs-2 my-2">الاحصائيات</p>
+<select id="year" title="عرض الأرباح لسنة">
+  <ng-container *ngFor="let year of years">
+    <option [value]="year" [selected]="year == currentYear">{{year}}</option>
+  </ng-container>
+</select>
+<div class="chart-container w-100">
+  <div class="title"></div>
+  <div class="nav">
   </div>
-  <div class="chart-container">
-    <div class="title"></div>
-    <div class="nav">
-    </div>
-    <div class="chart-wrapper">
-      <canvas
-        baseChart
-        width="600"
-        height="400"
-        type="line"
-        [data]="lineChartData"
-      ></canvas>
-    </div>
-
+  <div class="chart-wrapper w-100">
+    <canvas class="w-100" baseChart height="400" type="line" [data]="lineChartData" [options]="chartOptions"></canvas>
   </div>
 </div>
