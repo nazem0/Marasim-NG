@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
   numOfPayments: number | null = null;
   years: number[] = [];
   currentYear = new Date().getFullYear();
-  futureYear = this.currentYear +5;
   pastYear = this.currentYear -5;
 
   constructor(
@@ -28,7 +27,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
     private statsService: StatsService
   ) {
 
-    for (let i = this.pastYear; i <= this.futureYear; i++) {
+    for (let i = this.pastYear; i <= this.currentYear; i++) {
       this.years.push(i);
       console.log(this.years);
     }
