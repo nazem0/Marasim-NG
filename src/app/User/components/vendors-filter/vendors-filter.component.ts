@@ -5,7 +5,6 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { IVendorMidInfo } from 'src/app/Models/IVendor';
@@ -14,7 +13,7 @@ import { CategoryService } from 'src/app/Services/Category.service';
 import { Governorate } from 'src/app/Models/governorate';
 import { City } from 'src/app/Models/City';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { combineLatest } from 'rxjs';
 import { CategoryName } from 'src/app/Models/ICategory';
