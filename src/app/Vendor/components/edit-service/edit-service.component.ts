@@ -68,7 +68,7 @@ export class EditServiceComponent {
         .subscribe({
           next: () => {
             this.toastr.success("تم التعديل بنجاح")
-            this.router.navigate([".."],{relativeTo:this.activatedRoute});
+            this.router.navigate(["../.."],{relativeTo:this.activatedRoute});
           },
           error: (error) => {
             console.log(error);
