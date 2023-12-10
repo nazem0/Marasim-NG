@@ -16,7 +16,7 @@ import { ProfileVendorsideComponent } from './components/profile-vendorside/prof
 import { ActionButtonsComponent } from './components/vendor-services/action-buttons/action-buttons.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { StatNavComponent } from './components/statistic/stat-nav.component';
-import {TotalSalesChartComponent } from './components/statistic/total-sales-chart/total-sales-chart.component';
+import { TotalSalesChartComponent } from './components/statistic/total-sales-chart/total-sales-chart.component';
 import { CompletedOrdersChartComponent } from './components/statistic/completed-orders-chart/completed-orders-chart.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { VendorRoutes } from './vendor-routing.routing';
@@ -29,6 +29,7 @@ import { EditServiceAttachmentsComponent } from './components/edit-service-attac
 import { VendorPostsComponent } from './components/vendor-posts/vendor-posts.component';
 import { CreatePostComponent } from './components/vendor-posts/create-post/create-post.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { EditPostAttachmentsComponent } from './components/edit-post-attachments/edit-post-attachments.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
     NgChartsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    ],
+  ],
   exports: [
     FollowersComponent,
   ],
@@ -67,6 +68,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
     VDashboardComponent,
     VendorNavToggleComponent,
     EditServiceAttachmentsComponent,
+    EditPostAttachmentsComponent
   ]
 })
 export class VendorModule { }

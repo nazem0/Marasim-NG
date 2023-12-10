@@ -11,8 +11,12 @@
       </div>
 
       <!-- <app-delete-modal *ngIf="isVendor" class="topleftnext" (delete)="deletePost()"></app-delete-modal> -->
-      <a *ngIf="isVendor" class="btn warning-btn topleft" routerLink="../edit/{{post.id}}" [relativeTo]="activatedRoute">
+      <a *ngIf="isVendor" class="btn warning-btn topleft" routerLink="../edit/{{post.id}}"
+        [relativeTo]="activatedRoute">
         <i class="fa-solid fa-pen-to-square"></i></a>
+      <a *ngIf="isVendor" class="btn warning-btn topleftnext" routerLink="../edit/attachments/{{post.id}}"
+        [relativeTo]="activatedRoute">
+        <i class="fa-solid fa-image"></i></a>
     </div>
 
     <div class="d-flex justify-content-between align-items-center mb-3">

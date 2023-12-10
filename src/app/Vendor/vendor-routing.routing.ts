@@ -13,11 +13,9 @@ import { CreateOfferComponent } from './components/vendor-services/action-button
 import { VendorServicesComponent } from './components/vendor-services/vendor-services.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { VhomeComponent } from './components/vhome/vhome.component';
-import { VendorProfileComponent } from '../Shared/components/vendor-profile/vendor-profile.component';
-import { AttachmentModalComponent } from '../Shared/components/attachment-modal/attachment-modal.component';
 import { EditServiceAttachmentsComponent } from './components/edit-service-attachments/edit-service-attachments.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
-// import { ViewVendorsComponent } from '../User/components/view-vendors/view-vendors.component';
+import { EditPostAttachmentsComponent } from './components/edit-post-attachments/edit-post-attachments.component';
 
 const vendorRoutes: Routes = [
     {
@@ -30,7 +28,8 @@ const vendorRoutes: Routes = [
             { path: 'services/edit/:serviceId', component: EditServiceComponent },
             { path: 'services/edit/attachments/:serviceId', component: EditServiceAttachmentsComponent },
             { path: 'posts/:page', component: VendorPostsComponent },
-            {path :'posts/edit/:postId',component:EditPostComponent},
+            { path: 'posts/edit/:postId', component: EditPostComponent },
+            { path: 'posts/edit/attachments/:postId', component: EditPostAttachmentsComponent },
             { path: 'reservation', component: ReservationComponent },
             { path: 'vendorform', component: VendorFormComponent },
             { path: 'followers/:page', component: FollowersComponent },
@@ -40,7 +39,6 @@ const vendorRoutes: Routes = [
             { path: 'info', component: VhomeComponent },
         ]
     }
-
 ]
 
 export const VendorRoutes = RouterModule.forChild(vendorRoutes);

@@ -1,0 +1,34 @@
+<div class="container pb-3">
+    <h1 class="text-center mt-5 text-primary">تعديـل ملحقات المنشور</h1>
+    <div class="mb-3 d-flex flex-column align-items-center">
+        <label for="upload-files" class="mb-2">
+            <span class="btn btn-primary">
+                <i class="fa fa-plus text-white"></i>
+            </span>
+            <!-- <span class="d-block text-center">
+                {{files?.length?.toLocaleString("ar-EG")}}
+            </span> -->
+        </label>
+        <input class="d-none" type="file" id="upload-files" #uploadedFiles accept="image/*" multiple>
+        <ng-container *ngIf="inputArray">
+            <div class="container row row-cols-md-4 g-2 justify-content-center">
+                <div *ngFor="let item of inputArray">
+                    <img class="border border-3" [src]="item">
+
+                </div>
+            </div>
+        </ng-container>
+        <button type="submit" class="my-2 btn primary-btn" (click)="addAttachmnets()">إضافة</button>
+    </div>
+    <!-- <ng-container *ngIf="filesUploaded">
+        <img *ngFor="let item of filesArray" [src]="filesArray || 'http://placehold.it/180'" alt="">
+    </ng-container> -->
+    <div class="row g-2 row-cols-md-3 justify-content-center">
+        <div class="position-relative" *ngFor="let pic of postAttachments">
+            <button class="position-absolute top-0 btn btn-danger" (click)="delete(pic.id)">
+                <i class="fa fa-xmark text-light"></i>
+            </button>
+            <img class="border border-3" src="{{postService.GetUrl(pic)}}" alt="ملحقات المنشور">
+        </div>
+    </div>
+</div>

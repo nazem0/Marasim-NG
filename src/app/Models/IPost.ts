@@ -37,6 +37,14 @@ export interface IPostAttachment {
   attachmentUrl: string,
 }
 
+export interface IPostAttachmentCustom {
+  id : number,
+  postId: number,
+  attachmentUrl: string,
+  userId: string,
+  vendorId: number
+}
+
 // export interface PostList{
 //   count: number;
 //   data: IPost[];

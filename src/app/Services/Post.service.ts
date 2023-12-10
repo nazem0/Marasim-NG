@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IComment, IPost, IReaction } from '../Models/IPost';
+import { IComment, IPost, IPostAttachmentCustom, IReaction } from '../Models/IPost';
 import { environment } from 'src/environments/environment.development';
 import { PaginationViewModel } from '../Models/PaginationViewModel';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
   constructor(private HttpClient: HttpClient) { }
-  getById(postId:number):Observable<IPost>{
+  //Posts Requests
+  getById(postId: number): Observable<IPost> {
     return this.HttpClient.get<IPost>(`${environment.apiUrl}/Post/GetById/${postId}`)
   }
-  //Posts Requests
 
   Add(Post: any) {
     return this.HttpClient.post(`${environment.apiUrl}/Post/Add`, Post)
@@ -29,7 +29,7 @@ export class PostService {
     return this.HttpClient.get<IPost[]>(`${environment.apiUrl}/Post/Get`)
   }
 
-  GetByVendorId(VendorId: number, PageIndex: number, PageSize: number): Observable<PaginationViewModel<IPost>>{
+  GetByVendorId(VendorId: number, PageIndex: number, PageSize: number): Observable<PaginationViewModel<IPost>> {
     return this.HttpClient.get<PaginationViewModel<IPost>>(`${environment.apiUrl}/Post/GetByVendorId/${VendorId}?PageSize=${PageSize}&PageIndex=${PageIndex}`)
   }
 
@@ -39,8 +39,7 @@ export class PostService {
 
 
   //Reacts Requests
-
-  GetReactsByPostId(postId: number,pageIndex:number,pageSize=10): Observable<PaginationViewModel<IReaction>>{
+  GetReactsByPostId(postId: number, pageIndex: number, pageSize = 10): Observable<PaginationViewModel<IReaction>> {
     return this.HttpClient.get<PaginationViewModel<IReaction>>(`${environment.apiUrl}/React/GetByPostId/${pageIndex}?postId=${postId}&pageSize=${pageSize}`)
   }
 
@@ -56,13 +55,12 @@ export class PostService {
     return this.HttpClient.delete(`${environment.apiUrl}/React/Delete/${postId}`)
   }
 
-  GetReactsCountByPostId(postId:number):Observable<number>{
+  GetReactsCountByPostId(postId: number): Observable<number> {
     return this.HttpClient.get<number>(`${environment.apiUrl}/React/GetReactsCountByPostId/${postId}`)
   }
+
   //Comments Requests
-
-
-  GetCommentsByPostId(postId: number,pageIndex:number,pageSize=5): Observable<PaginationViewModel<IComment>>{
+  GetCommentsByPostId(postId: number, pageIndex: number, pageSize = 5): Observable<PaginationViewModel<IComment>> {
     return this.HttpClient.get<PaginationViewModel<IComment>>(`${environment.apiUrl}/Comment/GetCommentsByPostId/${pageIndex}?postId=${postId}&pageSize=${pageSize}`)
   }
 
@@ -70,10 +68,24 @@ export class PostService {
     return this.HttpClient.post(`${environment.apiUrl}/Comment/Add`, Comment)
   }
 
-  GetCommentsCountByPostId(postId:number):Observable<number>{
+  GetCommentsCountByPostId(postId: number): Observable<number> {
     return this.HttpClient.get<number>(`${environment.apiUrl}/Comment/GetCommentsCountByPostId/${postId}`)
   }
-  
+
+  //Attachments Requests
+  GetAttachmentsByPostId(postId: number) {
+    return this.HttpClient.get<IPostAttachmentCustom[]>(`${environment.apiUrl}/PostAttachment/GetByPostId/${postId}`)
+  }
+  AddAttachment(data: FormData) {
+    return this.HttpClient.post(`${environment.apiUrl}/PostAttachment/Add`, data)
+  }
+  DeleteAttachment(attachmentId: string | number) {
+    return this.HttpClient.delete(`${environment.apiUrl}/PostAttachment/Delete/${attachmentId}`)
+  }
+
+  GetUrl(attachment: IPostAttachmentCustom) {
+    return `${environment.serverUrl}/${attachment.userId}/PostAttachment/${attachment.postId}-${attachment.vendorId}/${attachment.attachmentUrl}`
+  }
 }
 
 
