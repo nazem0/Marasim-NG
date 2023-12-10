@@ -23,6 +23,7 @@ export class PostComponent {
   @Output() refresh = new EventEmitter();
   @Input() post: IPost | null = null;
   apiUrl = environment.serverUrl;
+  loggedInVendorId = this.CookieService.get('VendorId')
   deletePost() {
     this.PostService.Delete(this.post?.id!)
       .subscribe({

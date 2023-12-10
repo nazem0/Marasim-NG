@@ -11,10 +11,10 @@
       </div>
 
       <!-- <app-delete-modal *ngIf="isVendor" class="topleftnext" (delete)="deletePost()"></app-delete-modal> -->
-      <a *ngIf="isVendor" class="btn warning-btn topleft" routerLink="../edit/{{post.id}}"
+      <a *ngIf="isVendor && post.vendorId.toString() == loggedInVendorId" class="btn warning-btn topleft" routerLink="../edit/{{post.id}}"
         [relativeTo]="activatedRoute">
         <i class="fa-solid fa-pen-to-square"></i></a>
-      <a *ngIf="isVendor" class="btn warning-btn topleftnext" routerLink="../edit/attachments/{{post.id}}"
+      <a *ngIf="isVendor && post.vendorId.toString() == loggedInVendorId" class="btn warning-btn topleftnext" routerLink="../edit/attachments/{{post.id}}"
         [relativeTo]="activatedRoute">
         <i class="fa-solid fa-image"></i></a>
     </div>
