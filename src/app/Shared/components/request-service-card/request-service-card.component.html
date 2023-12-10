@@ -32,4 +32,21 @@
             </ng-template>
         </div>
     </div>
+    <div>
+        <div>
+            <span>عدد الحجوزات </span>
+            <span>{{service.reservationsCount.toLocaleString("ar-EG")}}</span>
+        </div>
+        <div>
+            <span>عدد التقييمات </span>
+            <span>{{service.reviewsCount.toLocaleString("ar-EG")}}</span>
+        </div>
+        <div>
+            <span>متوسط التقييمات </span>
+            <span>
+                <span *ngFor="let _ of [].constructor(service.averageRate)"><i class="fa fa-star text-warning"></i></span>
+                <span *ngFor="let _ of [].constructor(5-service.averageRate)"><i class="fa fa-star text-secondary"></i></span>
+            </span>
+        </div>
+    </div>
 </ng-container>

@@ -9,6 +9,9 @@ export interface IService {
     price: number,
     serviceAttachments: IServiceAttachment[]
     promoCode: IPromoCode
+    reservationsCount: number
+    reviewsCount: number
+    averageRate : number
 }
 
 export interface IServiceAttachment {
@@ -22,7 +25,7 @@ export interface IServiceMinInfo {
     title: string,
 }
 export interface IServiceAttachmentCustom {
-    id : number,
+    id: number,
     serviceId: number,
     attachmentUrl: string,
     userId: string,
