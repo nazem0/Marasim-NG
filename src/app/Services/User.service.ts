@@ -37,4 +37,8 @@ export class UserService {
     else
     return "/assets/img/question-mark.png"
   }
+
+  ChangePassword(chagePasswordData: FormData){
+    return this.HttpClient.put(`${environment.apiUrl}/Account/ChangePassword`, chagePasswordData)
+  }
 }

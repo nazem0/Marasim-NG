@@ -8,6 +8,7 @@ import { IVendor } from 'src/app/Models/IVendor';
 import { VendorService } from 'src/app/Services/Vendor.service';
 import { RegisterationErrorResponse } from 'src/app/Models/RegisterationErrorResponse';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile-edit',
@@ -23,7 +24,9 @@ export class ProfileEditComponent implements OnInit {
   PicName: string = "";
 
   updateForm: FormGroup;
+  changePasswordForm: FormGroup;
   data: FormData;
+  passwordData: FormData;
   PasswordRegEx = (/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/);
   PhoneNumberRegEx = (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/);
   ErrorResponse: RegisterationErrorResponse | null = null;
@@ -33,14 +36,23 @@ export class ProfileEditComponent implements OnInit {
     private UserService: UserService,
     private CookieService: CookieService,
     private VendorService: VendorService,
-    private builder: FormBuilder,) {
+    private builder: FormBuilder,
+    private Toastr: ToastrService
+  ) {
     this.data = new FormData();
+    this.passwordData = new FormData();
     this.updateForm = this.builder.group({
       Name: [this.User?.name, Validators.minLength(2)],
       Picture: [null],
       PhoneNumber: [this.User?.phoneNumber, [Validators.minLength(11), Validators.pattern(this.PhoneNumberRegEx)]],
       CategoryId: [null],
       Summary: [this.Vendor?.summary, [Validators.minLength(20), Validators.maxLength(1000)]],
+    })
+
+    this.changePasswordForm = this.builder.group({
+      OldPassword: [null, [Validators.required, Validators.pattern(this.PasswordRegEx)]],
+      NewPassword: [null, [Validators.required, Validators.pattern(this.PasswordRegEx)]],
+      ConfirmPassword: [null, [Validators.required, Validators.pattern(this.PasswordRegEx)]],
     })
   }
 
@@ -53,10 +65,12 @@ export class ProfileEditComponent implements OnInit {
   ngOnInit() {
     this.CategoryService.GetAll()
       .subscribe((result) => this.Categories = result);
+    this.getData();
+  }
 
+  getData() {
     this.UserService.getById(this.CookieService.get("Id"))
       .subscribe((result) => this.User = result);
-
     this.VendorService.GetVendorByUserId(this.CookieService.get("Id"))
       .subscribe((result) => this.Vendor = result);
   }
@@ -86,12 +100,14 @@ export class ProfileEditComponent implements OnInit {
       this.VendorService.UpdateVendor(this.data)
         .subscribe({
           next: (data) => {
-            console.log("Vendor Updated")
-            this.ngOnInit();
+            this.Toastr.success("تم تعديل بياناتك بنجاح")
+            console.log('test')
             this.updateForm.reset();
             this.data = new FormData();
+            this.getData();
           },
           error: (error) => {
+            this.Toastr.error("برجاءالمحاولة مرة أخرى", "حدث خطأ");
             console.log(error);
           }
         });
@@ -99,5 +115,23 @@ export class ProfileEditComponent implements OnInit {
     }
   }
 
+  changePassword() {
+    if (this.changePasswordForm.valid) {
+      this.passwordData.set("OldPassword", this.changePasswordForm.get('OldPassword')?.value);
+      this.passwordData.set("NewPassword", this.changePasswordForm.get('NewPassword')?.value);
+      this.passwordData.set("ConfirmPassword", this.changePasswordForm.get('ConfirmPassword')?.value);
 
+      this.UserService.ChangePassword(this.passwordData).subscribe({
+        next: (response) => {
+          this.Toastr.success("تم تغير كلمة المرور بنجاح")
+          this.passwordData = new FormData();
+          this.changePasswordForm.reset();
+        },
+        error: (error) => {
+          this.Toastr.error("حدث خطأ ، حاول مرة أخرى")
+          console.log(error);
+        }
+      })
+    }
+  }
 }
