@@ -16,7 +16,6 @@ export class EditServiceAttachmentsComponent implements AfterViewInit {
   @ViewChild("uploadedFiles") uploadedFilesElementRef: ElementRef | null = null
   serviceAttachments: IServiceAttachmentCustom[] | null = null
   serviceId: number | null = null;
-  serverUrl = environment.serverUrl;
   data: FormData
   files: FileList | null = null;
   filesUploaded: boolean = false;

@@ -33,6 +33,6 @@ export class ServiceAttachmentService {
   }
 
   getUrl(attachment:IServiceAttachmentCustom){
-    return `${environment.serverUrl}/${attachment.userId}/serviceAttachment/${attachment.serviceId}-${attachment.vendorId}}/${attachment.attachmentUrl}}`
+    return `${environment.serverUrl}/${attachment.userId}/serviceAttachment/${attachment.serviceId}-${attachment.vendorId}/${attachment.attachmentUrl}`
   }
 }

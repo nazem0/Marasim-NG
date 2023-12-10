@@ -1,4 +1,5 @@
-<div class="container py-3">
+<div class="container pb-3">
+    <h1 class="text-center mt-5 text-primary">تعديـل ملحقات الخدمة</h1>
     <form class="mb-3 d-flex flex-column align-items-center">
         <label for="upload-files" class="mb-2">
             <span class="btn btn-primary">
@@ -20,7 +21,7 @@
                 <i class="fa fa-xmark text-light"></i>
             </button>
             <img class="border border-3"
-                src="{{serverUrl}}/{{pic?.userId}}/serviceAttachment/{{serviceId}}-{{pic?.vendorId}}/{{pic.attachmentUrl}}"
+                src="{{serviceAttachmentService.getUrl(pic)}}"
                 alt="ملحقات الخدمة">
         </div>
     </div>
