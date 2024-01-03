@@ -1,8 +1,13 @@
 .photo {
-    width: 70px;
-    border-radius: 50%;
-    margin-left: 20px;
-    margin-right: 20px;
+  width: 6rem;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 7rem;
+}
+
+.follower-container{
+display: grid;
+grid-template-columns: 1fr 1fr  ;
 }
 
 
